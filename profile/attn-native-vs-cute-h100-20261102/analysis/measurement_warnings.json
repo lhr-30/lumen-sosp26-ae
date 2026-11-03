@@ -1,0 +1,6 @@
+[
+  "ave_unpack: lts__t_sector_hit_rate.pct=101.08223431161487; uncontrolled-cache replay ratio, do not interpret as physical hit rate",
+  "ave_attention: lts__t_sector_hit_rate.pct=100.53956700121813; uncontrolled-cache replay ratio, do not interpret as physical hit rate",
+  "ave_residual: lts__t_sector_hit_rate.pct=100.60216035730085; uncontrolled-cache replay ratio, do not interpret as physical hit rate",
+  "cute_qkv: lts__t_sector_hit_rate.pct=106.02066603021285; uncontrolled-cache replay ratio, do not interpret as physical hit rate"
+]

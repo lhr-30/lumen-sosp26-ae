@@ -1,0 +1,2127 @@
+{
+  "sample_count": 1461,
+  "stall_distribution": {
+    "barrier": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "branch_resolving": {
+      "samples": 9,
+      "pct_samples": 0.6160164271047228
+    },
+    "dispatch_stall": {
+      "samples": 4,
+      "pct_samples": 0.2737850787132101
+    },
+    "drain": {
+      "samples": 8,
+      "pct_samples": 0.5475701574264202
+    },
+    "imc_miss": {
+      "samples": 14,
+      "pct_samples": 0.9582477754962354
+    },
+    "lg_throttle": {
+      "samples": 9,
+      "pct_samples": 0.6160164271047228
+    },
+    "long_scoreboard": {
+      "samples": 732,
+      "pct_samples": 50.10266940451746
+    },
+    "math_pipe_throttle": {
+      "samples": 12,
+      "pct_samples": 0.8213552361396304
+    },
+    "membar": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "mio_throttle": {
+      "samples": 6,
+      "pct_samples": 0.4106776180698152
+    },
+    "misc": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "no_instructions": {
+      "samples": 3,
+      "pct_samples": 0.2053388090349076
+    },
+    "not_selected": {
+      "samples": 84,
+      "pct_samples": 5.749486652977413
+    },
+    "selected": {
+      "samples": 140,
+      "pct_samples": 9.582477754962355
+    },
+    "short_scoreboard": {
+      "samples": 234,
+      "pct_samples": 16.016427104722794
+    },
+    "sleeping": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "tex_throttle": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "wait": {
+      "samples": 206,
+      "pct_samples": 14.099931553730322
+    },
+    "warpgroup_arrive": {
+      "samples": 0,
+      "pct_samples": 0.0
+    }
+  },
+  "hotspots": [
+    {
+      "pc": "0x7aca0c88f2b0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 77,
+      "sass": "      SHF.L.U32 R37, R37, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r17, %rs2;",
+      "samples": 230.0,
+      "stalls": {
+        "long_scoreboard": 218.0,
+        "math_pipe_throttle": 2.0,
+        "not_selected": 9.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f300",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 99,
+      "sass": "      IMAD.U32 R36, R36, 0x10000, RZ",
+      "ptx": "cvt.f32.bf16 \t%r27, %rs8;",
+      "samples": 151.0,
+      "stalls": {
+        "long_scoreboard": 145.0,
+        "math_pipe_throttle": 2.0,
+        "not_selected": 4.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fd70",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 335,
+      "sass": "      HSETP2.BF16_V2.GEU.AND P0, PT, R6.H0_H0, RZ.H0_H0, PT",
+      "ptx": "setp.lt.bf16 \t%p8, %rs50, %rs27;",
+      "samples": 53.0,
+      "stalls": {
+        "long_scoreboard": 52.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fe60",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 353,
+      "sass": "      HSETP2.BF16_V2.GEU.AND P0, PT, R2.H0_H0, RZ.H0_H0, PT",
+      "ptx": "setp.lt.bf16 \t%p9, %rs54, %rs27;",
+      "samples": 52.0,
+      "stalls": {
+        "long_scoreboard": 51.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f9c0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 255,
+      "sass": "      HSETP2.BF16_V2.GEU.AND P0, PT, R8.H0_H0, RZ.H0_H0, PT",
+      "ptx": "setp.lt.bf16 \t%p4, %rs34, %rs27;",
+      "samples": 46.0,
+      "stalls": {
+        "long_scoreboard": 45.0,
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fc90",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 315,
+      "sass": "      HSETP2.BF16_V2.GEU.AND P0, PT, R7.H0_H0, RZ.H0_H0, PT",
+      "ptx": "setp.lt.bf16 \t%p7, %rs46, %rs27;",
+      "samples": 45.0,
+      "stalls": {
+        "long_scoreboard": 45.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f3e0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 134,
+      "sass": "      FADD R34, R33, R34",
+      "ptx": "add.rn.f32 \t%r48, %r46, %r47;",
+      "samples": 45.0,
+      "stalls": {
+        "selected": 2.0,
+        "short_scoreboard": 41.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f3c0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 132,
+      "sass": "      FADD R33, R32, R33",
+      "ptx": "add.rn.f32 \t%r46, %r37, %r45;",
+      "samples": 44.0,
+      "stalls": {
+        "not_selected": 2.0,
+        "selected": 1.0,
+        "short_scoreboard": 39.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fab0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 275,
+      "sass": "      HSETP2.BF16_V2.GEU.AND P0, PT, R7.H0_H0, RZ.H0_H0, PT",
+      "ptx": "setp.lt.bf16 \t%p5, %rs38, %rs27;",
+      "samples": 39.0,
+      "stalls": {
+        "long_scoreboard": 38.0,
+        "math_pipe_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fba0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 295,
+      "sass": "      HSETP2.BF16_V2.GEU.AND P0, PT, R6.H0_H0, RZ.H0_H0, PT",
+      "ptx": "setp.lt.bf16 \t%p6, %rs42, %rs27;",
+      "samples": 38.0,
+      "stalls": {
+        "long_scoreboard": 38.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f400",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 136,
+      "sass": "      FADD R35, R34, R35",
+      "ptx": "add.rn.f32 \t%r50, %r48, %r49;",
+      "samples": 32.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 1.0,
+        "short_scoreboard": 29.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f440",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 140,
+      "sass": "      FADD R37, R36, R37",
+      "ptx": "add.rn.f32 \t%r54, %r52, %r53;",
+      "samples": 30.0,
+      "stalls": {
+        "not_selected": 2.0,
+        "short_scoreboard": 26.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f420",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 138,
+      "sass": "      FADD R36, R35, R36",
+      "ptx": "add.rn.f32 \t%r52, %r50, %r51;",
+      "samples": 29.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "short_scoreboard": 27.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f2c0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 85,
+      "sass": "      SHF.L.U32 R39, R38, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r21, %rs4;",
+      "samples": 24.0,
+      "stalls": {
+        "long_scoreboard": 15.0,
+        "not_selected": 4.0,
+        "selected": 4.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f8d0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 235,
+      "sass": "      HSETP2.BF16_V2.GEU.AND P0, PT, R0.H0_H0, RZ.H0_H0, PT",
+      "ptx": "setp.lt.bf16 \t%p3, %rs30, %rs27;",
+      "samples": 23.0,
+      "stalls": {
+        "long_scoreboard": 22.0,
+        "math_pipe_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f160",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 76,
+      "sass": "      LDG.E.U16 R37, desc[UR10][R2.64+-0x100]",
+      "ptx": "ld.global.b16 \t%rs2, [%rd26+-256];",
+      "samples": 20.0,
+      "stalls": {
+        "branch_resolving": 7.0,
+        "lg_throttle": 6.0,
+        "no_instructions": 2.0,
+        "not_selected": 3.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f7c0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 214,
+      "sass": "      HSETP2.BF16_V2.GEU.AND P0, PT, R0.H0_H0, RZ.H0_H0, PT",
+      "ptx": "setp.lt.bf16 \t%p2, %rs25, %rs27;",
+      "samples": 20.0,
+      "stalls": {
+        "long_scoreboard": 20.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f0e0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 53,
+      "sass": "      SHF.L.U32 R0, R0, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r16, %rs1;",
+      "samples": 16.0,
+      "stalls": {
+        "long_scoreboard": 16.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f2a0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 199,
+      "sass": "      IADD3 R4, P1, R4, 0x400, RZ",
+      "ptx": "add.s64 \t%rd25, %rd25, 1024;",
+      "samples": 16.0,
+      "stalls": {
+        "long_scoreboard": 12.0,
+        "not_selected": 3.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f4c0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 153,
+      "sass": "      MUFU.EX2 R33, R33",
+      "ptx": "ex2.approx.ftz.f32 %r43, %r44;",
+      "samples": 15.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "mio_throttle": 1.0,
+        "selected": 1.0,
+        "wait": 12.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88ee30",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 40,
+      "sass": "      ULDC.64 UR10, c[0x0][0x208]",
+      "ptx": "{",
+      "samples": 15.0,
+      "stalls": {
+        "imc_miss": 14.0,
+        "no_instructions": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f3f0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 135,
+      "sass": "      SHFL.BFLY PT, R35, R34, 0x4, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r49, %r48, 4, 31, -1;",
+      "samples": 13.0,
+      "stalls": {
+        "not_selected": 3.0,
+        "selected": 1.0,
+        "wait": 9.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f410",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 137,
+      "sass": "      SHFL.BFLY PT, R36, R35, 0x2, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r51, %r50, 2, 31, -1;",
+      "samples": 12.0,
+      "stalls": {
+        "not_selected": 3.0,
+        "selected": 3.0,
+        "wait": 6.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f1d0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 126,
+      "sass": "      LDG.E.U16 R32, desc[UR10][R2.64+0xc0]",
+      "ptx": "ld.global.b16 \t%rs16, [%rd26+192];",
+      "samples": 11.0,
+      "stalls": {
+        "mio_throttle": 1.0,
+        "not_selected": 2.0,
+        "selected": 2.0,
+        "wait": 6.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f470",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 145,
+      "sass": "      FADD R31, -R32, R31",
+      "ptx": "sub.rn.f32 \t%r55, %r165, %r1;",
+      "samples": 11.0,
+      "stalls": {
+        "not_selected": 3.0,
+        "selected": 3.0,
+        "wait": 5.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88ff20",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 370,
+      "sass": "      BRA `(.L_x_0) 0x7aca0c88ff20",
+      "ptx": "ret;",
+      "samples": 10.0,
+      "stalls": {
+        "branch_resolving": 2.0,
+        "drain": 8.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f2e0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 92,
+      "sass": "      SHF.L.U32 R40, R40, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r24, %rs6;",
+      "samples": 10.0,
+      "stalls": {
+        "long_scoreboard": 6.0,
+        "not_selected": 1.0,
+        "selected": 3.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f550",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 165,
+      "sass": "      FMUL R7, R33, R30",
+      "ptx": "mul.rn.f32 \t%r63, %r43, %r62;",
+      "samples": 10.0,
+      "stalls": {
+        "selected": 1.0,
+        "short_scoreboard": 9.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fde0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 345,
+      "sass": "@!P0  FMUL R7, R6, R7",
+      "ptx": "mul.rn.f32 \t%r155, %r107, %r109;",
+      "samples": 10.0,
+      "stalls": {
+        "short_scoreboard": 10.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f2f0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 87,
+      "sass": "      FFMA.FTZ R39, R17, R39, R38",
+      "ptx": "fma.rn.ftz.f32 %r19, %r20, %r21, %r15;",
+      "samples": 9.0,
+      "stalls": {
+        "not_selected": 2.0,
+        "selected": 3.0,
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f370",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 115,
+      "sass": "      FFMA.FTZ R33, R21, R36, R34",
+      "ptx": "fma.rn.ftz.f32 %r31, %r32, %r33, %r28;",
+      "samples": 9.0,
+      "stalls": {
+        "not_selected": 3.0,
+        "selected": 1.0,
+        "wait": 5.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f250",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 193,
+      "sass": "      LDG.E.U16 R16, desc[UR10][R4.64+0xc0]",
+      "ptx": "ld.global.b16 \t%rs24, [%rd25+192];",
+      "samples": 8.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "not_selected": 1.0,
+        "selected": 2.0,
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f200",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 158,
+      "sass": "      LDG.E.U16 R27, desc[UR10][R4.64+-0x100]",
+      "ptx": "ld.global.b16 \t%rs17, [%rd25+-256];",
+      "samples": 8.0,
+      "stalls": {
+        "not_selected": 2.0,
+        "selected": 2.0,
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f1e0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 163,
+      "sass": "      LDG.E.U16 R30, desc[UR10][R4.64+-0xc0]",
+      "ptx": "ld.global.b16 \t%rs18, [%rd25+-192];",
+      "samples": 8.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 7.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f180",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 91,
+      "sass": "      LDG.E.U16 R40, desc[UR10][R2.64+-0x80]",
+      "ptx": "ld.global.b16 \t%rs6, [%rd26+-128];",
+      "samples": 7.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 3.0,
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f290",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 200,
+      "sass": "      ISETP.NE.U32.AND P0, PT, RZ, UR4, PT",
+      "ptx": "setp.ne.b32 \t%p1, %r163, 0;",
+      "samples": 7.0,
+      "stalls": {
+        "not_selected": 2.0,
+        "selected": 3.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f3a0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 129,
+      "sass": "      FFMA.FTZ R32, R11, R34, R32",
+      "ptx": "fma.rn.ftz.f32 %r37, %r38, %r39, %r34;",
+      "samples": 7.0,
+      "stalls": {
+        "not_selected": 2.0,
+        "selected": 1.0,
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f4b0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 148,
+      "sass": "      MUFU.EX2 R31, R31",
+      "ptx": "ex2.approx.ftz.f32 %r41, %r42;",
+      "samples": 7.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 3.0,
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f220",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 178,
+      "sass": "      LDG.E.U16 R15, desc[UR10][R4.64]",
+      "ptx": "ld.global.b16 \t%rs21, [%rd25];",
+      "samples": 7.0,
+      "stalls": {
+        "selected": 3.0,
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fce0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 321,
+      "sass": "      FADD R0, R7, 1",
+      "ptx": "add.rn.f32 \t%r106, %r103, 0f3F800000;",
+      "samples": 7.0,
+      "stalls": {
+        "selected": 1.0,
+        "short_scoreboard": 6.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fdc0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 341,
+      "sass": "      FADD R0, R6, 1",
+      "ptx": "add.rn.f32 \t%r110, %r107, 0f3F800000;",
+      "samples": 7.0,
+      "stalls": {
+        "short_scoreboard": 7.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f1c0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 119,
+      "sass": "      LDG.E.U16 R33, desc[UR10][R2.64+0x80]",
+      "ptx": "ld.global.b16 \t%rs14, [%rd26+128];",
+      "samples": 6.0,
+      "stalls": {
+        "mio_throttle": 1.0,
+        "selected": 2.0,
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f2d0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 80,
+      "sass": "      FFMA.FTZ R38, R0, R37, RZ",
+      "ptx": "fma.rn.ftz.f32 %r15, %r16, %r17, %r18;",
+      "samples": 6.0,
+      "stalls": {
+        "not_selected": 3.0,
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f3d0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 133,
+      "sass": "      SHFL.BFLY PT, R34, R33, 0x8, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r47, %r46, 8, 31, -1;",
+      "samples": 6.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 1.0,
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f490",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 146,
+      "sass": "      FMUL R31, R31, 1.4426950216293334961",
+      "ptx": "mul.rn.f32 \t%r42, %r55, 0f3FB8AA3B;",
+      "samples": 6.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 1.0,
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f500",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 169,
+      "sass": "      SHF.L.U32 R36, R29, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r65, %rs19;",
+      "samples": 6.0,
+      "stalls": {
+        "not_selected": 4.0,
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f170",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 84,
+      "sass": "      LDG.E.U16 R38, desc[UR10][R2.64+-0xc0]",
+      "ptx": "ld.global.b16 \t%rs4, [%rd26+-192];",
+      "samples": 6.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 5.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f3b0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 131,
+      "sass": "      SHFL.BFLY PT, R33, R32, 0x10, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r45, %r37, 16, 31, -1;",
+      "samples": 5.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "not_selected": 1.0,
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f110",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 97,
+      "sass": "      SHF.L.U32 R19, R19, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r26, %rs7;",
+      "samples": 5.0,
+      "stalls": {
+        "long_scoreboard": 5.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f460",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 143,
+      "sass": "      FMNMX.FTZ R32, R37, R31, !PT",
+      "ptx": "max.ftz.f32 %r1, %r165, %r40;",
+      "samples": 5.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0,
+        "not_selected": 2.0,
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f720",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 202,
+      "sass": "      SHF.L.U32 R4, R10, 0x1, RZ",
+      "ptx": "@%p1 bra \t$L__BB0_1;",
+      "samples": 5.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0,
+        "selected": 1.0,
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f240",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 188,
+      "sass": "      LDG.E.U16 R13, desc[UR10][R4.64+0x80]",
+      "ptx": "ld.global.b16 \t%rs23, [%rd25+128];",
+      "samples": 5.0,
+      "stalls": {
+        "mio_throttle": 1.0,
+        "selected": 1.0,
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f230",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 183,
+      "sass": "      LDG.E.U16 R12, desc[UR10][R4.64+0x40]",
+      "ptx": "ld.global.b16 \t%rs22, [%rd25+64];",
+      "samples": 5.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 2.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f350",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 108,
+      "sass": "      FFMA.FTZ R34, R20, R37, R35",
+      "ptx": "fma.rn.ftz.f32 %r28, %r29, %r30, %r25;",
+      "samples": 5.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 2.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f330",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 101,
+      "sass": "      FFMA.FTZ R35, R19, R36, R40",
+      "ptx": "fma.rn.ftz.f32 %r25, %r26, %r27, %r22;",
+      "samples": 5.0,
+      "stalls": {
+        "selected": 2.0,
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f1f0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 173,
+      "sass": "      LDG.E.U16 R28, desc[UR10][R4.64+-0x40]",
+      "ptx": "ld.global.b16 \t%rs20, [%rd25+-64];",
+      "samples": 5.0,
+      "stalls": {
+        "wait": 5.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f360",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 120,
+      "sass": "      SHF.L.U32 R35, R33, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r36, %rs14;",
+      "samples": 4.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "selected": 3.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f1a0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 105,
+      "sass": "      LDG.E.U16 R35, desc[UR10][R2.64]",
+      "ptx": "ld.global.b16 \t%rs10, [%rd26];",
+      "samples": 4.0,
+      "stalls": {
+        "lg_throttle": 1.0,
+        "not_selected": 1.0,
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f700",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 202,
+      "sass": "      IMAD.MOV.U32 R31, RZ, RZ, R32",
+      "ptx": "@%p1 bra \t$L__BB0_1;",
+      "samples": 4.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0,
+        "not_selected": 1.0,
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fbf0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 301,
+      "sass": "      FADD R0, R6, 1",
+      "ptx": "add.rn.f32 \t%r102, %r99, 0f3F800000;",
+      "samples": 4.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "short_scoreboard": 3.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f4e0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 174,
+      "sass": "      IMAD.U32 R28, R28, 0x10000, RZ",
+      "ptx": "cvt.f32.bf16 \t%r68, %rs20;",
+      "samples": 4.0,
+      "stalls": {
+        "selected": 4.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f580",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 189,
+      "sass": "      SHF.L.U32 R30, R13, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r77, %rs23;",
+      "samples": 4.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f520",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 167,
+      "sass": "      FMUL R27, R31, R7",
+      "ptx": "mul.rn.f32 \t%r64, %r171, %r41;",
+      "samples": 4.0,
+      "stalls": {
+        "short_scoreboard": 4.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f810",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 220,
+      "sass": "      FADD R10, R0, 1",
+      "ptx": "add.rn.f32 \t%r86, %r83, 0f3F800000;",
+      "samples": 4.0,
+      "stalls": {
+        "short_scoreboard": 4.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f830",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 224,
+      "sass": "@!P0  FMUL R5, R0, R5",
+      "ptx": "mul.rn.f32 \t%r119, %r83, %r85;",
+      "samples": 4.0,
+      "stalls": {
+        "short_scoreboard": 4.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fc10",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 305,
+      "sass": "@!P0  FMUL R7, R6, R7",
+      "ptx": "mul.rn.f32 \t%r143, %r99, %r101;",
+      "samples": 4.0,
+      "stalls": {
+        "short_scoreboard": 4.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f210",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 168,
+      "sass": "      LDG.E.U16 R29, desc[UR10][R4.64+-0x80]",
+      "ptx": "ld.global.b16 \t%rs19, [%rd25+-128];",
+      "samples": 4.0,
+      "stalls": {
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f090",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 63,
+      "sass": "      IADD3 R2, P0, R4, UR4, RZ",
+      "ptx": "add.s64 \t%rd26, %rd8, %rd21;",
+      "samples": 3.0,
+      "stalls": {
+        "long_scoreboard": 2.0,
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f980",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 249,
+      "sass": "      STG.E.U16 desc[UR10][R4.64+0x40], R10",
+      "ptx": "st.global.b16 \t[%rd24+64], %rs33;",
+      "samples": 3.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f190",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 98,
+      "sass": "      LDG.E.U16 R36, desc[UR10][R2.64+-0x40]",
+      "ptx": "ld.global.b16 \t%rs8, [%rd26+-64];",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f320",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 106,
+      "sass": "      SHF.L.U32 R37, R35, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r30, %rs10;",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 3.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f430",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 139,
+      "sass": "      SHFL.BFLY PT, R37, R36, 0x1, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r53, %r52, 1, 31, -1;",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f510",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 184,
+      "sass": "      SHF.L.U32 R12, R12, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r74, %rs22;",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 2.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f540",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 162,
+      "sass": "      FMUL R8, R31, R8",
+      "ptx": "mul.rn.f32 \t%r61, %r170, %r41;",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 3.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f670",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 199,
+      "sass": "      IADD3.X R5, RZ, R5, RZ, P1, !PT",
+      "ptx": "add.s64 \t%rd25, %rd25, 1024;",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 3.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88eee0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 51,
+      "sass": "      IMAD.WIDE.U32 R2, R10, 0x2, R2",
+      "ptx": "add.s64 \t%rd4, %rd6, %rd13;",
+      "samples": 3.0,
+      "stalls": {
+        "short_scoreboard": 3.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f940",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 245,
+      "sass": "@!P0  FMUL R11, R0, R11",
+      "ptx": "mul.rn.f32 \t%r125, %r87, %r89;",
+      "samples": 3.0,
+      "stalls": {
+        "short_scoreboard": 2.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fd00",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 325,
+      "sass": "@!P0  FMUL R6, R7, R6",
+      "ptx": "mul.rn.f32 \t%r149, %r103, %r105;",
+      "samples": 3.0,
+      "stalls": {
+        "short_scoreboard": 3.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f790",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 209,
+      "sass": "      LDG.E.U16 R0, desc[UR10][R2.64]",
+      "ptx": "ld.global.b16 \t%rs25, [%rd23];",
+      "samples": 3.0,
+      "stalls": {
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f950",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 247,
+      "sass": "      F2FP.BF16.F32.PACK_AB R11, RZ, R11",
+      "ptx": "cvt.rn.bf16.f32 \t%rs32, %r126;",
+      "samples": 3.0,
+      "stalls": {
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fd20",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 328,
+      "sass": "      HMUL2.BF16_V2 R12, R24.H0_H0, R12.H0_H0",
+      "ptx": "mul.rn.bf16 \t%rs49, %rs47, %rs48;",
+      "samples": 3.0,
+      "stalls": {
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88ef60",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 124,
+      "sass": "      LDG.E.U16 R11, desc[UR10][R2.64+0x1c0]",
+      "ptx": "ld.global.b16 \t%rs15, [%rd4+448];",
+      "samples": 2.0,
+      "stalls": {
+        "lg_throttle": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f1b0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 112,
+      "sass": "      LDG.E.U16 R34, desc[UR10][R2.64+0x40]",
+      "ptx": "ld.global.b16 \t%rs12, [%rd26+64];",
+      "samples": 2.0,
+      "stalls": {
+        "lg_throttle": 1.0,
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f010",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 74,
+      "sass": "      CS2R R8, SRZ",
+      "ptx": "mov.b32 \t%r173, %r164;",
+      "samples": 2.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88ef40",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 110,
+      "sass": "      LDG.E.U16 R21, desc[UR10][R2.64+0x140]",
+      "ptx": "ld.global.b16 \t%rs11, [%rd4+320];",
+      "samples": 2.0,
+      "stalls": {
+        "mio_throttle": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f800",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 218,
+      "sass": "      MUFU.EX2 R0, R0",
+      "ptx": "ex2.approx.ftz.f32 %r83, %r84;",
+      "samples": 2.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f8f0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 236,
+      "sass": "      FSEL R0, R0, -R0, !P0",
+      "ptx": "selp.f32 \t%r124, %r122, %r123, %p3;",
+      "samples": 2.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fa40",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 267,
+      "sass": "      F2FP.BF16.F32.PACK_AB R9, RZ, R9",
+      "ptx": "cvt.rn.bf16.f32 \t%rs36, %r132;",
+      "samples": 2.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f270",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 197,
+      "sass": "      UIADD3 UR4, UR4, -0x1, URZ",
+      "ptx": "add.s32 \t%r163, %r163, -1;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f310",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 94,
+      "sass": "      FFMA.FTZ R40, R18, R40, R39",
+      "ptx": "fma.rn.ftz.f32 %r22, %r23, %r24, %r19;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f390",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 122,
+      "sass": "      FFMA.FTZ R32, R22, R35, R33",
+      "ptx": "fma.rn.ftz.f32 %r34, %r35, %r36, %r31;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f480",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 150,
+      "sass": "      FADD R37, R37, -R32",
+      "ptx": "sub.rn.f32 \t%r56, %r40, %r1;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f530",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 194,
+      "sass": "      SHF.L.U32 R16, R16, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r80, %rs24;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f5e0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 160,
+      "sass": "      FMUL R34, R33, R34",
+      "ptx": "mul.rn.f32 \t%r60, %r43, %r59;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f610",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 170,
+      "sass": "      FMUL R36, R33, R36",
+      "ptx": "mul.rn.f32 \t%r66, %r43, %r65;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f650",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 195,
+      "sass": "      FMUL R16, R33, R16",
+      "ptx": "mul.rn.f32 \t%r81, %r43, %r80;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f680",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 161,
+      "sass": "      FADD R9, R9, R34",
+      "ptx": "add.rn.f32 \t%r169, %r58, %r60;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f690",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 171,
+      "sass": "      FADD R7, R27, R36",
+      "ptx": "add.rn.f32 \t%r171, %r64, %r66;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f6c0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 181,
+      "sass": "      FADD R25, R25, R28",
+      "ptx": "add.rn.f32 \t%r173, %r70, %r72;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f710",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 202,
+      "sass": "@P0   BRA 0x7aca0c88f160",
+      "ptx": "@%p1 bra \t$L__BB0_1;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f7a0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 206,
+      "sass": "      FMUL R9, R9, R26",
+      "ptx": "mul.rn.f32 \t%r115, %r169, %r82;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f9b0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 252,
+      "sass": "      F2FP.BF16.F32.PACK_AB R7, RZ, R7",
+      "ptx": "cvt.rn.bf16.f32 \t%rs35, %r127;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fa30",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 265,
+      "sass": "@!P0  FMUL R9, R8, R9",
+      "ptx": "mul.rn.f32 \t%r131, %r91, %r93;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88faf0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 279,
+      "sass": "      MUFU.EX2 R7, R7",
+      "ptx": "ex2.approx.ftz.f32 %r95, %r96;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fea0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 357,
+      "sass": "      MUFU.EX2 R6, R6",
+      "ptx": "ex2.approx.ftz.f32 %r111, %r112;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88ee70",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 38,
+      "sass": "      USHF.R.U32.HI UR4, URZ, 0x2, UR7",
+      "ptx": "shr.u32 \t%r4, %r3, 2;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f920",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 241,
+      "sass": "      FADD R9, R0, 1",
+      "ptx": "add.rn.f32 \t%r90, %r87, 0f3F800000;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fa10",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 261,
+      "sass": "      FADD R0, R8, 1",
+      "ptx": "add.rn.f32 \t%r94, %r91, 0f3F800000;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fb20",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 285,
+      "sass": "@!P0  FMUL R8, R7, R8",
+      "ptx": "mul.rn.f32 \t%r137, %r95, %r97;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fed0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 363,
+      "sass": "@!P0  FMUL R7, R6, R7",
+      "ptx": "mul.rn.f32 \t%r160, %r111, %r113;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88ee10",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 36,
+      "sass": "      S2UR UR6, SR_CTAID.X",
+      "ptx": "mov.u32 \t%r2, %ctaid.x;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88ee90",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 46,
+      "sass": "      ULOP3.LUT UR5, UR5, 0x300, URZ, 0xc0, !UPT",
+      "ptx": "and.b32 \t%r12, %r11, 768;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f280",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 198,
+      "sass": "      IMAD.X R3, RZ, RZ, R3, P0",
+      "ptx": "add.s64 \t%rd26, %rd26, 1024;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f820",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 222,
+      "sass": "      MUFU.RCP R5, R10",
+      "ptx": "rcp.approx.ftz.f32 %r85, %r86;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f890",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 229,
+      "sass": "      STG.E.U16 desc[UR10][R4.64], R12",
+      "ptx": "st.global.b16 \t[%rd24], %rs29;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f930",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 243,
+      "sass": "      MUFU.RCP R11, R9",
+      "ptx": "rcp.approx.ftz.f32 %r89, %r90;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fa20",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 263,
+      "sass": "      MUFU.RCP R9, R0",
+      "ptx": "rcp.approx.ftz.f32 %r93, %r94;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fa60",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 269,
+      "sass": "      PRMT R9, R7, 0x7610, R9",
+      "ptx": "st.global.b16 \t[%rd24+128], %rs37;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fbe0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 299,
+      "sass": "      MUFU.EX2 R6, R6",
+      "ptx": "ex2.approx.ftz.f32 %r99, %r100;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fe10",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 349,
+      "sass": "      PRMT R8, R7, 0x7610, R8",
+      "ptx": "st.global.b16 \t[%rd24+384], %rs53;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f0f0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 83,
+      "sass": "      IMAD.U32 R17, R17, 0x10000, RZ",
+      "ptx": "cvt.f32.bf16 \t%r20, %rs3;",
+      "samples": 1.0,
+      "stalls": {
+        "long_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f100",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 90,
+      "sass": "      SHF.L.U32 R18, R18, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r23, %rs5;",
+      "samples": 1.0,
+      "stalls": {
+        "long_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fb40",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 288,
+      "sass": "      HMUL2.BF16_V2 R6, R6.H0_H0, R8.H0_H0",
+      "ptx": "mul.rn.bf16 \t%rs41, %rs39, %rs40;",
+      "samples": 1.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fc40",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 309,
+      "sass": "      PRMT R8, R7, 0x7610, R8",
+      "ptx": "st.global.b16 \t[%rd24+256], %rs45;",
+      "samples": 1.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fa70",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 269,
+      "sass": "      STG.E.U16 desc[UR10][R4.64+0x80], R9",
+      "ptx": "st.global.b16 \t[%rd24+128], %rs37;",
+      "samples": 1.0,
+      "stalls": {
+        "mio_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88ee80",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 45,
+      "sass": "      USHF.L.U32 UR5, UR7, 0x8, URZ",
+      "ptx": "shl.b32 \t%r11, %r3, 8;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f450",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 141,
+      "sass": "      FMUL R37, R37, 0.0625",
+      "ptx": "mul.rn.f32 \t%r40, %r54, 0f3D800000;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f850",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 226,
+      "sass": "      F2FP.BF16.F32.PACK_AB R5, RZ, R5",
+      "ptx": "cvt.rn.bf16.f32 \t%rs28, %r120;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f9f0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 257,
+      "sass": "      FMUL R8, R8, 1.4426950216293334961",
+      "ptx": "mul.rn.f32 \t%r92, %r130, 0f3FB8AA3B;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fb70",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 291,
+      "sass": "      LDG.E.U16 R6, desc[UR10][R2.64+0x100]",
+      "ptx": "ld.global.b16 \t%rs42, [%rd23+256];",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88ee50",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 39,
+      "sass": "      S2UR UR8, SR_CTAID.Y",
+      "ptx": "mov.u32 \t%r5, %ctaid.y;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f0a0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 54,
+      "sass": "      UIADD3 UR4, UR6, 0x1, URZ",
+      "ptx": "add.s32 \t%r163, %r2, 1;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f120",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 104,
+      "sass": "      SHF.L.U32 R20, R20, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r29, %rs9;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f260",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 198,
+      "sass": "      IADD3 R2, P0, R2, 0x400, RZ",
+      "ptx": "add.s64 \t%rd26, %rd26, 1024;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f340",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 113,
+      "sass": "      SHF.L.U32 R36, R34, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r33, %rs12;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f380",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 127,
+      "sass": "      SHF.L.U32 R34, R32, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r39, %rs16;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f5a0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 157,
+      "sass": "      FMUL R9, R31, R9",
+      "ptx": "mul.rn.f32 \t%r58, %r169, %r41;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f5b0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 172,
+      "sass": "      FMUL R6, R31, R6",
+      "ptx": "mul.rn.f32 \t%r67, %r172, %r41;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f5c0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 177,
+      "sass": "      FMUL R25, R31, R25",
+      "ptx": "mul.rn.f32 \t%r70, %r173, %r41;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f5d0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 182,
+      "sass": "      FMUL R24, R31, R24",
+      "ptx": "mul.rn.f32 \t%r73, %r168, %r41;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f600",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 192,
+      "sass": "      FMUL R23, R31, R23",
+      "ptx": "mul.rn.f32 \t%r79, %r166, %r41;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f640",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 190,
+      "sass": "      FMUL R15, R33, R30",
+      "ptx": "mul.rn.f32 \t%r78, %r43, %r77;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f6a0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 176,
+      "sass": "      FADD R6, R6, R29",
+      "ptx": "add.rn.f32 \t%r172, %r67, %r69;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f6d0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 186,
+      "sass": "      FADD R24, R24, R13",
+      "ptx": "add.rn.f32 \t%r168, %r73, %r75;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f6e0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 191,
+      "sass": "      FADD R14, R14, R15",
+      "ptx": "add.rn.f32 \t%r167, %r76, %r78;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f730",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 208,
+      "sass": "      ULDC.64 UR4, c[0x0][0x228]",
+      "ptx": "add.s64 \t%rd23, %rd1, %rd22;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f8a0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 231,
+      "sass": "      LDG.E.U16 R0, desc[UR10][R2.64+0x40]",
+      "ptx": "ld.global.b16 \t%rs30, [%rd23+64];",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fb00",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 281,
+      "sass": "      FADD R0, R7, 1",
+      "ptx": "add.rn.f32 \t%r98, %r95, 0f3F800000;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fc60",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 311,
+      "sass": "      LDG.E.U16 R7, desc[UR10][R2.64+0x140]",
+      "ptx": "ld.global.b16 \t%rs46, [%rd23+320];",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fd10",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 327,
+      "sass": "      F2FP.BF16.F32.PACK_AB R12, RZ, R6",
+      "ptx": "cvt.rn.bf16.f32 \t%rs48, %r150;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fd60",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 332,
+      "sass": "      F2FP.BF16.F32.PACK_AB R14, RZ, R14",
+      "ptx": "cvt.rn.bf16.f32 \t%rs51, %r151;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88ff10",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 370,
+      "sass": "      EXIT",
+      "ptx": "ret;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88feb0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 359,
+      "sass": "      FADD R0, R6, 1",
+      "ptx": "add.rn.f32 \t%r114, %r111, 0f3F800000;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88ee40",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 37,
+      "sass": "      S2UR UR7, SR_CTAID.Z",
+      "ptx": "mov.u32 \t%r3, %ctaid.z;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88eeb0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 44,
+      "sass": "      UIMAD UR4, UR4, 0x34, UR9",
+      "ptx": "mad.lo.s32 \t%r10, %r4, 53248, %r9;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88eec0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 47,
+      "sass": "      ULEA UR5, UR4, UR5, 0xa",
+      "ptx": "or.b32 \t%r13, %r10, %r12;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f080",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 74,
+      "sass": "      MOV R6, RZ",
+      "ptx": "mov.b32 \t%r173, %r164;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f860",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 227,
+      "sass": "      HMUL2.BF16_V2 R9, R9.H0_H0, R5.H0_H0",
+      "ptx": "mul.rn.bf16 \t%rs29, %rs26, %rs28;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f880",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 229,
+      "sass": "      PRMT R12, R9, 0x7610, R12",
+      "ptx": "st.global.b16 \t[%rd24], %rs29;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f910",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 239,
+      "sass": "      MUFU.EX2 R0, R0",
+      "ptx": "ex2.approx.ftz.f32 %r87, %r88;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88f970",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 249,
+      "sass": "      PRMT R10, R8, 0x7610, R10",
+      "ptx": "st.global.b16 \t[%rd24+64], %rs33;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fae0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 277,
+      "sass": "      FMUL R7, R7, 1.4426950216293334961",
+      "ptx": "mul.rn.f32 \t%r96, %r136, 0f3FB8AA3B;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fc00",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 303,
+      "sass": "      MUFU.RCP R7, R0",
+      "ptx": "rcp.approx.ftz.f32 %r101, %r102;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fc20",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 307,
+      "sass": "      F2FP.BF16.F32.PACK_AB R7, RZ, R7",
+      "ptx": "cvt.rn.bf16.f32 \t%rs44, %r144;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fcb0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 316,
+      "sass": "      FSEL R7, R7, -R7, !P0",
+      "ptx": "selp.f32 \t%r148, %r146, %r147, %p7;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fcc0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 317,
+      "sass": "      FMUL R7, R7, 1.4426950216293334961",
+      "ptx": "mul.rn.f32 \t%r104, %r148, 0f3FB8AA3B;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fcf0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 323,
+      "sass": "      MUFU.RCP R6, R0",
+      "ptx": "rcp.approx.ftz.f32 %r105, %r106;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fd30",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 329,
+      "sass": "      STG.E.U16 desc[UR10][R4.64+0x140], R12",
+      "ptx": "st.global.b16 \t[%rd24+320], %rs49;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fd40",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 331,
+      "sass": "      LDG.E.U16 R6, desc[UR10][R2.64+0x180]",
+      "ptx": "ld.global.b16 \t%rs50, [%rd23+384];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fda0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 337,
+      "sass": "      FMUL R6, R6, 1.4426950216293334961",
+      "ptx": "mul.rn.f32 \t%r108, %r154, 0f3FB8AA3B;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fdd0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 343,
+      "sass": "      MUFU.RCP R7, R0",
+      "ptx": "rcp.approx.ftz.f32 %r109, %r110;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fdf0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 347,
+      "sass": "      F2FP.BF16.F32.PACK_AB R7, RZ, R7",
+      "ptx": "cvt.rn.bf16.f32 \t%rs52, %r156;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fe20",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 349,
+      "sass": "      STG.E.U16 desc[UR10][R4.64+0x180], R8",
+      "ptx": "st.global.b16 \t[%rd24+384], %rs53;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fe90",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 355,
+      "sass": "      FMUL R6, R6, 1.4426950216293334961",
+      "ptx": "mul.rn.f32 \t%r112, %r159, 0f3FB8AA3B;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88fee0",
+      "file": "/profile/harness/generated/ave/causal_gqa_gate_9ff97f69a5.ptx",
+      "line": 367,
+      "sass": "      F2FP.BF16.F32.PACK_AB R7, RZ, R7",
+      "ptx": "cvt.rn.bf16.f32 \t%rs56, %r161;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+# The base must provide CUDA, PyTorch, LLVM/MLIR/Clang 23, CMake >=3.25,
+# ninja, pybind11, libzstd-dev and libgtest-dev. See scripts/hopper/README.md.
+ARG BUILDER=avelang-qwen35:dev
+FROM ${BUILDER}
+RUN python -m pip install --no-cache-dir z3-solver==4.15.4.0 pytest==8.4.2
+ENV PATH="/opt/llvm/bin:${PATH}"

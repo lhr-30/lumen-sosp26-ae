@@ -1,0 +1,6 @@
+{
+  "original_reference_sha256": "f78ff01334a91c75bf4ab2401ba0d4fa78d055d8bdddc5074b11b86e2ad29fb4",
+  "extracted_sha256": "e76630c43df3717737e06718a358743c3bf02f2519e9a245432624627e475c38",
+  "method": "Remove packed GEMM assignment, retain every computation through attended verbatim as AST; return attended.",
+  "body_ast_sha256": "40726db0a7b1487316ad6fb3a892d1a8899bb536b53e14e174873ec6b7962304"
+}

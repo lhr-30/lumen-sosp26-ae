@@ -1,0 +1,17 @@
+[
+  {
+    "reason": "Expose compiler crash diagnostics after first CPU compile exited 139; no generated DSL, reference, prompts or thresholds changed",
+    "changes": [
+      {
+        "path": "scripts/benchmark/offline_compile.py",
+        "before_sha256": "b8433d9eb1503ca47e0ffa7e6617b0119ca5bb47b023c83dae5780318a0f9945",
+        "after_sha256": "b6b744f47cadda62a06f247597825a3def0f37e1888d67c2e6bbb0801e4de63c"
+      },
+      {
+        "path": "scripts/benchmark/bench_mixer.py",
+        "before_sha256": "1d257110e1f5ac0740090123f04a0fe2b2d0b5ac77e5906514b01ae184e5e3ae",
+        "after_sha256": "91a9e8b243e91b9a25f1f0835b52074116704f412bbbc747d07bd738757fd033"
+      }
+    ]
+  }
+]

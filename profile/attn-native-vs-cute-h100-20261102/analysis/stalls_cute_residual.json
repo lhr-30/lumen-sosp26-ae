@@ -1,0 +1,330 @@
+{
+  "sample_count": 106,
+  "stall_distribution": {
+    "barrier": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "branch_resolving": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "dispatch_stall": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "drain": {
+      "samples": 11,
+      "pct_samples": 10.377358490566039
+    },
+    "imc_miss": {
+      "samples": 14,
+      "pct_samples": 13.20754716981132
+    },
+    "lg_throttle": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "long_scoreboard": {
+      "samples": 37,
+      "pct_samples": 34.905660377358494
+    },
+    "math_pipe_throttle": {
+      "samples": 3,
+      "pct_samples": 2.830188679245283
+    },
+    "membar": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "mio_throttle": {
+      "samples": 1,
+      "pct_samples": 0.9433962264150944
+    },
+    "misc": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "no_instructions": {
+      "samples": 12,
+      "pct_samples": 11.320754716981131
+    },
+    "not_selected": {
+      "samples": 2,
+      "pct_samples": 1.8867924528301887
+    },
+    "selected": {
+      "samples": 6,
+      "pct_samples": 5.660377358490566
+    },
+    "short_scoreboard": {
+      "samples": 9,
+      "pct_samples": 8.49056603773585
+    },
+    "sleeping": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "tex_throttle": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "wait": {
+      "samples": 11,
+      "pct_samples": 10.377358490566039
+    },
+    "warpgroup_arrive": {
+      "samples": 0,
+      "pct_samples": 0.0
+    }
+  },
+  "hotspots": [
+    {
+      "pc": "0x736aa7e89df0",
+      "file": null,
+      "line": null,
+      "sass": "      PRMT R12, R8, 0x7632, R12",
+      "ptx": "",
+      "samples": 33.0,
+      "stalls": {
+        "long_scoreboard": 32.0,
+        "math_pipe_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e89020",
+      "file": null,
+      "line": null,
+      "sass": "      ULDC UR4, c[0x0][0x210]",
+      "ptx": "",
+      "samples": 15.0,
+      "stalls": {
+        "imc_miss": 14.0,
+        "no_instructions": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8a050",
+      "file": null,
+      "line": null,
+      "sass": "      BRA `(.L_x_0) 0x736aa7e8a050",
+      "ptx": "",
+      "samples": 11.0,
+      "stalls": {
+        "drain": 11.0
+      }
+    },
+    {
+      "pc": "0x736aa7e89d60",
+      "file": null,
+      "line": null,
+      "sass": "      IMAD.WIDE R2, R0, 0x2, R2",
+      "ptx": "",
+      "samples": 10.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0,
+        "short_scoreboard": 9.0
+      }
+    },
+    {
+      "pc": "0x736aa7e89d20",
+      "file": null,
+      "line": null,
+      "sass": "      S2R R13, SR_TID.X",
+      "ptx": "",
+      "samples": 7.0,
+      "stalls": {
+        "no_instructions": 7.0
+      }
+    },
+    {
+      "pc": "0x736aa7e89e80",
+      "file": null,
+      "line": null,
+      "sass": "      IMAD.U32 R17, R4, 0x10000, RZ",
+      "ptx": "",
+      "samples": 5.0,
+      "stalls": {
+        "long_scoreboard": 5.0
+      }
+    },
+    {
+      "pc": "0x736aa7e89000",
+      "file": null,
+      "line": null,
+      "sass": "      LDC R1, c[0x0][0x28]",
+      "ptx": "",
+      "samples": 4.0,
+      "stalls": {
+        "no_instructions": 4.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8a030",
+      "file": null,
+      "line": null,
+      "sass": "      STG.E.128 desc[UR4][R2.64], R4",
+      "ptx": "",
+      "samples": 3.0,
+      "stalls": {
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e89d50",
+      "file": null,
+      "line": null,
+      "sass": "      LDC.64 R4, c[0x0][0x228]",
+      "ptx": "",
+      "samples": 2.0,
+      "stalls": {
+        "mio_throttle": 1.0,
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e89040",
+      "file": null,
+      "line": null,
+      "sass": "      IADD3 R2, -R0, UR4, RZ",
+      "ptx": "",
+      "samples": 2.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e89070",
+      "file": null,
+      "line": null,
+      "sass": "@P0   BRA 0x736aa7e89d20",
+      "ptx": "",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e89d80",
+      "file": null,
+      "line": null,
+      "sass": "      IMAD.WIDE R2, R0, 0x2, R4",
+      "ptx": "",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e89d70",
+      "file": null,
+      "line": null,
+      "sass": "      IMAD.WIDE.U32 R14, R13, 0x10, R2",
+      "ptx": "",
+      "samples": 1.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e89010",
+      "file": null,
+      "line": null,
+      "sass": "      S2R R0, SR_CTAID.X",
+      "ptx": "",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e89e20",
+      "file": null,
+      "line": null,
+      "sass": "      IMAD.U32 R21, R10, 0x10000, RZ",
+      "ptx": "",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e89ed0",
+      "file": null,
+      "line": null,
+      "sass": "      SHF.L.U32 R20, R5, 0x10, RZ",
+      "ptx": "",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e89ee0",
+      "file": null,
+      "line": null,
+      "sass": "      IMAD.U32 R9, R14, 0x10000, RZ",
+      "ptx": "",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e89f40",
+      "file": null,
+      "line": null,
+      "sass": "      IMAD.U32 R5, R5, 0x10000, RZ",
+      "ptx": "",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e89f50",
+      "file": null,
+      "line": null,
+      "sass": "      SHF.L.U32 R8, R8, 0x10, RZ",
+      "ptx": "",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e89080",
+      "file": null,
+      "line": null,
+      "sass": "      S2R R19, SR_TID.X",
+      "ptx": "",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e89e70",
+      "file": null,
+      "line": null,
+      "sass": "      SHF.L.U32 R11, R11, 0x10, RZ",
+      "ptx": "",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8a020",
+      "file": null,
+      "line": null,
+      "sass": "      F2FP.BF16.F32.PACK_AB R7, R15, R18",
+      "ptx": "",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    }
+  ]
+}

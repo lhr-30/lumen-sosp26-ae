@@ -1,0 +1,14 @@
+{
+  "model": "32 banks x 4 bytes; each eight-row ldmatrix matrix analyzed separately, not a measured hardware counter",
+  "results": [
+    {
+      "operand": "Q_x4",
+      "max_distinct_words_per_bank_per_8row_matrix": 1
+    },
+    {
+      "operand": "K_x2",
+      "max_distinct_words_per_bank_per_8row_matrix": 1
+    }
+  ],
+  "note": "No obvious within-matrix bank aliasing from the address formula; actual profile required."
+}

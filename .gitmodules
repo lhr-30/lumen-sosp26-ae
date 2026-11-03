@@ -1,0 +1,3 @@
+[submodule "avelang"]
+	path = avelang
+	url = https://github.com/GwokHiujin/avelang.git

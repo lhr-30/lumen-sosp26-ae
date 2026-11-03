@@ -1,0 +1,35 @@
+[
+  {
+    "round": 0,
+    "candidate_sha256": "1593ca10473f9702b82eea358a0cbcde9a6125d19922d3b3cac29c2a918d01b7",
+    "input_sha256": "f78ff01334a91c75bf4ab2401ba0d4fa78d055d8bdddc5074b11b86e2ad29fb4",
+    "formal_passed": true,
+    "prohibited_previous_solution_path_mentions_in_calls": [],
+    "started_at_utc": "2026-11-02T07:45:39Z",
+    "finished_at_utc": "2026-11-02T08:02:59Z",
+    "final_response": "Implemented [output_model_new.py](/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01/round0/output_model_new.py).\n\nAll four specializations passed native compilation and `ptxas` without spills. The queued benchmark exited 0 with `\"correctness\":true` for all five cases, including fresh-data graph replay, isolation, and zeros.\n\n| Stage | Median \u00b5s |\n|---|---:|\n| QKV | 38.85 |\n| RMSNorm + RoPE | 2.86 |\n| Attention + gate | 17.40 |\n| Projection + residual | 17.21 |\n| **Complete chain** | **78.96** |\n\nInitial compile failures included a crash, FP32 typing errors, and unresolved `__nv_fmaf`; subsequent compilation passed. This branch has no artifact invariant-validation API.",
+    "recorded_tool_calls": 37
+  },
+  {
+    "round": 1,
+    "candidate_sha256": "be62b3a93392c8e885b1629872e0089610c88442260e1332f9f33c8c029fa246",
+    "input_sha256": "1593ca10473f9702b82eea358a0cbcde9a6125d19922d3b3cac29c2a918d01b7",
+    "formal_passed": true,
+    "prohibited_previous_solution_path_mentions_in_calls": [],
+    "started_at_utc": "2026-11-02T08:03:52Z",
+    "finished_at_utc": "2026-11-02T08:27:09Z",
+    "final_response": "Kept the complete implementation in [output_model_new.py](/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01/round1/output_model_new.py). Chain latency improved from **78.68 to 71.87 \u00b5s**, an **8.7% reduction**.\n\nIt uses shared TMA loads for 128\u00d7128 QKV tiles, K128 projection steps, paired BF16 stores, and WGMMA QK with FP32 softmax/PV.\n\n| Stage | Input \u00b5s | Final \u00b5s |\n|---|---:|---:|\n| QKV | 38.21 | 31.99 |\n| Norm/RoPE | 2.81 | 3.18 |\n| Attention/gate | 17.59 | 14.78 |\n| Projection/residual | 17.16 | 18.05 |\n\nAll four specializations passed compiler verification and ptxas without spills. The required queued GPU benchmark exited successfully with `\"correctness\":true` for all five cases. Worst relative L2 was **0.000609**.\n\nOther passing chains measured 81.66/82.23 \u00b5s for wider linears, 79.47 \u00b5s for attention alone, 74.59 \u00b5s for the K128 intermediate, and 92.69/79.11 \u00b5s for scalar attention. A TMA prototype failed to launch; two attention variants failed cosine at 0.8018 before explicit QK chunk synchronization fixed correctness.\n\nArtifact invariant validation is unavailable in this AveLang branch.",
+    "recorded_tool_calls": 46
+  },
+  {
+    "round": 2,
+    "candidate_sha256": "d7f4652bb9be417adb9a58dc481f30458a2467bf6438938cab41d1e464325cbc",
+    "input_sha256": "be62b3a93392c8e885b1629872e0089610c88442260e1332f9f33c8c029fa246",
+    "formal_passed": true,
+    "prohibited_previous_solution_path_mentions_in_calls": [],
+    "started_at_utc": "2026-11-02T08:27:16Z",
+    "finished_at_utc": "2026-11-02T08:45:48Z",
+    "final_response": "Saved the best passing version to [output_model_new.py](/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01/round2/output_model_new.py). It uses 128\u00d7160/K128 QKV tiles and 26 query warps with paired BF16 loads/stores. The input is unchanged.\n\nLatest queued comparison, using 20 iterations and 8 samples:\n\n| Stage | Baseline \u00b5s | Final \u00b5s |\n|---|---:|---:|\n| QKV | 29.49 | 24.21 |\n| Norm/RoPE | 2.79 | 2.79 |\n| Attention/gate | 14.70 | 7.84 |\n| Projection/residual | 17.49 | 17.51 |\n| **Chain** | **68.65** | **54.36** |\n\nThat is **20.8% lower chain latency**.\n\nEarlier chain measurements were 72.02 \u00b5s for baseline, 65.02 for two-stage QKV, 65.67 for three-stage QKV, 58.76 with 16 attention warps, 58.40 with 32 warps, and 55.55 for the final version. The slower three-stage pipeline was discarded.\n\nAll four specializations passed compiler verification and `ptxas` without spills. All five GPU correctness cases passed, including fresh inputs/weights/tables in graphs, causal/batch isolation, and zeros. Worst relative L2 was 0.000609.\n\nThe 100-iteration comparison measured 94.71\u219275.48 \u00b5s with broad timing variation. This branch has no artifact invariant-validation API.",
+    "recorded_tool_calls": 34
+  }
+]

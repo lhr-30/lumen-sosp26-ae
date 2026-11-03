@@ -1,0 +1,11 @@
+{
+  "harness/sources/ave/evaluate.py": "4e551524a8989f2ccf11802fb016d197e013343c1b8dc59506dab6fa17498794",
+  "harness/sources/ave/input_model.py": "f78ff01334a91c75bf4ab2401ba0d4fa78d055d8bdddc5074b11b86e2ad29fb4",
+  "harness/sources/ave/baseline_candidate.py": "b3197d3bf1880691826e59b6d99642a0fc072ac28df23bdca66b9d8ce394f1f7",
+  "harness/sources/cute/bench.py": "777daa6c9ef3ae36c84edfc95f3874b493996d34b212e64da0747fb53d38d293",
+  "harness/sources/cute/qnorm_attention.py": "a883760c31ca4751f75da32c57c53d490e3489cb06f88bcc2958b28cfdc9c0e3",
+  "harness/sources/cute/k_norm_rope.py": "79d5809302c55584d6367c03d4c1ef113de6e2e37645ed5b64c77a22a244f1a8",
+  "harness/sources/cute/kernels/oproj.py": "7e78efb0d744de86f2a6e1ce81e55dac1b56d852d0e10dced2248c84b755ebbd",
+  "harness/sources/cute/kernels/qkv.py": "9589c63d038ddaedcfee2e7075fd2eb6172c68c541e9869d4264a37701214688",
+  "harness/sources/ave/round3_sweep_candidate.py": "d5d3dbaf6bfdf68468a60f2b9380158161236daecb3700435d34469bd3f37d47"
+}

@@ -1,0 +1,32 @@
+000000        LDC R1, c[0x0][0x28]
+000010        S2R R0, SR_TID.X
+000020        S2UR UR4, SR_CTAID.Y
+000030        S2R R9, SR_CTAID.X
+000040        LDC.64 R2, c[0x0][0x210]
+000050        LDC.64 R4, c[0x0][0x218]
+000060        USHF.L.U32 UR4, UR4, 0x8, URZ
+000070        LDC.64 R6, c[0x0][0x220]
+000080        LOP3.LUT R0, R0, UR4, RZ, 0xfc, !PT
+000090        ULDC.64 UR4, c[0x0][0x208]
+0000a0        LEA R9, R9, R0, 0xb
+0000b0        IMAD.WIDE.U32 R2, R9, 0x2, R2
+0000c0        IMAD.WIDE.U32 R4, R9, 0x2, R4
+0000d0        LDG.E.U16 R2, desc[UR4][R2.64]
+0000e0        LDG.E.U16 R5, desc[UR4][R4.64]
+0000f0        IMAD.WIDE.U32 R6, R9, 0x2, R6
+000100        HADD2.BF16_V2 R5, R2.H0_H0, R5.H0_H0
+000110        STG.E.U16 desc[UR4][R6.64], R5
+000120        EXIT
+000130        BRA `(.L_x_0) 0x7d4a1be94430
+000140        NOP
+000150        NOP
+000160        NOP
+000170        NOP
+000180        NOP
+000190        NOP
+0001a0        NOP
+0001b0        NOP
+0001c0        NOP
+0001d0        NOP
+0001e0        NOP
+0001f0        NOP

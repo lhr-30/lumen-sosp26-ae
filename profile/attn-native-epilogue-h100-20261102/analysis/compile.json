@@ -1,0 +1,55 @@
+{
+  "module": "round2_candidate",
+  "invariant_validation": "unavailable in native branch",
+  "kernels": [
+    {
+      "name": "qkv_projection",
+      "seconds": 0.22614997485652566,
+      "ptx_bytes": 13465,
+      "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'linear_native' for 'sm_90a'\nptxas info    : Function properties for linear_native\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 90 registers, used 2 barriers\nptxas info    : Compile time = 23.147 ms",
+      "has_ptx_local_memory": false
+    },
+    {
+      "name": "unpack_q_gate_k_v",
+      "seconds": 0.03655110113322735,
+      "ptx_bytes": 1892,
+      "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'unpack' for 'sm_90a'\nptxas info    : Function properties for unpack\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 18 registers, used 0 barriers\nptxas info    : Compile time = 2.967 ms",
+      "has_ptx_local_memory": false
+    },
+    {
+      "name": "q_norm_rope",
+      "seconds": 0.07161940075457096,
+      "ptx_bytes": 5773,
+      "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'norm_rope' for 'sm_90a'\nptxas info    : Function properties for norm_rope\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 27 registers, used 1 barriers, 512 bytes smem\nptxas info    : Compile time = 5.868 ms",
+      "has_ptx_local_memory": false
+    },
+    {
+      "name": "k_norm_rope",
+      "seconds": 0.06783926719799638,
+      "ptx_bytes": 5772,
+      "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'norm_rope' for 'sm_90a'\nptxas info    : Function properties for norm_rope\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 27 registers, used 1 barriers, 512 bytes smem\nptxas info    : Compile time = 5.705 ms",
+      "has_ptx_local_memory": false
+    },
+    {
+      "name": "causal_gqa_gate",
+      "seconds": 0.11913397395983338,
+      "ptx_bytes": 10994,
+      "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'causal_gqa_gate' for 'sm_90a'\nptxas info    : Function properties for causal_gqa_gate\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 43 registers, used 0 barriers\nptxas info    : Compile time = 9.257 ms",
+      "has_ptx_local_memory": false
+    },
+    {
+      "name": "output_projection",
+      "seconds": 0.22162448894232512,
+      "ptx_bytes": 13465,
+      "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'linear_native' for 'sm_90a'\nptxas info    : Function properties for linear_native\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 90 registers, used 2 barriers\nptxas info    : Compile time = 22.483 ms",
+      "has_ptx_local_memory": false
+    },
+    {
+      "name": "residual",
+      "seconds": 0.03166555194184184,
+      "ptx_bytes": 1039,
+      "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'add_residual' for 'sm_90a'\nptxas info    : Function properties for add_residual\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 12 registers, used 0 barriers\nptxas info    : Compile time = 2.217 ms",
+      "has_ptx_local_memory": false
+    }
+  ]
+}

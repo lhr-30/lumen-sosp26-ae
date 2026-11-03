@@ -1,0 +1,1 @@
+ptxas fatal   : Unresolved extern function '__nv_fmaf'

@@ -1,0 +1,53 @@
+{
+  "gpu": "NVIDIA H100 NVL",
+  "cuda": "13.2",
+  "candidate_sha256": "90666885c85527ed1c9a0cbf1988a2e764a2f0ddb7fd70f2f61b90b40d9bfa63",
+  "config": "mma_q8",
+  "stages": [
+    "k_norm_rope_packed",
+    "q_norm_rope_attn_gate"
+  ],
+  "checks": [
+    {
+      "case": "seed0",
+      "max_abs": 0.00390625,
+      "guards_unchanged": true,
+      "cosine": 0.999999998143761,
+      "relative_l2": 6.093027728524454e-05
+    },
+    {
+      "case": "graph_seed17",
+      "max_abs": 0.001953125,
+      "guards_unchanged": true,
+      "cosine": 0.9999999983924934,
+      "relative_l2": 5.670118543763905e-05
+    },
+    {
+      "case": "graph_seed123",
+      "max_abs": 0.00390625,
+      "guards_unchanged": true,
+      "cosine": 0.9999999992750175,
+      "relative_l2": 3.807864878512505e-05
+    },
+    {
+      "case": "causal_batch_isolation",
+      "max_abs": 0.00390625,
+      "guards_unchanged": true,
+      "cosine": 0.9999999991928552,
+      "relative_l2": 4.017842787075768e-05
+    },
+    {
+      "case": "gqa_gate_layout_uniform_scores",
+      "max_abs": 0.0,
+      "guards_unchanged": true,
+      "cosine": 1.0,
+      "relative_l2": 0.0
+    },
+    {
+      "case": "zero_packed",
+      "max_abs": 0.0,
+      "guards_unchanged": true
+    }
+  ],
+  "reference": "Unchanged original reference AST slice; see middle_reference_provenance.json"
+}

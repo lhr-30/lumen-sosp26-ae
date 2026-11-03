@@ -1,0 +1,7 @@
+{
+  "source": "/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01/round2/output_model_new.py",
+  "sha256": "0894c319fa5f14ff18e07088d32cfe0361feca4aa3378502d5ab7283e522254e",
+  "mode": "compile",
+  "iterations": 20,
+  "samples": 8
+}

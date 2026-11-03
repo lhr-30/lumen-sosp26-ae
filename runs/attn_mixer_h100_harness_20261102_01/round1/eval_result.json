@@ -1,0 +1,285 @@
+{
+  "domain": "attention_mixer",
+  "started_at_utc": "2026-11-02T08:27:09+00:00",
+  "gpu_id": 0,
+  "command": [
+    "/data/wenxh/.local/etc/conda/bin/python3",
+    "/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01_support/scripts/benchmark/bench_mixer.py",
+    "--backend",
+    "lumen",
+    "--model-path",
+    "/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01/round1/datasets/inference/attention_mixer/lumen/model.py",
+    "--check-correctness",
+    "--seq-lens",
+    "26"
+  ],
+  "expected_workloads": [
+    26
+  ],
+  "workload_key": "seq_len",
+  "formal_evaluation_ran": true,
+  "records": [
+    {
+      "domain": "attention_mixer",
+      "seq_len": 26,
+      "B": 16,
+      "H": 8,
+      "KV": 2,
+      "D": 256,
+      "correctness": true,
+      "candidate_sha256": "be62b3a93392c8e885b1629872e0089610c88442260e1332f9f33c8c029fa246",
+      "artifacts": "/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01/round1/evaluations/20261102_082709_931424_bench",
+      "invariant_validation": "unavailable",
+      "validation": [
+        {
+          "case": "seed0",
+          "metrics": {
+            "attended": {
+              "cosine": 0.9999998380060119,
+              "relative_l2": 0.0005692088373600285,
+              "max_abs": 0.015625,
+              "mean_abs": 1.2697921399889696e-05
+            },
+            "output": {
+              "cosine": 0.9999998145924085,
+              "relative_l2": 0.0006089459343431272,
+              "max_abs": 0.015625,
+              "mean_abs": 8.224645101178724e-05
+            }
+          }
+        },
+        {
+          "case": "graph_seed17",
+          "metrics": {
+            "attended": {
+              "cosine": 0.999999889935577,
+              "relative_l2": 0.00046917955351121973,
+              "max_abs": 0.0078125,
+              "mean_abs": 9.665348929825786e-06
+            },
+            "output": {
+              "cosine": 0.9999998507614056,
+              "relative_l2": 0.0005463310450879932,
+              "max_abs": 0.015625,
+              "mean_abs": 6.631210831423792e-05
+            }
+          }
+        },
+        {
+          "case": "graph_seed123",
+          "metrics": {
+            "attended": {
+              "cosine": 0.9999998871488812,
+              "relative_l2": 0.0004750987705355323,
+              "max_abs": 0.015625,
+              "mean_abs": 9.322738118446348e-06
+            },
+            "output": {
+              "cosine": 0.9999998488751088,
+              "relative_l2": 0.0005497725088446936,
+              "max_abs": 0.015625,
+              "mean_abs": 6.733710268655649e-05
+            }
+          }
+        },
+        {
+          "case": "causal_batch_isolation",
+          "metrics": {
+            "attended": {
+              "cosine": 0.9999998870559337,
+              "relative_l2": 0.00047529233134064035,
+              "max_abs": 0.015625,
+              "mean_abs": 9.451483040178433e-06
+            },
+            "output": {
+              "cosine": 0.9999998472975368,
+              "relative_l2": 0.0005526349619504021,
+              "max_abs": 0.015625,
+              "mean_abs": 6.807465643550342e-05
+            }
+          }
+        },
+        {
+          "case": "zero_input",
+          "metrics": {
+            "attended": {
+              "cosine": null,
+              "relative_l2": null,
+              "max_abs": 0.0,
+              "mean_abs": 0.0
+            },
+            "output": {
+              "cosine": 0.9999999999999999,
+              "relative_l2": 0.0,
+              "max_abs": 0.0,
+              "mean_abs": 0.0
+            }
+          }
+        }
+      ],
+      "latency_us": 69.43919956684113,
+      "stages": {
+        "qkv": {
+          "median_us": 29.890400171279907,
+          "p10_us": 29.79071944952011,
+          "p90_us": 30.09295880794525
+        },
+        "norm_rope": {
+          "median_us": 3.1775999814271927,
+          "p10_us": 3.1462401524186134,
+          "p90_us": 3.20064015686512
+        },
+        "attention_gate": {
+          "median_us": 14.815200120210648,
+          "p10_us": 14.794080555438995,
+          "p90_us": 14.837920069694519
+        },
+        "projection_residual": {
+          "median_us": 17.661599814891815,
+          "p10_us": 17.60016068816185,
+          "p90_us": 17.749599516391754
+        },
+        "chain": {
+          "median_us": 69.43919956684113,
+          "p10_us": 69.31024312973022,
+          "p90_us": 69.65152144432068
+        }
+      }
+    }
+  ],
+  "workloads": {
+    "26": {
+      "domain": "attention_mixer",
+      "seq_len": 26,
+      "B": 16,
+      "H": 8,
+      "KV": 2,
+      "D": 256,
+      "correctness": true,
+      "candidate_sha256": "be62b3a93392c8e885b1629872e0089610c88442260e1332f9f33c8c029fa246",
+      "artifacts": "/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01/round1/evaluations/20261102_082709_931424_bench",
+      "invariant_validation": "unavailable",
+      "validation": [
+        {
+          "case": "seed0",
+          "metrics": {
+            "attended": {
+              "cosine": 0.9999998380060119,
+              "relative_l2": 0.0005692088373600285,
+              "max_abs": 0.015625,
+              "mean_abs": 1.2697921399889696e-05
+            },
+            "output": {
+              "cosine": 0.9999998145924085,
+              "relative_l2": 0.0006089459343431272,
+              "max_abs": 0.015625,
+              "mean_abs": 8.224645101178724e-05
+            }
+          }
+        },
+        {
+          "case": "graph_seed17",
+          "metrics": {
+            "attended": {
+              "cosine": 0.999999889935577,
+              "relative_l2": 0.00046917955351121973,
+              "max_abs": 0.0078125,
+              "mean_abs": 9.665348929825786e-06
+            },
+            "output": {
+              "cosine": 0.9999998507614056,
+              "relative_l2": 0.0005463310450879932,
+              "max_abs": 0.015625,
+              "mean_abs": 6.631210831423792e-05
+            }
+          }
+        },
+        {
+          "case": "graph_seed123",
+          "metrics": {
+            "attended": {
+              "cosine": 0.9999998871488812,
+              "relative_l2": 0.0004750987705355323,
+              "max_abs": 0.015625,
+              "mean_abs": 9.322738118446348e-06
+            },
+            "output": {
+              "cosine": 0.9999998488751088,
+              "relative_l2": 0.0005497725088446936,
+              "max_abs": 0.015625,
+              "mean_abs": 6.733710268655649e-05
+            }
+          }
+        },
+        {
+          "case": "causal_batch_isolation",
+          "metrics": {
+            "attended": {
+              "cosine": 0.9999998870559337,
+              "relative_l2": 0.00047529233134064035,
+              "max_abs": 0.015625,
+              "mean_abs": 9.451483040178433e-06
+            },
+            "output": {
+              "cosine": 0.9999998472975368,
+              "relative_l2": 0.0005526349619504021,
+              "max_abs": 0.015625,
+              "mean_abs": 6.807465643550342e-05
+            }
+          }
+        },
+        {
+          "case": "zero_input",
+          "metrics": {
+            "attended": {
+              "cosine": null,
+              "relative_l2": null,
+              "max_abs": 0.0,
+              "mean_abs": 0.0
+            },
+            "output": {
+              "cosine": 0.9999999999999999,
+              "relative_l2": 0.0,
+              "max_abs": 0.0,
+              "mean_abs": 0.0
+            }
+          }
+        }
+      ],
+      "latency_us": 69.43919956684113,
+      "stages": {
+        "qkv": {
+          "median_us": 29.890400171279907,
+          "p10_us": 29.79071944952011,
+          "p90_us": 30.09295880794525
+        },
+        "norm_rope": {
+          "median_us": 3.1775999814271927,
+          "p10_us": 3.1462401524186134,
+          "p90_us": 3.20064015686512
+        },
+        "attention_gate": {
+          "median_us": 14.815200120210648,
+          "p10_us": 14.794080555438995,
+          "p90_us": 14.837920069694519
+        },
+        "projection_residual": {
+          "median_us": 17.661599814891815,
+          "p10_us": 17.60016068816185,
+          "p90_us": 17.749599516391754
+        },
+        "chain": {
+          "median_us": 69.43919956684113,
+          "p10_us": 69.31024312973022,
+          "p90_us": 69.65152144432068
+        }
+      }
+    }
+  },
+  "exit_code": 0,
+  "stdout": "seed0/attended: {'cosine': 0.9999998380060119, 'relative_l2': 0.0005692088373600285, 'max_abs': 0.015625, 'mean_abs': 1.2697921399889696e-05}\nseed0/output: {'cosine': 0.9999998145924085, 'relative_l2': 0.0006089459343431272, 'max_abs': 0.015625, 'mean_abs': 8.224645101178724e-05}\ngraph_seed17/attended: {'cosine': 0.999999889935577, 'relative_l2': 0.00046917955351121973, 'max_abs': 0.0078125, 'mean_abs': 9.665348929825786e-06}\ngraph_seed17/output: {'cosine': 0.9999998507614056, 'relative_l2': 0.0005463310450879932, 'max_abs': 0.015625, 'mean_abs': 6.631210831423792e-05}\ngraph_seed123/attended: {'cosine': 0.9999998871488812, 'relative_l2': 0.0004750987705355323, 'max_abs': 0.015625, 'mean_abs': 9.322738118446348e-06}\ngraph_seed123/output: {'cosine': 0.9999998488751088, 'relative_l2': 0.0005497725088446936, 'max_abs': 0.015625, 'mean_abs': 6.733710268655649e-05}\ncausal_batch_isolation/attended: {'cosine': 0.9999998870559337, 'relative_l2': 0.00047529233134064035, 'max_abs': 0.015625, 'mean_abs': 9.451483040178433e-06}\ncausal_batch_isolation/output: {'cosine': 0.9999998472975368, 'relative_l2': 0.0005526349619504021, 'max_abs': 0.015625, 'mean_abs': 6.807465643550342e-05}\nzero_input/attended: {'cosine': None, 'relative_l2': None, 'max_abs': 0.0, 'mean_abs': 0.0}\nzero_input/output: {'cosine': 0.9999999999999999, 'relative_l2': 0.0, 'max_abs': 0.0, 'mean_abs': 0.0}\nqkv: {'median_us': 29.890400171279907, 'p10_us': 29.79071944952011, 'p90_us': 30.09295880794525}\nnorm_rope: {'median_us': 3.1775999814271927, 'p10_us': 3.1462401524186134, 'p90_us': 3.20064015686512}\nattention_gate: {'median_us': 14.815200120210648, 'p10_us': 14.794080555438995, 'p90_us': 14.837920069694519}\nprojection_residual: {'median_us': 17.661599814891815, 'p10_us': 17.60016068816185, 'p90_us': 17.749599516391754}\nchain: {'median_us': 69.43919956684113, 'p10_us': 69.31024312973022, 'p90_us': 69.65152144432068}\nPASS: /experiment/result.json\n{\"domain\":\"attention_mixer\",\"seq_len\":26,\"B\":16,\"H\":8,\"KV\":2,\"D\":256,\"correctness\":true,\"candidate_sha256\":\"be62b3a93392c8e885b1629872e0089610c88442260e1332f9f33c8c029fa246\",\"artifacts\":\"/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01/round1/evaluations/20261102_082709_931424_bench\",\"invariant_validation\":\"unavailable\",\"validation\":[{\"case\":\"seed0\",\"metrics\":{\"attended\":{\"cosine\":0.9999998380060119,\"relative_l2\":0.0005692088373600285,\"max_abs\":0.015625,\"mean_abs\":1.2697921399889696e-05},\"output\":{\"cosine\":0.9999998145924085,\"relative_l2\":0.0006089459343431272,\"max_abs\":0.015625,\"mean_abs\":8.224645101178724e-05}}},{\"case\":\"graph_seed17\",\"metrics\":{\"attended\":{\"cosine\":0.999999889935577,\"relative_l2\":0.00046917955351121973,\"max_abs\":0.0078125,\"mean_abs\":9.665348929825786e-06},\"output\":{\"cosine\":0.9999998507614056,\"relative_l2\":0.0005463310450879932,\"max_abs\":0.015625,\"mean_abs\":6.631210831423792e-05}}},{\"case\":\"graph_seed123\",\"metrics\":{\"attended\":{\"cosine\":0.9999998871488812,\"relative_l2\":0.0004750987705355323,\"max_abs\":0.015625,\"mean_abs\":9.322738118446348e-06},\"output\":{\"cosine\":0.9999998488751088,\"relative_l2\":0.0005497725088446936,\"max_abs\":0.015625,\"mean_abs\":6.733710268655649e-05}}},{\"case\":\"causal_batch_isolation\",\"metrics\":{\"attended\":{\"cosine\":0.9999998870559337,\"relative_l2\":0.00047529233134064035,\"max_abs\":0.015625,\"mean_abs\":9.451483040178433e-06},\"output\":{\"cosine\":0.9999998472975368,\"relative_l2\":0.0005526349619504021,\"max_abs\":0.015625,\"mean_abs\":6.807465643550342e-05}}},{\"case\":\"zero_input\",\"metrics\":{\"attended\":{\"cosine\":null,\"relative_l2\":null,\"max_abs\":0.0,\"mean_abs\":0.0},\"output\":{\"cosine\":0.9999999999999999,\"relative_l2\":0.0,\"max_abs\":0.0,\"mean_abs\":0.0}}}],\"latency_us\":69.43919956684113,\"stages\":{\"qkv\":{\"median_us\":29.890400171279907,\"p10_us\":29.79071944952011,\"p90_us\":30.09295880794525},\"norm_rope\":{\"median_us\":3.1775999814271927,\"p10_us\":3.1462401524186134,\"p90_us\":3.20064015686512},\"attention_gate\":{\"median_us\":14.815200120210648,\"p10_us\":14.794080555438995,\"p90_us\":14.837920069694519},\"projection_residual\":{\"median_us\":17.661599814891815,\"p10_us\":17.60016068816185,\"p90_us\":17.749599516391754},\"chain\":{\"median_us\":69.43919956684113,\"p10_us\":69.31024312973022,\"p90_us\":69.65152144432068}}}\n",
+  "stderr": "[gpu-queue] job 3756 queued, position 1: codex/lumen native harness mixer bench\n[gpu-queue] job 3756 acquired GPU: codex/lumen native harness mixer bench\n[gpu-queue] job 3756 finished, exit 0\n",
+  "correctness": true,
+  "ok": true,
+  "finished_at_utc": "2026-11-02T08:27:16+00:00"
+}

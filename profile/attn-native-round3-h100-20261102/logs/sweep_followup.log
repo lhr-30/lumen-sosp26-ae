@@ -1,0 +1,11 @@
+CHECK baseline_5120 {'cosine': 0.9999999948137699, 'relative_l2': 0.00010186124089309076, 'max_abs': 0.015625, 'guard_unchanged': True, 'bitwise_equal_to_baseline': True}
+CHECK qkv_t160_c128_w1 {'cosine': 0.9999999948137699, 'relative_l2': 0.00010186124089309076, 'max_abs': 0.015625, 'guard_unchanged': True, 'bitwise_equal_to_baseline': True}
+CHECK qkv_t160_c128_w0 {'cosine': 0.9999999948137699, 'relative_l2': 0.00010186124089309076, 'max_abs': 0.015625, 'guard_unchanged': True, 'bitwise_equal_to_baseline': True}
+CHECK baseline_2048 {'cosine': 0.9999999944818582, 'relative_l2': 0.00010507063879502647, 'max_abs': 0.015625, 'guard_unchanged': True, 'bitwise_equal_to_baseline': True}
+CHECK o_t64_c128_w1 {'cosine': 0.9999999944818582, 'relative_l2': 0.00010507063879502647, 'max_abs': 0.015625, 'guard_unchanged': True, 'bitwise_equal_to_baseline': True}
+baseline_5120 {'median': 31.036959886550903, 'p10': 30.30716848373413, 'p90': 31.131999254226685}
+qkv_t160_c128_w1 {'median': 21.21872067451477, 'p10': 19.733503937721252, 'p90': 21.96502375602722}
+qkv_t160_c128_w0 {'median': 21.274880170822144, 'p10': 20.32806372642517, 'p90': 21.9881272315979}
+baseline_2048 {'median': 14.591360092163086, 'p10': 13.104320406913757, 'p90': 15.077791690826416}
+o_t64_c128_w1 {'median': 13.102080225944519, 'p10': 12.877856135368347, 'p90': 13.237856030464172}
+PASS /profile/analysis/sweep_followup.json

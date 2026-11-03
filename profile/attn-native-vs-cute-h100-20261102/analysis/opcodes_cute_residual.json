@@ -1,0 +1,39 @@
+{
+  "sass__inst_executed_per_opcode": {
+    "IMAD": 49920.0,
+    "SHF": 26624.0,
+    "PRMT": 26624.0,
+    "FFMA": 26624.0,
+    "LDC": 13312.0,
+    "F2FP": 13312.0,
+    "ULDC": 9984.0,
+    "S2R": 6656.0,
+    "LDG": 6656.0,
+    "STG": 3328.0,
+    "ISETP": 3328.0,
+    "IADD3": 3328.0,
+    "EXIT": 3328.0,
+    "BRA": 3328.0
+  },
+  "sass__inst_executed_per_opcode_with_modifier_all": {
+    "SHF.L.U32": 26624.0,
+    "PRMT": 26624.0,
+    "IMAD.U32": 26624.0,
+    "FFMA": 26624.0,
+    "F2FP.BF16.F32.PACK_AB": 13312.0,
+    "LDC.64": 9984.0,
+    "IMAD.WIDE.U32": 9984.0,
+    "IMAD.WIDE": 9984.0,
+    "ULDC": 6656.0,
+    "S2R": 6656.0,
+    "LDG.E.128": 6656.0,
+    "ULDC.64": 3328.0,
+    "STG.E.128": 3328.0,
+    "LDC": 3328.0,
+    "ISETP.GT.U32.AND": 3328.0,
+    "IMAD.SHL.U32": 3328.0,
+    "IADD3": 3328.0,
+    "EXIT": 3328.0,
+    "BRA": 3328.0
+  }
+}

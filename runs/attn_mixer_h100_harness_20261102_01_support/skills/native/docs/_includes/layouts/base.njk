@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }} | {{ metadata.title }}</title>
+    <meta name="description" content="{{ description or metadata.description }}">
+    <link rel="stylesheet" href="{{ "css/styles.css" | relativeUrl(page.url) }}">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSWR9L8G9C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-ZSWR9L8G9C');
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="{{ "/" | relativeUrl(page.url) }}">Avelang</a>
+      <nav class="top-nav" aria-label="Primary">
+        <a href="{{ "get-started/installation/" | relativeUrl(page.url) }}">Get Started</a>
+        <a href="{{ "tutorials/" | relativeUrl(page.url) }}">Tutorials</a>
+        <a href="{{ "language-reference/" | relativeUrl(page.url) }}">Language Reference</a>
+      </nav>
+    </header>
+    <div class="shell">
+      <aside class="sidebar" aria-label="Documentation">
+        <nav>
+          <a class="home-link" href="{{ "/" | relativeUrl(page.url) }}">Docs Home</a>
+          {% for group in navigation %}
+            <p class="nav-heading">{{ group.title }}</p>
+            {% for item in group.items %}
+              <a href="{{ item.url | relativeUrl(page.url) }}">{{ item.title }}</a>
+            {% endfor %}
+          {% endfor %}
+        </nav>
+      </aside>
+      <main class="content">
+        {{ content | safe }}
+        {% set previousTutorial = tutorials | tutorialPrevious(page.url) %}
+        {% set nextTutorial = tutorials | tutorialNext(page.url) %}
+        {% if previousTutorial or nextTutorial %}
+          <nav class="page-nav" aria-label="Tutorial navigation">
+            {% if previousTutorial %}
+              <a class="page-nav-link page-nav-prev" href="{{ previousTutorial.url | relativeUrl(page.url) }}">
+                <span class="page-nav-label">Previous</span>
+                <span class="page-nav-title">{{ previousTutorial.title }}</span>
+              </a>
+            {% else %}
+              <span></span>
+            {% endif %}
+            {% if nextTutorial %}
+              <a class="page-nav-link page-nav-next" href="{{ nextTutorial.url | relativeUrl(page.url) }}">
+                <span class="page-nav-label">Next</span>
+                <span class="page-nav-title">{{ nextTutorial.title }}</span>
+              </a>
+            {% endif %}
+          </nav>
+        {% endif %}
+        {% set previousLanguageReference = languageReference | languageReferencePrevious(page.url) %}
+        {% set nextLanguageReference = languageReference | languageReferenceNext(page.url) %}
+        {% if previousLanguageReference or nextLanguageReference %}
+          <nav class="page-nav" aria-label="Language reference navigation">
+            {% if previousLanguageReference %}
+              <a class="page-nav-link page-nav-prev" href="{{ previousLanguageReference.url | relativeUrl(page.url) }}">
+                <span class="page-nav-label">Previous</span>
+                <span class="page-nav-title">{{ previousLanguageReference.title }}</span>
+              </a>
+            {% else %}
+              <span></span>
+            {% endif %}
+            {% if nextLanguageReference %}
+              <a class="page-nav-link page-nav-next" href="{{ nextLanguageReference.url | relativeUrl(page.url) }}">
+                <span class="page-nav-label">Next</span>
+                <span class="page-nav-title">{{ nextLanguageReference.title }}</span>
+              </a>
+            {% endif %}
+          </nav>
+        {% endif %}
+      </main>
+    </div>
+    <footer class="site-footer">
+      <span>Avelang documentation</span>
+      <span>{{ "" | year }}</span>
+    </footer>
+  </body>
+</html>

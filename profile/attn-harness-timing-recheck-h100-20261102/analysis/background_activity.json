@@ -1,0 +1,147 @@
+{
+  "measurement_window_unix": [
+    1793609542.1624105,
+    1793609544.1990345
+  ],
+  "positive_other_process_samples": [
+    {
+      "time": "08:52:01",
+      "pid": "3953810",
+      "sm": 65,
+      "overlaps_measurement_conservative": false
+    },
+    {
+      "time": "08:52:02",
+      "pid": "3953810",
+      "sm": 63,
+      "overlaps_measurement_conservative": false
+    },
+    {
+      "time": "08:52:03",
+      "pid": "3953810",
+      "sm": 62,
+      "overlaps_measurement_conservative": false
+    },
+    {
+      "time": "08:52:04",
+      "pid": "3953810",
+      "sm": 64,
+      "overlaps_measurement_conservative": false
+    },
+    {
+      "time": "08:52:05",
+      "pid": "3953810",
+      "sm": 65,
+      "overlaps_measurement_conservative": false
+    },
+    {
+      "time": "08:52:06",
+      "pid": "3953810",
+      "sm": 55,
+      "overlaps_measurement_conservative": false
+    },
+    {
+      "time": "08:52:08",
+      "pid": "3953810",
+      "sm": 5,
+      "overlaps_measurement_conservative": false
+    },
+    {
+      "time": "08:52:09",
+      "pid": "3953810",
+      "sm": 66,
+      "overlaps_measurement_conservative": false
+    },
+    {
+      "time": "08:52:10",
+      "pid": "3953810",
+      "sm": 66,
+      "overlaps_measurement_conservative": false
+    },
+    {
+      "time": "08:52:11",
+      "pid": "3953810",
+      "sm": 66,
+      "overlaps_measurement_conservative": false
+    },
+    {
+      "time": "08:52:12",
+      "pid": "3953810",
+      "sm": 66,
+      "overlaps_measurement_conservative": false
+    },
+    {
+      "time": "08:52:13",
+      "pid": "3953810",
+      "sm": 67,
+      "overlaps_measurement_conservative": false
+    },
+    {
+      "time": "08:52:14",
+      "pid": "3953810",
+      "sm": 65,
+      "overlaps_measurement_conservative": false
+    },
+    {
+      "time": "08:52:15",
+      "pid": "3953810",
+      "sm": 66,
+      "overlaps_measurement_conservative": false
+    },
+    {
+      "time": "08:52:16",
+      "pid": "3953810",
+      "sm": 66,
+      "overlaps_measurement_conservative": false
+    },
+    {
+      "time": "08:52:17",
+      "pid": "3953810",
+      "sm": 67,
+      "overlaps_measurement_conservative": false
+    },
+    {
+      "time": "08:52:18",
+      "pid": "3953810",
+      "sm": 67,
+      "overlaps_measurement_conservative": false
+    },
+    {
+      "time": "08:52:19",
+      "pid": "3953810",
+      "sm": 66,
+      "overlaps_measurement_conservative": false
+    },
+    {
+      "time": "08:52:20",
+      "pid": "3953810",
+      "sm": 66,
+      "overlaps_measurement_conservative": false
+    },
+    {
+      "time": "08:52:21",
+      "pid": "3953810",
+      "sm": 66,
+      "overlaps_measurement_conservative": false
+    },
+    {
+      "time": "08:52:22",
+      "pid": "3953810",
+      "sm": 54,
+      "overlaps_measurement_conservative": true
+    },
+    {
+      "time": "08:52:23",
+      "pid": "3953810",
+      "sm": 49,
+      "overlaps_measurement_conservative": true
+    },
+    {
+      "time": "08:52:24",
+      "pid": "3953810",
+      "sm": 43,
+      "overlaps_measurement_conservative": true
+    }
+  ],
+  "sampling_note": "1-second pmon intervals; +-1 second used for conservative overlap; dash entries are unavailable/no sample, not a proof of zero activity."
+}

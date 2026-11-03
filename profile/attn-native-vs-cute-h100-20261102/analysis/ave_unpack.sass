@@ -1,0 +1,56 @@
+000000        LDC R1, c[0x0][0x28]
+000010        S2R R12, SR_CTAID.Y
+000020        LDC.64 R4, c[0x0][0x210]
+000030        ULDC.64 UR4, c[0x0][0x208]
+000040        S2R R0, SR_TID.X
+000050        S2R R2, SR_CTAID.X
+000060        LDC.64 R6, c[0x0][0x218]
+000070        IMAD.SHL.U32 R3, R12, 0x200, RZ
+000080        LOP3.LUT R3, R3, R0, RZ, 0xfc, !PT
+000090        IMAD R10, R2, 0x1400, RZ
+0000a0        IMAD.IADD R3, R3, 0x1, R10
+0000b0        IMAD.WIDE.U32 R4, R3, 0x2, R4
+0000c0        LDG.E.U16 R3, desc[UR4][R4.64]
+0000d0        SHF.L.U32 R11, R12, 0x8, RZ
+0000e0        IMAD R9, R2, 0x800, R11
+0000f0        LOP3.LUT R13, R9, R0, RZ, 0xfc, !PT
+000100        LDC.64 R8, c[0x0][0x220]
+000110        IMAD.WIDE.U32 R6, R13, 0x2, R6
+000120        STG.E.U16 desc[UR4][R6.64], R3
+000130        LDG.E.U16 R15, desc[UR4][R4.64+0x200]
+000140        ISETP.GT.U32.AND P0, PT, R12, 0x1, PT
+000150        IMAD.WIDE.U32 R8, R13, 0x2, R8
+000160        STG.E.U16 desc[UR4][R8.64], R15
+000170  @P0   EXIT
+000180        LOP3.LUT R3, R11, R0, RZ, 0xfc, !PT
+000190        ULDC.64 UR6, c[0x0][0x210]
+0001a0        IADD3 R3, P0, R10, R3, RZ
+0001b0        IADD3.X R6, RZ, RZ, RZ, P0, !PT
+0001c0        LEA R4, P0, R3, UR6, 0x1
+0001d0        LEA.HI.X R5, R3, UR7, R6, 0x1, P0
+0001e0        LDC.64 R6, c[0x0][0x228]
+0001f0        LDG.E.U16 R9, desc[UR4][R4.64+0x2000]
+000200        IMAD.SHL.U32 R2, R2, 0x200, RZ
+000210        LOP3.LUT R11, R2, R11, R0, 0xfe, !PT
+000220        IMAD.WIDE.U32 R2, R11, 0x2, R6
+000230        LDC.64 R6, c[0x0][0x230]
+000240        STG.E.U16 desc[UR4][R2.64], R9
+000250        LDG.E.U16 R13, desc[UR4][R4.64+0x2400]
+000260        IMAD.WIDE.U32 R6, R11, 0x2, R6
+000270        STG.E.U16 desc[UR4][R6.64], R13
+000280        EXIT
+000290        BRA `(.L_x_0) 0x7d4a1be8d190
+0002a0        NOP
+0002b0        NOP
+0002c0        NOP
+0002d0        NOP
+0002e0        NOP
+0002f0        NOP
+000300        NOP
+000310        NOP
+000320        NOP
+000330        NOP
+000340        NOP
+000350        NOP
+000360        NOP
+000370        NOP

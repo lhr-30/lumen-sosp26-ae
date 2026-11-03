@@ -1,0 +1,88 @@
+/experiment/output_model_new.py:176:13: error: Unimplemented: 'fast_exp2 requires one f32 operand'
+  176 |     scale = S.nvvm.fast_rsqrt(squared * 0.00390625 + 0.000001)
+      |             ^
+/experiment/output_model_new.py:176:5: error: Unimplemented: 'Failed to generate expression for assignment'
+  176 |     scale = S.nvvm.fast_rsqrt(squared * 0.00390625 + 0.000001)
+      |     ^
+/experiment/output_model_new.py:183:13: error: Unimplemented: 'Failed to resolve value for convert'
+  183 |             S.convert(values[i] * scale * (1.0 + weight), S.bf16), S.f32
+      |             ^
+/experiment/output_model_new.py:182:21: error: Unimplemented: 'Failed to resolve value for convert'
+  182 |         values[i] = S.convert(
+      |                     ^
+/experiment/output_model_new.py:182:9: error: Unimplemented: 'Failed to generate expression for assignment'
+  182 |         values[i] = S.convert(
+      |         ^
+/experiment/output_model_new.py:183:13: error: Unimplemented: 'Failed to resolve value for convert'
+  183 |             S.convert(values[i] * scale * (1.0 + weight), S.bf16), S.f32
+      |             ^
+/experiment/output_model_new.py:182:21: error: Unimplemented: 'Failed to resolve value for convert'
+  182 |         values[i] = S.convert(
+      |                     ^
+/experiment/output_model_new.py:182:9: error: Unimplemented: 'Failed to generate expression for assignment'
+  182 |         values[i] = S.convert(
+      |         ^
+/experiment/output_model_new.py:183:13: error: Unimplemented: 'Failed to resolve value for convert'
+  183 |             S.convert(values[i] * scale * (1.0 + weight), S.bf16), S.f32
+      |             ^
+/experiment/output_model_new.py:182:21: error: Unimplemented: 'Failed to resolve value for convert'
+  182 |         values[i] = S.convert(
+      |                     ^
+/experiment/output_model_new.py:182:9: error: Unimplemented: 'Failed to generate expression for assignment'
+  182 |         values[i] = S.convert(
+      |         ^
+/experiment/output_model_new.py:183:13: error: Unimplemented: 'Failed to resolve value for convert'
+  183 |             S.convert(values[i] * scale * (1.0 + weight), S.bf16), S.f32
+      |             ^
+/experiment/output_model_new.py:182:21: error: Unimplemented: 'Failed to resolve value for convert'
+  182 |         values[i] = S.convert(
+      |                     ^
+/experiment/output_model_new.py:182:9: error: Unimplemented: 'Failed to generate expression for assignment'
+  182 |         values[i] = S.convert(
+      |         ^
+/experiment/output_model_new.py:183:13: error: Unimplemented: 'Failed to resolve value for convert'
+  183 |             S.convert(values[i] * scale * (1.0 + weight), S.bf16), S.f32
+      |             ^
+/experiment/output_model_new.py:182:21: error: Unimplemented: 'Failed to resolve value for convert'
+  182 |         values[i] = S.convert(
+      |                     ^
+/experiment/output_model_new.py:182:9: error: Unimplemented: 'Failed to generate expression for assignment'
+  182 |         values[i] = S.convert(
+      |         ^
+/experiment/output_model_new.py:183:13: error: Unimplemented: 'Failed to resolve value for convert'
+  183 |             S.convert(values[i] * scale * (1.0 + weight), S.bf16), S.f32
+      |             ^
+/experiment/output_model_new.py:182:21: error: Unimplemented: 'Failed to resolve value for convert'
+  182 |         values[i] = S.convert(
+      |                     ^
+/experiment/output_model_new.py:182:9: error: Unimplemented: 'Failed to generate expression for assignment'
+  182 |         values[i] = S.convert(
+      |         ^
+/experiment/output_model_new.py:183:13: error: Unimplemented: 'Failed to resolve value for convert'
+  183 |             S.convert(values[i] * scale * (1.0 + weight), S.bf16), S.f32
+      |             ^
+/experiment/output_model_new.py:182:21: error: Unimplemented: 'Failed to resolve value for convert'
+  182 |         values[i] = S.convert(
+      |                     ^
+/experiment/output_model_new.py:182:9: error: Unimplemented: 'Failed to generate expression for assignment'
+  182 |         values[i] = S.convert(
+      |         ^
+/experiment/output_model_new.py:183:13: error: Unimplemented: 'Failed to resolve value for convert'
+  183 |             S.convert(values[i] * scale * (1.0 + weight), S.bf16), S.f32
+      |             ^
+/experiment/output_model_new.py:182:21: error: Unimplemented: 'Failed to resolve value for convert'
+  182 |         values[i] = S.convert(
+      |                     ^
+/experiment/output_model_new.py:182:9: error: Unimplemented: 'Failed to generate expression for assignment'
+  182 |         values[i] = S.convert(
+      |         ^
+Traceback (most recent call last):
+  File "/support/offline_compile.py", line 26, in <module>
+    ptx = NvidiaCompiler(target).compile(source, target, {'num_warps': warps})
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/avelang/python/avelang/backends/nvidia/compiler.py", line 45, in compile
+    return compile_to_binary(src, target, opt_level=options.opt_level, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/avelang/python/avelang/compiler/code_generator.py", line 275, in compile_to_binary
+    generator.visit_function_def(kernel_func, constexprs_json, "kernel")
+RuntimeError: VisitFunctionDef failed due to compiler diagnostics

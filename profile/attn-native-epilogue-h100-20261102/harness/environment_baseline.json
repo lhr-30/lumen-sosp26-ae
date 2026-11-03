@@ -1,0 +1,11 @@
+{
+  "compiler_commit": "5f349c594ad510ad6b90d0e1ca310c0d47aa9ed1",
+  "image_id": "sha256:7995e7f3e3fa0167e63f648d447452cc12fe204581a7dc57333d37713fe2624b",
+  "ncu_version": "NVIDIA (R) Nsight Compute Command Line Profiler\nCopyright (c) 2018-2026 NVIDIA Corporation\nVersion 2026.2.1.0 (build 38283040) (public-release)",
+  "gpu_queue_jobs": {
+    "timing": 3666,
+    "full_and_source": 3667,
+    "wait_ablation": 3671
+  },
+  "production_candidate_unchanged": true
+}

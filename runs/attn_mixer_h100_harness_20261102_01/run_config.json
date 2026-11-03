@@ -1,0 +1,26 @@
+{
+  "domain": "attention_mixer",
+  "kernel": "/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01_support/seed.py",
+  "kernel_sha256": "f78ff01334a91c75bf4ab2401ba0d4fa78d055d8bdddc5074b11b86e2ad29fb4",
+  "prompt_file": "/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01_support/prompts/round0.md",
+  "prompt_sha256": "77fef57d0b7cb495e051f69158351f27b69782d9e8467bcf1651d90a6a222ace",
+  "prompts": [
+    {
+      "prompt_file": "/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01_support/prompts/round0.md",
+      "prompt_sha256": "77fef57d0b7cb495e051f69158351f27b69782d9e8467bcf1651d90a6a222ace"
+    },
+    {
+      "prompt_file": "/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01_support/prompts/round1.md",
+      "prompt_sha256": "060a0c814bdc1c1f095c2d901a583c6808ad6d38c8c7c21e59016fe20c75ac22"
+    },
+    {
+      "prompt_file": "/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01_support/prompts/round2.md",
+      "prompt_sha256": "2ec39d570ee8cce3b77323bcb739e387cb0e87f1a5d243aa58c570ac98a82345"
+    }
+  ],
+  "round_count": 3,
+  "gpu_id": 0,
+  "workloads": [
+    26
+  ]
+}

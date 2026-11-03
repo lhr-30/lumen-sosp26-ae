@@ -1,0 +1,11 @@
+==WARNING== Note: Running with uncontrolled GPU caches. Profiling results may be inconsistent.
+==PROF== Connected to process 78 (/usr/bin/python3.12)
+baseline/attended: {'cosine': 0.999999837436983, 'relative_l2': 0.000570207443569257, 'max_abs': 0.015625, 'mean_abs': 1.2761059109650958e-05}
+baseline/output: {'cosine': 0.9999998140494218, 'relative_l2': 0.0006098369876132453, 'max_abs': 0.015625, 'mean_abs': 8.251420625198919e-05}
+==PROF== Profiling "unpack" - 0: 0%....50%....100% - 5 passes
+==PROF== Profiling "norm_rope" - 1: 0%....50%....100% - 5 passes
+==PROF== Profiling "norm_rope" - 2: 0%....50%....100% - 5 passes
+==PROF== Profiling "causal_gqa_gate" - 3: 0%....50%....100% - 5 passes
+PASS /profile/analysis/source_baseline_validation.json
+==PROF== Disconnected from process 78
+==PROF== Report: /profile/reports/source_baseline.ncu-rep

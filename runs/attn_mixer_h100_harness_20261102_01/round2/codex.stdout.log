@@ -1,0 +1,19 @@
+Saved the best passing version to [output_model_new.py](/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01/round2/output_model_new.py). It uses 128×160/K128 QKV tiles and 26 query warps with paired BF16 loads/stores. The input is unchanged.
+
+Latest queued comparison, using 20 iterations and 8 samples:
+
+| Stage | Baseline µs | Final µs |
+|---|---:|---:|
+| QKV | 29.49 | 24.21 |
+| Norm/RoPE | 2.79 | 2.79 |
+| Attention/gate | 14.70 | 7.84 |
+| Projection/residual | 17.49 | 17.51 |
+| **Chain** | **68.65** | **54.36** |
+
+That is **20.8% lower chain latency**.
+
+Earlier chain measurements were 72.02 µs for baseline, 65.02 for two-stage QKV, 65.67 for three-stage QKV, 58.76 with 16 attention warps, 58.40 with 32 warps, and 55.55 for the final version. The slower three-stage pipeline was discarded.
+
+All four specializations passed compiler verification and `ptxas` without spills. All five GPU correctness cases passed, including fresh inputs/weights/tables in graphs, causal/batch isolation, and zeros. Worst relative L2 was 0.000609.
+
+The 100-iteration comparison measured 94.71→75.48 µs with broad timing variation. This branch has no artifact invariant-validation API.

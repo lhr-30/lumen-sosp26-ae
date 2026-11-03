@@ -1,0 +1,82 @@
+{
+  "sample_count": 0,
+  "stall_distribution": {
+    "barrier": {
+      "samples": 0,
+      "pct_samples": null
+    },
+    "branch_resolving": {
+      "samples": 0,
+      "pct_samples": null
+    },
+    "dispatch_stall": {
+      "samples": 0,
+      "pct_samples": null
+    },
+    "drain": {
+      "samples": 0,
+      "pct_samples": null
+    },
+    "imc_miss": {
+      "samples": 0,
+      "pct_samples": null
+    },
+    "lg_throttle": {
+      "samples": 0,
+      "pct_samples": null
+    },
+    "long_scoreboard": {
+      "samples": 0,
+      "pct_samples": null
+    },
+    "math_pipe_throttle": {
+      "samples": 0,
+      "pct_samples": null
+    },
+    "membar": {
+      "samples": 0,
+      "pct_samples": null
+    },
+    "mio_throttle": {
+      "samples": 0,
+      "pct_samples": null
+    },
+    "misc": {
+      "samples": 0,
+      "pct_samples": null
+    },
+    "no_instructions": {
+      "samples": 0,
+      "pct_samples": null
+    },
+    "not_selected": {
+      "samples": 0,
+      "pct_samples": null
+    },
+    "selected": {
+      "samples": 0,
+      "pct_samples": null
+    },
+    "short_scoreboard": {
+      "samples": 0,
+      "pct_samples": null
+    },
+    "sleeping": {
+      "samples": 0,
+      "pct_samples": null
+    },
+    "tex_throttle": {
+      "samples": 0,
+      "pct_samples": null
+    },
+    "wait": {
+      "samples": 0,
+      "pct_samples": null
+    },
+    "warpgroup_arrive": {
+      "samples": 0,
+      "pct_samples": null
+    }
+  },
+  "hotspots": []
+}

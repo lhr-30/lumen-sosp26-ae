@@ -1,0 +1,15 @@
+{
+  "compiler": "/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/.repro/avelang-native",
+  "image": "lumen-hopper:dev",
+  "codex": "/home/wenxh/.local/bin/codex",
+  "domain": "attention_mixer",
+  "workload": {
+    "B": 16,
+    "T": 26,
+    "H": 8,
+    "KV": 2,
+    "D": 256,
+    "hidden": 2048
+  },
+  "compiler_commit": "5f349c594ad510ad6b90d0e1ca310c0d47aa9ed1"
+}

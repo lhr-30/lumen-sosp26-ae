@@ -1,0 +1,26 @@
+[
+  {
+    "name": "qkv",
+    "ptx_sha256": "50637bd42e33a13ef9260ff3fcc4a3edd91c307ac82bbfa42c8713487e3135aa",
+    "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function '_linear_wide' for 'sm_90a'\nptxas info    : Function properties for _linear_wide\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 106 registers, used 1 barriers\nptxas info    : Compile time = 49.134 ms\n",
+    "local_memory": false
+  },
+  {
+    "name": "norm_rope",
+    "ptx_sha256": "ae08c936f818e2b3a34bb50a8b10a7a77116aa84f5af499edbd3600bd030f0df",
+    "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function '_norm_rope' for 'sm_90a'\nptxas info    : Function properties for _norm_rope\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 47 registers, used 0 barriers\nptxas info    : Compile time = 9.447 ms\n",
+    "local_memory": false
+  },
+  {
+    "name": "attention_gate",
+    "ptx_sha256": "9c92f3257304e4c980c3d7bfbcf2889a2e200110441e04f741ba74cf01042575",
+    "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function '_attention_gate' for 'sm_90a'\nptxas info    : Function properties for _attention_gate\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 58 registers, used 1 barriers\nptxas info    : Compile time = 66.658 ms\n",
+    "local_memory": false
+  },
+  {
+    "name": "projection_residual",
+    "ptx_sha256": "f3770b2a6d4e70b222aecb0b221326bb3cbcc1127c4c04beb2bb95b3df6d00b2",
+    "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function '_linear' for 'sm_90a'\nptxas info    : Function properties for _linear\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 58 registers, used 1 barriers\nptxas info    : Compile time = 22.464 ms\n",
+    "local_memory": false
+  }
+]

@@ -1,0 +1,12 @@
+==WARNING== Note: Running with uncontrolled GPU caches. Profiling results may be inconsistent.
+==PROF== Connected to process 76 (/usr/bin/python3.12)
+candidate/attended: {'cosine': 0.9999998373400194, 'relative_l2': 0.0005703779564457392, 'max_abs': 0.015625, 'mean_abs': 1.2761484436706583e-05}
+candidate/output: {'cosine': 0.9999998134688551, 'relative_l2': 0.0006107882260481258, 'max_abs': 0.015625, 'mean_abs': 8.268102045314244e-05}
+==WARNING== Unable to access the following 6 metrics: ctc__rx_bytes_data_user.sum, ctc__rx_bytes_data_user.sum.pct_of_peak_sustained_elapsed, ctc__rx_bytes_data_user.sum.per_second, ctc__tx_bytes_data_user.sum, ctc__tx_bytes_data_user.sum.pct_of_peak_sustained_elapsed, ctc__tx_bytes_data_user.sum.per_second.
+
+
+==PROF== Profiling "k_norm_rope_packed" - 0: 0%....50%....100% - 45 passes
+==PROF== Profiling "fused_qnorm_attention_mma_q8_..." - 1: 0%....50%....100% - 45 passes
+PASS /profile/analysis/full_candidate_validation.json
+==PROF== Disconnected from process 76
+==PROF== Report: /profile/reports/full_candidate.ncu-rep

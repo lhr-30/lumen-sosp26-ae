@@ -1,0 +1,22 @@
+{
+  "LDC": 1,
+  "S2R": 3,
+  "LDC.64": 5,
+  "ULDC.64": 2,
+  "IMAD.SHL.U32": 2,
+  "LOP3.LUT": 4,
+  "IMAD": 2,
+  "IMAD.IADD": 1,
+  "IMAD.WIDE.U32": 5,
+  "LDG.E.U16": 4,
+  "SHF.L.U32": 1,
+  "STG.E.U16": 4,
+  "ISETP.GT.U32.AND": 1,
+  "EXIT": 2,
+  "IADD3": 1,
+  "IADD3.X": 1,
+  "LEA": 1,
+  "LEA.HI.X": 1,
+  "BRA": 1,
+  "NOP": 14
+}

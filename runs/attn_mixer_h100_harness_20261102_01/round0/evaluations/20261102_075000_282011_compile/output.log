@@ -1,0 +1,9 @@
+Compiling norm_rope
+norm_rope ptxas fatal   : Unresolved extern function '__nv_fmaf'
+
+Traceback (most recent call last):
+  File "/support/offline_compile.py", line 34, in <module>
+    result.check_returncode()
+  File "/usr/lib/python3.12/subprocess.py", line 502, in check_returncode
+    raise CalledProcessError(self.returncode, self.args, self.stdout,
+subprocess.CalledProcessError: Command '['ptxas', '-arch=sm_90a', '-v', '/experiment/artifacts/norm_rope.ptx', '-o', '/experiment/artifacts/norm_rope.cubin']' returned non-zero exit status 255.

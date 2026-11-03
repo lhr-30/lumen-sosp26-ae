@@ -1,0 +1,36 @@
+{
+  "domain": "attention_mixer",
+  "round_index": 2,
+  "prepared_at_utc": "2026-11-02T08:27:16+00:00",
+  "input_source": "/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01/round1/output_model_new.py",
+  "input_model": "/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01/round2/input_model.py",
+  "input_model_sha256": "be62b3a93392c8e885b1629872e0089610c88442260e1332f9f33c8c029fa246",
+  "prompt_source": "/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01_support/prompts/round2.md",
+  "prompt_file": "/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01/round2/prompt.txt",
+  "prompt_sha256": "2ec39d570ee8cce3b77323bcb739e387cb0e87f1a5d243aa58c570ac98a82345",
+  "agents_sha256": "43929ac4be8d172cc432e3097f6fa5567a1f75df59ceefa6df1cc4774bee22ec",
+  "adapter_sha256": "a49853f6933e1d6c08cc54e921db81a3ad0ed9140a13c052c6f0f05af021e84d",
+  "gpu_id": 0,
+  "workloads": [
+    26
+  ],
+  "codex": {
+    "codex_bin": "/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01_support/scripts/benchmark/codex_logged.sh",
+    "profile": null,
+    "model": null,
+    "model_provider": null,
+    "reasoning_effort": null,
+    "timeout_seconds": 1800,
+    "config_overrides": [],
+    "bypass_approvals_and_sandbox": true
+  },
+  "output_model": "/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01/round2/output_model_new.py",
+  "output_model_sha256": "d7f4652bb9be417adb9a58dc481f30458a2467bf6438938cab41d1e464325cbc",
+  "output_model_bytes": 22021,
+  "codex_result": {
+    "status": "completed",
+    "session_id": "01a19b5e-affa-7c60-b052-2d8079751329",
+    "started_at_utc": "2026-11-02T08:27:16Z",
+    "finished_at_utc": "2026-11-02T08:45:48Z"
+  }
+}

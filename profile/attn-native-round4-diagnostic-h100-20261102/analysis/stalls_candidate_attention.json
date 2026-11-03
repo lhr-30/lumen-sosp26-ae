@@ -1,0 +1,4480 @@
+{
+  "sample_count": 2006,
+  "stall_distribution": {
+    "barrier": {
+      "samples": 18,
+      "pct_samples": 0.8973080757726819
+    },
+    "branch_resolving": {
+      "samples": 31,
+      "pct_samples": 1.5453639082751744
+    },
+    "dispatch_stall": {
+      "samples": 25,
+      "pct_samples": 1.2462612163509472
+    },
+    "drain": {
+      "samples": 5,
+      "pct_samples": 0.24925224327018944
+    },
+    "imc_miss": {
+      "samples": 13,
+      "pct_samples": 0.6480558325024925
+    },
+    "lg_throttle": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "long_scoreboard": {
+      "samples": 878,
+      "pct_samples": 43.76869391824526
+    },
+    "math_pipe_throttle": {
+      "samples": 55,
+      "pct_samples": 2.7417746759720836
+    },
+    "membar": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "mio_throttle": {
+      "samples": 1,
+      "pct_samples": 0.049850448654037885
+    },
+    "misc": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "no_instructions": {
+      "samples": 16,
+      "pct_samples": 0.7976071784646062
+    },
+    "not_selected": {
+      "samples": 127,
+      "pct_samples": 6.331006979062812
+    },
+    "selected": {
+      "samples": 276,
+      "pct_samples": 13.758723828514457
+    },
+    "short_scoreboard": {
+      "samples": 194,
+      "pct_samples": 9.67098703888335
+    },
+    "sleeping": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "tex_throttle": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "wait": {
+      "samples": 367,
+      "pct_samples": 18.295114656031906
+    },
+    "warpgroup_arrive": {
+      "samples": 0,
+      "pct_samples": 0.0
+    }
+  },
+  "hotspots": [
+    {
+      "pc": "0x7edb9888d110",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 72,
+      "sass": "      STS.U16 [R8], R15",
+      "ptx": "st.shared.b16 \t[%rd30], %rs108;",
+      "samples": 539.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "long_scoreboard": 523.0,
+        "not_selected": 2.0,
+        "selected": 3.0,
+        "wait": 10.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d010",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 102,
+      "sass": "@!P0  LEA R10, P1, R8, R16, 0x1",
+      "ptx": "add.s64 \t%rd27, %rd2, %rd26;",
+      "samples": 91.0,
+      "stalls": {
+        "math_pipe_throttle": 14.0,
+        "not_selected": 6.0,
+        "selected": 6.0,
+        "short_scoreboard": 62.0,
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7edb9888cf90",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 102,
+      "sass": "@!P0  LDC.64 R16, c[0x0][0x210]",
+      "ptx": "add.s64 \t%rd27, %rd2, %rd26;",
+      "samples": 60.0,
+      "stalls": {
+        "not_selected": 5.0,
+        "selected": 6.0,
+        "wait": 49.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d120",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 77,
+      "sass": "      STS.U16 [R9], R16",
+      "ptx": "st.shared.b16 \t[%rd33], %rs107;",
+      "samples": 39.0,
+      "stalls": {
+        "long_scoreboard": 23.0,
+        "not_selected": 2.0,
+        "selected": 3.0,
+        "wait": 11.0
+      }
+    },
+    {
+      "pc": "0x7edb988911e0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1225,
+      "sass": "      HSETP2.BF16_V2.GEU.AND P0, PT, R16.H0_H0, RZ.H0_H0, PT",
+      "ptx": "setp.lt.bf16 \t%p30, %rs104, %rs74;",
+      "samples": 32.0,
+      "stalls": {
+        "long_scoreboard": 32.0
+      }
+    },
+    {
+      "pc": "0x7edb9888cf50",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 83,
+      "sass": "      SHF.R.U32.HI R19, RZ, 0x1, R14",
+      "ptx": "shr.u32 \t%r9, %r561, 1;",
+      "samples": 30.0,
+      "stalls": {
+        "branch_resolving": 16.0,
+        "math_pipe_throttle": 5.0,
+        "no_instructions": 8.0,
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d050",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 95,
+      "sass": "@!P0  LDG.E.U16 R15, desc[UR6][R2.64]",
+      "ptx": "ld.global.b16 \t%rs108, [%rd20];",
+      "samples": 27.0,
+      "stalls": {
+        "dispatch_stall": 7.0,
+        "not_selected": 3.0,
+        "selected": 9.0,
+        "wait": 8.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d140",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 106,
+      "sass": "      SHF.R.U32.HI R26, RZ, 0x5, R0",
+      "ptx": "shr.u32 \t%r11, %r1, 5;",
+      "samples": 27.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 6.0,
+        "wait": 20.0
+      }
+    },
+    {
+      "pc": "0x7edb98890470",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 915,
+      "sass": "      HSETP2.BF16_V2.GEU.AND P2, PT, R20.H0_H0, RZ.H0_H0, PT",
+      "ptx": "setp.lt.bf16 \t%p19, %rs71, %rs41;",
+      "samples": 25.0,
+      "stalls": {
+        "long_scoreboard": 25.0
+      }
+    },
+    {
+      "pc": "0x7edb98891010",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1185,
+      "sass": "      HSETP2.BF16_V2.GEU.AND P0, PT, R14.H0_H0, RZ.H0_H0, PT",
+      "ptx": "setp.lt.bf16 \t%p28, %rs98, %rs74;",
+      "samples": 23.0,
+      "stalls": {
+        "long_scoreboard": 22.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890f50",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1167,
+      "sass": "      HSETP2.BF16_V2.GEU.AND P0, PT, R8.H0_H0, RZ.H0_H0, PT",
+      "ptx": "setp.lt.bf16 \t%p27, %rs95, %rs74;",
+      "samples": 22.0,
+      "stalls": {
+        "long_scoreboard": 22.0
+      }
+    },
+    {
+      "pc": "0x7edb98891100",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1203,
+      "sass": "      HSETP2.BF16_V2.GEU.AND P0, PT, R10.H0_H0, RZ.H0_H0, PT",
+      "ptx": "setp.lt.bf16 \t%p29, %rs101, %rs74;",
+      "samples": 22.0,
+      "stalls": {
+        "long_scoreboard": 22.0
+      }
+    },
+    {
+      "pc": "0x7edb98890290",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 875,
+      "sass": "      HSETP2.BF16_V2.GEU.AND P2, PT, R22.H0_H0, RZ.H0_H0, PT",
+      "ptx": "setp.lt.bf16 \t%p17, %rs65, %rs41;",
+      "samples": 21.0,
+      "stalls": {
+        "long_scoreboard": 19.0,
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d0c0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 80,
+      "sass": "      ISETP.NE.U32.AND P0, PT, R14, 0x40, PT",
+      "ptx": "setp.ne.b32 \t%p2, %r561, 64;",
+      "samples": 21.0,
+      "stalls": {
+        "math_pipe_throttle": 7.0,
+        "not_selected": 9.0,
+        "selected": 3.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d060",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 103,
+      "sass": "@!P0  LDG.E.U16 R16, desc[UR6][R10.64+0x2400]",
+      "ptx": "ld.global.b16 \t%rs107, [%rd27+9216];",
+      "samples": 21.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 5.0,
+        "wait": 15.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d030",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 94,
+      "sass": "@!P0  IMAD.WIDE.U32 R2, R11, 0x2, R2",
+      "ptx": "add.s64 \t%rd20, %rd1, %rd19;",
+      "samples": 20.0,
+      "stalls": {
+        "not_selected": 3.0,
+        "selected": 5.0,
+        "short_scoreboard": 12.0
+      }
+    },
+    {
+      "pc": "0x7edb98890000",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 813,
+      "sass": "      HSETP2.BF16_V2.GEU.AND P2, PT, R20.H0_H0, RZ.H0_H0, PT",
+      "ptx": "setp.lt.bf16 \t%p14, %rs56, %rs41;",
+      "samples": 19.0,
+      "stalls": {
+        "long_scoreboard": 18.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890100",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 836,
+      "sass": "      HSETP2.BF16_V2.GEU.AND P2, PT, R22.H0_H0, RZ.H0_H0, PT",
+      "ptx": "setp.lt.bf16 \t%p15, %rs59, %rs41;",
+      "samples": 19.0,
+      "stalls": {
+        "long_scoreboard": 19.0
+      }
+    },
+    {
+      "pc": "0x7edb988901d0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 857,
+      "sass": "      HSETP2.BF16_V2.GEU.AND P2, PT, R17.H0_H0, RZ.H0_H0, PT",
+      "ptx": "setp.lt.bf16 \t%p16, %rs62, %rs41;",
+      "samples": 18.0,
+      "stalls": {
+        "long_scoreboard": 18.0
+      }
+    },
+    {
+      "pc": "0x7edb9888eb30",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 623,
+      "sass": "      BSSY B0, 0x7edb98890530",
+      "ptx": "shl.b32 \t%r555, %r4, 8;",
+      "samples": 17.0,
+      "stalls": {
+        "barrier": 17.0
+      }
+    },
+    {
+      "pc": "0x7edb9888cf70",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 86,
+      "sass": "      ISETP.GE.AND P0, PT, R19, R4, PT",
+      "ptx": "setp.ge.s32 \t%p1, %r9, %r5;",
+      "samples": 17.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "math_pipe_throttle": 1.0,
+        "not_selected": 3.0,
+        "selected": 5.0,
+        "wait": 7.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d350",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 127,
+      "sass": "      IMAD.U32 R4, R4, 0x10000, RZ",
+      "ptx": "cvt.f32.bf16 \t%r50, %rs2;",
+      "samples": 17.0,
+      "stalls": {
+        "long_scoreboard": 17.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d0e0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 73,
+      "sass": "      LOP3.LUT R9, R21, R9, RZ, 0xfc, !PT",
+      "ptx": "or.b32 \t%r43, %r10, %r41;",
+      "samples": 17.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0,
+        "not_selected": 2.0,
+        "selected": 5.0,
+        "wait": 9.0
+      }
+    },
+    {
+      "pc": "0x7edb9888cfc0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 91,
+      "sass": "@!P0  IMAD R10, R19, 0x200, R12",
+      "ptx": "add.s32 \t%r35, %r7, %r34;",
+      "samples": 17.0,
+      "stalls": {
+        "not_selected": 3.0,
+        "selected": 11.0,
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fca0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 746,
+      "sass": "      SHF.L.U32 R22, R33, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r342, %rs49;",
+      "samples": 17.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 2.0,
+        "short_scoreboard": 14.0
+      }
+    },
+    {
+      "pc": "0x7edb98890c90",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1105,
+      "sass": "      HSETP2.BF16_V2.GEU.AND P0, PT, R16.H0_H0, RZ.H0_H0, PT",
+      "ptx": "setp.lt.bf16 \t%p24, %rs86, %rs74;",
+      "samples": 16.0,
+      "stalls": {
+        "long_scoreboard": 16.0
+      }
+    },
+    {
+      "pc": "0x7edb98890d80",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1123,
+      "sass": "      HSETP2.BF16_V2.GEU.AND P0, PT, R15.H0_H0, RZ.H0_H0, PT",
+      "ptx": "setp.lt.bf16 \t%p25, %rs89, %rs74;",
+      "samples": 16.0,
+      "stalls": {
+        "long_scoreboard": 16.0
+      }
+    },
+    {
+      "pc": "0x7edb9888cee0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 75,
+      "sass": "      ULDC.64 UR6, c[0x0][0x208]",
+      "ptx": "{",
+      "samples": 15.0,
+      "stalls": {
+        "imc_miss": 13.0,
+        "not_selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fe30",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 772,
+      "sass": "      HSETP2.BF16_V2.GEU.AND P2, PT, R11.H0_H0, RZ.H0_H0, PT",
+      "ptx": "setp.lt.bf16 \t%p12, %rs50, %rs41;",
+      "samples": 15.0,
+      "stalls": {
+        "long_scoreboard": 15.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ff10",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 795,
+      "sass": "      HSETP2.BF16_V2.GEU.AND P2, PT, R21.H0_H0, RZ.H0_H0, PT",
+      "ptx": "setp.lt.bf16 \t%p13, %rs53, %rs41;",
+      "samples": 15.0,
+      "stalls": {
+        "long_scoreboard": 15.0
+      }
+    },
+    {
+      "pc": "0x7edb98890390",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 893,
+      "sass": "      HSETP2.BF16_V2.GEU.AND P2, PT, R12.H0_H0, RZ.H0_H0, PT",
+      "ptx": "setp.lt.bf16 \t%p18, %rs68, %rs41;",
+      "samples": 13.0,
+      "stalls": {
+        "long_scoreboard": 13.0
+      }
+    },
+    {
+      "pc": "0x7edb98890e70",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1146,
+      "sass": "      HSETP2.BF16_V2.GEU.AND P0, PT, R18.H0_H0, RZ.H0_H0, PT",
+      "ptx": "setp.lt.bf16 \t%p26, %rs92, %rs74;",
+      "samples": 13.0,
+      "stalls": {
+        "long_scoreboard": 13.0
+      }
+    },
+    {
+      "pc": "0x7edb98890a10",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1020,
+      "sass": "      IMAD.U32 R21, R20, 0x10000, RZ",
+      "ptx": "cvt.f32.bf16 \t%r461, %rs76;",
+      "samples": 13.0,
+      "stalls": {
+        "math_pipe_throttle": 2.0,
+        "not_selected": 2.0,
+        "short_scoreboard": 9.0
+      }
+    },
+    {
+      "pc": "0x7edb9888cf60",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 85,
+      "sass": "      LOP3.LUT R21, R0, 0x80, R13, 0xf8, !PT",
+      "ptx": "or.b32 \t%r10, %r33, %r1;",
+      "samples": 12.0,
+      "stalls": {
+        "selected": 7.0,
+        "wait": 5.0
+      }
+    },
+    {
+      "pc": "0x7edb98890bb0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1082,
+      "sass": "      HSETP2.BF16_V2.GEU.AND P0, PT, R6.H0_H0, RZ.H0_H0, PT",
+      "ptx": "setp.lt.bf16 \t%p23, %rs83, %rs74;",
+      "samples": 11.0,
+      "stalls": {
+        "long_scoreboard": 11.0
+      }
+    },
+    {
+      "pc": "0x7edb9888cf80",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 89,
+      "sass": "      PRMT R15, RZ, 0x7610, R15",
+      "ptx": "@%p1 bra \t$L__BB0_3;",
+      "samples": 11.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 5.0,
+        "wait": 5.0
+      }
+    },
+    {
+      "pc": "0x7edb988912a0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 164,
+      "sass": "      MOV R37, R2",
+      "ptx": "shfl.sync.bfly.b32 \t%r77, %r76, 16, 31, -1;",
+      "samples": 10.0,
+      "stalls": {
+        "branch_resolving": 2.0,
+        "drain": 5.0,
+        "selected": 1.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d100",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 76,
+      "sass": "      LEA R9, R9, UR4, 0x1",
+      "ptx": "add.s64 \t%rd33, %rd32, %rd31;",
+      "samples": 9.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0,
+        "not_selected": 2.0,
+        "selected": 1.0,
+        "wait": 5.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fc00",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 737,
+      "sass": "      LDS.U16 R31, [R34+0x180]",
+      "ptx": "ld.shared.b16 \t%rs48, [%rd131+384];",
+      "samples": 9.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 3.0,
+        "wait": 5.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d0b0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 66,
+      "sass": "      LOP3.LUT R8, R21, 0x38, R8, 0x78, !PT",
+      "ptx": "xor.b32 \t%r40, %r10, %r39;",
+      "samples": 9.0,
+      "stalls": {
+        "selected": 9.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fb90",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 751,
+      "sass": "      ISETP.GE.AND P2, PT, R21, R24, PT",
+      "ptx": "setp.lt.s32 \t%p11, %r570, %r12;",
+      "samples": 8.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "math_pipe_throttle": 5.0,
+        "not_selected": 1.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888df20",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 339,
+      "sass": "      IMAD.U32 R49, R49, 0x10000, RZ",
+      "ptx": "cvt.f32.bf16 \t%r155, %rs22;",
+      "samples": 8.0,
+      "stalls": {
+        "long_scoreboard": 8.0
+      }
+    },
+    {
+      "pc": "0x7edb988909c0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1013,
+      "sass": "      FFMA R19, R12, R18, R19",
+      "ptx": "fma.rn.f32 %r588, %r460, %r459, %r588;",
+      "samples": 8.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 3.0,
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d0f0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 71,
+      "sass": "      LEA R8, R8, UR5, 0x1",
+      "ptx": "add.s64 \t%rd30, %rd29, %rd28;",
+      "samples": 7.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "not_selected": 3.0,
+        "selected": 2.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ce00",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 37,
+      "sass": "      LDC R1, c[0x0][0x28]",
+      "ptx": "{",
+      "samples": 7.0,
+      "stalls": {
+        "no_instructions": 7.0
+      }
+    },
+    {
+      "pc": "0x7edb9888cfe0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 94,
+      "sass": "@!P0  LDC.64 R2, c[0x0][0x228]",
+      "ptx": "add.s64 \t%rd20, %rd1, %rd19;",
+      "samples": 7.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 2.0,
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d0d0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 68,
+      "sass": "      LOP3.LUT R8, R8, R9, RZ, 0xfc, !PT",
+      "ptx": "or.b32 \t%r42, %r40, %r41;",
+      "samples": 7.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 2.0,
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fc30",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 712,
+      "sass": "      FFMA R14, R23, R22, R14",
+      "ptx": "fma.rn.f32 %r577, %r335, %r336, %r577;",
+      "samples": 7.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 2.0,
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x7edb9888cff0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 100,
+      "sass": "@!P0  IMAD.WIDE.U32 R8, R11, 0x1400, R8",
+      "ptx": "add.s64 \t%rd25, %rd24, %rd21;",
+      "samples": 7.0,
+      "stalls": {
+        "selected": 7.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d040",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 102,
+      "sass": "@!P0  LEA.HI.X R11, R8, R17, R9, 0x1, P1",
+      "ptx": "add.s64 \t%rd27, %rd2, %rd26;",
+      "samples": 7.0,
+      "stalls": {
+        "selected": 7.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d020",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 89,
+      "sass": "      PRMT R16, RZ, 0x7610, R16",
+      "ptx": "@%p1 bra \t$L__BB0_3;",
+      "samples": 6.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0,
+        "wait": 5.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fbc0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 714,
+      "sass": "      LDS.U16 R26, [R34+0x80]",
+      "ptx": "ld.shared.b16 \t%rs44, [%rd131+128];",
+      "samples": 6.0,
+      "stalls": {
+        "not_selected": 2.0,
+        "selected": 1.0,
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fc10",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 722,
+      "sass": "      LDS.U16 R27, [R27]",
+      "ptx": "ld.shared.b16 \t%rs45, [%rd133];",
+      "samples": 6.0,
+      "stalls": {
+        "not_selected": 3.0,
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7edb9888cfd0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 99,
+      "sass": "@!P0  IADD3.X R9, RZ, RZ, RZ, P1, !PT",
+      "ptx": "add.s64 \t%rd24, %rd23, %rd22;",
+      "samples": 6.0,
+      "stalls": {
+        "selected": 6.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d0a0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 79,
+      "sass": "      VIADD R13, R13, 0x80",
+      "ptx": "add.s32 \t%r560, %r560, 128;",
+      "samples": 6.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 5.0
+      }
+    },
+    {
+      "pc": "0x7edb98890840",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1005,
+      "sass": "      UMOV UR5, 0xffffffff",
+      "ptx": "add.s32 \t%r580, %r580, 1;",
+      "samples": 5.0,
+      "stalls": {
+        "branch_resolving": 3.0,
+        "no_instructions": 1.0,
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d4f0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 166,
+      "sass": "      SHFL.BFLY PT, R42, R8, 0x8, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r79, %r78, 8, 31, -1;",
+      "samples": 5.0,
+      "stalls": {
+        "not_selected": 2.0,
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fae0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 695,
+      "sass": "      BRA.DIV UR5, 0x7edb98891b10",
+      "ptx": "add.s32 \t%r570, %r570, 1;",
+      "samples": 5.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 2.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fbd0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 732,
+      "sass": "      LDS.U16 R30, [R34+0x140]",
+      "ptx": "ld.shared.b16 \t%rs47, [%rd131+320];",
+      "samples": 5.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fcb0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 735,
+      "sass": "      FFMA R13, R23, R30, R13",
+      "ptx": "fma.rn.f32 %r573, %r335, %r340, %r573;",
+      "samples": 5.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 2.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d080",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 67,
+      "sass": "      SHF.L.U32 R9, R19, 0x8, RZ",
+      "ptx": "shl.b32 \t%r41, %r9, 8;",
+      "samples": 5.0,
+      "stalls": {
+        "selected": 5.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fbf0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 727,
+      "sass": "      LDS.U16 R28, [R34+0x100]",
+      "ptx": "ld.shared.b16 \t%rs46, [%rd131+256];",
+      "samples": 5.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x7edb98890970",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1037,
+      "sass": "      LDS.U16 R24, [R30+0x100]",
+      "ptx": "ld.shared.b16 \t%rs79, [%rd159+256];",
+      "samples": 5.0,
+      "stalls": {
+        "selected": 2.0,
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7edb98891150",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1209,
+      "sass": "      FADD R8, R9, 1",
+      "ptx": "add.rn.f32 \t%r498, %r495, 0f3F800000;",
+      "samples": 5.0,
+      "stalls": {
+        "short_scoreboard": 5.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fc60",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 703,
+      "sass": "      FFMA R11, R23, R12, R11",
+      "ptx": "fma.rn.f32 %r578, %r335, %r334, %r578;",
+      "samples": 5.0,
+      "stalls": {
+        "wait": 5.0
+      }
+    },
+    {
+      "pc": "0x7edb98890980",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1047,
+      "sass": "      LDS.U16 R28, [R30+0x180]",
+      "ptx": "ld.shared.b16 \t%rs81, [%rd159+384];",
+      "samples": 5.0,
+      "stalls": {
+        "wait": 5.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fac0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 695,
+      "sass": "      UMOV UR5, 0xffffffff",
+      "ptx": "add.s32 \t%r570, %r570, 1;",
+      "samples": 4.0,
+      "stalls": {
+        "branch_resolving": 4.0
+      }
+    },
+    {
+      "pc": "0x7edb98890530",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 934,
+      "sass": "@P3   EXIT",
+      "ptx": "@%p4 bra \t$L__BB0_23;",
+      "samples": 4.0,
+      "stalls": {
+        "branch_resolving": 3.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f320",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 591,
+      "sass": "      LDSM.16.M88.2 R28, [R28]",
+      "ptx": "ldmatrix.sync.aligned.m8n8.x2.shared.b16 {%r288, %r289}, [%rd114];",
+      "samples": 4.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "not_selected": 1.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fb50",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 699,
+      "sass": "      LEA R12, R12, UR4, 0x1",
+      "ptx": "add.s64 \t%rd126, %rd32, %rd125;",
+      "samples": 4.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0,
+        "not_selected": 1.0,
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ee10",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 593,
+      "sass": "      HMMA.16816.F32.BF16 R20, R16, R30, R20",
+      "ptx": "mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%r565, %r566, %r567, %r568}, {%r284, %r285, %r286, %r287}, {%r288, %r289}, {%r565, %r566, %r567, %r568};",
+      "samples": 4.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 2.0,
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fb00",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 706,
+      "sass": "      IMAD.IADD R34, R32, 0x1, R15",
+      "ptx": "add.s64 \t%rd129, %rd127, %rd128;",
+      "samples": 4.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fcd0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 748,
+      "sass": "      FFMA R9, R23, R22, R9",
+      "ptx": "fma.rn.f32 %r571, %r335, %r342, %r571;",
+      "samples": 4.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 2.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888cfa0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 99,
+      "sass": "@!P0  IADD3 R8, P1, R6, R21, RZ",
+      "ptx": "add.s64 \t%rd24, %rd23, %rd22;",
+      "samples": 4.0,
+      "stalls": {
+        "selected": 4.0
+      }
+    },
+    {
+      "pc": "0x7edb9888cfb0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 96,
+      "sass": "@!P0  IMAD R11, R5, 0x1a, R19",
+      "ptx": "add.s32 \t%r37, %r9, %r8;",
+      "samples": 4.0,
+      "stalls": {
+        "selected": 4.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d090",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 78,
+      "sass": "      VIADD R14, R14, 0x1",
+      "ptx": "add.s32 \t%r561, %r561, 1;",
+      "samples": 4.0,
+      "stalls": {
+        "selected": 4.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f8d0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 651,
+      "sass": "      FMNMX.FTZ R42, R17, R42, !PT",
+      "ptx": "max.ftz.f32 %r313, %r314, %r315;",
+      "samples": 4.0,
+      "stalls": {
+        "selected": 1.0,
+        "short_scoreboard": 3.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fbe0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 745,
+      "sass": "      LDS.U16 R33, [R33]",
+      "ptx": "ld.shared.b16 \t%rs49, [%rd135];",
+      "samples": 4.0,
+      "stalls": {
+        "selected": 2.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fc70",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 696,
+      "sass": "      IMAD.MOV.U32 R12, RZ, RZ, R21",
+      "ptx": "shfl.sync.idx.b32 \t%r335, %r27, %r570, 31, -1;",
+      "samples": 4.0,
+      "stalls": {
+        "selected": 4.0
+      }
+    },
+    {
+      "pc": "0x7edb98890870",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1006,
+      "sass": "      SHFL.IDX PT, R12, R9, R10, 0x1f",
+      "ptx": "shfl.sync.idx.b32 \t%r460, %r28, %r580, 31, -1;",
+      "samples": 4.0,
+      "stalls": {
+        "selected": 2.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb988906b0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 970,
+      "sass": "      FADD R4, R6, R42",
+      "ptx": "add.rn.f32 \t%r451, %r449, %r450;",
+      "samples": 4.0,
+      "stalls": {
+        "short_scoreboard": 4.0
+      }
+    },
+    {
+      "pc": "0x7edb9888faf0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 696,
+      "sass": "      SHFL.IDX PT, R23, R19, R21, 0x1f",
+      "ptx": "shfl.sync.idx.b32 \t%r335, %r27, %r570, 31, -1;",
+      "samples": 4.0,
+      "stalls": {
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x7edb98890860",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1005,
+      "sass": "      BRA.DIV UR5, 0x7edb98892010",
+      "ptx": "add.s32 \t%r580, %r580, 1;",
+      "samples": 3.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "not_selected": 1.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ead0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 560,
+      "sass": "      SGXT.U32 R39, R39, 0x1",
+      "ptx": "bfe.u32 \t%r276, %r1, 4, 1;",
+      "samples": 3.0,
+      "stalls": {
+        "math_pipe_throttle": 3.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ed50",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 580,
+      "sass": "      IADD3 R41, R39, 0x40, RZ",
+      "ptx": "add.s32 \t%r290, %r21, %r564;",
+      "samples": 3.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f6c0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 601,
+      "sass": "      SGXT.U32 R16, R16, 0x3",
+      "ptx": "bfe.u32 \t%r297, %r1, 2, 3;",
+      "samples": 3.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0,
+        "not_selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fc50",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 715,
+      "sass": "      SHF.L.U32 R26, R26, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r337, %rs44;",
+      "samples": 3.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0,
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e9d0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 510,
+      "sass": "      STS.U16 [R29+0x1000], RZ",
+      "ptx": "st.shared.b16 \t[%rd11+4096], 0x0000;",
+      "samples": 3.0,
+      "stalls": {
+        "mio_throttle": 1.0,
+        "not_selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890940",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1042,
+      "sass": "      LDS.U16 R26, [R30+0x140]",
+      "ptx": "ld.shared.b16 \t%rs80, [%rd159+320];",
+      "samples": 3.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb988909b0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1025,
+      "sass": "      SHF.L.U32 R22, R22, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r462, %rs77;",
+      "samples": 3.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fd10",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 740,
+      "sass": "      FFMA R20, R23, R31, R20",
+      "ptx": "fma.rn.f32 %r572, %r335, %r341, %r572;",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 2.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb988906d0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 972,
+      "sass": "      FADD R9, R4, R42",
+      "ptx": "add.rn.f32 \t%r453, %r451, %r452;",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 1.0,
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb988908b0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1052,
+      "sass": "      IADD3 R27, R11, R2, RZ",
+      "ptx": "add.s32 \t%r470, %r562, %r579;",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 3.0
+      }
+    },
+    {
+      "pc": "0x7edb98890900",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1031,
+      "sass": "      LEA R23, R21, UR4, 0x1",
+      "ptx": "add.s64 \t%rd161, %rd32, %rd160;",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 2.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890950",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1055,
+      "sass": "      LDS.U16 R29, [R29]",
+      "ptx": "ld.shared.b16 \t%rs82, [%rd163];",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb98890960",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1019,
+      "sass": "      LDS.U16 R20, [R30+0x40]",
+      "ptx": "ld.shared.b16 \t%rs76, [%rd159+64];",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 2.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890fa0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1173,
+      "sass": "      FADD R18, R8, 1",
+      "ptx": "add.rn.f32 \t%r490, %r487, 0f3F800000;",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 1.0,
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f020",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 593,
+      "sass": "      HMMA.16816.F32.BF16 R20, R12, R28, R20",
+      "ptx": "mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%r565, %r566, %r567, %r568}, {%r284, %r285, %r286, %r287}, {%r288, %r289}, {%r565, %r566, %r567, %r568};",
+      "samples": 3.0,
+      "stalls": {
+        "short_scoreboard": 3.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f950",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 662,
+      "sass": "      FADD R15, R9, R42",
+      "ptx": "add.rn.f32 \t%r328, %r326, %r327;",
+      "samples": 3.0,
+      "stalls": {
+        "short_scoreboard": 3.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f970",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 664,
+      "sass": "      FADD R16, R15, R42",
+      "ptx": "add.rn.f32 \t%r330, %r328, %r329;",
+      "samples": 3.0,
+      "stalls": {
+        "short_scoreboard": 3.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f990",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 666,
+      "sass": "      FADD R17, R16, R17",
+      "ptx": "add.rn.f32 \t%r332, %r330, %r331;",
+      "samples": 3.0,
+      "stalls": {
+        "short_scoreboard": 3.0
+      }
+    },
+    {
+      "pc": "0x7edb98890080",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 823,
+      "sass": "@!P2  FMUL R23, R24, R23",
+      "ptx": "mul.rn.f32 \t%r396, %r354, %r356;",
+      "samples": 3.0,
+      "stalls": {
+        "short_scoreboard": 3.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f690",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 593,
+      "sass": "      HMMA.16816.F32.BF16 R12, R12, R28, R16",
+      "ptx": "mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%r565, %r566, %r567, %r568}, {%r284, %r285, %r286, %r287}, {%r288, %r289}, {%r565, %r566, %r567, %r568};",
+      "samples": 3.0,
+      "stalls": {
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fd40",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 752,
+      "sass": "      BSYNC B1",
+      "ptx": "@%p11 bra \t$L__BB0_14;",
+      "samples": 3.0,
+      "stalls": {
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7edb98890250",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 869,
+      "sass": "      F2FP.BF16.F32.PACK_AB R26, RZ, R26",
+      "ptx": "cvt.rn.bf16.f32 \t%rs63, %r411;",
+      "samples": 3.0,
+      "stalls": {
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7edb98890a80",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1050,
+      "sass": "      FFMA R13, R12, R28, R13",
+      "ptx": "fma.rn.f32 %r582, %r460, %r466, %r582;",
+      "samples": 3.0,
+      "stalls": {
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e590",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 463,
+      "sass": "      SHF.L.U32 R35, R4, 0x3, RZ",
+      "ptx": "shl.b32 \t%r237, %r19, 3;",
+      "samples": 2.0,
+      "stalls": {
+        "branch_resolving": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f510",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 590,
+      "sass": "      LEA R30, R43, UR5, 0x1",
+      "ptx": "add.s64 \t%rd114, %rd113, %rd29;",
+      "samples": 2.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb988909f0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1056,
+      "sass": "      SHF.L.U32 R29, R29, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r467, %rs82;",
+      "samples": 2.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98891090",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1197,
+      "sass": "      F2FP.BF16.F32.PACK_AB R15, RZ, R15",
+      "ptx": "cvt.rn.bf16.f32 \t%rs99, %r541;",
+      "samples": 2.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d360",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 120,
+      "sass": "      SHF.L.U32 R3, R12, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r49, %rs1;",
+      "samples": 2.0,
+      "stalls": {
+        "long_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d3c0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 136,
+      "sass": "      SHF.L.U32 R11, R14, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r55, %rs4;",
+      "samples": 2.0,
+      "stalls": {
+        "long_scoreboard": 1.0,
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d7d0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 241,
+      "sass": "      SHF.L.U32 R31, R31, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r124, %rs19;",
+      "samples": 2.0,
+      "stalls": {
+        "long_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888dfb0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 350,
+      "sass": "      IMAD.U32 R35, R37, 0x10000, RZ",
+      "ptx": "cvt.f32.bf16 \t%r161, %rs25;",
+      "samples": 2.0,
+      "stalls": {
+        "long_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e260",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 387,
+      "sass": "      FADD R18, R42, 9.9999999747524270788e-07",
+      "ptx": "add.rn.f32 \t%r150, %r192, 0f358637BD;",
+      "samples": 2.0,
+      "stalls": {
+        "long_scoreboard": 1.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ffe0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 829,
+      "sass": "      LOP3.LUT R27, R25, 0x160, R0, 0xfe, !PT",
+      "ptx": "or.b32 \t%r399, %r398, 352;",
+      "samples": 2.0,
+      "stalls": {
+        "long_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d260",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 125,
+      "sass": "      LEA.HI.X R9, R6, UR9, R9, 0x1, P0",
+      "ptx": "add.s64 \t%rd40, %rd2, %rd39;",
+      "samples": 2.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0,
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890d20",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1117,
+      "sass": "      F2FP.BF16.F32.PACK_AB R19, RZ, R19",
+      "ptx": "cvt.rn.bf16.f32 \t%rs87, %r517;",
+      "samples": 2.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d2d0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 135,
+      "sass": "      LDG.E.U16 R14, desc[UR6][R14.64]",
+      "ptx": "ld.global.b16 \t%rs4, [%rd42];",
+      "samples": 2.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d9a0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 249,
+      "sass": "      F2FP.BF16.F32.PACK_AB R4, R31, R4",
+      "ptx": "add.rn.f32 \t%r131, %r129, %r130;",
+      "samples": 2.0,
+      "stalls": {
+        "not_selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e270",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 389,
+      "sass": "      MUFU.RSQ R18, R18",
+      "ptx": "rsqrt.approx.ftz.f32 %r149, %r150;",
+      "samples": 2.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e690",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 514,
+      "sass": "      SHF.L.U32 R35, R39, 0x3, RZ",
+      "ptx": "shl.b32 \t%r256, %r255, 3;",
+      "samples": 2.0,
+      "stalls": {
+        "not_selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ea30",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 536,
+      "sass": "      STS.U16 [R36], RZ",
+      "ptx": "st.shared.b16 \t[%rd102], 0x0000;",
+      "samples": 2.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f050",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 582,
+      "sass": "      VIADD R40, R36, 0x70",
+      "ptx": "add.s32 \t%r292, %r23, %r564;",
+      "samples": 2.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f890",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 643,
+      "sass": "      FMNMX.FTZ R16, R15, R42, !PT",
+      "ptx": "max.ftz.f32 %r311, %r309, %r310;",
+      "samples": 2.0,
+      "stalls": {
+        "not_selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fb40",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 708,
+      "sass": "      LEA R34, R34, UR4, 0x1",
+      "ptx": "add.s64 \t%rd131, %rd32, %rd130;",
+      "samples": 2.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890400",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 903,
+      "sass": "@!P2  FMUL R23, R16, R23",
+      "ptx": "mul.rn.f32 \t%r420, %r370, %r372;",
+      "samples": 2.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890a00",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1045,
+      "sass": "      FFMA R6, R12, R27, R6",
+      "ptx": "fma.rn.f32 %r583, %r460, %r465, %r583;",
+      "samples": 2.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d070",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 64,
+      "sass": "      IMAD.SHL.U32 R8, R19, 0x8, RZ",
+      "ptx": "shl.b32 \t%r38, %r9, 3;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d5d0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 227,
+      "sass": "      LOP3.LUT R2, R0, 0xe0, RZ, 0xfc, !PT",
+      "ptx": "or.b32 \t%r562, %r1, 224;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f7e0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 632,
+      "sass": "      ISETP.GT.OR P4, PT, R32, R24, P0",
+      "ptx": "selp.f32 \t%r305, 0fF149F2CA, %r322, %p10;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fad0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 695,
+      "sass": "      IADD3 R21, R12, 0x1, RZ",
+      "ptx": "add.s32 \t%r570, %r570, 1;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fb60",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 744,
+      "sass": "      LEA R33, R29, UR4, 0x1",
+      "ptx": "add.s64 \t%rd135, %rd32, %rd134;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fb80",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 721,
+      "sass": "      LEA R27, R27, UR4, 0x1",
+      "ptx": "add.s64 \t%rd133, %rd32, %rd132;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fcc0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 728,
+      "sass": "      IMAD.U32 R29, R28, 0x10000, RZ",
+      "ptx": "cvt.f32.bf16 \t%r339, %rs46;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fd00",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 723,
+      "sass": "      IMAD.U32 R27, R27, 0x10000, RZ",
+      "ptx": "cvt.f32.bf16 \t%r338, %rs45;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fec0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 784,
+      "sass": "      F2FP.BF16.F32.PACK_AB R10, RZ, R24",
+      "ptx": "cvt.rn.bf16.f32 \t%rs51, %r384;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890140",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 838,
+      "sass": "      FMUL R24, R24, 1.4426950216293334961",
+      "ptx": "mul.rn.f32 \t%r359, %r403, 0f3FB8AA3B;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb988905d0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 945,
+      "sass": "      FMNMX.FTZ R6, R4, R42, !PT",
+      "ptx": "max.ftz.f32 %r432, %r430, %r431;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890880",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1016,
+      "sass": "      IMAD.IADD R30, R32, 0x1, R11",
+      "ptx": "add.s64 \t%rd157, %rd155, %rd156;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb988908e0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1054,
+      "sass": "      LEA R29, R27, UR4, 0x1",
+      "ptx": "add.s64 \t%rd163, %rd32, %rd162;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb988909e0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1027,
+      "sass": "      FFMA R17, R12, R22, R17",
+      "ptx": "fma.rn.f32 %r586, %r460, %r462, %r586;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb98890a30",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1038,
+      "sass": "      IMAD.U32 R24, R24, 0x10000, RZ",
+      "ptx": "cvt.f32.bf16 \t%r464, %rs79;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb98890a40",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1022,
+      "sass": "      FFMA R16, R12, R21, R16",
+      "ptx": "fma.rn.f32 %r587, %r460, %r461, %r587;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890a90",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1035,
+      "sass": "      FFMA R14, R12, R23, R14",
+      "ptx": "fma.rn.f32 %r585, %r460, %r463, %r585;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb988910a0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1198,
+      "sass": "      HMUL2.BF16_V2 R15, R9.H1_H1, R15.H0_H0",
+      "ptx": "mul.rn.bf16 \t%rs100, %rs138, %rs99;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d4e0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 165,
+      "sass": "      FADD R8, R2, R42",
+      "ptx": "add.rn.f32 \t%r78, %r77, %r76;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d500",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 167,
+      "sass": "      FADD R15, R8, R42",
+      "ptx": "add.rn.f32 \t%r80, %r79, %r78;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d540",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 171,
+      "sass": "      FADD R35, R16, R42",
+      "ptx": "add.rn.f32 \t%r84, %r83, %r82;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d6d0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 183,
+      "sass": "      FMUL R3, R3, R42",
+      "ptx": "mul.rn.f32 \t%r90, %r44, %r49;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e0d0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 379,
+      "sass": "      FADD R17, R16, R42",
+      "ptx": "add.rn.f32 \t%r185, %r184, %r183;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888edd0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 593,
+      "sass": "      HMMA.16816.F32.BF16 R20, R20, R12, RZ",
+      "ptx": "mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%r565, %r566, %r567, %r568}, {%r284, %r285, %r286, %r287}, {%r288, %r289}, {%r565, %r566, %r567, %r568};",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ef70",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 593,
+      "sass": "      HMMA.16816.F32.BF16 R20, R16, R30, R20",
+      "ptx": "mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%r565, %r566, %r567, %r568}, {%r284, %r285, %r286, %r287}, {%r288, %r289}, {%r565, %r566, %r567, %r568};",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f500",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 593,
+      "sass": "      HMMA.16816.F32.BF16 R20, R16, R30, R20",
+      "ptx": "mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%r565, %r566, %r567, %r568}, {%r284, %r285, %r286, %r287}, {%r288, %r289}, {%r565, %r566, %r567, %r568};",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f640",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 593,
+      "sass": "      HMMA.16816.F32.BF16 R16, R16, R30, R20",
+      "ptx": "mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%r565, %r566, %r567, %r568}, {%r284, %r285, %r286, %r287}, {%r288, %r289}, {%r565, %r566, %r567, %r568};",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f810",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 629,
+      "sass": "      FMUL R11, R9, 0.0625",
+      "ptx": "mul.rn.f32 \t%r322, %r321, 0f3D800000;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f850",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 635,
+      "sass": "      FMNMX.FTZ R9, R11, R42, !PT",
+      "ptx": "max.ftz.f32 %r307, %r305, %r306;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f910",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 658,
+      "sass": "      FSEL R11, R42, RZ, !P4",
+      "ptx": "selp.f32 \t%r324, 0f00000000, %r316, %p10;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f9b0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 668,
+      "sass": "      FADD R42, R17, R42",
+      "ptx": "add.rn.f32 \t%r319, %r332, %r333;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb988904c0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 921,
+      "sass": "      FADD R13, R12, 1",
+      "ptx": "add.rn.f32 \t%r377, %r374, 0f3F800000;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb988906f0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 974,
+      "sass": "      FADD R10, R9, R42",
+      "ptx": "add.rn.f32 \t%r455, %r453, %r454;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98891060",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1191,
+      "sass": "      FADD R8, R14, 1",
+      "ptx": "add.rn.f32 \t%r494, %r491, 0f3F800000;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ce20",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 70,
+      "sass": "      S2UR UR6, SR_CgaCtaId",
+      "ptx": "mov.b64 \t%rd29, __wg_fused_qnorm_attention_mma_q8_2;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888def0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 353,
+      "sass": "      LDG.E.U16 R43, desc[UR6][R12.64+0x180]",
+      "ptx": "ld.global.b16 \t%rs27, [%rd67+384];",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f760",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 617,
+      "sass": "@!UPT UIADD3 URZ, URZ, URZ, URZ",
+      "ptx": "add.s64 \t%rd122, %rd116, %rd121;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ff50",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 799,
+      "sass": "      MUFU.EX2 R21, R21",
+      "ptx": "ex2.approx.ftz.f32 %r350, %r351;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb98890460",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 931,
+      "sass": "      IMAD.WIDE.U32 R14, R19, 0x2, R14",
+      "ptx": "add.s64 \t%rd150, %rd5, %rd149;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb98890930",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1024,
+      "sass": "      LDS.U16 R22, [R30+0x80]",
+      "ptx": "ld.shared.b16 \t%rs77, [%rd159+128];",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb98890990",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1032,
+      "sass": "      LDS.U16 R23, [R23]",
+      "ptx": "ld.shared.b16 \t%rs78, [%rd161];",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb98890a60",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1040,
+      "sass": "      FFMA R15, R12, R24, R15",
+      "ptx": "fma.rn.f32 %r584, %r460, %r464, %r584;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb98890ab0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1062,
+      "sass": "      BSYNC B0",
+      "ptx": "@%p22 bra \t$L__BB0_20;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb98891180",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1215,
+      "sass": "      F2FP.BF16.F32.PACK_AB R14, RZ, R14",
+      "ptx": "cvt.rn.bf16.f32 \t%rs102, %r546;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f7b0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 624,
+      "sass": "@P2   BRA 0x7edb98890520",
+      "ptx": "@%p7 bra \t$L__BB0_17;",
+      "samples": 1.0,
+      "stalls": {
+        "barrier": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888da40",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 263,
+      "sass": "      BSYNC B0",
+      "ptx": "mov.b16 \t%rs116, %rs109;",
+      "samples": 1.0,
+      "stalls": {
+        "branch_resolving": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d640",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 209,
+      "sass": "      LDG.E.U16 R21, desc[UR6][R22.64+0x100]",
+      "ptx": "ld.global.b16 \t%rs15, [%rd45+256];",
+      "samples": 1.0,
+      "stalls": {
+        "dispatch_stall": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888dda0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 327,
+      "sass": "      IMAD R35, R5, 0x1400, RZ",
+      "ptx": "mul.lo.s32 \t%r152, %r556, 5120;",
+      "samples": 1.0,
+      "stalls": {
+        "dispatch_stall": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e990",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 506,
+      "sass": "      STS.U16 [R21+0x1000], RZ",
+      "ptx": "st.shared.b16 \t[%rd7+4096], 0x0000;",
+      "samples": 1.0,
+      "stalls": {
+        "dispatch_stall": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e9a0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 507,
+      "sass": "      STS.U16 [R22+0x1000], RZ",
+      "ptx": "st.shared.b16 \t[%rd8+4096], 0x0000;",
+      "samples": 1.0,
+      "stalls": {
+        "dispatch_stall": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888eb90",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 588,
+      "sass": "      IMAD.IADD R13, R34, 0x1, R13",
+      "ptx": "add.s32 \t%r295, %r293, %r26;",
+      "samples": 1.0,
+      "stalls": {
+        "dispatch_stall": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f2f0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 590,
+      "sass": "      LEA R28, R43, UR5, 0x1",
+      "ptx": "add.s64 \t%rd114, %rd113, %rd29;",
+      "samples": 1.0,
+      "stalls": {
+        "dispatch_stall": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f660",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 586,
+      "sass": "      LEA R20, R38, R33, 0x1",
+      "ptx": "add.s64 \t%rd112, %rd111, %rd53;",
+      "samples": 1.0,
+      "stalls": {
+        "dispatch_stall": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fce0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 738,
+      "sass": "      IMAD.U32 R31, R31, 0x10000, RZ",
+      "ptx": "cvt.f32.bf16 \t%r341, %rs48;",
+      "samples": 1.0,
+      "stalls": {
+        "dispatch_stall": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890480",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 913,
+      "sass": "      SHF.L.U32 R12, R20, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r424, %rs71;",
+      "samples": 1.0,
+      "stalls": {
+        "dispatch_stall": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890d70",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1140,
+      "sass": "      IMAD.IADD R19, R3, 0x1, R22",
+      "ptx": "add.s32 \t%r525, %r504, %r524;",
+      "samples": 1.0,
+      "stalls": {
+        "long_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d460",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 148,
+      "sass": "      IMAD.U32 R20, R16, 0x10000, RZ",
+      "ptx": "cvt.f32.bf16 \t%r61, %rs8;",
+      "samples": 1.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888dbb0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 271,
+      "sass": "      LEA R20, R20, R33, 0x1",
+      "ptx": "add.s64 \t%rd6, %rd53, %rd52;",
+      "samples": 1.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888de20",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 337,
+      "sass": "      LEA R12, P0, R13, UR8, 0x1",
+      "ptx": "add.s64 \t%rd67, %rd2, %rd66;",
+      "samples": 1.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e550",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 418,
+      "sass": "      F2FP.BF16.F32.PACK_AB R15, R36, R15",
+      "ptx": "mul.rn.f32 \t%r210, %r209, %r208;",
+      "samples": 1.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888edc0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 623,
+      "sass": "      SHF.L.U32 R7, R7, 0x8, RZ",
+      "ptx": "shl.b32 \t%r555, %r4, 8;",
+      "samples": 1.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ee40",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 582,
+      "sass": "      VIADD R40, R36, 0x40",
+      "ptx": "add.s32 \t%r292, %r23, %r564;",
+      "samples": 1.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ef80",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 590,
+      "sass": "      LEA R30, R43, UR5, 0x1",
+      "ptx": "add.s64 \t%rd114, %rd113, %rd29;",
+      "samples": 1.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f4d0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 580,
+      "sass": "      IADD3 R41, R39, 0xe0, RZ",
+      "ptx": "add.s32 \t%r290, %r21, %r564;",
+      "samples": 1.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f560",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 583,
+      "sass": "      LOP3.LUT R43, R40, R37, RZ, 0x3c, !PT",
+      "ptx": "xor.b32 \t%r293, %r292, %r24;",
+      "samples": 1.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d2c0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 119,
+      "sass": "      LDG.E.U16 R12, desc[UR6][R12.64]",
+      "ptx": "ld.global.b16 \t%rs1, [%rd35];",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d2f0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 137,
+      "sass": "      LDG.E.U16 R18, desc[UR6][R8.64+0x100]",
+      "ptx": "ld.global.b16 \t%rs5, [%rd40+256];",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d330",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 147,
+      "sass": "      LDG.E.U16 R16, desc[UR6][R16.64]",
+      "ptx": "ld.global.b16 \t%rs8, [%rd44];",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d530",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 170,
+      "sass": "      SHFL.BFLY PT, R42, R16, 0x2, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r83, %r82, 2, 31, -1;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d590",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 180,
+      "sass": "      LDG.E.U16 R36, desc[UR6][R22.64]",
+      "ptx": "ld.global.b16 \t%rs9, [%rd45];",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888daf0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 280,
+      "sass": "      LOP3.LUT R17, R11, 0x40, R32, 0x1e, !PT",
+      "ptx": "xor.b32 \t%r137, %r15, %r13;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888db40",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 303,
+      "sass": "      LOP3.LUT R15, R11, 0xc0, R32, 0x1e, !PT",
+      "ptx": "xor.b32 \t%r145, %r18, %r13;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888db50",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 307,
+      "sass": "      PRMT R36, R12, 0x7610, R36",
+      "ptx": "st.shared.b16 \t[%rd12], %rs110;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888dc60",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 325,
+      "sass": "      PRMT R13, RZ, 0x5410, RZ",
+      "ptx": "@%p4 bra \t$L__BB0_9;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888dd70",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 312,
+      "sass": "      STS.U16 [R31], R37",
+      "ptx": "st.shared.b16 \t[%rd13], %rs109;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888de30",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 337,
+      "sass": "      LEA.HI.X R13, R13, UR9, R18, 0x1, P0",
+      "ptx": "add.s64 \t%rd67, %rd2, %rd66;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888de90",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 331,
+      "sass": "      LDG.E.U16 R16, desc[UR6][R16.64]",
+      "ptx": "ld.global.b16 \t%rs21, [%rd62];",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e230",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 440,
+      "sass": "      LDG.E.U16 R16, desc[UR6][R16.64]",
+      "ptx": "ld.global.b16 \t%rs38, [%rd76];",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e720",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 496,
+      "sass": "      LOP3.LUT R34, R44, R37, RZ, 0xfc, !PT",
+      "ptx": "or.b32 \t%r252, %r251, %r239;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e790",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 542,
+      "sass": "      LOP3.LUT R42, R41, 0xa0, R32, 0x1e, !PT",
+      "ptx": "xor.b32 \t%r269, %r257, %r17;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e800",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 518,
+      "sass": "      LOP3.LUT R46, R46, R35, RZ, 0xfc, !PT",
+      "ptx": "or.b32 \t%r260, %r258, %r259;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ef00",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 591,
+      "sass": "      LDSM.16.M88.2 R28, [R28]",
+      "ptx": "ldmatrix.sync.aligned.m8n8.x2.shared.b16 {%r288, %r289}, [%rd114];",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ef60",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 584,
+      "sass": "      IMAD.IADD R40, R35, 0x1, R40",
+      "ptx": "add.s32 \t%r294, %r291, %r25;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f230",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 593,
+      "sass": "      HMMA.16816.F32.BF16 R20, R16, R30, R20",
+      "ptx": "mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%r565, %r566, %r567, %r568}, {%r284, %r285, %r286, %r287}, {%r288, %r289}, {%r565, %r566, %r567, %r568};",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f3a0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 590,
+      "sass": "      LEA R30, R43, UR5, 0x1",
+      "ptx": "add.s64 \t%rd114, %rd113, %rd29;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f600",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 590,
+      "sass": "      LEA R28, R43, UR5, 0x1",
+      "ptx": "add.s64 \t%rd114, %rd113, %rd29;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f710",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 608,
+      "sass": "      IADD3 R9, R18, R17, RZ",
+      "ptx": "add.s32 \t%r304, %r303, %r302;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f960",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 663,
+      "sass": "      SHFL.BFLY PT, R42, R15, 0x4, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r329, %r328, 4, 31, -1;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890270",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 871,
+      "sass": "      STG.E.U16 desc[UR6][R10.64+0x100], R26",
+      "ptx": "st.global.b16 \t[%rd142+256], %rs64;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890380",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 911,
+      "sass": "      IMAD.WIDE.U32 R20, R27, 0x2, R20",
+      "ptx": "add.s64 \t%rd148, %rd2, %rd147;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890420",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 906,
+      "sass": "      HMUL2.BF16_V2 R23, R9.H0_H0, R23.H0_H0",
+      "ptx": "mul.rn.bf16 \t%rs70, %rs131, %rs69;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb988904b0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 919,
+      "sass": "      MUFU.EX2 R12, R12",
+      "ptx": "ex2.approx.ftz.f32 %r374, %r375;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890500",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 928,
+      "sass": "      HMUL2.BF16_V2 R17, R9.H1_H1, R17.H0_H0",
+      "ptx": "mul.rn.bf16 \t%rs73, %rs132, %rs72;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890630",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 957,
+      "sass": "      FMNMX.FTZ R11, R10, R42, !PT",
+      "ptx": "max.ftz.f32 %r439, %r436, %r437;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890760",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 991,
+      "sass": "      PRMT R9, RZ, 0x5410, RZ",
+      "ptx": "@%p32 bra \t$L__BB0_22;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890f80",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1169,
+      "sass": "      FMUL R8, R8, 1.4426950216293334961",
+      "ptx": "mul.rn.f32 \t%r488, %r534, 0f3FB8AA3B;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb988910f0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1221,
+      "sass": "      IMAD.WIDE.U32 R16, R3, 0x2, R16",
+      "ptx": "add.s64 \t%rd176, %rd2, %rd175;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ce50",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 49,
+      "sass": "      S2R R27, SR_CTAID.X",
+      "ptx": "mov.u32 \t%r29, %ctaid.x;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d000",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 92,
+      "sass": "@!P0  LOP3.LUT R11, R10, R21, RZ, 0xfc, !PT",
+      "ptx": "or.b32 \t%r36, %r35, %r10;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d130",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 81,
+      "sass": "@P0   BRA 0x7edb9888cf50",
+      "ptx": "@!%p2 bra \t$L__BB0_4;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d150",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 109,
+      "sass": "      BSSY B0, 0x7edb9888da50",
+      "ptx": "add.s32 \t%r557, %r12, %r8;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d550",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 172,
+      "sass": "      SHFL.BFLY PT, R42, R35, 0x1, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r85, %r84, 1, 31, -1;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d580",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 179,
+      "sass": "      IMAD.WIDE.U32 R22, R32, 0x2, R12",
+      "ptx": "add.s64 \t%rd45, %rd3, %rd179;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d710",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 197,
+      "sass": "      FMUL R6, R6, R42",
+      "ptx": "mul.rn.f32 \t%r100, %r44, %r51;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d810",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 243,
+      "sass": "      SHF.L.U32 R33, R33, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r125, %rs20;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d850",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 244,
+      "sass": "      FMUL R15, R3, R31",
+      "ptx": "mul.rn.f32 \t%r126, %r92, %r124;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888da60",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 270,
+      "sass": "      MOV R9, 0x400",
+      "ptx": "mov.b64 \t%rd53, __wg_fused_qnorm_attention_mma_q8_3;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888db20",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 284,
+      "sass": "      PRMT R17, R3, 0x7610, R17",
+      "ptx": "st.shared.b16 \t[%rd8], %rs114;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888dd10",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 325,
+      "sass": "      PRMT R15, RZ, 0x5410, RZ",
+      "ptx": "@%p4 bra \t$L__BB0_9;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e100",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 382,
+      "sass": "      SHFL.BFLY PT, R42, R18, 0x2, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r188, %r187, 2, 31, -1;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e330",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 401,
+      "sass": "      FADD R48, R48, 1",
+      "ptx": "add.rn.f32 \t%r199, %r198, 0f3F800000;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e3a0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 427,
+      "sass": "      SHF.L.U32 R41, R41, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r215, %rs36;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e5b0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 513,
+      "sass": "      LOP3.LUT R39, R26, 0xc, RZ, 0xfc, !PT",
+      "ptx": "or.b32 \t%r255, %r11, 12;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e6a0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 471,
+      "sass": "      LOP3.LUT R52, R18, R37, RZ, 0xfc, !PT",
+      "ptx": "or.b32 \t%r242, %r241, %r239;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e810",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 479,
+      "sass": "      STS.U16 [R37], R15",
+      "ptx": "st.shared.b16 \t[%rd84], %rs122;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e910",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 520,
+      "sass": "      LEA R46, R46, R33, 0x1",
+      "ptx": "add.s64 \t%rd96, %rd53, %rd95;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888eb10",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 573,
+      "sass": "      IMAD R34, R26, 0x8, R13",
+      "ptx": "or.b32 \t%r26, %r282, %r283;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ebd0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 582,
+      "sass": "      VIADD R14, R36, 0x10",
+      "ptx": "add.s32 \t%r292, %r23, %r564;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ec90",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 587,
+      "sass": "      LDSM.16.M88.4 R20, [R20]",
+      "ptx": "ldmatrix.sync.aligned.m8n8.x4.shared.b16 {%r284, %r285, %r286, %r287}, [%rd112];",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888eca0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 581,
+      "sass": "      LOP3.LUT R28, R15, R38, RZ, 0x3c, !PT",
+      "ptx": "xor.b32 \t%r291, %r290, %r22;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ed90",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 610,
+      "sass": "      LEA R6, R6, R9, 0x18",
+      "ptx": "mov.b64 \t%rd116, __wg_fused_qnorm_attention_mma_q8_0;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888eef0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 582,
+      "sass": "      VIADD R40, R36, 0x50",
+      "ptx": "add.s32 \t%r292, %r23, %r564;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ef20",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 587,
+      "sass": "      LDSM.16.M88.4 R12, [R12]",
+      "ptx": "ldmatrix.sync.aligned.m8n8.x4.shared.b16 {%r284, %r285, %r286, %r287}, [%rd112];",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f1b0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 582,
+      "sass": "      IADD3 R40, R36, 0x90, RZ",
+      "ptx": "add.s32 \t%r292, %r23, %r564;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f270",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 591,
+      "sass": "      LDSM.16.M88.2 R30, [R30]",
+      "ptx": "ldmatrix.sync.aligned.m8n8.x2.shared.b16 {%r288, %r289}, [%rd114];",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f350",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 587,
+      "sass": "      LDSM.16.M88.4 R12, [R12]",
+      "ptx": "ldmatrix.sync.aligned.m8n8.x4.shared.b16 {%r284, %r285, %r286, %r287}, [%rd112];",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f4b0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 587,
+      "sass": "      LDSM.16.M88.4 R12, [R12]",
+      "ptx": "ldmatrix.sync.aligned.m8n8.x4.shared.b16 {%r284, %r285, %r286, %r287}, [%rd112];",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f650",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 590,
+      "sass": "      LEA R30, R37, UR5, 0x1",
+      "ptx": "add.s64 \t%rd114, %rd113, %rd29;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fa70",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 693,
+      "sass": "      IMAD.MOV.U32 R13, RZ, RZ, RZ",
+      "ptx": "mov.b32 \t%r578, %r571;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fb10",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 697,
+      "sass": "      IADD3 R12, R32, R15, RZ",
+      "ptx": "add.s32 \t%r343, %r2, %r569;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fb30",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 742,
+      "sass": "      IADD3 R29, R15, R2, RZ",
+      "ptx": "add.s32 \t%r345, %r562, %r569;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fb70",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 709,
+      "sass": "      LDS.U16 R22, [R34+0x40]",
+      "ptx": "ld.shared.b16 \t%rs43, [%rd131+64];",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fba0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 700,
+      "sass": "      LDS.U16 R12, [R12]",
+      "ptx": "ld.shared.b16 \t%rs42, [%rd126];",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fbb0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 750,
+      "sass": "      IADD3 R15, R15, 0x100, RZ",
+      "ptx": "add.s32 \t%r569, %r569, 256;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fc20",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 710,
+      "sass": "      IMAD.U32 R22, R22, 0x10000, RZ",
+      "ptx": "cvt.f32.bf16 \t%r336, %rs43;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fc40",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 701,
+      "sass": "      SHF.L.U32 R12, R12, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r334, %rs42;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fc90",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 717,
+      "sass": "      FFMA R17, R23, R26, R17",
+      "ptx": "fma.rn.f32 %r576, %r335, %r337, %r576;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fd20",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 725,
+      "sass": "      FFMA R18, R23, R27, R18",
+      "ptx": "fma.rn.f32 %r575, %r335, %r338, %r575;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fe50",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 773,
+      "sass": "      FSEL R11, R11, -R11, !P2",
+      "ptx": "selp.f32 \t%r382, %r380, %r381, %p12;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fe60",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 774,
+      "sass": "      FMUL R21, R11, 1.4426950216293334961",
+      "ptx": "mul.rn.f32 \t%r347, %r382, 0f3FB8AA3B;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ff20",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 793,
+      "sass": "      SHF.L.U32 R21, R21, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r388, %rs53;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ffb0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 809,
+      "sass": "      PRMT R27, R24, 0x7610, R27",
+      "ptx": "st.global.b16 \t[%rd142+64], %rs55;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890300",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 885,
+      "sass": "@!P2  FMUL R23, R22, R23",
+      "ptx": "mul.rn.f32 \t%r415, %r366, %r368;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890370",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 909,
+      "sass": "      IMAD.IADD R27, R18, 0x1, R27",
+      "ptx": "add.s32 \t%r423, %r379, %r422;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb988905e0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 947,
+      "sass": "      SHFL.BFLY PT, R42, R6, 0x8, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r433, %r432, 8, 31, -1;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890790",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 980,
+      "sass": "      MUFU.RCP R9, R42",
+      "ptx": "rcp.approx.ftz.f32 %r443, %r444;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890920",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1061,
+      "sass": "      ISETP.GE.AND P0, PT, R10, R3, PT",
+      "ptx": "setp.lt.s32 \t%p22, %r580, %r20;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890a50",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1048,
+      "sass": "      IMAD.U32 R28, R28, 0x10000, RZ",
+      "ptx": "cvt.f32.bf16 \t%r466, %rs81;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890a70",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1033,
+      "sass": "      IMAD.U32 R23, R23, 0x10000, RZ",
+      "ptx": "cvt.f32.bf16 \t%r463, %rs78;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890ae0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1062,
+      "sass": "      F2FP.BF16.F32.PACK_AB R14, R14, R17",
+      "ptx": "@%p22 bra \t$L__BB0_20;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890b10",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1072,
+      "sass": "      LOP3.LUT R6, R25, 0x1f, R0, 0xf8, !PT",
+      "ptx": "or.b32 \t%r503, %r558, %r2;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890cf0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1113,
+      "sass": "      MUFU.RCP R19, R17",
+      "ptx": "rcp.approx.ftz.f32 %r477, %r478;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890f10",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1162,
+      "sass": "      IMAD.WIDE.U32 R14, R23, 0x2, R12",
+      "ptx": "add.s64 \t%rd174, %rd5, %rd173;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890f70",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1168,
+      "sass": "      FSEL R8, R8, -R8, !P0",
+      "ptx": "selp.f32 \t%r534, %r532, %r533, %p27;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890fd0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1179,
+      "sass": "      F2FP.BF16.F32.PACK_AB R19, RZ, R19",
+      "ptx": "cvt.rn.bf16.f32 \t%rs96, %r536;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb988910d0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1218,
+      "sass": "      LOP3.LUT R0, R25, 0x1e0, R0, 0xfe, !PT",
+      "ptx": "or.b32 \t%r547, %r523, 480;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98891160",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1211,
+      "sass": "      MUFU.RCP R14, R8",
+      "ptx": "rcp.approx.ftz.f32 %r497, %r498;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb988911f0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1223,
+      "sass": "      IMAD.U32 R0, R16, 0x10000, RZ",
+      "ptx": "cvt.f32.bf16 \t%r549, %rs104;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98891280",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1242,
+      "sass": "      STG.E.U16 desc[UR6][R12.64], R9",
+      "ptx": "st.global.b16 \t[%rd178], %rs106;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98891290",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1244,
+      "sass": "      EXIT",
+      "ptx": "ret;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888cec0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 70,
+      "sass": "      ULEA UR5, UR6, UR5, 0x18",
+      "ptx": "mov.b64 \t%rd29, __wg_fused_qnorm_attention_mma_q8_2;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d520",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 169,
+      "sass": "      FADD R16, R15, R42",
+      "ptx": "add.rn.f32 \t%r82, %r81, %r80;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e0b0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 377,
+      "sass": "      FADD R16, R15, R42",
+      "ptx": "add.rn.f32 \t%r183, %r182, %r181;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e0f0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 381,
+      "sass": "      FADD R18, R17, R42",
+      "ptx": "add.rn.f32 \t%r187, %r186, %r185;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e110",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 383,
+      "sass": "      FADD R39, R18, R42",
+      "ptx": "add.rn.f32 \t%r189, %r188, %r187;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ea90",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 564,
+      "sass": "      IMAD.SHL.U32 R38, R0, 0x8, RZ",
+      "ptx": "shl.b32 \t%r279, %r1, 3;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888eec0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 593,
+      "sass": "      HMMA.16816.F32.BF16 R20, R12, R28, R20",
+      "ptx": "mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%r565, %r566, %r567, %r568}, {%r284, %r285, %r286, %r287}, {%r288, %r289}, {%r565, %r566, %r567, %r568};",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f0d0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 593,
+      "sass": "      HMMA.16816.F32.BF16 R20, R16, R30, R20",
+      "ptx": "mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%r565, %r566, %r567, %r568}, {%r284, %r285, %r286, %r287}, {%r288, %r289}, {%r565, %r566, %r567, %r568};",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f180",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 593,
+      "sass": "      HMMA.16816.F32.BF16 R20, R12, R28, R20",
+      "ptx": "mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%r565, %r566, %r567, %r568}, {%r284, %r285, %r286, %r287}, {%r288, %r289}, {%r565, %r566, %r567, %r568};",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f2e0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 593,
+      "sass": "      HMMA.16816.F32.BF16 R20, R12, R28, R20",
+      "ptx": "mma.sync.aligned.m16n8k16.row.col.f32.bf16.bf16.f32 {%r565, %r566, %r567, %r568}, {%r284, %r285, %r286, %r287}, {%r288, %r289}, {%r565, %r566, %r567, %r568};",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f870",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 639,
+      "sass": "      FMNMX.FTZ R15, R9, R42, !PT",
+      "ptx": "max.ftz.f32 %r309, %r307, %r308;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f8b0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 647,
+      "sass": "      FMNMX.FTZ R17, R16, R42, !PT",
+      "ptx": "max.ftz.f32 %r314, %r311, %r312;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f930",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 660,
+      "sass": "      FADD R9, R11, R42",
+      "ptx": "add.rn.f32 \t%r326, %r324, %r325;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888faa0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 682,
+      "sass": "      FMUL R19, R11, R42",
+      "ptx": "mul.rn.f32 \t%r27, %r324, %r318;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fe90",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 778,
+      "sass": "      FADD R22, R21, 1",
+      "ptx": "add.rn.f32 \t%r349, %r346, 0f3F800000;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888feb0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 782,
+      "sass": "@!P2  FMUL R24, R21, R24",
+      "ptx": "mul.rn.f32 \t%r383, %r346, %r348;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ff60",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 801,
+      "sass": "      FADD R22, R21, 1",
+      "ptx": "add.rn.f32 \t%r353, %r350, 0f3F800000;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890060",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 819,
+      "sass": "      FADD R26, R24, 1",
+      "ptx": "add.rn.f32 \t%r357, %r354, 0f3F800000;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890220",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 863,
+      "sass": "      FADD R24, R17, 1",
+      "ptx": "add.rn.f32 \t%r365, %r362, 0f3F800000;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890240",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 867,
+      "sass": "@!P2  FMUL R26, R17, R26",
+      "ptx": "mul.rn.f32 \t%r410, %r362, %r364;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb988902e0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 881,
+      "sass": "      FADD R17, R22, 1",
+      "ptx": "add.rn.f32 \t%r369, %r366, 0f3F800000;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb988903e0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 899,
+      "sass": "      FADD R17, R16, 1",
+      "ptx": "add.rn.f32 \t%r373, %r370, 0f3F800000;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890690",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 968,
+      "sass": "      FSEL R6, R13, RZ, !P0",
+      "ptx": "selp.f32 \t%r449, 0f00000000, %r441, %p21;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890730",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 978,
+      "sass": "      FADD R42, R11, R42",
+      "ptx": "add.rn.f32 \t%r444, %r457, %r458;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890c10",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1088,
+      "sass": "      FADD R17, R16, 1",
+      "ptx": "add.rn.f32 \t%r474, %r471, 0f3F800000;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890ce0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1111,
+      "sass": "      FADD R17, R16, 1",
+      "ptx": "add.rn.f32 \t%r478, %r475, 0f3F800000;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890dd0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1129,
+      "sass": "      FADD R20, R15, 1",
+      "ptx": "add.rn.f32 \t%r482, %r479, 0f3F800000;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890df0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1133,
+      "sass": "@!P0  FMUL R18, R15, R18",
+      "ptx": "mul.rn.f32 \t%r521, %r479, %r481;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890ee0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1156,
+      "sass": "@!P0  FMUL R15, R20, R15",
+      "ptx": "mul.rn.f32 \t%r529, %r483, %r485;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98891170",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1213,
+      "sass": "@!P0  FMUL R14, R9, R14",
+      "ptx": "mul.rn.f32 \t%r545, %r495, %r497;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98891230",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1231,
+      "sass": "      FADD R3, R0, 1",
+      "ptx": "add.rn.f32 \t%r502, %r499, 0f3F800000;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888cf20",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 48,
+      "sass": "      LOP3.LUT R32, R0, 0x1f, RZ, 0xc0, !PT",
+      "ptx": "and.b32 \t%r2, %r1, 31;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d390",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 149,
+      "sass": "      FMUL R11, R3, R3",
+      "ptx": "mul.rn.f32 \t%r62, %r49, %r49;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d570",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 239,
+      "sass": "      LDC.64 R14, c[0x0][0x220]",
+      "ptx": "add.s64 \t%rd51, %rd4, %rd50;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d670",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 203,
+      "sass": "      LDG.E.U16 R16, desc[UR6][R16.64]",
+      "ptx": "ld.global.b16 \t%rs14, [%rd47];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888d6a0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 174,
+      "sass": "      FMUL R42, R42, 0.00390625",
+      "ptx": "mul.rn.f32 \t%r87, %r86, 0f3B800000;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888da50",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 270,
+      "sass": "      S2R R6, SR_CgaCtaId",
+      "ptx": "mov.b64 \t%rd53, __wg_fused_qnorm_attention_mma_q8_3;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888db60",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 312,
+      "sass": "      PRMT R37, R12, 0x7632, R37",
+      "ptx": "st.shared.b16 \t[%rd13], %rs109;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888df00",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 359,
+      "sass": "      LDG.E.U16 R14, desc[UR6][R14.64]",
+      "ptx": "ld.global.b16 \t%rs28, [%rd71];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888df60",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 361,
+      "sass": "      FMUL R16, R38, R38",
+      "ptx": "mul.rn.f32 \t%r167, %r154, %r154;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e080",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 375,
+      "sass": "      FADD R15, R12, R13",
+      "ptx": "add.rn.f32 \t%r181, %r179, %r180;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e0a0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 376,
+      "sass": "      SHFL.BFLY PT, R42, R15, 0x10, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r182, %r181, 16, 31, -1;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e0e0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 380,
+      "sass": "      SHFL.BFLY PT, R42, R17, 0x4, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r186, %r185, 4, 31, -1;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e140",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 449,
+      "sass": "      LDC.64 R12, c[0x0][0x220]",
+      "ptx": "add.s64 \t%rd78, %rd4, %rd77;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e560",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 444,
+      "sass": "      F2FP.BF16.F32.PACK_AB R17, R16, R17",
+      "ptx": "mul.rn.f32 \t%r226, %r225, %r224;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e580",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 461,
+      "sass": "      BSYNC B0",
+      "ptx": "cvt.rn.bf16.f32 \t%rs123, %r236;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e710",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 491,
+      "sass": "      LOP3.LUT R18, R42, R37, RZ, 0xfc, !PT",
+      "ptx": "or.b32 \t%r250, %r249, %r239;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888e9c0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 509,
+      "sass": "      STS.U16 [R28+0x1000], RZ",
+      "ptx": "st.shared.b16 \t[%rd10+4096], 0x0000;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ea10",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 526,
+      "sass": "      STS.U16 [R48], RZ",
+      "ptx": "st.shared.b16 \t[%rd98], 0x0000;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ecb0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 590,
+      "sass": "      LEA R30, R17, UR5, 0x1",
+      "ptx": "add.s64 \t%rd114, %rd113, %rd29;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ecc0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 586,
+      "sass": "      LEA R14, R14, R33, 0x1",
+      "ptx": "add.s64 \t%rd112, %rd111, %rd53;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ecf0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 591,
+      "sass": "      LDSM.16.M88.2 R30, [R30]",
+      "ptx": "ldmatrix.sync.aligned.m8n8.x2.shared.b16 {%r288, %r289}, [%rd114];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ede0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 586,
+      "sass": "      IMAD R12, R28, 0x2, R33",
+      "ptx": "add.s64 \t%rd112, %rd111, %rd53;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ee00",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 587,
+      "sass": "      LDSM.16.M88.4 R12, [R12]",
+      "ptx": "ldmatrix.sync.aligned.m8n8.x4.shared.b16 {%r284, %r285, %r286, %r287}, [%rd112];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888eed0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 590,
+      "sass": "      LEA R28, R43, UR5, 0x1",
+      "ptx": "add.s64 \t%rd114, %rd113, %rd29;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f030",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 590,
+      "sass": "      LEA R28, R43, UR5, 0x1",
+      "ptx": "add.s64 \t%rd114, %rd113, %rd29;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f420",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 588,
+      "sass": "      IMAD.IADD R43, R34, 0x1, R43",
+      "ptx": "add.s32 \t%r295, %r293, %r26;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f620",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 591,
+      "sass": "      LDSM.16.M88.2 R28, [R28]",
+      "ptx": "ldmatrix.sync.aligned.m8n8.x2.shared.b16 {%r288, %r289}, [%rd114];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f630",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 587,
+      "sass": "      LDSM.16.M88.4 R12, [R12]",
+      "ptx": "ldmatrix.sync.aligned.m8n8.x4.shared.b16 {%r284, %r285, %r286, %r287}, [%rd112];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f680",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 587,
+      "sass": "      LDSM.16.M88.4 R20, [R20]",
+      "ptx": "ldmatrix.sync.aligned.m8n8.x4.shared.b16 {%r284, %r285, %r286, %r287}, [%rd112];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f6f0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 621,
+      "sass": "      ISETP.GT.U32.AND P0, PT, R32, 0x19, PT",
+      "ptx": "setp.gt.u32 \t%p31, %r2, 25;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f730",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 611,
+      "sass": "      LEA R9, R9, R6, 0x2",
+      "ptx": "add.s64 \t%rd117, %rd116, %rd115;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f790",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 618,
+      "sass": "      STS [R16+0x4], R13",
+      "ptx": "st.shared.b32 \t[%rd122+4], %r566;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f7c0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 625,
+      "sass": "      IMAD R9, R26, 0x28, R32",
+      "ptx": "mad.lo.s32 \t%r320, %r11, 40, %r2;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888f860",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 637,
+      "sass": "      SHFL.BFLY PT, R42, R9, 0x8, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r308, %r307, 8, 31, -1;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fe00",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 790,
+      "sass": "      LDC.64 R14, c[0x0][0x230]",
+      "ptx": "add.s64 \t%rd142, %rd5, %rd141;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888fef0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 791,
+      "sass": "      STG.E.U16 desc[UR6][R10.64], R23",
+      "ptx": "st.global.b16 \t[%rd142], %rs52;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ff30",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 796,
+      "sass": "      FSEL R21, R21, -R21, !P2",
+      "ptx": "selp.f32 \t%r390, %r388, %r389, %p13;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ff40",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 797,
+      "sass": "      FMUL R21, R21, 1.4426950216293334961",
+      "ptx": "mul.rn.f32 \t%r351, %r390, 0f3FB8AA3B;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb9888ff70",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 803,
+      "sass": "      MUFU.RCP R24, R22",
+      "ptx": "rcp.approx.ftz.f32 %r352, %r353;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890020",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 814,
+      "sass": "      FSEL R20, R20, -R20, !P2",
+      "ptx": "selp.f32 \t%r395, %r393, %r394, %p14;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890070",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 821,
+      "sass": "      MUFU.RCP R23, R26",
+      "ptx": "rcp.approx.ftz.f32 %r356, %r357;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb988901a0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 849,
+      "sass": "      HMUL2.BF16_V2 R27, R17.H1_H1, R27.H0_H0",
+      "ptx": "mul.rn.bf16 \t%rs61, %rs128, %rs60;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890200",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 859,
+      "sass": "      FMUL R17, R17, 1.4426950216293334961",
+      "ptx": "mul.rn.f32 \t%r363, %r409, 0f3FB8AA3B;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890230",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 865,
+      "sass": "      MUFU.RCP R26, R24",
+      "ptx": "rcp.approx.ftz.f32 %r364, %r365;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890310",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 887,
+      "sass": "      F2FP.BF16.F32.PACK_AB R23, RZ, R23",
+      "ptx": "cvt.rn.bf16.f32 \t%rs66, %r416;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890320",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 888,
+      "sass": "      HMUL2.BF16_V2 R23, R16.H1_H1, R23.H0_H0",
+      "ptx": "mul.rn.bf16 \t%rs67, %rs130, %rs66;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb988903c0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 895,
+      "sass": "      FMUL R16, R16, 1.4426950216293334961",
+      "ptx": "mul.rn.f32 \t%r371, %r419, 0f3FB8AA3B;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb988903d0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 897,
+      "sass": "      MUFU.EX2 R16, R16",
+      "ptx": "ex2.approx.ftz.f32 %r370, %r371;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb988903f0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 901,
+      "sass": "      MUFU.RCP R23, R17",
+      "ptx": "rcp.approx.ftz.f32 %r372, %r373;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890490",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 916,
+      "sass": "      FSEL R12, R12, -R12, !P2",
+      "ptx": "selp.f32 \t%r426, %r424, %r425, %p19;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb988904a0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 917,
+      "sass": "      FMUL R12, R12, 1.4426950216293334961",
+      "ptx": "mul.rn.f32 \t%r375, %r426, 0f3FB8AA3B;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb988904e0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 925,
+      "sass": "@!P2  FMUL R17, R12, R17",
+      "ptx": "mul.rn.f32 \t%r427, %r374, %r376;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb988904f0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 927,
+      "sass": "      F2FP.BF16.F32.PACK_AB R17, RZ, R17",
+      "ptx": "cvt.rn.bf16.f32 \t%rs72, %r428;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb988908f0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1018,
+      "sass": "      LEA R30, R30, UR4, 0x1",
+      "ptx": "add.s64 \t%rd159, %rd32, %rd158;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890b70",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1078,
+      "sass": "      LEA.HI.X R11, R6, UR9, R11, 0x1, P0",
+      "ptx": "add.s64 \t%rd168, %rd2, %rd167;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890bd0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1083,
+      "sass": "      FSEL R6, R6, -R6, !P0",
+      "ptx": "selp.f32 \t%r507, %r505, %r506, %p23;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890d30",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1118,
+      "sass": "      HMUL2.BF16_V2 R19, R15.H1_H1, R19.H0_H0",
+      "ptx": "mul.rn.bf16 \t%rs88, %rs134, %rs87;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890de0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1131,
+      "sass": "      MUFU.RCP R18, R20",
+      "ptx": "rcp.approx.ftz.f32 %r481, %r482;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890ea0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1148,
+      "sass": "      FMUL R20, R15, 1.4426950216293334961",
+      "ptx": "mul.rn.f32 \t%r484, %r528, 0f3FB8AA3B;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890f00",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1159,
+      "sass": "      HMUL2.BF16_V2 R8, R14.H1_H1, R15.H0_H0",
+      "ptx": "mul.rn.bf16 \t%rs94, %rs136, %rs93;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890f30",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1163,
+      "sass": "      STG.E.U16 desc[UR6][R14.64], R22",
+      "ptx": "st.global.b16 \t[%rd174], %rs94;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890f40",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1164,
+      "sass": "      LDG.E.U16 R8, desc[UR6][R10.64+0x300]",
+      "ptx": "ld.global.b16 \t%rs95, [%rd168+768];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890fe0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1180,
+      "sass": "      HMUL2.BF16_V2 R19, R9.H0_H0, R19.H0_H0",
+      "ptx": "mul.rn.bf16 \t%rs97, %rs137, %rs96;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98890ff0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1181,
+      "sass": "      STG.E.U16 desc[UR6][R6.64+0x100], R19",
+      "ptx": "st.global.b16 \t[%rd170+256], %rs97;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98891110",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1201,
+      "sass": "      IMAD.U32 R9, R10, 0x10000, RZ",
+      "ptx": "cvt.f32.bf16 \t%r542, %rs101;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98891120",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1204,
+      "sass": "      FSEL R9, R9, -R9, !P0",
+      "ptx": "selp.f32 \t%r544, %r542, %r543, %p29;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb988911d0",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1241,
+      "sass": "      IMAD.WIDE.U32 R12, R5, 0x2, R12",
+      "ptx": "add.s64 \t%rd178, %rd5, %rd177;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7edb98891220",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_ad48ac4038.ptx",
+      "line": 1229,
+      "sass": "      MUFU.EX2 R0, R0",
+      "ptx": "ex2.approx.ftz.f32 %r499, %r500;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    }
+  ]
+}

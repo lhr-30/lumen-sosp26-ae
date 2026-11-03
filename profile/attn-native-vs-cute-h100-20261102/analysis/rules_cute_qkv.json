@@ -1,0 +1,248 @@
+[
+  {
+    "rule_identifier": "SOLBottleneck",
+    "name": "Bottleneck",
+    "section_identifier": "SpeedOfLight",
+    "rule_message": {
+      "title": "High Compute Throughput",
+      "message": "Compute is more heavily utilized than Memory: Look at the @section:ComputeWorkloadAnalysis:Compute Workload Analysis@ section to see what the compute pipelines are spending their time doing. Also, consider whether any computation is redundant and could be reduced or moved to look-up tables.",
+      "type": 2
+    },
+    "focus_metrics": [
+      {
+        "name": "sm__throughput.avg.pct_of_peak_sustained_elapsed",
+        "value": 50.24990067347043,
+        "severity": 1,
+        "info": "67.391 - 50.250 >= 10.000"
+      }
+    ]
+  },
+  {
+    "rule_identifier": "IssueSlotUtilization",
+    "name": "Issue Slot Utilization",
+    "section_identifier": "SchedulerStats",
+    "rule_message": {
+      "title": "",
+      "message": "Every scheduler is capable of issuing one instruction per cycle, but for this workload each scheduler only issues an instruction every 4.4 cycles. This might leave hardware resources underutilized and may lead to less optimal performance. Out of the maximum of 16 warps per scheduler, this workload allocates an average of 2.24 active warps per scheduler, but only an average of 0.26 warps were eligible per cycle. Eligible warps are the subset of active warps that are ready to issue their next instruction. Every cycle with no eligible warp results in no instruction being issued and the issue slot remains unused. To increase the number of eligible warps, reduce the time the active warps are stalled by inspecting the top stall reasons on the @section:WarpStateStats:Warp State Statistics@ and @section:SourceCounters:Source Counters@ sections.",
+      "type": 2
+    },
+    "focus_metrics": [
+      {
+        "name": "smsp__issue_active.avg.per_cycle_active",
+        "value": 0.2250501108991812,
+        "severity": 0,
+        "info": "Increase the average number of instructions issued per cycle"
+      }
+    ],
+    "speedup_estimation": {
+      "type": 1,
+      "speedup": 32.60908246661287
+    }
+  },
+  {
+    "rule_identifier": "HighPipeUtilization",
+    "name": "High Pipe Utilization",
+    "section_identifier": "ComputeWorkloadAnalysis",
+    "rule_message": {
+      "title": "High Utilization",
+      "message": "Shared is the highest-utilized pipeline (67.4%) based on elapsed cycles in the workload, taking into account the rates of its different instructions. It is the logical sum of several other pipelines which can't achieve full utilization on their own. It executes 64-bit floating point and tensor operations. It's dominated by its Tensor (FP) sub-pipeline. The pipeline is well-utilized, but might become a bottleneck if more work is added. Based on the number of executed instructions, the highest utilized pipeline (12.0%) is Uniform. Comparing the two, the overall pipeline utilization appears to be caused by high-latency instructions. See the @url:Profiling Guide:https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-decoder@ or hover over the pipeline name to understand the workloads handled by each pipeline. The @section:InstructionStats:Instruction Statistics@ section shows the mix of executed instructions for this workload. Check the @section:WarpStateStats:Warp State Statistics@ section for which reasons cause warps to stall.",
+      "type": 2
+    },
+    "focus_metrics": [
+      {
+        "name": "sm__pipe_shared_cycles_active.avg.pct_of_peak_sustained_elapsed",
+        "value": 67.39091753338712,
+        "severity": 0,
+        "info": "Try to decrease the utilization of the busiest pipeline (currently: Shared)"
+      }
+    ],
+    "result_tables": [
+      {
+        "title": "Most frequently executed instructions for pipeline Uniform",
+        "description": "Source lines with the highest number of executed instructions on pipeline Uniform.",
+        "headers": [
+          "Location",
+          "Source",
+          "Opcodes",
+          "Executed Instructions"
+        ],
+        "data": [
+          [
+            "@source:qkv.py:374:qkv.py, line 375@",
+            "@source:qkv.py:338:qkv.py, line 339@",
+            "@source:qkv.py:386:qkv.py, line 387@"
+          ],
+          [
+            "cute.gemm(mma, accum, rw[None, None, inner, read.index], rx[None, None, inner, read.index], accum)",
+            "rw, rx = mma.make_fragment_A(thr.partition_A(sw)), mma.make_fragment_B(thr.partition_B(sx_mma))",
+            "read.advance()"
+          ],
+          [
+            "ULOP3.LUT, ULEA, UIMAD",
+            "USHF.R.U32.HI, USHF.R.S32.HI, ULOP3.LUT, ULEA, USHF.L.U32, UIADD3",
+            "USEL, UISETP.NE.AND, UIADD3"
+          ],
+          [
+            245760.0,
+            157440.0,
+            122880.0
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "rule_identifier": "LaunchConfiguration",
+    "name": "Launch Configuration",
+    "section_identifier": "LaunchStats",
+    "rule_message": {
+      "title": "Small Grid",
+      "message": "The grid for this launch is configured to execute only 120 blocks, which is less than the 132 multiprocessors used. This can underutilize some multiprocessors. If you do not intend to execute this kernel concurrently with other workloads, consider reducing the block size to have at least one block per multiprocessor or increase the size of the grid to fully utilize the available hardware resources. See the @url:Hardware Model:https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-hw-model@ description for more details on launch configurations.",
+      "type": 2
+    },
+    "focus_metrics": [
+      {
+        "name": "launch__grid_size",
+        "value": 120.0,
+        "severity": 2,
+        "info": "Increase the grid size towards the number of multiprocessors used (132)"
+      }
+    ],
+    "speedup_estimation": {
+      "type": 2,
+      "speedup": 9.090909090909092
+    }
+  },
+  {
+    "rule_identifier": "MemoryL2Compression",
+    "name": "Memory L2 Compression",
+    "section_identifier": "MemoryWorkloadAnalysis_Chart",
+    "rule_message": {
+      "title": "Low Compression Rate",
+      "message": "Out of the 4280064.0 bytes sent to the L2 Compression unit only 0.00% were successfully compressed. To increase this success rate, consider marking only those memory regions as compressible that contain the most zero values and/or expose the most homogeneous values.",
+      "type": 2
+    },
+    "focus_metrics": [
+      {
+        "name": "lrc__average_ilc_input_sector_success_rate.pct",
+        "value": 0.0,
+        "severity": 2,
+        "info": "Increase the compression success rate"
+      },
+      {
+        "name": "lrc__ilc_input_sectors.sum",
+        "value": 133752.0,
+        "severity": 2,
+        "info": "Increase the number of compressed sectors towards all L2 input sectors (2,849,120)"
+      },
+      {
+        "name": "dram__bytes_read.sum.pct_of_peak_sustained_elapsed",
+        "value": 0.005146318409581759,
+        "severity": 1,
+        "info": "The higher the DRAM peak read utilization the more can be gained by compression"
+      }
+    ],
+    "speedup_estimation": {
+      "type": 2,
+      "speedup": 0.00490472438057688
+    }
+  },
+  {
+    "rule_identifier": "SOLFPRoofline",
+    "name": "Roofline Analysis",
+    "section_identifier": "SpeedOfLight_RooflineChart",
+    "rule_message": {
+      "title": "Roofline Analysis",
+      "message": "The ratio of peak float (FP32) to double (FP64) performance on this device is 2:1. The workload achieved 0% of this device's FP32 peak performance and 0% of its FP64 peak performance. See the @url:Profiling Guide:https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#roofline@ for more details on roofline analysis.",
+      "type": 1
+    }
+  },
+  {
+    "rule_identifier": "TheoreticalOccupancy",
+    "name": "Theoretical Occupancy",
+    "section_identifier": "Occupancy",
+    "rule_message": {
+      "title": "",
+      "message": "The 3.00 theoretical warps per scheduler this kernel can issue according to its occupancy are below the hardware maximum of 16. This kernel's theoretical occupancy (18.8%) is limited by the number of required registers, and the required amount of shared memory.",
+      "type": 2
+    },
+    "focus_metrics": [
+      {
+        "name": "smsp__maximum_warps_avg_per_active_cycle",
+        "value": 3.0,
+        "severity": 2,
+        "info": "Increase the theoretical number of warps per scheduler that can be issued"
+      }
+    ],
+    "speedup_estimation": {
+      "type": 2,
+      "speedup": 32.60908246661287
+    }
+  },
+  {
+    "rule_identifier": "WorkloadImbalance",
+    "name": "Workload Imbalance",
+    "section_identifier": "WorkloadDistribution",
+    "rule_message": {
+      "title": "SMs Workload Imbalance",
+      "message": "One or more SMs have a much lower number of active cycles than the average number of active cycles. Maximum instance value is 10.23% above the average, while the minimum instance value is 100.00% below the average.",
+      "type": 2
+    },
+    "focus_metrics": [
+      {
+        "name": "sm__cycles_active.avg",
+        "value": 19436.227272727272,
+        "severity": 2,
+        "info": "Balancing the number of active cycles across SMs would result in a more optimized workload"
+      }
+    ],
+    "speedup_estimation": {
+      "type": 2,
+      "speedup": 7.996220628160141
+    }
+  },
+  {
+    "rule_identifier": "WorkloadImbalance",
+    "name": "Workload Imbalance",
+    "section_identifier": "WorkloadDistribution",
+    "rule_message": {
+      "title": "SMSPs Workload Imbalance",
+      "message": "One or more SMSPs have a much lower number of active cycles than the average number of active cycles. Maximum instance value is 13.39% above the average, while the minimum instance value is 100.00% below the average.",
+      "type": 2
+    },
+    "focus_metrics": [
+      {
+        "name": "smsp__cycles_active.avg",
+        "value": 18731.18181818182,
+        "severity": 2,
+        "info": "Balancing the number of active cycles across SMSPs would result in a more optimized workload"
+      }
+    ],
+    "speedup_estimation": {
+      "type": 2,
+      "speedup": 10.09001121591439
+    }
+  },
+  {
+    "rule_identifier": "WorkloadImbalance",
+    "name": "Workload Imbalance",
+    "section_identifier": "WorkloadDistribution",
+    "rule_message": {
+      "title": "L1 Slices Workload Imbalance",
+      "message": "One or more L1 Slices have a much lower number of active cycles than the average number of active cycles. Maximum instance value is 10.23% above the average, while the minimum instance value is 100.00% below the average.",
+      "type": 2
+    },
+    "focus_metrics": [
+      {
+        "name": "l1tex__cycles_active.avg",
+        "value": 19436.227272727272,
+        "severity": 2,
+        "info": "Balancing the number of active cycles across L1 Slices would result in a more optimized workload"
+      }
+    ],
+    "speedup_estimation": {
+      "type": 2,
+      "speedup": 7.996220628160141
+    }
+  }
+]

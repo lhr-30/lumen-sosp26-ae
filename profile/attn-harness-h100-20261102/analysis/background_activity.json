@@ -1,0 +1,27 @@
+{
+  "measurement_window_unix": [
+    1793609362.7067137,
+    1793609364.0262067
+  ],
+  "positive_other_process_samples": [
+    {
+      "time": "08:49:10",
+      "pid": "3953810",
+      "sm": 7,
+      "overlaps_measurement_conservative": false
+    },
+    {
+      "time": "08:49:22",
+      "pid": "3953810",
+      "sm": 7,
+      "overlaps_measurement_conservative": true
+    },
+    {
+      "time": "08:49:23",
+      "pid": "3953810",
+      "sm": 1,
+      "overlaps_measurement_conservative": true
+    }
+  ],
+  "sampling_note": "1-second pmon intervals; +-1 second used for conservative overlap; dash entries are unavailable/no sample, not a proof of zero activity."
+}

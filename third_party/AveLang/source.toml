@@ -1,0 +1,5 @@
+[repo]
+name = "AveLang"
+upstream = "https://github.com/haohui/avelang.git"
+base_commit = "86d4cdd264da8e3991b8cbc7c27f35ee49a8d1be"
+patches = ["01-llvm23-build.patch", "02-hopper-intrinsics.patch"]

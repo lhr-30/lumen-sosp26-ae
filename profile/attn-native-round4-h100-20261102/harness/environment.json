@@ -1,0 +1,41 @@
+{
+  "environment": {
+    "gpu": "NVIDIA H100 NVL",
+    "sm_count": 132,
+    "torch": "2.12.0a0+5aff3928d8.nv26.05",
+    "cuda": "13.2",
+    "image": "lumen-hopper:dev",
+    "image_id": "sha256:7995e7f3e3fa0167e63f648d447452cc12fe204581a7dc57333d37713fe2624b",
+    "llvm": "23.0.0git"
+  },
+  "compiler_commit": "5f349c594ad510ad6b90d0e1ca310c0d47aa9ed1",
+  "gpu_queue": [
+    {
+      "ticket": 3717,
+      "purpose": "shared-fusion checks and timing",
+      "exit_code": 0
+    },
+    {
+      "ticket": 3719,
+      "purpose": "raw-MMA checks and four-way timing",
+      "exit_code": 0
+    },
+    {
+      "ticket": 3722,
+      "purpose": "shared/raw-MMA diagnostic NCU",
+      "exit_code": 0
+    },
+    {
+      "ticket": 3727,
+      "purpose": "async checks and five-way timing",
+      "exit_code": 0
+    },
+    {
+      "ticket": 3729,
+      "purpose": "final selected-source sanitizers and baseline/async NCU",
+      "exit_code": 0
+    }
+  ],
+  "nsight_compute": "2026.2.1",
+  "hardware_lowering_modified_this_round": false
+}

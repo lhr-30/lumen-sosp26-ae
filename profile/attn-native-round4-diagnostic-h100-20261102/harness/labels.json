@@ -1,0 +1,5 @@
+{
+  "baseline": "shared_q4",
+  "candidate": "mma_q8",
+  "scope": "fused Q norm/RoPE + attention/gate only"
+}

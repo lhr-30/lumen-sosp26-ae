@@ -1,0 +1,9 @@
+{
+  "changed_functions": [
+    "linear_native"
+  ],
+  "baseline_sha256": "028c6747cffd1ae6e32d71ad90ce4d06bf51dfa0b760cc05913d4d5feee3cdac",
+  "candidate_sha256": "b3197d3bf1880691826e59b6d99642a0fc072ac28df23bdca66b9d8ce394f1f7",
+  "cpu_compile_all_kernels": "passed",
+  "gpu_queue_correctness_timing": 3679
+}

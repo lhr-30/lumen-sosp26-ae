@@ -1,0 +1,4 @@
+[
+  "baseline_unpack: lts__t_sector_hit_rate.pct=100.73735449501046; uncontrolled-cache replay ratio, do not interpret as physical hit rate",
+  "baseline_attention: lts__t_sector_hit_rate.pct=100.34060506207013; uncontrolled-cache replay ratio, do not interpret as physical hit rate"
+]

@@ -1,0 +1,20 @@
+{
+  "baseline_sha256": "c25bacf5405cec557f226d442e7a6cd4c4fd5bf518fb2a48650ee2e26712fd71",
+  "candidate_sha256": "f0bb46ed3222fd3a9ac32ff9f01f6ac6f250e9138a5ded70ae7cf3d324546cf2",
+  "unchanged_ast_nodes": [
+    "linear_round2",
+    "linear_swap64x128",
+    "linear_swap160x128",
+    "linear_swap128x64",
+    "linear_swap96x64",
+    "bind_projection",
+    "PROJECTION_CONFIGS",
+    "DEFAULT_PROJECTION_CONFIGS",
+    "add_residual",
+    "gate_store"
+  ],
+  "frozen_manifest_verified": true,
+  "frozen_source_count": 12,
+  "default_byte_identical_to_frozen": true,
+  "default_ptx_byte_identical_to_candidate": true
+}

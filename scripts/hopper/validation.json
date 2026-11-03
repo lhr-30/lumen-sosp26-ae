@@ -1,0 +1,291 @@
+{
+  "gpu": "NVIDIA H100 NVL",
+  "capability": [
+    9,
+    0
+  ],
+  "torch": "2.12.0a0+5aff3928d8.nv26.05",
+  "cuda": "13.2",
+  "timestamp": 1793348556.1579363,
+  "rtol": 0.0001,
+  "atol": 0.0001,
+  "invalid_block_rejected": true,
+  "cases": [
+    {
+      "shape_mnk": [
+        64,
+        8,
+        16
+      ],
+      "seed": 0,
+      "max_abs_error": 9.5367431640625e-07
+    },
+    {
+      "shape_mnk": [
+        64,
+        8,
+        16
+      ],
+      "seed": 17,
+      "max_abs_error": 9.5367431640625e-07
+    },
+    {
+      "shape_mnk": [
+        64,
+        8,
+        16
+      ],
+      "seed": 123,
+      "max_abs_error": 9.5367431640625e-07
+    },
+    {
+      "shape_mnk": [
+        128,
+        32,
+        128
+      ],
+      "seed": 0,
+      "max_abs_error": 9.5367431640625e-06
+    },
+    {
+      "shape_mnk": [
+        128,
+        32,
+        128
+      ],
+      "seed": 17,
+      "max_abs_error": 7.62939453125e-06
+    },
+    {
+      "shape_mnk": [
+        128,
+        32,
+        128
+      ],
+      "seed": 123,
+      "max_abs_error": 7.62939453125e-06
+    },
+    {
+      "shape_mnk": [
+        65,
+        13,
+        33
+      ],
+      "seed": 0,
+      "max_abs_error": 1.9073486328125e-06
+    },
+    {
+      "shape_mnk": [
+        65,
+        13,
+        33
+      ],
+      "seed": 17,
+      "max_abs_error": 1.9073486328125e-06
+    },
+    {
+      "shape_mnk": [
+        65,
+        13,
+        33
+      ],
+      "seed": 123,
+      "max_abs_error": 1.9073486328125e-06
+    },
+    {
+      "shape_mnk": [
+        1,
+        1,
+        1
+      ],
+      "seed": 0,
+      "max_abs_error": 0.0
+    },
+    {
+      "shape_mnk": [
+        1,
+        1,
+        1
+      ],
+      "seed": 17,
+      "max_abs_error": 0.0
+    },
+    {
+      "shape_mnk": [
+        1,
+        1,
+        1
+      ],
+      "seed": 123,
+      "max_abs_error": 0.0
+    },
+    {
+      "shape_mnk": [
+        17,
+        9,
+        7
+      ],
+      "seed": 0,
+      "max_abs_error": 1.1920928955078125e-07
+    },
+    {
+      "shape_mnk": [
+        17,
+        9,
+        7
+      ],
+      "seed": 17,
+      "max_abs_error": 4.76837158203125e-07
+    },
+    {
+      "shape_mnk": [
+        17,
+        9,
+        7
+      ],
+      "seed": 123,
+      "max_abs_error": 2.384185791015625e-07
+    },
+    {
+      "shape_mnk": [
+        64,
+        8,
+        0
+      ],
+      "seed": 0,
+      "max_abs_error": 0.0
+    },
+    {
+      "shape_mnk": [
+        64,
+        8,
+        0
+      ],
+      "seed": 17,
+      "max_abs_error": 0.0
+    },
+    {
+      "shape_mnk": [
+        64,
+        8,
+        0
+      ],
+      "seed": 123,
+      "max_abs_error": 0.0
+    },
+    {
+      "shape_mnk": [
+        64,
+        16,
+        17
+      ],
+      "seed": 0,
+      "max_abs_error": 9.5367431640625e-07
+    },
+    {
+      "shape_mnk": [
+        64,
+        16,
+        17
+      ],
+      "seed": 17,
+      "max_abs_error": 9.5367431640625e-07
+    },
+    {
+      "shape_mnk": [
+        64,
+        16,
+        17
+      ],
+      "seed": 123,
+      "max_abs_error": 9.5367431640625e-07
+    },
+    {
+      "shape_mnk": [
+        129,
+        25,
+        257
+      ],
+      "seed": 0,
+      "max_abs_error": 2.288818359375e-05
+    },
+    {
+      "shape_mnk": [
+        129,
+        25,
+        257
+      ],
+      "seed": 17,
+      "max_abs_error": 1.9073486328125e-05
+    },
+    {
+      "shape_mnk": [
+        129,
+        25,
+        257
+      ],
+      "seed": 123,
+      "max_abs_error": 2.288818359375e-05
+    },
+    {
+      "shape_mnk": [
+        256,
+        128,
+        256
+      ],
+      "seed": 0,
+      "max_abs_error": 3.0517578125e-05
+    },
+    {
+      "shape_mnk": [
+        256,
+        128,
+        256
+      ],
+      "seed": 17,
+      "max_abs_error": 3.4332275390625e-05
+    },
+    {
+      "shape_mnk": [
+        256,
+        128,
+        256
+      ],
+      "seed": 123,
+      "max_abs_error": 2.288818359375e-05
+    }
+  ],
+  "compiler_base": "86d4cdd264da8e3991b8cbc7c27f35ee49a8d1be",
+  "artifact_base": "439b9c49eef79d819979009b43bbf1654e6010eb",
+  "tested_on_utc": "2026-10-30",
+  "toolchain": [
+    "clang version 23.0.0git",
+    "Target: x86_64-unknown-linux-gnu",
+    "Thread model: posix",
+    "InstalledDir: /opt/llvm/bin",
+    "nvcc: NVIDIA (R) Cuda compiler driver",
+    "Copyright (c) 2005-2026 NVIDIA Corporation",
+    "Built on Thu_Mar_19_11:12:51_PM_PDT_2026",
+    "Cuda compilation tools, release 13.2, V13.2.78",
+    "Build cuda_13.2.r13.2/compiler.37668154_0",
+    "Z3 version 4.15.4 - 64 bit",
+    "2.12.0a0+5aff3928d8.nv26.05 13.2"
+  ],
+  "builder_image_id": "sha256:39edff36c1379aa817190087026c4c82c444fac25e0d170c35cf4541a77e1e8c",
+  "runtime_image_id": "sha256:7995e7f3e3fa0167e63f648d447452cc12fe204581a7dc57333d37713fe2624b",
+  "cpu_test_methods_passed": 5,
+  "existing_nvidia_mma_regression": "passed",
+  "sanitizers": {
+    "memcheck": "========= COMPUTE-SANITIZER\n========= ERROR SUMMARY: 0 errors",
+    "synccheck": "========= COMPUTE-SANITIZER\n========= ERROR SUMMARY: 0 errors",
+    "racecheck": "========= COMPUTE-SANITIZER\n========= RACECHECK SUMMARY: 0 hazards displayed (0 errors, 0 warnings)"
+  },
+  "patch_round_trip": "matches tested source; repeat application is idempotent",
+  "sha256": {
+    "third_party/AveLang/01-llvm23-build.patch": "19e05bc90f842c8945c1275c218db71a1f675701b38ba527df0ff787a6124770",
+    "third_party/AveLang/02-hopper-intrinsics.patch": "e336e890eab3549560c066c88ca7acf095761891de3d4f7140f58c68753d040c",
+    "scripts/hopper/gemm.py": "6d4240447e92c9979598b62fb02728c1dc4a41e2c83d47ee37565ba22aa01fdc",
+    "scripts/hopper/test_hopper.py": "4ab47b3bdbd59794b3c66e0c185245541e398f08efde334887b35871ea872631",
+    "scripts/hopper/validate.py": "87cde044d005bb44389f3d40ecfb78ef9bb9862d08d3f68def6179c738e7f5c8"
+  }
+}

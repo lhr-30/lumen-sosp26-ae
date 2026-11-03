@@ -1,0 +1,3 @@
+impl/stage  NCU us  grid block regs smem  tensor% occ% DRAMread% storeB/sector
+baseline_attention  34.944  896 128  48  27648    0.07  28.86    0.00  32.00
+candidate_attention  38.016  512 128  55  44544    0.94  21.91    0.00  32.00

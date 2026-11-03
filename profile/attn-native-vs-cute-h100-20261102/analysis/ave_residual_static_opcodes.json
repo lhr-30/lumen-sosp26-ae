@@ -1,0 +1,17 @@
+{
+  "LDC": 1,
+  "S2R": 2,
+  "S2UR": 1,
+  "LDC.64": 3,
+  "USHF.L.U32": 1,
+  "LOP3.LUT": 1,
+  "ULDC.64": 1,
+  "LEA": 1,
+  "IMAD.WIDE.U32": 3,
+  "LDG.E.U16": 2,
+  "HADD2.BF16_V2": 1,
+  "STG.E.U16": 1,
+  "EXIT": 1,
+  "BRA": 1,
+  "NOP": 12
+}

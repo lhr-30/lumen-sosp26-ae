@@ -1,0 +1,9 @@
+{
+  "model": "gpt-6.1-sol",
+  "provider": "copilot",
+  "reasoning effort": "max",
+  "session id": "01a19b38-98d9-7041-a384-b5e676d5d0f8",
+  "native_runtime_unchanged": true,
+  "support_manifest_verified_with_logged_diagnostic_revision": true,
+  "reference_sha256": "f78ff01334a91c75bf4ab2401ba0d4fa78d055d8bdddc5074b11b86e2ad29fb4"
+}

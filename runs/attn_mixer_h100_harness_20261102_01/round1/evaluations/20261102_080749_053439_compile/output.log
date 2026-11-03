@@ -1,0 +1,33 @@
+Compiling qkv
+qkv ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_linear' for 'sm_90a'
+ptxas info    : Function properties for _linear
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 93 registers, used 1 barriers
+ptxas info    : Compile time = 29.402 ms
+
+Compiling norm_rope
+norm_rope ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_norm_rope' for 'sm_90a'
+ptxas info    : Function properties for _norm_rope
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 47 registers, used 0 barriers
+ptxas info    : Compile time = 9.301 ms
+
+Compiling attention_gate
+attention_gate ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_attention_gate' for 'sm_90a'
+ptxas info    : Function properties for _attention_gate
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 64 registers, used 0 barriers
+ptxas info    : Compile time = 11.033 ms
+
+Compiling projection_residual
+projection_residual ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_linear' for 'sm_90a'
+ptxas info    : Function properties for _linear
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 90 registers, used 1 barriers
+ptxas info    : Compile time = 39.441 ms
+
+CPU compile PASS 4

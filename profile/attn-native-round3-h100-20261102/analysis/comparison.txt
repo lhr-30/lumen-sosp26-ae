@@ -1,0 +1,5 @@
+impl/stage  NCU us  grid block regs smem  tensor% occ% DRAMread% storeB/sector
+baseline_qkv      40.160  280 160  90  75008   42.92  16.57    1.78   0.00
+baseline_oproj    19.712  112 160  90  75008   34.64   7.81    0.00   0.00
+candidate_qkv     29.376  120 288 106 148736   63.92  14.06    3.49   0.00
+candidate_oproj   17.728  112 288  58  99584   40.54  14.05    0.00   0.00

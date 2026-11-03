@@ -1,0 +1,5 @@
+========= COMPUTE-SANITIZER
+seed0/attended: {'cosine': 0.9999998373400194, 'relative_l2': 0.0005703779564457392, 'max_abs': 0.015625, 'mean_abs': 1.2761484436706583e-05}
+seed0/output: {'cosine': 0.9999998134688551, 'relative_l2': 0.0006107882260481258, 'max_abs': 0.015625, 'mean_abs': 8.268102045314244e-05}
+PASS: /results/memcheck.json
+========= ERROR SUMMARY: 0 errors

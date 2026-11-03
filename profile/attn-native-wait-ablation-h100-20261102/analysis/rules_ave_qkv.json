@@ -1,0 +1,324 @@
+[
+  {
+    "rule_identifier": "SOLBottleneck",
+    "name": "Bottleneck",
+    "section_identifier": "SpeedOfLight",
+    "rule_message": {
+      "title": "Small Grid",
+      "message": "This kernel grid is too small to fill the available resources on this device, resulting in only 0.71 full waves across all SMs. Look at @section:LaunchStats:Launch Statistics@ for more details.",
+      "type": 2
+    },
+    "focus_metrics": [
+      {
+        "name": "launch__waves_per_multiprocessor",
+        "value": 0.7070707070707071,
+        "severity": 2,
+        "info": "Increase the number of waves per SM towards 1"
+      }
+    ]
+  },
+  {
+    "rule_identifier": "IssueSlotUtilization",
+    "name": "Issue Slot Utilization",
+    "section_identifier": "SchedulerStats",
+    "rule_message": {
+      "title": "",
+      "message": "Every scheduler is capable of issuing one instruction per cycle, but for this workload each scheduler only issues an instruction every 7.2 cycles. This might leave hardware resources underutilized and may lead to less optimal performance. Out of the maximum of 16 warps per scheduler, this workload allocates an average of 2.60 active warps per scheduler, but only an average of 0.17 warps were eligible per cycle. Eligible warps are the subset of active warps that are ready to issue their next instruction. Every cycle with no eligible warp results in no instruction being issued and the issue slot remains unused. To increase the number of eligible warps, reduce the time the active warps are stalled by inspecting the top stall reasons on the @section:WarpStateStats:Warp State Statistics@ and @section:SourceCounters:Source Counters@ sections.",
+      "type": 2
+    },
+    "focus_metrics": [
+      {
+        "name": "smsp__issue_active.avg.per_cycle_active",
+        "value": 0.13934710624061167,
+        "severity": 0,
+        "info": "Increase the average number of instructions issued per cycle"
+      }
+    ],
+    "speedup_estimation": {
+      "type": 1,
+      "speedup": 55.125402412240646
+    }
+  },
+  {
+    "rule_identifier": "CPIStall",
+    "name": "Warp Stall",
+    "section_identifier": "WarpStateStats",
+    "rule_message": {
+      "title": "Long Scoreboard Stalls",
+      "message": "On average, each warp of this workload spends 8.9 cycles being stalled waiting for a scoreboard dependency on a L1TEX (local, global, surface, texture) operation. Find the instruction producing the data being waited upon to identify the culprit. To reduce the number of cycles waiting on L1TEX data accesses verify the memory access patterns are optimal for the target architecture, attempt to increase cache hit rates by increasing data locality (coalescing), or by changing the cache configuration. Consider moving frequently used data to shared memory. This stall type represents about 47.8% of the total average of 18.6 cycles between issuing two instructions.",
+      "type": 2
+    },
+    "focus_metrics": [
+      {
+        "name": "smsp__issue_active.avg.per_cycle_active",
+        "value": 0.13934710624061167,
+        "severity": 2,
+        "info": "Increase the average number of instructions issued per cycle"
+      },
+      {
+        "name": "smsp_average_long_scoreboard",
+        "value": 8.898457784056292,
+        "severity": 0,
+        "info": "Decrease the number of cycles spent in long scoreboard stalls"
+      }
+    ],
+    "speedup_estimation": {
+      "type": 2,
+      "speedup": 47.75721954961084
+    }
+  },
+  {
+    "rule_identifier": "CPIStall",
+    "name": "Warp Stall",
+    "section_identifier": "WarpStateStats",
+    "rule_message": {
+      "title": "",
+      "message": "Check the @section:SourceCounters:Warp Stall Sampling (All Samples)@ table for the top stall locations in your source based on sampling data. The @url:Profiling Guide:https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-reference@ provides more details on each stall reason.",
+      "type": 1
+    }
+  },
+  {
+    "rule_identifier": "HighPipeUtilization",
+    "name": "High Pipe Utilization",
+    "section_identifier": "ComputeWorkloadAnalysis",
+    "rule_message": {
+      "title": "Balanced",
+      "message": "Shared is the highest-utilized pipeline (31.5%) based on elapsed cycles in the workload, taking into account the rates of its different instructions. It is the logical sum of several other pipelines which can't achieve full utilization on their own. It executes 64-bit floating point and tensor operations. It's dominated by its Tensor (FP) sub-pipeline. It is well-utilized, but should not be a bottleneck. Based on the number of executed instructions, the highest utilized pipeline (8.4%) is ALU. It executes integer and logic operations. Comparing the two, the overall pipeline utilization appears to be caused by high-latency instructions. See the @url:Profiling Guide:https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-decoder@ or hover over the pipeline name to understand the workloads handled by each pipeline. The @section:InstructionStats:Instruction Statistics@ section shows the mix of executed instructions for this workload. Check the @section:WarpStateStats:Warp State Statistics@ section for which reasons cause warps to stall.",
+      "type": 1
+    },
+    "focus_metrics": [
+      {
+        "name": "sm__pipe_shared_cycles_active.avg.pct_of_peak_sustained_elapsed",
+        "value": 31.51234990226577,
+        "severity": 0,
+        "info": "Try to decrease the utilization of the busiest pipeline (currently: Shared)"
+      }
+    ],
+    "result_tables": [
+      {
+        "title": "Most frequently executed instructions for pipeline ALU",
+        "description": "Source lines with the highest number of executed instructions on pipeline ALU.",
+        "headers": [
+          "Location",
+          "Source",
+          "Opcodes",
+          "Executed Instructions"
+        ],
+        "data": [
+          [
+            "@source:linear_native_5574bbb9a7.ptx:152:linear_native_5574bbb9a7.ptx, line 153@",
+            "@source:linear_native_5574bbb9a7.ptx:185:linear_native_5574bbb9a7.ptx, line 186@",
+            "@source:linear_native_5574bbb9a7.ptx:136:linear_native_5574bbb9a7.ptx, line 137@"
+          ],
+          [
+            "shr.u16 \t%rs25, %rs24, 15;",
+            "wgmma.mma_async.sync.aligned.m64n128k16.f32.bf16.bf16 {%r55, %r56, %r57, %r58, %r59, %r60, %r61, %r62, %r63, %r64, %r65, %r66, %r67, %r68, %r69, %r70, %r71, %r72, %r73, %r74, %r75, %r76, %r77, %r78, %r79, %r80, %r81, %r82, %r83, %r84, %r85, %r86, %r87, %r88, %r89, %r90, %r91, %r92, %r93, %r94, %r95, %r96, %r97, %r98, %r99, %r100, %r101, %r102, %r103, %r104, %r105, %r106, %r107, %r108, %r109, %r110, %r111, %r112, %r113, %r114, %r115, %r116, %r117, %r118}, %rd22, %rd23, 1, 1, 1, 0, 0;",
+            "bra.uni \t$L__BB0_2;"
+          ],
+          [
+            "SHF.R.U32.HI, LOP3.LUT",
+            "R2UR",
+            "CS2R"
+          ],
+          [
+            71680.0,
+            71680.0,
+            35840.0
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "rule_identifier": "MemoryCacheAccessPattern",
+    "name": "Memory Cache Access Pattern",
+    "section_identifier": "MemoryWorkloadAnalysis_Tables",
+    "rule_message": {
+      "title": "L1TEX Global Store Access Pattern",
+      "message": "The memory access pattern for global stores to L1TEX might not be optimal. On average, only 8.0 of the 32 bytes transmitted per sector are utilized by each thread. This could possibly be caused by a stride between threads. Check the @section:SourceCounters:Source Counters@ section for uncoalesced global stores.",
+      "type": 2
+    },
+    "focus_metrics": [
+      {
+        "name": "smsp__sass_average_data_bytes_per_sector_mem_global_op_st.ratio",
+        "value": 8.0,
+        "severity": 2,
+        "info": "Increase the average number of bytes utilized per sector towards 32 bytes"
+      },
+      {
+        "name": "l1tex__throughput.avg.pct_of_peak_sustained_elapsed",
+        "value": 37.98435043421253,
+        "severity": 1,
+        "info": "The higher the L1TEX throughput the more severe the issue becomes"
+      }
+    ],
+    "speedup_estimation": {
+      "type": 2,
+      "speedup": 28.4882628256594
+    }
+  },
+  {
+    "rule_identifier": "MemoryL2Compression",
+    "name": "Memory L2 Compression",
+    "section_identifier": "MemoryWorkloadAnalysis_Chart",
+    "rule_message": {
+      "title": "Low Compression Rate",
+      "message": "Out of the 17066016.0 bytes sent to the L2 Compression unit only 0.00% were successfully compressed. To increase this success rate, consider marking only those memory regions as compressible that contain the most zero values and/or expose the most homogeneous values.",
+      "type": 2
+    },
+    "focus_metrics": [
+      {
+        "name": "lrc__average_ilc_input_sector_success_rate.pct",
+        "value": 0.0,
+        "severity": 2,
+        "info": "Increase the compression success rate"
+      },
+      {
+        "name": "lrc__ilc_input_sectors.sum",
+        "value": 533313.0,
+        "severity": 2,
+        "info": "Increase the number of compressed sectors towards all L2 input sectors (5,967,856)"
+      },
+      {
+        "name": "dram__bytes_read.sum.pct_of_peak_sustained_elapsed",
+        "value": 1.9007025101149377,
+        "severity": 1,
+        "info": "The higher the DRAM peak read utilization the more can be gained by compression"
+      }
+    ],
+    "speedup_estimation": {
+      "type": 2,
+      "speedup": 1.730847648037681
+    }
+  },
+  {
+    "rule_identifier": "SOLFPRoofline",
+    "name": "Roofline Analysis",
+    "section_identifier": "SpeedOfLight_RooflineChart",
+    "rule_message": {
+      "title": "Roofline Analysis",
+      "message": "The ratio of peak float (FP32) to double (FP64) performance on this device is 2:1. The workload achieved 0% of this device's FP32 peak performance and 0% of its FP64 peak performance. See the @url:Profiling Guide:https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#roofline@ for more details on roofline analysis.",
+      "type": 1
+    }
+  },
+  {
+    "rule_identifier": "TheoreticalOccupancy",
+    "name": "Theoretical Occupancy",
+    "section_identifier": "Occupancy",
+    "rule_message": {
+      "title": "",
+      "message": "The 3.75 theoretical warps per scheduler this kernel can issue according to its occupancy are below the hardware maximum of 16. This kernel's theoretical occupancy (23.4%) is limited by the required amount of shared memory.",
+      "type": 2
+    },
+    "focus_metrics": [
+      {
+        "name": "smsp__maximum_warps_avg_per_active_cycle",
+        "value": 3.75,
+        "severity": 2,
+        "info": "Increase the theoretical number of warps per scheduler that can be issued"
+      }
+    ],
+    "speedup_estimation": {
+      "type": 2,
+      "speedup": 55.125402412240646
+    }
+  },
+  {
+    "rule_identifier": "UncoalescedGlobalAccess",
+    "name": "Uncoalesced Global Accesses",
+    "section_identifier": "SourceCounters",
+    "rule_message": {
+      "title": "",
+      "message": "This workload has uncoalesced global accesses resulting in a total of 399360 excessive sectors (75% of the total 532480 sectors). Check the L2 Theoretical Sectors Global Excessive table for the primary source locations. The @url:CUDA Programming Guide:https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#device-memory-accesses@ has additional information on reducing uncoalesced device memory accesses.",
+      "type": 2
+    },
+    "focus_metrics": [
+      {
+        "name": "derived__memory_l2_theoretical_sectors_global_excessive",
+        "value": 399360.0,
+        "severity": 0,
+        "info": "Reduce the number of excessive wavefronts in L2"
+      }
+    ],
+    "speedup_estimation": {
+      "type": 2,
+      "speedup": 70.25210644793303
+    }
+  },
+  {
+    "rule_identifier": "UncoalescedGlobalAccess",
+    "name": "Uncoalesced Global Accesses",
+    "section_identifier": "SourceCounters",
+    "rule_message": {
+      "title": "",
+      "message": "",
+      "type": 0
+    }
+  },
+  {
+    "rule_identifier": "WorkloadImbalance",
+    "name": "Workload Imbalance",
+    "section_identifier": "WorkloadDistribution",
+    "rule_message": {
+      "title": "SMs Workload Imbalance",
+      "message": "One or more SMs have a much higher number of active cycles than the average number of active cycles. Maximum instance value is 22.11% above the average, while the minimum instance value is 9.12% below the average.",
+      "type": 2
+    },
+    "focus_metrics": [
+      {
+        "name": "sm__cycles_active.avg",
+        "value": 40666.893939393936,
+        "severity": 2,
+        "info": "Balancing the number of active cycles across SMs would result in a more optimized workload"
+      }
+    ],
+    "speedup_estimation": {
+      "type": 2,
+      "speedup": 16.30484754016544
+    }
+  },
+  {
+    "rule_identifier": "WorkloadImbalance",
+    "name": "Workload Imbalance",
+    "section_identifier": "WorkloadDistribution",
+    "rule_message": {
+      "title": "SMSPs Workload Imbalance",
+      "message": "One or more SMSPs have a much higher number of active cycles than the average number of active cycles. Maximum instance value is 21.70% above the average, while the minimum instance value is 10.86% below the average.",
+      "type": 2
+    },
+    "focus_metrics": [
+      {
+        "name": "smsp__cycles_active.avg",
+        "value": 40601.41287878788,
+        "severity": 2,
+        "info": "Balancing the number of active cycles across SMSPs would result in a more optimized workload"
+      }
+    ],
+    "speedup_estimation": {
+      "type": 2,
+      "speedup": 15.978949783267
+    }
+  },
+  {
+    "rule_identifier": "WorkloadImbalance",
+    "name": "Workload Imbalance",
+    "section_identifier": "WorkloadDistribution",
+    "rule_message": {
+      "title": "L1 Slices Workload Imbalance",
+      "message": "One or more L1 Slices have a much higher number of active cycles than the average number of active cycles. Maximum instance value is 22.11% above the average, while the minimum instance value is 9.12% below the average.",
+      "type": 2
+    },
+    "focus_metrics": [
+      {
+        "name": "l1tex__cycles_active.avg",
+        "value": 40666.893939393936,
+        "severity": 2,
+        "info": "Balancing the number of active cycles across L1 Slices would result in a more optimized workload"
+      }
+    ],
+    "speedup_estimation": {
+      "type": 2,
+      "speedup": 16.30484754016544
+    }
+  }
+]

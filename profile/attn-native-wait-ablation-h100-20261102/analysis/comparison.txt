@@ -1,0 +1,2 @@
+impl/stage  NCU us  grid block regs smem  tensor% occ% DRAMread% storeB/sector
+ave_qkv           51.712  280 160  93  75008   31.51  16.25    1.90   8.00

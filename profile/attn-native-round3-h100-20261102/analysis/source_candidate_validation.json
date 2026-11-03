@@ -1,0 +1,36 @@
+{
+  "gpu": "NVIDIA H100 NVL",
+  "cuda": "13.2",
+  "torch": "2.12.0a0+5aff3928d8.nv26.05",
+  "shape": {
+    "B": 16,
+    "T": 26,
+    "H": 8,
+    "KV": 2,
+    "D": 256,
+    "hidden": 2048
+  },
+  "source_sha256": {
+    "candidate": "c25bacf5405cec557f226d442e7a6cd4c4fd5bf518fb2a48650ee2e26712fd71"
+  },
+  "checks": {
+    "candidate": {
+      "attended": {
+        "cosine": 0.999999837436983,
+        "relative_l2": 0.000570207443569257,
+        "max_abs": 0.015625,
+        "mean_abs": 1.2761059109650958e-05
+      },
+      "output": {
+        "cosine": 0.9999998140494218,
+        "relative_l2": 0.0006098369876132453,
+        "max_abs": 0.015625,
+        "mean_abs": 8.251420625198919e-05
+      }
+    }
+  },
+  "candidate_configs": {
+    "5120": "qkv_t160_c128_w1",
+    "2048": "o_t64_c128_w1"
+  }
+}

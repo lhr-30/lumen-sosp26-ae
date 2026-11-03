@@ -1,0 +1,2 @@
+name, utilization.gpu [%], power.draw [W], clocks.current.sm [MHz], clocks.current.memory [MHz], temperature.gpu
+NVIDIA H100 NVL, 66 %, 234.43 W, 1785 MHz, 2619 MHz, 62

@@ -1,0 +1,674 @@
+{
+  "date_utc": "2026-11-02",
+  "status": "three native harness rounds passed; precise independent timing comparison invalidated by background GPU activity",
+  "run": "runs/attn_mixer_h100_harness_20261102_01",
+  "source": {
+    "runtime": "/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/python/lumen/harness/datasets/lumen/optimization_runtime.py",
+    "runtime_sha256": "c8c5636a60fb0777a2db7a2ab27a343686461a9b5d93fd3a5c5b5e31d34a90b9",
+    "backend": "/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/python/lumen/harness/backend/codex/runner.py",
+    "backend_sha256": "1431acc2bacb589ec52833abf1d84bacd6282b9d52d2609f2cd79aca682dd791",
+    "runtime_modified": false,
+    "seed_sha256": "f78ff01334a91c75bf4ab2401ba0d4fa78d055d8bdddc5074b11b86e2ad29fb4",
+    "prior_mixer_candidates_provided": false,
+    "customization": [
+      "workload spec",
+      "H100 evaluator/queue adapter",
+      "task-specific prompts and public native DSL references"
+    ],
+    "rounds": 3,
+    "support_root": "/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01_support"
+  },
+  "model": {
+    "model": "gpt-6.1-sol",
+    "provider": "copilot",
+    "reasoning effort": "max",
+    "session id": "01a19b38-98d9-7041-a384-b5e676d5d0f8",
+    "native_runtime_unchanged": true,
+    "support_manifest_verified_with_logged_diagnostic_revision": true,
+    "reference_sha256": "f78ff01334a91c75bf4ab2401ba0d4fa78d055d8bdddc5074b11b86e2ad29fb4"
+  },
+  "environment": {
+    "compiler": "/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/.repro/avelang-native",
+    "image": "lumen-hopper:dev",
+    "codex": "/home/wenxh/.local/bin/codex",
+    "domain": "attention_mixer",
+    "workload": {
+      "B": 16,
+      "T": 26,
+      "H": 8,
+      "KV": 2,
+      "D": 256,
+      "hidden": 2048
+    },
+    "compiler_commit": "5f349c594ad510ad6b90d0e1ca310c0d47aa9ed1"
+  },
+  "rounds": [
+    {
+      "round": 0,
+      "candidate_sha256": "1593ca10473f9702b82eea358a0cbcde9a6125d19922d3b3cac29c2a918d01b7",
+      "input_sha256": "f78ff01334a91c75bf4ab2401ba0d4fa78d055d8bdddc5074b11b86e2ad29fb4",
+      "formal_passed": true,
+      "prohibited_previous_solution_path_mentions_in_calls": [],
+      "started_at_utc": "2026-11-02T07:45:39Z",
+      "finished_at_utc": "2026-11-02T08:02:59Z",
+      "final_response": "Implemented [output_model_new.py](/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01/round0/output_model_new.py).\n\nAll four specializations passed native compilation and `ptxas` without spills. The queued benchmark exited 0 with `\"correctness\":true` for all five cases, including fresh-data graph replay, isolation, and zeros.\n\n| Stage | Median \u00b5s |\n|---|---:|\n| QKV | 38.85 |\n| RMSNorm + RoPE | 2.86 |\n| Attention + gate | 17.40 |\n| Projection + residual | 17.21 |\n| **Complete chain** | **78.96** |\n\nInitial compile failures included a crash, FP32 typing errors, and unresolved `__nv_fmaf`; subsequent compilation passed. This branch has no artifact invariant-validation API.",
+      "recorded_tool_calls": 37
+    },
+    {
+      "round": 1,
+      "candidate_sha256": "be62b3a93392c8e885b1629872e0089610c88442260e1332f9f33c8c029fa246",
+      "input_sha256": "1593ca10473f9702b82eea358a0cbcde9a6125d19922d3b3cac29c2a918d01b7",
+      "formal_passed": true,
+      "prohibited_previous_solution_path_mentions_in_calls": [],
+      "started_at_utc": "2026-11-02T08:03:52Z",
+      "finished_at_utc": "2026-11-02T08:27:09Z",
+      "final_response": "Kept the complete implementation in [output_model_new.py](/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01/round1/output_model_new.py). Chain latency improved from **78.68 to 71.87 \u00b5s**, an **8.7% reduction**.\n\nIt uses shared TMA loads for 128\u00d7128 QKV tiles, K128 projection steps, paired BF16 stores, and WGMMA QK with FP32 softmax/PV.\n\n| Stage | Input \u00b5s | Final \u00b5s |\n|---|---:|---:|\n| QKV | 38.21 | 31.99 |\n| Norm/RoPE | 2.81 | 3.18 |\n| Attention/gate | 17.59 | 14.78 |\n| Projection/residual | 17.16 | 18.05 |\n\nAll four specializations passed compiler verification and ptxas without spills. The required queued GPU benchmark exited successfully with `\"correctness\":true` for all five cases. Worst relative L2 was **0.000609**.\n\nOther passing chains measured 81.66/82.23 \u00b5s for wider linears, 79.47 \u00b5s for attention alone, 74.59 \u00b5s for the K128 intermediate, and 92.69/79.11 \u00b5s for scalar attention. A TMA prototype failed to launch; two attention variants failed cosine at 0.8018 before explicit QK chunk synchronization fixed correctness.\n\nArtifact invariant validation is unavailable in this AveLang branch.",
+      "recorded_tool_calls": 46
+    },
+    {
+      "round": 2,
+      "candidate_sha256": "d7f4652bb9be417adb9a58dc481f30458a2467bf6438938cab41d1e464325cbc",
+      "input_sha256": "be62b3a93392c8e885b1629872e0089610c88442260e1332f9f33c8c029fa246",
+      "formal_passed": true,
+      "prohibited_previous_solution_path_mentions_in_calls": [],
+      "started_at_utc": "2026-11-02T08:27:16Z",
+      "finished_at_utc": "2026-11-02T08:45:48Z",
+      "final_response": "Saved the best passing version to [output_model_new.py](/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01/round2/output_model_new.py). It uses 128\u00d7160/K128 QKV tiles and 26 query warps with paired BF16 loads/stores. The input is unchanged.\n\nLatest queued comparison, using 20 iterations and 8 samples:\n\n| Stage | Baseline \u00b5s | Final \u00b5s |\n|---|---:|---:|\n| QKV | 29.49 | 24.21 |\n| Norm/RoPE | 2.79 | 2.79 |\n| Attention/gate | 14.70 | 7.84 |\n| Projection/residual | 17.49 | 17.51 |\n| **Chain** | **68.65** | **54.36** |\n\nThat is **20.8% lower chain latency**.\n\nEarlier chain measurements were 72.02 \u00b5s for baseline, 65.02 for two-stage QKV, 65.67 for three-stage QKV, 58.76 with 16 attention warps, 58.40 with 32 warps, and 55.55 for the final version. The slower three-stage pipeline was discarded.\n\nAll four specializations passed compiler verification and `ptxas` without spills. All five GPU correctness cases passed, including fresh inputs/weights/tables in graphs, causal/batch isolation, and zeros. Worst relative L2 was 0.000609.\n\nThe 100-iteration comparison measured 94.71\u219275.48 \u00b5s with broad timing variation. This branch has no artifact invariant-validation API.",
+      "recorded_tool_calls": 34
+    }
+  ],
+  "formal_latency_us": [
+    78.98719906806946,
+    69.43919956684113,
+    56.038400530815125
+  ],
+  "formal_timing_note": "Different measurement batches; not an independently controlled speedup estimate",
+  "candidate_sha256": "d7f4652bb9be417adb9a58dc481f30458a2467bf6438938cab41d1e464325cbc",
+  "manual_default_unchanged": true,
+  "independent_correctness": {
+    "module": "round2",
+    "candidate_sha256": "d7f4652bb9be417adb9a58dc481f30458a2467bf6438938cab41d1e464325cbc",
+    "checks": [
+      {
+        "case": "seed0",
+        "metrics": {
+          "attended": {
+            "cosine": 0.9999998380060119,
+            "relative_l2": 0.0005692088373600285,
+            "max_abs": 0.015625,
+            "mean_abs": 1.2697921399889696e-05
+          },
+          "output": {
+            "cosine": 0.9999998145924085,
+            "relative_l2": 0.0006089459343431272,
+            "max_abs": 0.015625,
+            "mean_abs": 8.224645101178724e-05
+          }
+        }
+      },
+      {
+        "case": "graph_seed17",
+        "metrics": {
+          "attended": {
+            "cosine": 0.999999889935577,
+            "relative_l2": 0.00046917955351121973,
+            "max_abs": 0.0078125,
+            "mean_abs": 9.665348929825786e-06
+          },
+          "output": {
+            "cosine": 0.9999998507614056,
+            "relative_l2": 0.0005463310450879932,
+            "max_abs": 0.015625,
+            "mean_abs": 6.631210831423792e-05
+          }
+        }
+      },
+      {
+        "case": "graph_seed123",
+        "metrics": {
+          "attended": {
+            "cosine": 0.9999998871488812,
+            "relative_l2": 0.0004750987705355323,
+            "max_abs": 0.015625,
+            "mean_abs": 9.322738118446348e-06
+          },
+          "output": {
+            "cosine": 0.9999998488751088,
+            "relative_l2": 0.0005497725088446936,
+            "max_abs": 0.015625,
+            "mean_abs": 6.733710268655649e-05
+          }
+        }
+      },
+      {
+        "case": "causal_batch_isolation",
+        "metrics": {
+          "attended": {
+            "cosine": 0.9999998870559337,
+            "relative_l2": 0.00047529233134064035,
+            "max_abs": 0.015625,
+            "mean_abs": 9.451483040178433e-06
+          },
+          "output": {
+            "cosine": 0.9999998472975368,
+            "relative_l2": 0.0005526349619504021,
+            "max_abs": 0.015625,
+            "mean_abs": 6.807465643550342e-05
+          }
+        }
+      },
+      {
+        "case": "zero_input",
+        "metrics": {
+          "attended": {
+            "cosine": null,
+            "relative_l2": null,
+            "max_abs": 0.0,
+            "mean_abs": 0.0
+          },
+          "output": {
+            "cosine": 0.9999999999999999,
+            "relative_l2": 0.0,
+            "max_abs": 0.0,
+            "mean_abs": 0.0
+          }
+        }
+      }
+    ],
+    "guarded_allocations": [
+      [
+        416,
+        5120
+      ],
+      [
+        416,
+        8,
+        256
+      ],
+      [
+        416,
+        2,
+        256
+      ],
+      [
+        16,
+        26,
+        2048
+      ],
+      [
+        16,
+        26,
+        2048
+      ]
+    ],
+    "guards_unchanged": true,
+    "gpu": "NVIDIA H100 NVL",
+    "stages": [
+      "qkv",
+      "norm_rope",
+      "attention_gate",
+      "projection_residual"
+    ],
+    "invariant_validation": "unavailable"
+  },
+  "sanitizers": {
+    "memcheck": "0 errors",
+    "synccheck": "0 errors",
+    "racecheck": "0 hazards, 0 errors, 0 warnings"
+  },
+  "cpu_compile": [
+    {
+      "name": "qkv",
+      "ptx_sha256": "5900596c7802f8032e0204108cd35e7f22d21c24fae4fbd461ba37f7fd5eb022",
+      "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function '_linear_wide' for 'sm_90a'\nptxas info    : Function properties for _linear_wide\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 108 registers, used 1 barriers\nptxas info    : Compile time = 42.572 ms\n",
+      "local_memory": false
+    },
+    {
+      "name": "norm_rope",
+      "ptx_sha256": "ae08c936f818e2b3a34bb50a8b10a7a77116aa84f5af499edbd3600bd030f0df",
+      "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function '_norm_rope' for 'sm_90a'\nptxas info    : Function properties for _norm_rope\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 47 registers, used 0 barriers\nptxas info    : Compile time = 9.313 ms\n",
+      "local_memory": false
+    },
+    {
+      "name": "attention_gate",
+      "ptx_sha256": "8decfeafff22e146edbacf2c47a21ab42a8697d12555b6eb5027ea045d0e8161",
+      "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function '_attention_gate' for 'sm_90a'\nptxas info    : Function properties for _attention_gate\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 58 registers, used 1 barriers\nptxas info    : Compile time = 48.112 ms\n",
+      "local_memory": false
+    },
+    {
+      "name": "projection_residual",
+      "ptx_sha256": "f3770b2a6d4e70b222aecb0b221326bb3cbcc1127c4c04beb2bb95b3df6d00b2",
+      "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function '_linear' for 'sm_90a'\nptxas info    : Function properties for _linear\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 58 registers, used 1 barriers\nptxas info    : Compile time = 21.826 ms\n",
+      "local_memory": false
+    }
+  ],
+  "invariant_validation": "unavailable",
+  "gpu_queue": [
+    {
+      "ticket": 3741,
+      "labels": [
+        "codex/lumen native harness mixer bench"
+      ],
+      "exit_codes": [
+        0
+      ],
+      "owner": "native harness"
+    },
+    {
+      "ticket": 3744,
+      "labels": [
+        "codex/lumen native harness mixer bench"
+      ],
+      "exit_codes": [
+        0
+      ],
+      "owner": "native harness"
+    },
+    {
+      "ticket": 3745,
+      "labels": [
+        "codex/lumen round1 baseline"
+      ],
+      "exit_codes": [
+        0
+      ],
+      "owner": "native harness"
+    },
+    {
+      "ticket": 3746,
+      "labels": [
+        "codex/lumen round1 wider linear"
+      ],
+      "exit_codes": [
+        0
+      ],
+      "owner": "native harness"
+    },
+    {
+      "ticket": 3747,
+      "labels": [
+        "codex/lumen round1 three-stage linear"
+      ],
+      "exit_codes": [
+        0
+      ],
+      "owner": "native harness"
+    },
+    {
+      "ticket": 3748,
+      "labels": [
+        "codex/lumen round1 short attention"
+      ],
+      "exit_codes": [
+        1
+      ],
+      "owner": "native harness"
+    },
+    {
+      "ticket": 3749,
+      "labels": [
+        "codex/lumen round1 attention TMA layout"
+      ],
+      "exit_codes": [
+        1
+      ],
+      "owner": "native harness"
+    },
+    {
+      "ticket": 3750,
+      "labels": [
+        "codex/lumen round1 shared-copy attention"
+      ],
+      "exit_codes": [
+        1
+      ],
+      "owner": "native harness"
+    },
+    {
+      "ticket": 3751,
+      "labels": [
+        "codex/lumen round1 attention chunk sync"
+      ],
+      "exit_codes": [
+        0
+      ],
+      "owner": "native harness"
+    },
+    {
+      "ticket": 3752,
+      "labels": [
+        "codex/lumen round1 K128 linear"
+      ],
+      "exit_codes": [
+        0
+      ],
+      "owner": "native harness"
+    },
+    {
+      "ticket": 3753,
+      "labels": [
+        "codex/lumen round1 scalar attention"
+      ],
+      "exit_codes": [
+        0
+      ],
+      "owner": "native harness"
+    },
+    {
+      "ticket": 3754,
+      "labels": [
+        "codex/lumen round1 compact attention"
+      ],
+      "exit_codes": [
+        0
+      ],
+      "owner": "native harness"
+    },
+    {
+      "ticket": 3755,
+      "labels": [
+        "codex/lumen round1 shared-tile QKV"
+      ],
+      "exit_codes": [
+        0
+      ],
+      "owner": "native harness"
+    },
+    {
+      "ticket": 3756,
+      "labels": [
+        "codex/lumen native harness mixer bench"
+      ],
+      "exit_codes": [
+        0
+      ],
+      "owner": "native harness"
+    },
+    {
+      "ticket": 3757,
+      "labels": [
+        "codex/lumen round2 baseline"
+      ],
+      "exit_codes": [
+        0
+      ],
+      "owner": "native harness"
+    },
+    {
+      "ticket": 3761,
+      "labels": [
+        "codex/lumen round2 QKV K128 N160"
+      ],
+      "exit_codes": [
+        0
+      ],
+      "owner": "native harness"
+    },
+    {
+      "ticket": 3762,
+      "labels": [
+        "codex/lumen round2 QKV async3"
+      ],
+      "exit_codes": [
+        0
+      ],
+      "owner": "native harness"
+    },
+    {
+      "ticket": 3763,
+      "labels": [
+        "codex/lumen round2 paired attention16"
+      ],
+      "exit_codes": [
+        0
+      ],
+      "owner": "native harness"
+    },
+    {
+      "ticket": 3764,
+      "labels": [
+        "codex/lumen round2 paired attention32"
+      ],
+      "exit_codes": [
+        0
+      ],
+      "owner": "native harness"
+    },
+    {
+      "ticket": 3766,
+      "labels": [
+        "codex/lumen round2 packed QKV attention26"
+      ],
+      "exit_codes": [
+        0
+      ],
+      "owner": "native harness"
+    },
+    {
+      "ticket": 3767,
+      "labels": [
+        "codex/lumen round2 final comparison"
+      ],
+      "exit_codes": [
+        0
+      ],
+      "owner": "native harness"
+    },
+    {
+      "ticket": 3768,
+      "labels": [
+        "codex/lumen round2 standard comparison"
+      ],
+      "exit_codes": [
+        0
+      ],
+      "owner": "native harness"
+    },
+    {
+      "ticket": 3770,
+      "labels": [
+        "codex/lumen native harness mixer bench"
+      ],
+      "exit_codes": [
+        0
+      ],
+      "owner": "native harness"
+    },
+    {
+      "ticket": 3773,
+      "labels": [
+        "codex/lumen native harness independent final"
+      ],
+      "exit_codes": [
+        0
+      ],
+      "owner": "independent validation"
+    },
+    {
+      "ticket": 3774,
+      "labels": [
+        "codex/lumen native harness independent timing"
+      ],
+      "exit_codes": [
+        0
+      ],
+      "owner": "independent timing repeat"
+    }
+  ],
+  "independent_timing_reliable_for_precise_ranking": false,
+  "background_activity_first": {
+    "measurement_window_unix": [
+      1793609362.7067137,
+      1793609364.0262067
+    ],
+    "positive_other_process_samples": [
+      {
+        "time": "08:49:10",
+        "pid": "3953810",
+        "sm": 7,
+        "overlaps_measurement_conservative": false
+      },
+      {
+        "time": "08:49:22",
+        "pid": "3953810",
+        "sm": 7,
+        "overlaps_measurement_conservative": true
+      },
+      {
+        "time": "08:49:23",
+        "pid": "3953810",
+        "sm": 1,
+        "overlaps_measurement_conservative": true
+      }
+    ],
+    "sampling_note": "1-second pmon intervals; +-1 second used for conservative overlap; dash entries are unavailable/no sample, not a proof of zero activity."
+  },
+  "background_activity_repeat": {
+    "measurement_window_unix": [
+      1793609542.1624105,
+      1793609544.1990345
+    ],
+    "positive_other_process_samples": [
+      {
+        "time": "08:52:01",
+        "pid": "3953810",
+        "sm": 65,
+        "overlaps_measurement_conservative": false
+      },
+      {
+        "time": "08:52:02",
+        "pid": "3953810",
+        "sm": 63,
+        "overlaps_measurement_conservative": false
+      },
+      {
+        "time": "08:52:03",
+        "pid": "3953810",
+        "sm": 62,
+        "overlaps_measurement_conservative": false
+      },
+      {
+        "time": "08:52:04",
+        "pid": "3953810",
+        "sm": 64,
+        "overlaps_measurement_conservative": false
+      },
+      {
+        "time": "08:52:05",
+        "pid": "3953810",
+        "sm": 65,
+        "overlaps_measurement_conservative": false
+      },
+      {
+        "time": "08:52:06",
+        "pid": "3953810",
+        "sm": 55,
+        "overlaps_measurement_conservative": false
+      },
+      {
+        "time": "08:52:08",
+        "pid": "3953810",
+        "sm": 5,
+        "overlaps_measurement_conservative": false
+      },
+      {
+        "time": "08:52:09",
+        "pid": "3953810",
+        "sm": 66,
+        "overlaps_measurement_conservative": false
+      },
+      {
+        "time": "08:52:10",
+        "pid": "3953810",
+        "sm": 66,
+        "overlaps_measurement_conservative": false
+      },
+      {
+        "time": "08:52:11",
+        "pid": "3953810",
+        "sm": 66,
+        "overlaps_measurement_conservative": false
+      },
+      {
+        "time": "08:52:12",
+        "pid": "3953810",
+        "sm": 66,
+        "overlaps_measurement_conservative": false
+      },
+      {
+        "time": "08:52:13",
+        "pid": "3953810",
+        "sm": 67,
+        "overlaps_measurement_conservative": false
+      },
+      {
+        "time": "08:52:14",
+        "pid": "3953810",
+        "sm": 65,
+        "overlaps_measurement_conservative": false
+      },
+      {
+        "time": "08:52:15",
+        "pid": "3953810",
+        "sm": 66,
+        "overlaps_measurement_conservative": false
+      },
+      {
+        "time": "08:52:16",
+        "pid": "3953810",
+        "sm": 66,
+        "overlaps_measurement_conservative": false
+      },
+      {
+        "time": "08:52:17",
+        "pid": "3953810",
+        "sm": 67,
+        "overlaps_measurement_conservative": false
+      },
+      {
+        "time": "08:52:18",
+        "pid": "3953810",
+        "sm": 67,
+        "overlaps_measurement_conservative": false
+      },
+      {
+        "time": "08:52:19",
+        "pid": "3953810",
+        "sm": 66,
+        "overlaps_measurement_conservative": false
+      },
+      {
+        "time": "08:52:20",
+        "pid": "3953810",
+        "sm": 66,
+        "overlaps_measurement_conservative": false
+      },
+      {
+        "time": "08:52:21",
+        "pid": "3953810",
+        "sm": 66,
+        "overlaps_measurement_conservative": false
+      },
+      {
+        "time": "08:52:22",
+        "pid": "3953810",
+        "sm": 54,
+        "overlaps_measurement_conservative": true
+      },
+      {
+        "time": "08:52:23",
+        "pid": "3953810",
+        "sm": 49,
+        "overlaps_measurement_conservative": true
+      },
+      {
+        "time": "08:52:24",
+        "pid": "3953810",
+        "sm": 43,
+        "overlaps_measurement_conservative": true
+      }
+    ],
+    "sampling_note": "1-second pmon intervals; +-1 second used for conservative overlap; dash entries are unavailable/no sample, not a proof of zero activity."
+  },
+  "report": "profile/attn-harness-h100-20261102/REPORT.md"
+}

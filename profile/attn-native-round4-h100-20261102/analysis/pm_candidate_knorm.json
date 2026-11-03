@@ -1,0 +1,722 @@
+{
+  "FBSP.TriageCompute.dramc__read_throughput.avg.pct_of_peak_sustained_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        0.0
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "%",
+    "sampling_interval_ns": 1500
+  },
+  "FBSP.TriageCompute.dramc__throughput.avg.pct_of_peak_sustained_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        0.0
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "%",
+    "sampling_interval_ns": 1500
+  },
+  "FBSP.TriageCompute.dramc__write_throughput.avg.pct_of_peak_sustained_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        0.0
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "%",
+    "sampling_interval_ns": 1500
+  },
+  "FE_B.TriageCompute.gr__ctas_launched_realtime.avg.per_cycle_elapsed": {
+    "duration_us": 3.904,
+    "samples": [
+      [
+        0.768,
+        0.38052095130237823
+      ],
+      [
+        2.272,
+        0.0
+      ],
+      [
+        3.776,
+        0.0
+      ]
+    ],
+    "unit": "block/cycle",
+    "sampling_interval_ns": 1500
+  },
+  "FE_B.TriageCompute.gr__ctas_launched_realtime.sum.per_cycle_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        0.0
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "block/cycle",
+    "sampling_interval_ns": 1500
+  },
+  "GPC_B.TriageCompute.gpc__cgas_active_realtime.avg.per_cycle_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        0.0
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "",
+    "sampling_interval_ns": 1500
+  },
+  "GPC_B.TriageCompute.gpc__cgas_active_realtime.sum.per_cycle_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        0.0
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "",
+    "sampling_interval_ns": 1500
+  },
+  "GPC_B.TriageCompute.gpc__cgas_launched.sum.per_cycle_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        0.0
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "",
+    "sampling_interval_ns": 1500
+  },
+  "LTS.TriageCompute.lts__average_t_sector_hit_rate_realtime.pct": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        50.0
+      ],
+      [
+        2.848,
+        50.0
+      ]
+    ],
+    "unit": "%",
+    "sampling_interval_ns": 1500
+  },
+  "LTS.TriageCompute.lts__average_t_sector_hit_rate_srcunit_tex_realtime.pct": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        50.0
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "%",
+    "sampling_interval_ns": 1500
+  },
+  "LTS.TriageCompute.lts__t_sector_throughput_aperture_device.avg.pct_of_peak_sustained_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        6.266752057686377
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "%",
+    "sampling_interval_ns": 1500
+  },
+  "LTS.TriageCompute.lts__t_sector_throughput_srcunit_gcc.avg.pct_of_peak_sustained_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        0.0
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "%",
+    "sampling_interval_ns": 1500
+  },
+  "LTS.TriageCompute.lts__t_sector_throughput_srcunit_tex.avg.pct_of_peak_sustained_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        4.143836428757798
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "%",
+    "sampling_interval_ns": 1500
+  },
+  "LTS.TriageCompute.lts__throughput.avg.pct_of_peak_sustained_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        8.209990749306199
+      ],
+      [
+        2.848,
+        5.279291952406072
+      ]
+    ],
+    "unit": "%",
+    "sampling_interval_ns": 1500
+  },
+  "SM_A.TriageCompute.l1tex__data_pipe_lsu_wavefronts.avg.pct_of_peak_sustained_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        16.415627316835117
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "%",
+    "sampling_interval_ns": 1500
+  },
+  "SM_A.TriageCompute.l1tex__throughput.avg.pct_of_peak_sustained_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        16.415627316835117
+      ],
+      [
+        2.848,
+        0.06145709177592371
+      ]
+    ],
+    "unit": "%",
+    "sampling_interval_ns": 1500
+  },
+  "SM_A.TriageCompute.sm__inst_executed_pipe_uniform_realtime.avg.pct_of_peak_sustained_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        1.1899734414444851
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "%",
+    "sampling_interval_ns": 1500
+  },
+  "SM_A.TriageCompute.sm__inst_executed_pipe_xu_realtime.avg.pct_of_peak_sustained_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        0.49550944564880767
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "%",
+    "sampling_interval_ns": 1500
+  },
+  "SM_B.TriageCompute.l1tex__t_sector_hit_rate.pct": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        49.6494391025641
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "%",
+    "sampling_interval_ns": 1500
+  },
+  "SM_B.TriageCompute.l1tex__t_sectors_lookup_hit.avg.pct_of_peak_sustained_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        0.29074814418574096
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "%",
+    "sampling_interval_ns": 1500
+  },
+  "SM_B.TriageCompute.l1tex__t_sectors_lookup_miss.avg.pct_of_peak_sustained_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        0.29485392794466814
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "%",
+    "sampling_interval_ns": 1500
+  },
+  "SM_C.TriageCompute.smsp__pipe_tensor_op_dmma_cycles_active.avg.pct_of_peak_sustained_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        0.0
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "%",
+    "sampling_interval_ns": 1500
+  },
+  "TPC.TriageCompute.sm__cycles_active.avg.per_cycle_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        0.4715269761723772
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "",
+    "sampling_interval_ns": 1500
+  },
+  "TPC.TriageCompute.sm__inst_executed_pipe_alu_realtime.avg.pct_of_peak_sustained_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        6.275514513359047
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "%",
+    "sampling_interval_ns": 1500
+  },
+  "TPC.TriageCompute.sm__inst_executed_pipe_fma_realtime.avg.pct_of_peak_sustained_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        4.46286963784641
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "%",
+    "sampling_interval_ns": 1500
+  },
+  "TPC.TriageCompute.sm__inst_executed_pipe_fmaheavy_realtime.avg.pct_of_peak_sustained_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        2.505701174019539
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "%",
+    "sampling_interval_ns": 1500
+  },
+  "TPC.TriageCompute.sm__inst_executed_pipe_fmalite_realtime.avg.pct_of_peak_sustained_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        6.420038101673282
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "%",
+    "sampling_interval_ns": 1500
+  },
+  "TPC.TriageCompute.sm__inst_executed_realtime.avg.pct_of_peak_sustained_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        11.634148859295964
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "%",
+    "sampling_interval_ns": 1500
+  },
+  "TPC.TriageCompute.sm__inst_executed_realtime.avg.per_cycle_active": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        0.9878284427976654
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "inst/cycle",
+    "sampling_interval_ns": 1500
+  },
+  "TPC.TriageCompute.sm__inst_executed_realtime.avg.per_cycle_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        0.4653659543718386
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "inst/cycle",
+    "sampling_interval_ns": 1500
+  },
+  "TPC.TriageCompute.sm__pipe_fp64_cycles_active_realtime.avg.pct_of_peak_sustained_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        0.0
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "%",
+    "sampling_interval_ns": 1500
+  },
+  "TPC.TriageCompute.sm__pipe_tensor_cycles_active_realtime.avg.pct_of_peak_sustained_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        0.0
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "%",
+    "sampling_interval_ns": 1500
+  },
+  "TPC.TriageCompute.sm__pipe_tensor_op_hmma_cycles_active_realtime.avg.pct_of_peak_sustained_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        0.0
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "%",
+    "sampling_interval_ns": 1500
+  },
+  "TPC.TriageCompute.sm__pipe_tensor_op_imma_cycles_active_realtime.avg.pct_of_peak_sustained_elapsed": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        1.344,
+        0.0
+      ],
+      [
+        2.848,
+        0.0
+      ]
+    ],
+    "unit": "%",
+    "sampling_interval_ns": 1500
+  },
+  "pmsampling:smsp__warps_issue_stalled_barrier.avg": {
+    "duration_us": 3.552,
+    "samples": [
+      [
+        0.672,
+        12.081439393939394
+      ],
+      [
+        2.176,
+        0.0
+      ]
+    ],
+    "unit": "warp",
+    "sampling_interval_ns": 1500
+  },
+  "pmsampling:smsp__warps_issue_stalled_branch_resolving.avg": {
+    "duration_us": 3.552,
+    "samples": [
+      [
+        0.672,
+        12.272727272727273
+      ],
+      [
+        2.176,
+        0.3465909090909091
+      ]
+    ],
+    "unit": "warp",
+    "sampling_interval_ns": 1500
+  },
+  "pmsampling:smsp__warps_issue_stalled_dispatch_stall.avg": {
+    "duration_us": 3.552,
+    "samples": [
+      [
+        0.672,
+        8.87689393939394
+      ],
+      [
+        2.176,
+        0.003787878787878788
+      ]
+    ],
+    "unit": "warp",
+    "sampling_interval_ns": 1500
+  },
+  "pmsampling:smsp__warps_issue_stalled_drain.avg": {
+    "duration_us": 3.552,
+    "samples": [
+      [
+        0.672,
+        36.041666666666664
+      ],
+      [
+        2.176,
+        1.2140151515151516
+      ]
+    ],
+    "unit": "warp",
+    "sampling_interval_ns": 1500
+  },
+  "pmsampling:smsp__warps_issue_stalled_imc_miss.avg": {
+    "duration_us": 3.52,
+    "samples": [
+      [
+        1.024,
+        16.392045454545453
+      ],
+      [
+        2.528,
+        0.0
+      ]
+    ],
+    "unit": "warp",
+    "sampling_interval_ns": 1500
+  },
+  "pmsampling:smsp__warps_issue_stalled_lg_throttle.avg": {
+    "duration_us": 3.52,
+    "samples": [
+      [
+        1.024,
+        4.571969696969697
+      ],
+      [
+        2.528,
+        0.0
+      ]
+    ],
+    "unit": "warp",
+    "sampling_interval_ns": 1500
+  },
+  "pmsampling:smsp__warps_issue_stalled_long_scoreboard.avg": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        0.192,
+        320.37310606060606
+      ],
+      [
+        1.696,
+        242.82954545454547
+      ],
+      [
+        3.2,
+        0.0
+      ]
+    ],
+    "unit": "warp",
+    "sampling_interval_ns": 1500
+  },
+  "pmsampling:smsp__warps_issue_stalled_math_pipe_throttle.avg": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        0.192,
+        12.179924242424242
+      ],
+      [
+        1.696,
+        0.3522727272727273
+      ],
+      [
+        3.2,
+        0.0
+      ]
+    ],
+    "unit": "warp",
+    "sampling_interval_ns": 1500
+  },
+  "pmsampling:smsp__warps_issue_stalled_mio_throttle.avg": {
+    "duration_us": 3.744,
+    "samples": [
+      [
+        1.216,
+        6.662878787878788
+      ],
+      [
+        2.72,
+        0.0
+      ]
+    ],
+    "unit": "warp",
+    "sampling_interval_ns": 1500
+  },
+  "pmsampling:smsp__warps_issue_stalled_misc.avg": {
+    "duration_us": 3.456,
+    "samples": [],
+    "unit": "warp",
+    "sampling_interval_ns": 1500
+  },
+  "pmsampling:smsp__warps_issue_stalled_no_instruction.avg": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        0.96,
+        6.948863636363637
+      ],
+      [
+        2.464,
+        0.0
+      ]
+    ],
+    "unit": "warp",
+    "sampling_interval_ns": 1500
+  },
+  "pmsampling:smsp__warps_issue_stalled_short_scoreboard.avg": {
+    "duration_us": 3.744,
+    "samples": [
+      [
+        1.216,
+        331.15340909090907
+      ],
+      [
+        2.72,
+        0.0
+      ]
+    ],
+    "unit": "warp",
+    "sampling_interval_ns": 1500
+  },
+  "pmsampling:smsp__warps_issue_stalled_sleeping.avg": {
+    "duration_us": 3.456,
+    "samples": [],
+    "unit": "warp",
+    "sampling_interval_ns": 1500
+  },
+  "pmsampling:smsp__warps_issue_stalled_tex_throttle.avg": {
+    "duration_us": 3.456,
+    "samples": [],
+    "unit": "warp",
+    "sampling_interval_ns": 1500
+  },
+  "pmsampling:smsp__warps_issue_stalled_wait.avg": {
+    "duration_us": 3.456,
+    "samples": [
+      [
+        0.96,
+        350.5738636363636
+      ],
+      [
+        2.464,
+        0.0
+      ]
+    ],
+    "unit": "warp",
+    "sampling_interval_ns": 1500
+  }
+}

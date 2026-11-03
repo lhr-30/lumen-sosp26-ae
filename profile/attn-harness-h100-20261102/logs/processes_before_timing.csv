@@ -1,0 +1,4 @@
+pid, process_name, used_gpu_memory [MiB]
+3951249, /abo-models/team/selection/reform-gr-falcon/m/clover-py/abo/bin/python, 30896 MiB
+3951997, /opt/tritonserver/bin/tritonserver, 582 MiB
+3953810, /opt/tritonserver/backends/python/triton_python_backend_stub, 15406 MiB

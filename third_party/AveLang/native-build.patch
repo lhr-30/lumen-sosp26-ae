@@ -1,0 +1,265 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index e0b88b8..08cd01c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -46,19 +46,22 @@ set(HUNTER_FILEPATH_CONFIG "${CMAKE_CURRENT_SOURCE_DIR}/cmake/hunter_config.cmak
+ include(FetchContent)
+ set(FETCHCONTENT_BASE_DIR "${CMAKE_BINARY_DIR}/_deps")
+ 
++option(HUNTER_ENABLED "Download build dependencies with Hunter" ON)
++if(HUNTER_ENABLED)
+ FetchContent_Declare(
+     SetupHunter
+     GIT_REPOSITORY https://github.com/cpp-pm/gate
+     GIT_TAG v0.11.0
+ )
+ FetchContent_MakeAvailable(SetupHunter)
++endif()
+ 
+ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+ 
+ project(ave-lang
+     VERSION 0.1.0
+     DESCRIPTION "Ave DSL Compiler"
+-    LANGUAGES CXX
++    LANGUAGES C CXX
+ )
+ 
+ add_compile_options(-Wall -fvisibility=hidden -fPIC)
+@@ -70,6 +73,18 @@ find_package(zstd CONFIG REQUIRED)
+ find_package(LLVM 23.0 CONFIG REQUIRED)
+ find_package(MLIR CONFIG REQUIRED)
+ find_package(Clang REQUIRED CONFIG)
++if(NOT LLVM_ENABLE_RTTI)
++    add_compile_options(-fno-rtti)
++endif()
++
++# Match the installed LLVM shared/static linkage to avoid duplicate registries.
++function(ave_lang_link_llvm target)
++    if(LLVM_LINK_LLVM_DYLIB)
++        llvm_config(${target} USE_SHARED ${ARGN})
++    else()
++        llvm_config(${target} ${ARGN})
++    endif()
++endfunction()
+ 
+ # Locate build tool executables using paths exported by LLVM/MLIR packages.
+ if(NOT MLIR_OPT_EXECUTABLE)
+diff --git a/lib/Basic/CMakeLists.txt b/lib/Basic/CMakeLists.txt
+index 6aa72d9..0af3f47 100644
+--- a/lib/Basic/CMakeLists.txt
++++ b/lib/Basic/CMakeLists.txt
+@@ -2,8 +2,5 @@ add_library(ave-lang-basic
+   diagnostic.cc
+ )
+ 
+-llvm_map_components_to_libnames(llvm_libs support)
+-target_link_libraries(ave-lang-basic 
+-  ${llvm_libs} 
+-  clangBasic
+-)
+\ No newline at end of file
++target_link_libraries(ave-lang-basic PRIVATE clangBasic)
++ave_lang_link_llvm(ave-lang-basic support)
+diff --git a/lib/Driver/CMakeLists.txt b/lib/Driver/CMakeLists.txt
+index 6bd3c28..a21ac69 100644
+--- a/lib/Driver/CMakeLists.txt
++++ b/lib/Driver/CMakeLists.txt
+@@ -9,8 +9,7 @@ target_link_libraries(ave-lang-driver
+   ave-lang-target-gpu
+   ave-lang-basic
+   ave-lang-ast
+-  LLVMCore
+-  LLVMSupport
+ )
++ave_lang_link_llvm(ave-lang-driver core support)
+ 
+-target_compile_definitions(ave-lang-driver PRIVATE ${LLVM_DEFINITIONS})
+\ No newline at end of file
++target_compile_definitions(ave-lang-driver PRIVATE ${LLVM_DEFINITIONS})
+diff --git a/lib/Frontend/CMakeLists.txt b/lib/Frontend/CMakeLists.txt
+index 573166f..dd99750 100644
+--- a/lib/Frontend/CMakeLists.txt
++++ b/lib/Frontend/CMakeLists.txt
+@@ -4,7 +4,7 @@ add_library(ave-lang-frontend
+   avelang_parser_utils.cc
+ )
+ 
+-target_link_libraries(ave-lang-frontend 
++target_link_libraries(ave-lang-frontend PRIVATE
+   ave-lang-ast
+   ave-lang-basic
+   pybind11::pybind11
+@@ -12,5 +12,11 @@ target_link_libraries(ave-lang-frontend
+ )
+ 
+ add_executable(ave-lang-parser-test avelang_parser_test.cc)
+-target_link_libraries(ave-lang-parser-test ave-lang-frontend clangFrontend LLVMSupport GTest::gtest_main)
++target_link_libraries(ave-lang-parser-test PRIVATE ave-lang-frontend clangFrontend  GTest::gtest_main)
++ave_lang_link_llvm(ave-lang-parser-test support)
+ add_test(NAME ave-lang-parser-test COMMAND ave-lang-parser-test)
++
++if(NOT LLVM_ENABLE_RTTI)
++  target_compile_options(ave-lang-frontend PRIVATE -frtti)
++  target_compile_options(ave-lang-parser-test PRIVATE -frtti)
++endif()
+diff --git a/lib/Target/AMDGPU/CMakeLists.txt b/lib/Target/AMDGPU/CMakeLists.txt
+index 0cc5534..fb02465 100644
+--- a/lib/Target/AMDGPU/CMakeLists.txt
++++ b/lib/Target/AMDGPU/CMakeLists.txt
+@@ -31,23 +31,16 @@ target_link_libraries(ave-lang-target-amdgpu
+   MLIRMemRefTransforms
+   ave-lang-mlir
+   ave-lang-dialect-transforms
+-  LLVMAMDGPUCodeGen
+-  LLVMAMDGPUInfo
+-  LLVMAMDGPUDesc
+-  LLVMAsmPrinter
+-  LLVMBitWriter
+-  LLVMCodeGen
+-  LLVMTarget
+-  LLVMCore
+-  LLVMSupport
++
+   clangDriver
+ )
++ave_lang_link_llvm(ave-lang-target-amdgpu amdgpucodegen amdgpuinfo amdgpudesc asmprinter bitwriter codegen target core support)
+ 
+ target_compile_definitions(ave-lang-target-amdgpu PRIVATE ${LLVM_DEFINITIONS})
+ 
+ # Add AMDGPU codegen test
+ add_executable(amdgpu_codegen_test amdgpu_codegen_test.cc)
+-target_link_libraries(amdgpu_codegen_test
++target_link_libraries(amdgpu_codegen_test PRIVATE
+   ave-lang-target-amdgpu
+   ave-lang-driver
+   ave-lang-basic
+diff --git a/lib/Target/GPU/CMakeLists.txt b/lib/Target/GPU/CMakeLists.txt
+index 57c4cf5..d7ad46e 100644
+--- a/lib/Target/GPU/CMakeLists.txt
++++ b/lib/Target/GPU/CMakeLists.txt
+@@ -8,8 +8,7 @@ add_library(ave-lang-target-gpu
+ 
+ target_link_libraries(ave-lang-target-gpu
+   PRIVATE
+-  LLVMCore
+-  LLVMSupport
++
+   MLIRLLVMDialect
+   MLIRTargetLLVMIRExport
+   MLIRArithToLLVM
+@@ -35,6 +34,7 @@ target_link_libraries(ave-lang-target-gpu
+   ave-lang-mlir
+   ave-lang-dialect-transforms
+ )
++ave_lang_link_llvm(ave-lang-target-gpu core support)
+ 
+ if(WITH_AMDGPU)
+   target_link_libraries(ave-lang-target-gpu PRIVATE
+@@ -50,7 +50,7 @@ endif()
+ target_compile_definitions(ave-lang-target-gpu PRIVATE ${LLVM_DEFINITIONS})
+ 
+ add_executable(lower_to_llvm_test lower_to_llvm_test.cc)
+-target_link_libraries(lower_to_llvm_test 
++target_link_libraries(lower_to_llvm_test PRIVATE
+   ave-lang-target-gpu
+   GTest::gtest_main
+   MLIRParser
+@@ -58,7 +58,7 @@ target_link_libraries(lower_to_llvm_test
+ add_test(lower_to_llvm_test lower_to_llvm_test)
+ 
+ add_executable(gpu_outlining_test gpu_outlining_test.cc)
+-target_link_libraries(gpu_outlining_test 
++target_link_libraries(gpu_outlining_test PRIVATE
+   ave-lang-target-gpu
+   GTest::gtest_main
+   MLIRParser
+diff --git a/lib/Target/NVVM/CMakeLists.txt b/lib/Target/NVVM/CMakeLists.txt
+index d75da7b..8c02a14 100644
+--- a/lib/Target/NVVM/CMakeLists.txt
++++ b/lib/Target/NVVM/CMakeLists.txt
+@@ -25,30 +25,23 @@ target_link_libraries(ave-lang-target-nvvm
+   MLIRUBToLLVM
+   ave-lang-mlir
+   ave-lang-dialect-transforms
+-  LLVMNVPTXCodeGen
+-  LLVMNVPTXInfo
+-  LLVMNVPTXDesc
+-  LLVMAsmPrinter
+-  LLVMCodeGen
+-  LLVMTarget
+-  LLVMCore
+-  LLVMSupport
++
+ )
++ave_lang_link_llvm(ave-lang-target-nvvm nvptxcodegen nvptxinfo nvptxdesc asmprinter codegen target core support)
+ 
+ target_compile_definitions(ave-lang-target-nvvm PRIVATE ${LLVM_DEFINITIONS})
+ 
+ # Add NVVM codegen test
+ add_executable(nvvm_codegen_test nvvm_codegen_test.cc)
+-target_link_libraries(nvvm_codegen_test
++target_link_libraries(nvvm_codegen_test PRIVATE
+   ave-lang-target-nvvm
+   ave-lang-driver
+   ave-lang-basic
+   ave-lang-ast
+   GTest::gtest_main
+-  LLVMCore
+-  LLVMSupport
+-  LLVMIRReader
++
+   CUDA::cuda_driver
+ )
++ave_lang_link_llvm(nvvm_codegen_test core support irreader)
+ 
+ add_test(nvvm_codegen_test nvvm_codegen_test)
+diff --git a/lib/Utils/CMakeLists.txt b/lib/Utils/CMakeLists.txt
+index 20ca6c3..be1d87b 100644
+--- a/lib/Utils/CMakeLists.txt
++++ b/lib/Utils/CMakeLists.txt
+@@ -2,6 +2,4 @@ add_library(ave-lang-utils
+   embedded_filesystem_view.cc
+ )
+ 
+-target_link_libraries(ave-lang-utils
+-  LLVMSupport
+-)
+\ No newline at end of file
++ave_lang_link_llvm(ave-lang-utils support)
+diff --git a/python/CMakeLists.txt b/python/CMakeLists.txt
+index c3915c8..fdca96e 100644
+--- a/python/CMakeLists.txt
++++ b/python/CMakeLists.txt
+@@ -1,13 +1,14 @@
+ # Python bindings for ave-lang
+ 
+ # Include all targets for the LLVMInitialize*Target symbols in the bindings.
+-llvm_map_components_to_libnames(llvm_libs support core irreader ${LLVM_TARGETS_TO_BUILD})
+ 
+ # Get MLIR libraries
+-get_property(mlir_libs GLOBAL PROPERTY MLIR_ALL_LIBS)
+ 
+ # Create Python extension module
+ pybind11_add_module(_avelang_bindings src/avelang_bindings.cc)
++if(NOT LLVM_ENABLE_RTTI)
++    target_compile_options(_avelang_bindings PRIVATE -frtti)
++endif()
+ 
+ # Set target properties
+ target_compile_definitions(_avelang_bindings PRIVATE 
+@@ -32,8 +33,6 @@ target_link_libraries(_avelang_bindings PRIVATE
+     ave-lang-frontend
+     ave-lang-ast
+     clangFrontend
+-    ${llvm_libs}
+-    ${mlir_libs}
+ )
+ 
+ # Set output properties
+@@ -49,3 +48,5 @@ if(DEFINED AVE_LANG_PYTHON_LIBRARY_OUTPUT_DIRECTORY)
+         LIBRARY_OUTPUT_DIRECTORY "${AVE_LANG_PYTHON_LIBRARY_OUTPUT_DIRECTORY}"
+     )
+ endif()
++
++ave_lang_link_llvm(_avelang_bindings support core irreader ${LLVM_TARGETS_TO_BUILD})

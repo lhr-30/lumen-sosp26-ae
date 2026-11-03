@@ -1,0 +1,41 @@
+cute/attended: {'cosine': 0.999996530632734, 'relative_l2': 0.0026341499054155487, 'max_abs': 0.015625, 'mean_abs': 0.00022943129525178674}
+cute/output: {'cosine': 0.999999048134544, 'relative_l2': 0.0013797574168539289, 'max_abs': 0.015625, 'mean_abs': 0.00041714334152997116}
+round0/attended: {'cosine': 0.9999998381153978, 'relative_l2': 0.0005690162045507024, 'max_abs': 0.015625, 'mean_abs': 1.2695092930943458e-05}
+round0/output: {'cosine': 0.9999998153445052, 'relative_l2': 0.0006077095987038429, 'max_abs': 0.015625, 'mean_abs': 8.202373954610756e-05}
+round1/attended: {'cosine': 0.9999998380060119, 'relative_l2': 0.0005692088373600285, 'max_abs': 0.015625, 'mean_abs': 1.2697921399889696e-05}
+round1/output: {'cosine': 0.9999998145924085, 'relative_l2': 0.0006089459343431272, 'max_abs': 0.015625, 'mean_abs': 8.224645101178724e-05}
+round2/attended: {'cosine': 0.9999998380060119, 'relative_l2': 0.0005692088373600285, 'max_abs': 0.015625, 'mean_abs': 1.2697921399889696e-05}
+round2/output: {'cosine': 0.9999998145924085, 'relative_l2': 0.0006089459343431272, 'max_abs': 0.015625, 'mean_abs': 8.224645101178724e-05}
+manual/attended: {'cosine': 0.9999998373400194, 'relative_l2': 0.0005703779564457392, 'max_abs': 0.015625, 'mean_abs': 1.2761484436706583e-05}
+manual/output: {'cosine': 0.9999998134688551, 'relative_l2': 0.0006107882260481258, 'max_abs': 0.015625, 'mean_abs': 8.268102045314244e-05}
+cute/chain 44.09472107887268
+cute/qkv_proj (CuTe 416x5120x2048) 17.484159469604492
+cute/k_norm_rope (CuTe) 1.555200070142746
+cute/q_norm_rope_attention_gate (CuTe) 5.584959983825684
+cute/o_proj (CuTe 416x2048x2048) 8.039840161800385
+cute/residual_add (torch.add) 1.7412800341844559
+round0/chain 104.78479862213135
+round0/middle 19.930880069732666
+round0/qkv 42.167041301727295
+round0/norm_rope 2.6494400203227997
+round0/attention_gate 17.35376000404358
+round0/projection_residual 17.071200013160706
+round1/chain 94.63119983673096
+round1/middle 17.020959854125977
+round1/qkv 33.41488003730774
+round1/norm_rope 2.650560140609741
+round1/attention_gate 14.412319660186768
+round1/projection_residual 17.232159972190857
+round2/chain 76.1899209022522
+round2/middle 10.226399898529053
+round2/qkv 27.986719608306885
+round2/norm_rope 2.653439939022064
+round2/attention_gate 7.593280076980591
+round2/projection_residual 17.19983994960785
+manual/chain 77.77056217193604
+manual/middle 16.136159896850586
+manual/qkv_projection 19.573439955711365
+manual/k_norm_rope_packed 1.8360000103712082
+manual/q_norm_rope_attn_gate 14.419520497322083
+manual/output_projection 12.472639679908752
+manual/residual 3.1302399933338165

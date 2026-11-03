@@ -1,0 +1,100 @@
+{
+  "derived__memory_l1_wavefronts_shared_excessive": [
+    {
+      "pc": "0x70e69088d320",
+      "value": 20736.0,
+      "sass": "      STS.U16 [R12], RZ",
+      "ptx": "st.shared.b16 \t[%rd19], 0x0000;",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_async_3cd1c1433a.ptx",
+      "line": 82
+    },
+    {
+      "pc": "0x70e69088d350",
+      "value": 20736.0,
+      "sass": "      STS.U16 [R16], RZ",
+      "ptx": "st.shared.b16 \t[%rd23], 0x0000;",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_async_3cd1c1433a.ptx",
+      "line": 90
+    },
+    {
+      "pc": "0x70e69088d3b0",
+      "value": 20736.0,
+      "sass": "      STS.U16 [R18], RZ",
+      "ptx": "st.shared.b16 \t[%rd25], 0x0000;",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_async_3cd1c1433a.ptx",
+      "line": 96
+    },
+    {
+      "pc": "0x70e69088d3d0",
+      "value": 20736.0,
+      "sass": "      STS.U16 [R20], RZ",
+      "ptx": "st.shared.b16 \t[%rd27], 0x0000;",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_async_3cd1c1433a.ptx",
+      "line": 101
+    },
+    {
+      "pc": "0x70e69088d3e0",
+      "value": 20736.0,
+      "sass": "      STS.U16 [R22], RZ",
+      "ptx": "st.shared.b16 \t[%rd29], 0x0000;",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_async_3cd1c1433a.ptx",
+      "line": 106
+    },
+    {
+      "pc": "0x70e69088d3f0",
+      "value": 20736.0,
+      "sass": "      STS.U16 [R24], RZ",
+      "ptx": "st.shared.b16 \t[%rd31], 0x0000;",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_async_3cd1c1433a.ptx",
+      "line": 111
+    },
+    {
+      "pc": "0x70e69088d400",
+      "value": 20736.0,
+      "sass": "      STS.U16 [R28], RZ",
+      "ptx": "st.shared.b16 \t[%rd33], 0x0000;",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_async_3cd1c1433a.ptx",
+      "line": 116
+    },
+    {
+      "pc": "0x70e69088d410",
+      "value": 20736.0,
+      "sass": "      STS.U16 [R30], RZ",
+      "ptx": "st.shared.b16 \t[%rd35], 0x0000;",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_async_3cd1c1433a.ptx",
+      "line": 121
+    },
+    {
+      "pc": "0x70e69088d380",
+      "value": 13824.0,
+      "sass": "      STS.64 [R14], RZ",
+      "ptx": "st.shared.b64 \t[%rd21], 0;",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_async_3cd1c1433a.ptx",
+      "line": 91
+    },
+    {
+      "pc": "0x70e69088d420",
+      "value": 13824.0,
+      "sass": "      STS.64 [R14+0x8], RZ",
+      "ptx": "st.shared.v2.b32 \t[%rd21+8], {0, 0};",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_async_3cd1c1433a.ptx",
+      "line": 122
+    },
+    {
+      "pc": "0x70e69088fab0",
+      "value": 2048.0,
+      "sass": "      STS [R9], R12",
+      "ptx": "st.shared.b32 \t[%rd127], %r603;",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_async_3cd1c1433a.ptx",
+      "line": 672
+    },
+    {
+      "pc": "0x70e69088fad0",
+      "value": 2048.0,
+      "sass": "      STS [R16+0x4], R13",
+      "ptx": "st.shared.b32 \t[%rd132+4], %r604;",
+      "file": "/profile/harness/generated/ave/fused_qnorm_attention_mma_q8_async_3cd1c1433a.ptx",
+      "line": 678
+    }
+  ]
+}

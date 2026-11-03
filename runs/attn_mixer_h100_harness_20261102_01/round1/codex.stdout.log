@@ -1,0 +1,16 @@
+Kept the complete implementation in [output_model_new.py](/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01/round1/output_model_new.py). Chain latency improved from **78.68 to 71.87 µs**, an **8.7% reduction**.
+
+It uses shared TMA loads for 128×128 QKV tiles, K128 projection steps, paired BF16 stores, and WGMMA QK with FP32 softmax/PV.
+
+| Stage | Input µs | Final µs |
+|---|---:|---:|
+| QKV | 38.21 | 31.99 |
+| Norm/RoPE | 2.81 | 3.18 |
+| Attention/gate | 17.59 | 14.78 |
+| Projection/residual | 17.16 | 18.05 |
+
+All four specializations passed compiler verification and ptxas without spills. The required queued GPU benchmark exited successfully with `"correctness":true` for all five cases. Worst relative L2 was **0.000609**.
+
+Other passing chains measured 81.66/82.23 µs for wider linears, 79.47 µs for attention alone, 74.59 µs for the K128 intermediate, and 92.69/79.11 µs for scalar attention. A TMA prototype failed to launch; two attention variants failed cosine at 0.8018 before explicit QK chunk synchronization fixed correctness.
+
+Artifact invariant validation is unavailable in this AveLang branch.

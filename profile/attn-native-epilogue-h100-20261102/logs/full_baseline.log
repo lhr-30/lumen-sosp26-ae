@@ -1,0 +1,12 @@
+==WARNING== Note: Running with uncontrolled GPU caches. Profiling results may be inconsistent.
+==PROF== Connected to process 76 (/usr/bin/python3.12)
+baseline/attended: {'cosine': 0.999999837436983, 'relative_l2': 0.000570207443569257, 'max_abs': 0.015625, 'mean_abs': 1.2761059109650958e-05}
+baseline/output: {'cosine': 0.9999998140494218, 'relative_l2': 0.0006098369876132453, 'max_abs': 0.015625, 'mean_abs': 8.251420625198919e-05}
+==WARNING== Unable to access the following 6 metrics: ctc__rx_bytes_data_user.sum, ctc__rx_bytes_data_user.sum.pct_of_peak_sustained_elapsed, ctc__rx_bytes_data_user.sum.per_second, ctc__tx_bytes_data_user.sum, ctc__tx_bytes_data_user.sum.pct_of_peak_sustained_elapsed, ctc__tx_bytes_data_user.sum.per_second.
+
+
+==PROF== Profiling "linear_native" - 0: 0%....50%....100% - 45 passes
+==PROF== Profiling "linear_native" - 1: 0%....50%....100% - 47 passes
+PASS /profile/analysis/full_baseline_validation.json
+==PROF== Disconnected from process 76
+==PROF== Report: /profile/reports/full_baseline.ncu-rep

@@ -1,0 +1,187 @@
+{
+  "module": "native_candidate",
+  "invariant_validation": "unavailable in native branch",
+  "kernels": [
+    {
+      "name": "qkv_t160_c128_w1",
+      "seconds": 0.28084399411454797,
+      "ptx_bytes": 15679,
+      "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'linear_swap160x128' for 'sm_90a'\nptxas info    : Function properties for linear_swap160x128\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 106 registers, used 16 barriers\nptxas info    : Compile time = 32.085 ms",
+      "has_ptx_local_memory": false,
+      "dynamic_shared_bytes": 147712,
+      "projection_config": {
+        "N": 5120,
+        "tokens": 160,
+        "channels": 128,
+        "consumer_warpgroups": 2,
+        "stages": 4,
+        "wait_group": 1,
+        "grid": [
+          40,
+          3,
+          1
+        ],
+        "threads": 288,
+        "num_warps": 9
+      }
+    },
+    {
+      "name": "qkv_t160_c128_w0",
+      "seconds": 0.269554759375751,
+      "ptx_bytes": 15366,
+      "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'linear_swap160x128' for 'sm_90a'\nptxas info    : Function properties for linear_swap160x128\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 106 registers, used 16 barriers\nptxas info    : Compile time = 29.139 ms",
+      "has_ptx_local_memory": false,
+      "dynamic_shared_bytes": 147712,
+      "projection_config": {
+        "N": 5120,
+        "tokens": 160,
+        "channels": 128,
+        "consumer_warpgroups": 2,
+        "stages": 4,
+        "wait_group": 0,
+        "grid": [
+          40,
+          3,
+          1
+        ],
+        "threads": 288,
+        "num_warps": 9
+      }
+    },
+    {
+      "name": "o_t128_c64_w1",
+      "seconds": 0.22515654703602195,
+      "ptx_bytes": 13131,
+      "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'linear_swap128x64' for 'sm_90a'\nptxas info    : Function properties for linear_swap128x64\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 90 registers, used 3 barriers\nptxas info    : Compile time = 23.933 ms",
+      "has_ptx_local_memory": false,
+      "dynamic_shared_bytes": 98560,
+      "projection_config": {
+        "N": 2048,
+        "tokens": 128,
+        "channels": 64,
+        "consumer_warpgroups": 1,
+        "stages": 4,
+        "wait_group": 1,
+        "grid": [
+          32,
+          4,
+          1
+        ],
+        "threads": 160,
+        "num_warps": 5
+      }
+    },
+    {
+      "name": "o_t96_c64_w1",
+      "seconds": 0.18310997867956758,
+      "ptx_bytes": 11534,
+      "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'linear_swap96x64' for 'sm_90a'\nptxas info    : Function properties for linear_swap96x64\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 74 registers, used 3 barriers\nptxas info    : Compile time = 18.606 ms",
+      "has_ptx_local_memory": false,
+      "dynamic_shared_bytes": 82176,
+      "projection_config": {
+        "N": 2048,
+        "tokens": 96,
+        "channels": 64,
+        "consumer_warpgroups": 1,
+        "stages": 4,
+        "wait_group": 1,
+        "grid": [
+          32,
+          5,
+          1
+        ],
+        "threads": 160,
+        "num_warps": 5
+      }
+    },
+    {
+      "name": "o_t64_c128_w1",
+      "seconds": 0.1444948287680745,
+      "ptx_bytes": 10418,
+      "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'linear_swap64x128' for 'sm_90a'\nptxas info    : Function properties for linear_swap64x128\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 58 registers, used 16 barriers\nptxas info    : Compile time = 14.359 ms",
+      "has_ptx_local_memory": false,
+      "dynamic_shared_bytes": 98560,
+      "projection_config": {
+        "N": 2048,
+        "tokens": 64,
+        "channels": 128,
+        "consumer_warpgroups": 2,
+        "stages": 4,
+        "wait_group": 1,
+        "grid": [
+          16,
+          7,
+          1
+        ],
+        "threads": 288,
+        "num_warps": 9
+      }
+    },
+    {
+      "name": "o_round2",
+      "seconds": 0.2244391292333603,
+      "ptx_bytes": 13465,
+      "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'linear_round2' for 'sm_90a'\nptxas info    : Function properties for linear_round2\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 90 registers, used 2 barriers\nptxas info    : Compile time = 22.609 ms",
+      "has_ptx_local_memory": false,
+      "dynamic_shared_bytes": 73984,
+      "projection_config": {
+        "N": 2048,
+        "tokens": 64,
+        "channels": 128,
+        "consumer_warpgroups": 1,
+        "stages": 3,
+        "wait_group": 0,
+        "grid": [
+          16,
+          7,
+          1
+        ],
+        "threads": 160,
+        "num_warps": 5,
+        "argument_style": "round2",
+        "wgmma_n": 128,
+        "transpose": false
+      }
+    },
+    {
+      "name": "unpack_q_gate_k_v",
+      "seconds": 0.03737009409815073,
+      "ptx_bytes": 1892,
+      "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'unpack' for 'sm_90a'\nptxas info    : Function properties for unpack\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 18 registers, used 0 barriers\nptxas info    : Compile time = 2.969 ms",
+      "has_ptx_local_memory": false,
+      "dynamic_shared_bytes": 0
+    },
+    {
+      "name": "q_norm_rope",
+      "seconds": 0.07087232312187552,
+      "ptx_bytes": 5773,
+      "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'norm_rope' for 'sm_90a'\nptxas info    : Function properties for norm_rope\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 27 registers, used 1 barriers, 512 bytes smem\nptxas info    : Compile time = 6.012 ms",
+      "has_ptx_local_memory": false,
+      "dynamic_shared_bytes": 0
+    },
+    {
+      "name": "k_norm_rope",
+      "seconds": 0.07106965873390436,
+      "ptx_bytes": 5772,
+      "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'norm_rope' for 'sm_90a'\nptxas info    : Function properties for norm_rope\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 27 registers, used 1 barriers, 512 bytes smem\nptxas info    : Compile time = 5.688 ms",
+      "has_ptx_local_memory": false,
+      "dynamic_shared_bytes": 0
+    },
+    {
+      "name": "causal_gqa_gate",
+      "seconds": 0.12030632561072707,
+      "ptx_bytes": 10994,
+      "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'causal_gqa_gate' for 'sm_90a'\nptxas info    : Function properties for causal_gqa_gate\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 43 registers, used 0 barriers\nptxas info    : Compile time = 9.115 ms",
+      "has_ptx_local_memory": false,
+      "dynamic_shared_bytes": 0
+    },
+    {
+      "name": "residual",
+      "seconds": 0.03165944665670395,
+      "ptx_bytes": 1039,
+      "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'add_residual' for 'sm_90a'\nptxas info    : Function properties for add_residual\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 12 registers, used 0 barriers\nptxas info    : Compile time = 2.187 ms",
+      "has_ptx_local_memory": false,
+      "dynamic_shared_bytes": 0
+    }
+  ]
+}

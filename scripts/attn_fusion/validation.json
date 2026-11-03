@@ -1,0 +1,331 @@
+{
+  "date_utc": "2026-10-30",
+  "scope": "One Qwen3.5 full-attention mixer from model-tunner/attn_fusion/bench.py, not full-model e2e",
+  "generation": "Semantic task + isolated lowering agent + compile/invariant/numerical feedback + one measured optimization round; not full paper ICRL reproduction",
+  "shape": {
+    "B": 16,
+    "T": 26,
+    "H": 8,
+    "KV": 2,
+    "D": 256,
+    "hidden": 2048
+  },
+  "gpu": "NVIDIA H100 NVL",
+  "sm_count": 132,
+  "environment": {
+    "torch": "2.12.0a0+5aff3928d8.nv26.05",
+    "cuda": "13.2",
+    "image": "lumen-hopper:dev",
+    "image_id": "sha256:7995e7f3e3fa0167e63f648d447452cc12fe204581a7dc57333d37713fe2624b",
+    "compiler_base": "86d4cdd264da8e3991b8cbc7c27f35ee49a8d1be",
+    "compiler_patches": "third_party/AveLang/01-llvm23-build.patch,02-hopper-intrinsics.patch"
+  },
+  "artifact_sha256": {
+    "candidate.py": "5953eac6600a34f7e722a3a915857cad6b1ac5fd86a5994ad1b87ab90f91ac3e",
+    "input_model.py": "f78ff01334a91c75bf4ab2401ba0d4fa78d055d8bdddc5074b11b86e2ad29fb4",
+    "original_bench.py": "777daa6c9ef3ae36c84edfc95f3874b493996d34b212e64da0747fb53d38d293",
+    "original_qkv.py": "9589c63d038ddaedcfee2e7075fd2eb6172c68c541e9869d4264a37701214688",
+    "original_oproj.py": "7e78efb0d744de86f2a6e1ce81e55dac1b56d852d0e10dced2248c84b755ebbd"
+  },
+  "offline_compile": {
+    "validate_invariants": true,
+    "kernels": [
+      {
+        "name": "qkv_projection",
+        "seconds": 0.09950437815859914,
+        "ptx_bytes": 12418
+      },
+      {
+        "name": "unpack_q_gate_k_v",
+        "seconds": 0.05420387629419565,
+        "ptx_bytes": 1817
+      },
+      {
+        "name": "q_norm_rope",
+        "seconds": 0.07212160527706146,
+        "ptx_bytes": 7302
+      },
+      {
+        "name": "k_norm_rope",
+        "seconds": 0.07140137301757932,
+        "ptx_bytes": 7301
+      },
+      {
+        "name": "causal_gqa_gate",
+        "seconds": 0.1347045237198472,
+        "ptx_bytes": 18808
+      },
+      {
+        "name": "output_projection",
+        "seconds": 0.09185717580839992,
+        "ptx_bytes": 12412
+      },
+      {
+        "name": "residual",
+        "seconds": 0.02993961703032255,
+        "ptx_bytes": 1005
+      }
+    ],
+    "negative_invariants": [
+      {
+        "name": "wrong_gate_offset",
+        "rejected": true,
+        "diagnostic": "Failed to lower MLIR to LLVM IR:\nloc(\"/workspace/attn/candidate.py\":164:5): 'ave.tag.assert_eq' op unable to prove invariant tag equality\nloc(\"/workspace/attn/candidate.py\":170:9): 'ave.tag.assert_eq' op unable to prove invariant tag equality\nloc(\"/workspace/attn/candidate.py\":171:9): 'ave.tag.assert_eq' op unable to prove invariant tag equality"
+      },
+      {
+        "name": "wrong_rope_pair",
+        "rejected": true,
+        "diagnostic": "Failed to lower MLIR to LLVM IR:\nloc(\"/workspace/attn/candidate.py\":216:5): 'ave.tag.assert_eq' op unable to prove invariant tag equality"
+      },
+      {
+        "name": "wrong_gqa_group",
+        "rejected": true,
+        "diagnostic": "Failed to lower MLIR to LLVM IR:\nloc(\"/workspace/attn/candidate.py\":248:5): 'ave.tag.assert_eq' op unable to prove invariant tag equality\nloc(\"/workspace/attn/candidate.py\":265:13): 'ave.tag.assert_eq' op unable to prove invariant tag equality\nloc(\"/workspace/attn/candidate.py\":281:9): 'ave.tag.assert_eq' op unable to prove invariant tag equality\nloc(\"/workspace/attn/candidate.py\":285:9): 'ave.tag.assert_eq' op unable to prove invariant tag equality\nloc(\"/workspace/attn/candidate.py\":289:9): 'ave.tag.assert_eq' op unable to prove invariant tag equality\nloc(\"/workspace/attn/candidate.py\":293:9): 'ave.tag.assert_eq' op unable to prove invariant tag equality\nloc(\"/workspace/attn/candidate.py\":297:9): 'ave.tag.assert_eq' op unable to prove invariant tag equality\nloc(\"/workspace/attn/candidate.py\":301:9): 'ave.tag.assert_eq' op unable to prove invariant tag equality\nloc(\"/workspace/attn/candidate.py\":305:9): 'ave.tag.assert_eq' op unable to prove invariant tag equality\nloc(\"/workspace/attn/candidate.py\":309:9): 'ave.tag.assert_eq' op unable to prove invariant tag equality"
+      }
+    ]
+  },
+  "correctness": [
+    {
+      "case": "seed0",
+      "metrics": {
+        "attended": {
+          "cosine": 0.9999998382184613,
+          "relative_l2": 0.0005688350609560833,
+          "max_abs": 0.015625,
+          "mean_abs": 1.2690473984487375e-05
+        },
+        "output": {
+          "cosine": 0.9999998149764577,
+          "relative_l2": 0.000608314929438487,
+          "max_abs": 0.015625,
+          "mean_abs": 8.207061014568004e-05
+        }
+      }
+    },
+    {
+      "case": "graph_seed17",
+      "metrics": {
+        "attended": {
+          "cosine": 0.9999998898631491,
+          "relative_l2": 0.0004693339245529422,
+          "max_abs": 0.0078125,
+          "mean_abs": 9.682202190219868e-06
+        },
+        "output": {
+          "cosine": 0.9999998507611544,
+          "relative_l2": 0.0005463314890542,
+          "max_abs": 0.015625,
+          "mean_abs": 6.636370716688152e-05
+        }
+      }
+    },
+    {
+      "case": "graph_seed123",
+      "metrics": {
+        "attended": {
+          "cosine": 0.9999998863397734,
+          "relative_l2": 0.0004767984032627404,
+          "max_abs": 0.015625,
+          "mean_abs": 9.41467656135641e-06
+        },
+        "output": {
+          "cosine": 0.9999998480155183,
+          "relative_l2": 0.0005513338058412997,
+          "max_abs": 0.015625,
+          "mean_abs": 6.759676258437909e-05
+        }
+      }
+    },
+    {
+      "case": "causal_batch_isolation",
+      "metrics": {
+        "attended": {
+          "cosine": 0.9999998862497393,
+          "relative_l2": 0.0004769854123929429,
+          "max_abs": 0.015625,
+          "mean_abs": 9.547522429679353e-06
+        },
+        "output": {
+          "cosine": 0.9999998460689534,
+          "relative_l2": 0.0005548536618433391,
+          "max_abs": 0.015625,
+          "mean_abs": 6.842212930608254e-05
+        }
+      }
+    },
+    {
+      "case": "zero_input",
+      "metrics": {
+        "attended": {
+          "cosine": null,
+          "relative_l2": null,
+          "max_abs": 0.0,
+          "mean_abs": 0.0
+        },
+        "output": {
+          "cosine": 0.9999999999999999,
+          "relative_l2": 0.0,
+          "max_abs": 0.0,
+          "mean_abs": 0.0
+        }
+      }
+    }
+  ],
+  "sanitizers": {
+    "memcheck": {
+      "passed": true,
+      "summary": "ERROR SUMMARY: 0 errors",
+      "log": ".repro/attn-fusion-memcheck-round1.log"
+    },
+    "synccheck": {
+      "passed": true,
+      "summary": "ERROR SUMMARY: 0 errors",
+      "log": ".repro/attn-fusion-synccheck-round1.log"
+    },
+    "racecheck": {
+      "passed": true,
+      "summary": "RACECHECK SUMMARY: 0 hazards displayed (0 errors, 0 warnings)",
+      "log": ".repro/attn-fusion-racecheck-round1.log"
+    }
+  },
+  "measurement": {
+    "method": "CUDA graphs; allocations, compilation and host submission excluded; separately captured stages and chain; interleaved samples",
+    "calls_per_graph": 10,
+    "samples": 10,
+    "dtype": "BF16 tensors with specified BF16 rounding points and FP32 accumulation",
+    "original_cute": {
+      "qkv_proj (CuTe 416x5120x2048)": {
+        "median_us": 16.957,
+        "p10_us": 16.851,
+        "p90_us": 17.119
+      },
+      "k_norm_rope (CuTe)": {
+        "median_us": 2.181,
+        "p10_us": 2.138,
+        "p90_us": 2.206
+      },
+      "q_norm_rope_attention_gate (CuTe)": {
+        "median_us": 6.195,
+        "p10_us": 6.165,
+        "p90_us": 6.242
+      },
+      "o_proj (CuTe 416x2048x2048)": {
+        "median_us": 8.784,
+        "p10_us": 8.768,
+        "p90_us": 8.85
+      },
+      "residual_add (torch.add)": {
+        "median_us": 2.326,
+        "p10_us": 2.296,
+        "p90_us": 2.345
+      },
+      "chain (all 5)": {
+        "median_us": 35.096,
+        "p10_us": 35.032,
+        "p90_us": 35.275
+      }
+    },
+    "ave_round0": {
+      "qkv_projection": {
+        "median_us": 551.4175891876221,
+        "p10_us": 549.4118595123291,
+        "p90_us": 552.2678279876709
+      },
+      "unpack_q_gate_k_v": {
+        "median_us": 4.35359999537468,
+        "p10_us": 4.2368001490831375,
+        "p90_us": 4.46112010627985
+      },
+      "q_norm_rope": {
+        "median_us": 4.740799963474274,
+        "p10_us": 4.696960002183914,
+        "p90_us": 4.77951992303133
+      },
+      "k_norm_rope": {
+        "median_us": 2.8111999854445457,
+        "p10_us": 2.7756800688803196,
+        "p90_us": 2.9273599572479725
+      },
+      "causal_gqa_gate": {
+        "median_us": 24.779199808835983,
+        "p10_us": 24.593599438667297,
+        "p90_us": 24.89599958062172
+      },
+      "output_projection": {
+        "median_us": 302.3087978363037,
+        "p10_us": 298.0518341064453,
+        "p90_us": 305.98944664001465
+      },
+      "residual": {
+        "median_us": 4.055999964475632,
+        "p10_us": 4.020800068974495,
+        "p90_us": 4.143359921872616
+      },
+      "chain": {
+        "median_us": 889.6768093109131,
+        "p10_us": 884.9199867248535,
+        "p90_us": 896.1036396026611
+      }
+    },
+    "ave_round1": {
+      "qkv_projection": {
+        "median_us": 225.59839487075806,
+        "p10_us": 225.34143686294556,
+        "p90_us": 225.8035159111023
+      },
+      "unpack_q_gate_k_v": {
+        "median_us": 4.201599955558777,
+        "p10_us": 4.158720001578331,
+        "p90_us": 4.287679903209209
+      },
+      "q_norm_rope": {
+        "median_us": 4.716800153255463,
+        "p10_us": 4.677439853549004,
+        "p90_us": 4.761920124292374
+      },
+      "k_norm_rope": {
+        "median_us": 2.812799997627735,
+        "p10_us": 2.7795199304819107,
+        "p90_us": 2.8588799946010113
+      },
+      "causal_gqa_gate": {
+        "median_us": 24.745599925518036,
+        "p10_us": 24.556799978017807,
+        "p90_us": 25.22304058074951
+      },
+      "output_projection": {
+        "median_us": 130.83040118217468,
+        "p10_us": 129.38335537910461,
+        "p90_us": 132.24352478981018
+      },
+      "residual": {
+        "median_us": 4.0192000567913055,
+        "p10_us": 3.9638400077819824,
+        "p90_us": 4.034240171313286
+      },
+      "chain": {
+        "median_us": 398.3199954032898,
+        "p10_us": 397.67839431762695,
+        "p90_us": 398.5859203338623
+      }
+    },
+    "ave_speedup_over_round0": 2.2335730557792757,
+    "ave_slowdown_vs_cute": 11.349441400823165
+  },
+  "queue_jobs": {
+    "initial_failure": 3278,
+    "local_memory_diagnostic": 3280,
+    "round0_correctness": 3281,
+    "round0_bench_sanitizers": 3282,
+    "round1_correctness_bench": 3288,
+    "original_cute": 3289,
+    "round1_sanitizers": 3290
+  },
+  "limitations": [
+    "Fixed B16,T26,H8,KV2,D256,hidden2048 only",
+    "WGMMA math, causal loop semantics, normalization arithmetic and barrier protocol are not formally proved by current tag analysis",
+    "Current libdevice and dynamic local-memory lowering limitations are avoided using pure DSL math and scalar accumulators",
+    "Pure DSL exp uses degree-seven range reduction and truncates below -80; validation covers the benchmark finite input distributions",
+    "Blocking WGMMA helper; no TMA/overlapped pipeline; generated Ave code remains much slower than original CuTe"
+  ]
+}

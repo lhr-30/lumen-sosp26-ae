@@ -1,0 +1,7 @@
+impl/stage  NCU us  grid block regs smem  tensor% occ% DRAMread% storeB/sector
+baseline_unpack    6.720 3328 256  18   1024    0.00  70.05    0.00  32.00
+baseline_qnorm     6.816 3328  32  27   1536    0.00  26.78    0.00  32.00
+baseline_knorm     4.320  832  32  27   1536    0.00   8.88    0.00  32.00
+baseline_attention  25.824 3328  32  43   1024    0.09  25.36    0.00  32.00
+candidate_knorm    4.256  832  32  26   1536    0.00   8.86    0.00  32.00
+candidate_attention  23.936  512 128  56  44544    1.52  21.19    0.00  32.00

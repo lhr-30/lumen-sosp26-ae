@@ -1,0 +1,16 @@
+seed0/attended: {'cosine': 0.9999998381929815, 'relative_l2': 0.0005688799000350092, 'max_abs': 0.015625, 'mean_abs': 1.2691887830074987e-05}
+seed0/output: {'cosine': 0.9999998150120148, 'relative_l2': 0.000608256473085966, 'max_abs': 0.015625, 'mean_abs': 8.207084297632369e-05}
+graph_seed17/attended: {'cosine': 0.9999998899506627, 'relative_l2': 0.00046914748904584294, 'max_abs': 0.0078125, 'mean_abs': 9.665798876094064e-06}
+graph_seed17/output: {'cosine': 0.9999998508591056, 'relative_l2': 0.0005461522122456369, 'max_abs': 0.015625, 'mean_abs': 6.63148127317142e-05}
+graph_seed123/attended: {'cosine': 0.9999998874236367, 'relative_l2': 0.0004745192847399414, 'max_abs': 0.015625, 'mean_abs': 9.310908554792919e-06}
+graph_seed123/output: {'cosine': 0.9999998493722476, 'relative_l2': 0.000548867507425619, 'max_abs': 0.015625, 'mean_abs': 6.717589433090045e-05}
+causal_batch_isolation/attended: {'cosine': 0.9999998873253967, 'relative_l2': 0.000474724282195283, 'max_abs': 0.015625, 'mean_abs': 9.43953027497348e-06}
+causal_batch_isolation/output: {'cosine': 0.9999998477545444, 'relative_l2': 0.000551807377450505, 'max_abs': 0.015625, 'mean_abs': 6.791430776222395e-05}
+zero_input/attended: {'cosine': None, 'relative_l2': None, 'max_abs': 0.0, 'mean_abs': 0.0}
+zero_input/output: {'cosine': 0.9999999999999999, 'relative_l2': 0.0, 'max_abs': 0.0, 'mean_abs': 0.0}
+qkv: {'median_us': 35.30399948358536, 'p10_us': 34.956800639629364, 'p90_us': 35.80224007368088}
+norm_rope: {'median_us': 3.174399957060814, 'p10_us': 3.152640201151371, 'p90_us': 3.205759786069393}
+attention_gate: {'median_us': 19.34719979763031, 'p10_us': 19.248160123825073, 'p90_us': 19.69440057873726}
+projection_residual: {'median_us': 17.65200048685074, 'p10_us': 17.528479248285294, 'p90_us': 18.575040251016617}
+chain: {'median_us': 79.10720109939575, 'p10_us': 78.79439890384674, 'p90_us': 79.39599871635437}
+PASS: /experiment/result.json

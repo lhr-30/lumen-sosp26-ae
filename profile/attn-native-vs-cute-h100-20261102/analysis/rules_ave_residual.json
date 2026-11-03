@@ -1,0 +1,206 @@
+[
+  {
+    "rule_identifier": "SOLBottleneck",
+    "name": "Bottleneck",
+    "section_identifier": "SpeedOfLight",
+    "rule_message": {
+      "title": "Latency Issue",
+      "message": "This workload exhibits low compute throughput and memory bandwidth utilization relative to the peak performance of this device. Achieved compute throughput and/or memory bandwidth below 60.0% of peak typically indicate latency issues. Look at @section:SchedulerStats:Scheduler Statistics@ and @section:WarpStateStats:Warp State Statistics@ for potential reasons.",
+      "type": 2
+    },
+    "focus_metrics": [
+      {
+        "name": "sm__throughput.avg.pct_of_peak_sustained_elapsed",
+        "value": 39.41141085782756,
+        "severity": 2,
+        "info": "39.411 < 80.000"
+      },
+      {
+        "name": "gpu__compute_memory_throughput.avg.pct_of_peak_sustained_elapsed",
+        "value": 16.427325799434957,
+        "severity": 2,
+        "info": "16.427 < 80.000"
+      }
+    ]
+  },
+  {
+    "rule_identifier": "IssueSlotUtilization",
+    "name": "Issue Slot Utilization",
+    "section_identifier": "SchedulerStats",
+    "rule_message": {
+      "title": "",
+      "message": "Every scheduler is capable of issuing one instruction per cycle, but for this workload each scheduler only issues an instruction every 3.4 cycles. This might leave hardware resources underutilized and may lead to less optimal performance. Out of the maximum of 16 warps per scheduler, this workload allocates an average of 8.15 active warps per scheduler, but only an average of 0.57 warps were eligible per cycle. Eligible warps are the subset of active warps that are ready to issue their next instruction. Every cycle with no eligible warp results in no instruction being issued and the issue slot remains unused. To increase the number of eligible warps, reduce the time the active warps are stalled by inspecting the top stall reasons on the @section:WarpStateStats:Warp State Statistics@ and @section:SourceCounters:Source Counters@ sections.",
+      "type": 2
+    },
+    "focus_metrics": [
+      {
+        "name": "smsp__issue_active.avg.per_cycle_active",
+        "value": 0.2975634461297056,
+        "severity": 0,
+        "info": "Increase the average number of instructions issued per cycle"
+      }
+    ],
+    "speedup_estimation": {
+      "type": 1,
+      "speedup": 60.588589142172445
+    }
+  },
+  {
+    "rule_identifier": "AchievedOccupancy",
+    "name": "Achieved Occupancy",
+    "section_identifier": "Occupancy",
+    "rule_message": {
+      "title": "",
+      "message": "The difference between calculated theoretical (100.0%) and measured achieved occupancy (52.3%) can be the result of warp scheduling overheads or workload imbalances during the kernel execution. Load imbalances can occur between warps within a block as well as across blocks of the same kernel. See the @url:CUDA Best Practices Guide:https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html#occupancy@ for more details on optimizing occupancy.",
+      "type": 2
+    },
+    "focus_metrics": [
+      {
+        "name": "sm__warps_active.avg.pct_of_peak_sustained_active",
+        "value": 52.33175855058876,
+        "severity": 0,
+        "info": "Increase the achieved occupancy towards the theoretical limit (100.0%)"
+      }
+    ],
+    "speedup_estimation": {
+      "type": 2,
+      "speedup": 47.66824144941124
+    }
+  },
+  {
+    "rule_identifier": "CPIStall",
+    "name": "Warp Stall",
+    "section_identifier": "WarpStateStats",
+    "rule_message": {
+      "title": "Long Scoreboard Stalls",
+      "message": "On average, each warp of this workload spends 13.3 cycles being stalled waiting for a scoreboard dependency on a L1TEX (local, global, surface, texture) operation. Find the instruction producing the data being waited upon to identify the culprit. To reduce the number of cycles waiting on L1TEX data accesses verify the memory access patterns are optimal for the target architecture, attempt to increase cache hit rates by increasing data locality (coalescing), or by changing the cache configuration. Consider moving frequently used data to shared memory. This stall type represents about 48.5% of the total average of 27.4 cycles between issuing two instructions.",
+      "type": 2
+    },
+    "focus_metrics": [
+      {
+        "name": "smsp__issue_active.avg.per_cycle_active",
+        "value": 0.2975634461297056,
+        "severity": 2,
+        "info": "Increase the average number of instructions issued per cycle"
+      },
+      {
+        "name": "smsp_average_long_scoreboard",
+        "value": 13.295996631393368,
+        "severity": 0,
+        "info": "Decrease the number of cycles spent in long scoreboard stalls"
+      }
+    ],
+    "speedup_estimation": {
+      "type": 2,
+      "speedup": 48.520436862997286
+    }
+  },
+  {
+    "rule_identifier": "CPIStall",
+    "name": "Warp Stall",
+    "section_identifier": "WarpStateStats",
+    "rule_message": {
+      "title": "",
+      "message": "Check the @section:SourceCounters:Warp Stall Sampling (All Samples)@ table for the top stall locations in your source based on sampling data. The @url:Profiling Guide:https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-reference@ provides more details on each stall reason.",
+      "type": 1
+    }
+  },
+  {
+    "rule_identifier": "HighPipeUtilization",
+    "name": "High Pipe Utilization",
+    "section_identifier": "ComputeWorkloadAnalysis",
+    "rule_message": {
+      "title": "Low Utilization",
+      "message": "All compute pipelines are under-utilized. Either this workload is very small or it doesn't issue enough warps per scheduler. Check the @section:LaunchStats:Launch Statistics@ and @section:SchedulerStats:Scheduler Statistics@ sections for further details.",
+      "type": 2
+    },
+    "focus_metrics": [
+      {
+        "name": "sm__pipe_fmaheavy_cycles_active.avg.pct_of_peak_sustained_elapsed",
+        "value": 11.30122200284277,
+        "severity": 2,
+        "info": "Increase the utilization of the busiest pipeline (currently: Shared FMA Heavy)"
+      }
+    ],
+    "speedup_estimation": {
+      "type": 1,
+      "speedup": 88.69877799715724
+    }
+  },
+  {
+    "rule_identifier": "LaunchConfiguration",
+    "name": "Launch Configuration",
+    "section_identifier": "LaunchStats",
+    "rule_message": {
+      "title": "Tail Effect",
+      "message": "A wave of thread blocks is defined as the maximum number of blocks that can be executed in parallel on the target GPU. The number of blocks in a wave depends on the number of multiprocessors and the theoretical occupancy of the kernel. This kernel launch results in 3 full waves and a partial wave of 160 thread blocks. Under the assumption of a uniform execution duration of all thread blocks, this partial wave may account for up to 25.0% of the total runtime of this kernel. Try launching a grid with no partial wave. The overall impact of this tail effect also lessens with the number of full waves executed for a grid. See the @url:Hardware Model:https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-hw-model@ description for more details on launch configurations.",
+      "type": 2
+    },
+    "focus_metrics": [
+      {
+        "name": "launch__waves_per_multiprocessor",
+        "value": 3.1515151515151514,
+        "severity": 0,
+        "info": "Decrease the number of partial waves (the fractional part of the number of waves)"
+      }
+    ],
+    "speedup_estimation": {
+      "type": 2,
+      "speedup": 25.0
+    }
+  },
+  {
+    "rule_identifier": "MemoryL2Compression",
+    "name": "Memory L2 Compression",
+    "section_identifier": "MemoryWorkloadAnalysis_Chart",
+    "rule_message": {
+      "title": "Low Compression Rate",
+      "message": "Out of the 1708832.0 bytes sent to the L2 Compression unit only 0.00% were successfully compressed. To increase this success rate, consider marking only those memory regions as compressible that contain the most zero values and/or expose the most homogeneous values.",
+      "type": 2
+    },
+    "focus_metrics": [
+      {
+        "name": "lrc__average_ilc_input_sector_success_rate.pct",
+        "value": 0.0,
+        "severity": 2,
+        "info": "Increase the compression success rate"
+      },
+      {
+        "name": "lrc__ilc_input_sectors.sum",
+        "value": 53401.0,
+        "severity": 2,
+        "info": "Increase the number of compressed sectors towards all L2 input sectors (210,243)"
+      },
+      {
+        "name": "dram__bytes_read.sum.pct_of_peak_sustained_elapsed",
+        "value": 0.0022731405710129113,
+        "severity": 1,
+        "info": "The higher the DRAM peak read utilization the more can be gained by compression"
+      }
+    ],
+    "speedup_estimation": {
+      "type": 2,
+      "speedup": 0.0016957706722164688
+    }
+  },
+  {
+    "rule_identifier": "PMSamplingData",
+    "name": "PM Sampling Data",
+    "section_identifier": "PmSampling",
+    "rule_message": {
+      "title": "",
+      "message": "Sampling interval is larger than 10% of the workload duration, which likely results in very few collected samples. For better results, use the --pm-sampling-interval option to reduce the sampling interval. Use --pm-sampling-buffer-size to increase the sampling buffer size for the smaller interval, or don't set a fixed buffer size and let the tool adjust it automatically.",
+      "type": 3
+    }
+  },
+  {
+    "rule_identifier": "SOLFPRoofline",
+    "name": "Roofline Analysis",
+    "section_identifier": "SpeedOfLight_RooflineChart",
+    "rule_message": {
+      "title": "Roofline Analysis",
+      "message": "The ratio of peak float (FP32) to double (FP64) performance on this device is 2:1. The workload achieved 0% of this device's FP32 peak performance and 0% of its FP64 peak performance. See the @url:Profiling Guide:https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#roofline@ for more details on roofline analysis.",
+      "type": 1
+    }
+  }
+]

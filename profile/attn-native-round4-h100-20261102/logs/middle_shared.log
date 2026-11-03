@@ -1,0 +1,7 @@
+seed0 {'max_abs': 0.00390625, 'guards_unchanged': True, 'cosine': 0.9999999982989474, 'relative_l2': 5.832757665688379e-05}
+graph_seed17 {'max_abs': 0.001953125, 'guards_unchanged': True, 'cosine': 0.9999999984478121, 'relative_l2': 5.571694571720266e-05}
+graph_seed123 {'max_abs': 0.00390625, 'guards_unchanged': True, 'cosine': 0.9999999995074995, 'relative_l2': 3.138473001340728e-05}
+causal_batch_isolation {'max_abs': 0.00390625, 'guards_unchanged': True, 'cosine': 0.9999999994085186, 'relative_l2': 3.439422682209012e-05}
+gqa_gate_layout_uniform_scores {'max_abs': 0.0, 'guards_unchanged': True, 'cosine': 1.0, 'relative_l2': 0.0}
+zero_packed {'max_abs': 0.0, 'guards_unchanged': True}
+PASS /profile/analysis/middle_shared.json

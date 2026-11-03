@@ -1,0 +1,13 @@
+Implemented [output_model_new.py](/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01/round0/output_model_new.py).
+
+All four specializations passed native compilation and `ptxas` without spills. The queued benchmark exited 0 with `"correctness":true` for all five cases, including fresh-data graph replay, isolation, and zeros.
+
+| Stage | Median µs |
+|---|---:|
+| QKV | 38.85 |
+| RMSNorm + RoPE | 2.86 |
+| Attention + gate | 17.40 |
+| Projection + residual | 17.21 |
+| **Complete chain** | **78.96** |
+
+Initial compile failures included a crash, FP32 typing errors, and unresolved `__nv_fmaf`; subsequent compilation passed. This branch has no artifact invariant-validation API.

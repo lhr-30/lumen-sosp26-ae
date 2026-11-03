@@ -1,0 +1,1471 @@
+{
+  "sample_count": 1258,
+  "stall_distribution": {
+    "barrier": {
+      "samples": 256,
+      "pct_samples": 20.349761526232115
+    },
+    "branch_resolving": {
+      "samples": 10,
+      "pct_samples": 0.794912559618442
+    },
+    "dispatch_stall": {
+      "samples": 27,
+      "pct_samples": 2.146263910969793
+    },
+    "drain": {
+      "samples": 2,
+      "pct_samples": 0.1589825119236884
+    },
+    "imc_miss": {
+      "samples": 4,
+      "pct_samples": 0.3179650238473768
+    },
+    "lg_throttle": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "long_scoreboard": {
+      "samples": 289,
+      "pct_samples": 22.972972972972972
+    },
+    "math_pipe_throttle": {
+      "samples": 11,
+      "pct_samples": 0.8744038155802861
+    },
+    "membar": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "mio_throttle": {
+      "samples": 54,
+      "pct_samples": 4.292527821939586
+    },
+    "misc": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "no_instructions": {
+      "samples": 19,
+      "pct_samples": 1.5103338632750398
+    },
+    "not_selected": {
+      "samples": 24,
+      "pct_samples": 1.9077901430842608
+    },
+    "selected": {
+      "samples": 117,
+      "pct_samples": 9.30047694753577
+    },
+    "short_scoreboard": {
+      "samples": 115,
+      "pct_samples": 9.141494435612083
+    },
+    "sleeping": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "tex_throttle": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "wait": {
+      "samples": 252,
+      "pct_samples": 20.031796502384736
+    },
+    "warpgroup_arrive": {
+      "samples": 78,
+      "pct_samples": 6.200317965023848
+    }
+  },
+  "hotspots": [
+    {
+      "pc": "0x736aa7e8b610",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 384,
+      "sass": "      WARPGROUP.DEPBAR.LE gsb0, 0x1",
+      "ptx": "wgmma.wait_group.sync.aligned \t1;",
+      "samples": 223.0,
+      "stalls": {
+        "barrier": 223.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b3b0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 364,
+      "sass": "@!P0  NANOSLEEP.SYNCS 0x989680",
+      "ptx": "mbarrier.try_wait.parity.shared.b64 P1, [%r298], %r1064, 10000000; ",
+      "samples": 93.0,
+      "stalls": {
+        "long_scoreboard": 93.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b4f0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 339,
+      "sass": "      HGMMA.64x144x16.F32.BF16 R24, gdesc[UR8], R24, UP0",
+      "ptx": "mov.b64 \t%rd11, {%r900, %r899};",
+      "samples": 90.0,
+      "stalls": {
+        "mio_throttle": 10.0,
+        "selected": 2.0,
+        "warpgroup_arrive": 78.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8aec0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 309,
+      "sass": "@!P0  NANOSLEEP.SYNCS 0x989680",
+      "ptx": "mbarrier.try_wait.parity.shared.b64 P1, [%r13], %r1061, 10000000; ",
+      "samples": 74.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "long_scoreboard": 73.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b370",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 364,
+      "sass": "      ULEA UR8, UR9, UR8, 0x18",
+      "ptx": "mov.b32 \t%r881, __dynamic_shmem__0;",
+      "samples": 64.0,
+      "stalls": {
+        "selected": 2.0,
+        "short_scoreboard": 62.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8bbc0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 354,
+      "sass": "      UISETP.GT.U32.AND UP0, UPT, UR5, 0x7fffff87, UPT",
+      "ptx": "setp.gt.u32 \t%p11, %r32, 2147483527;",
+      "samples": 59.0,
+      "stalls": {
+        "branch_resolving": 1.0,
+        "long_scoreboard": 58.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b3d0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 364,
+      "sass": "@!P0  BRA 0x736aa7e8b390",
+      "ptx": "@P1 bra.uni DONE; ",
+      "samples": 54.0,
+      "stalls": {
+        "long_scoreboard": 48.0,
+        "not_selected": 1.0,
+        "selected": 2.0,
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b650",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 385,
+      "sass": "@!P0  LEA R5, R5, R2, 0x18",
+      "ptx": "mov.b32 \t%r907, __dynamic_shmem__0;",
+      "samples": 53.0,
+      "stalls": {
+        "selected": 3.0,
+        "short_scoreboard": 43.0,
+        "wait": 7.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b590",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 339,
+      "sass": "      HGMMA.64x144x16.F32.BF16 R24, gdesc[UR8], R24",
+      "ptx": "mov.b64 \t%rd15, {%r902, %r899};",
+      "samples": 32.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "mio_throttle": 17.0,
+        "not_selected": 2.0,
+        "selected": 1.0,
+        "wait": 11.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b5e0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 339,
+      "sass": "      HGMMA.64x144x16.F32.BF16 R24, gdesc[UR8], R24.gsb0",
+      "ptx": "mov.b64 \t%rd17, {%r901, %r899};",
+      "samples": 32.0,
+      "stalls": {
+        "mio_throttle": 13.0,
+        "not_selected": 3.0,
+        "selected": 3.0,
+        "wait": 13.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b750",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 391,
+      "sass": "      WARPGROUP.DEPBAR.LE gsb0, 0x0",
+      "ptx": "wgmma.wait_group.sync.aligned \t0;",
+      "samples": 31.0,
+      "stalls": {
+        "barrier": 31.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b6b0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 170,
+      "sass": "      VIADD R4, R4, 0x1",
+      "ptx": "add.s32 \t%r1144, %r1144, 1;",
+      "samples": 27.0,
+      "stalls": {
+        "not_selected": 3.0,
+        "selected": 2.0,
+        "wait": 22.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b630",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 385,
+      "sass": "@!P0  S2R R5, SR_CgaCtaId",
+      "ptx": "mov.b32 \t%r907, __dynamic_shmem__0;",
+      "samples": 25.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 24.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b540",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 339,
+      "sass": "      HGMMA.64x144x16.F32.BF16 R24, gdesc[UR8], R24",
+      "ptx": "mov.b64 \t%rd13, {%r903, %r899};",
+      "samples": 24.0,
+      "stalls": {
+        "mio_throttle": 14.0,
+        "selected": 1.0,
+        "wait": 9.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b390",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 364,
+      "sass": "      IMAD.U32 R5, RZ, RZ, UR9",
+      "ptx": "mbarrier.try_wait.parity.shared.b64 P1, [%r298], %r1064, 10000000; ",
+      "samples": 23.0,
+      "stalls": {
+        "wait": 23.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b660",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 385,
+      "sass": "@!P0  IMAD R2, R0, 0x8, R5",
+      "ptx": "add.s32 \t%r908, %r907, %r906;",
+      "samples": 15.0,
+      "stalls": {
+        "dispatch_stall": 7.0,
+        "not_selected": 1.0,
+        "selected": 1.0,
+        "wait": 6.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b690",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 386,
+      "sass": "      ISETP.NE.AND P0, PT, R0, 0x4, PT",
+      "ptx": "setp.eq.s32 \t%p6, %r911, 4;",
+      "samples": 14.0,
+      "stalls": {
+        "dispatch_stall": 4.0,
+        "selected": 1.0,
+        "wait": 9.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b740",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 205,
+      "sass": "      S2R R2, SR_TID.X",
+      "ptx": "mov.u32 \t%r915, %tid.x;",
+      "samples": 14.0,
+      "stalls": {
+        "selected": 2.0,
+        "wait": 12.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b340",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 364,
+      "sass": "      S2UR UR9, SR_CgaCtaId",
+      "ptx": "mov.b32 \t%r881, __dynamic_shmem__0;",
+      "samples": 12.0,
+      "stalls": {
+        "branch_resolving": 3.0,
+        "no_instructions": 9.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b3c0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 364,
+      "sass": "@!P0  SYNCS.PHASECHK.TRANS64 P0, [R5+URZ], R2",
+      "ptx": "mbarrier.try_wait.parity.shared.b64 P1, [%r298], %r1064, 10000000; ",
+      "samples": 11.0,
+      "stalls": {
+        "selected": 3.0,
+        "wait": 8.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b6d0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 170,
+      "sass": "      ISETP.NE.AND P0, PT, R4, 0x20, PT",
+      "ptx": "setp.ne.s32 \t%p8, %r1144, 32;",
+      "samples": 10.0,
+      "stalls": {
+        "dispatch_stall": 2.0,
+        "not_selected": 1.0,
+        "selected": 2.0,
+        "wait": 5.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8aee0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 309,
+      "sass": "@!P0  BRA 0x736aa7e8aea0",
+      "ptx": "@P1 bra.uni DONE; ",
+      "samples": 10.0,
+      "stalls": {
+        "long_scoreboard": 10.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b730",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 170,
+      "sass": "@P0   BRA 0x736aa7e8b340",
+      "ptx": "@%p8 bra \t$L__BB0_18;",
+      "samples": 8.0,
+      "stalls": {
+        "not_selected": 2.0,
+        "selected": 1.0,
+        "wait": 5.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b3e0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 233,
+      "sass": "      UIADD3 UR8, UR8, 0x43f, URZ",
+      "ptx": "add.s32 \t%r883, %r881, 1087;",
+      "samples": 8.0,
+      "stalls": {
+        "selected": 2.0,
+        "wait": 6.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b600",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 205,
+      "sass": "      S2R R2, SR_TID.X",
+      "ptx": "mov.u32 \t%r904, %tid.x;",
+      "samples": 8.0,
+      "stalls": {
+        "selected": 2.0,
+        "wait": 6.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b6f0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 387,
+      "sass": "      USEL UR8, URZ, 0x1, UP0",
+      "ptx": "selp.b32 \t%r914, 1, 0, %p7;",
+      "samples": 7.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "not_selected": 1.0,
+        "selected": 1.0,
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b380",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 364,
+      "sass": "      ULEA UR9, UR4, UR8, 0x3",
+      "ptx": "add.s32 \t%r298, %r881, %r880;",
+      "samples": 7.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0,
+        "not_selected": 2.0,
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b470",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 339,
+      "sass": "      USHF.R.U32.HI UR9, URZ, 0x4, UR9",
+      "ptx": "shr.u32 \t%r896, %r895, 4;",
+      "samples": 7.0,
+      "stalls": {
+        "selected": 2.0,
+        "wait": 5.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b6a0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 386,
+      "sass": "      SEL R0, R0, RZ, P0",
+      "ptx": "selp.b32 \t%r1217, 0, %r911, %p6;",
+      "samples": 7.0,
+      "stalls": {
+        "selected": 2.0,
+        "wait": 5.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b5b0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 375,
+      "sass": "      ULOP3.LUT UR10, UR15, 0x6, URZ, 0xfc, !UPT",
+      "ptx": "or.b32 \t%r901, %r900, 6;",
+      "samples": 6.0,
+      "stalls": {
+        "dispatch_stall": 2.0,
+        "selected": 4.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8aa30",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 226,
+      "sass": "      ULDC.64 UR12, c[0x0][0x198]",
+      "ptx": "cvta.param.u64 \t%rd1, %rd7;",
+      "samples": 6.0,
+      "stalls": {
+        "imc_miss": 4.0,
+        "no_instructions": 1.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ae80",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 309,
+      "sass": "      ULEA UR5, UR6, UR5, 0x18",
+      "ptx": "mov.b32 \t%r1042, __dynamic_shmem__0;",
+      "samples": 6.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0,
+        "short_scoreboard": 5.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8acf0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 269,
+      "sass": "      UISETP.GT.U32.AND UP0, UPT, UR5, 0x77, UPT",
+      "ptx": "setp.gt.u32 \t%p14, %r1067, 119;",
+      "samples": 5.0,
+      "stalls": {
+        "branch_resolving": 1.0,
+        "drain": 2.0,
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8bc30",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 170,
+      "sass": "      BRA `(.L_x_0) 0x736aa7e8bc30",
+      "ptx": "ret;",
+      "samples": 5.0,
+      "stalls": {
+        "branch_resolving": 3.0,
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b510",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 375,
+      "sass": "      ULOP3.LUT UR10, UR15, 0x2, URZ, 0xfc, !UPT",
+      "ptx": "or.b32 \t%r903, %r900, 2;",
+      "samples": 5.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "math_pipe_throttle": 2.0,
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b4a0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 375,
+      "sass": "      ULEA UR14, UR4, UR8, 0xa",
+      "ptx": "add.s32 \t%r891, %r882, %r889;",
+      "samples": 5.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 2.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b670",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 386,
+      "sass": "      VIADD R0, R0, 0x1",
+      "ptx": "add.s32 \t%r911, %r1217, 1;",
+      "samples": 5.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 2.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b3a0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 364,
+      "sass": "      SYNCS.PHASECHK.TRANS64.TRYWAIT P0, [R5+URZ], R2",
+      "ptx": "mbarrier.try_wait.parity.shared.b64 P1, [%r298], %r1064, 10000000; ",
+      "samples": 5.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b560",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 375,
+      "sass": "      ULOP3.LUT UR10, UR15, 0x4, URZ, 0xfc, !UPT",
+      "ptx": "or.b32 \t%r902, %r900, 4;",
+      "samples": 5.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b6c0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 387,
+      "sass": "      UIADD3 UR4, UR4, 0x1, URZ",
+      "ptx": "add.s32 \t%r913, %r1065, 1;",
+      "samples": 5.0,
+      "stalls": {
+        "selected": 5.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b700",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 387,
+      "sass": "      USEL UR4, UR4, URZ, UP0",
+      "ptx": "selp.b32 \t%r1065, 0, %r913, %p7;",
+      "samples": 5.0,
+      "stalls": {
+        "selected": 3.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b4d0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 339,
+      "sass": "      UMOV UR8, UR14",
+      "ptx": "mov.b64 \t%rd10, {%r891, %r890};",
+      "samples": 4.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "selected": 1.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b500",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 375,
+      "sass": "      ULOP3.LUT UR8, UR14, 0x2, URZ, 0xfc, !UPT",
+      "ptx": "or.b32 \t%r894, %r891, 2;",
+      "samples": 4.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "selected": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b580",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 339,
+      "sass": "      UMOV UR11, 0x40000040",
+      "ptx": "mov.b64 \t%rd15, {%r902, %r899};",
+      "samples": 4.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "selected": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b5d0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 339,
+      "sass": "      UMOV UR11, 0x40000040",
+      "ptx": "mov.b64 \t%rd17, {%r901, %r899};",
+      "samples": 4.0,
+      "stalls": {
+        "dispatch_stall": 2.0,
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8aa00",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 201,
+      "sass": "      LDC R1, c[0x0][0x28]",
+      "ptx": "{",
+      "samples": 4.0,
+      "stalls": {
+        "no_instructions": 4.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b680",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 385,
+      "sass": "@!P0  SYNCS.ARRIVE.TRANS64.A1T0 RZ, [R2+URZ+0x20], RZ",
+      "ptx": "mbarrier.arrive.release.cta.shared::cta.b64 _, [%r909], %r910;",
+      "samples": 4.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 2.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b480",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 339,
+      "sass": "      ULOP3.LUT UR8, UR8, 0x10000, UR10, 0xec, !UPT",
+      "ptx": "or.b64 \t%rd19, %rd18, 4611686293305360384;",
+      "samples": 4.0,
+      "stalls": {
+        "selected": 2.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b4c0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 339,
+      "sass": "      UMOV UR9, 0x40000040",
+      "ptx": "mov.b64 \t%rd10, {%r891, %r890};",
+      "samples": 4.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b620",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 246,
+      "sass": "      LOP3.LUT P0, RZ, R2, 0x1f, RZ, 0xc0, !PT",
+      "ptx": "setp.ne.s32 \t%p5, %r905, 0;",
+      "samples": 4.0,
+      "stalls": {
+        "selected": 1.0,
+        "short_scoreboard": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ace0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 170,
+      "sass": "@P0   EXIT",
+      "ptx": "@%p13 bra \t$L__BB0_28;",
+      "samples": 3.0,
+      "stalls": {
+        "long_scoreboard": 2.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ba70",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 170,
+      "sass": "      F2FP.BF16.F32.PACK_AB R5, R91, R90",
+      "ptx": "cvt.rn.bf16x2.f32 %r1021, %r1212, %r1211;",
+      "samples": 3.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0,
+        "not_selected": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b280",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 339,
+      "sass": "      USHF.R.S32.HI UR7, URZ, 0x7, UR6",
+      "ptx": "shr.s32 \t%r293, %r292, 7;",
+      "samples": 3.0,
+      "stalls": {
+        "no_instructions": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8aab0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 226,
+      "sass": "      UTMACCTL.PF [UR8]",
+      "ptx": "prefetch.tensormap [%rd1];",
+      "samples": 3.0,
+      "stalls": {
+        "not_selected": 2.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b050",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 170,
+      "sass": "@P0   BRA 0x736aa7e8ae50",
+      "ptx": "@%p22 bra \t$L__BB0_6;",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 2.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b440",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 339,
+      "sass": "      ULEA UR8, UR7, UR9, 0xd",
+      "ptx": "add.s32 \t%r886, %r884, %r885;",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b490",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 339,
+      "sass": "      ULOP3.LUT UR9, UR9, 0x10000, UR10, 0xec, !UPT",
+      "ptx": "or.b64 \t%rd21, %rd20, 4611686293305360384;",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b4b0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 375,
+      "sass": "      UIMAD UR15, UR4, 0x480, UR9",
+      "ptx": "mad.lo.s32 \t%r900, %r1065, 1152, %r898;",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b5a0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 375,
+      "sass": "      ULOP3.LUT UR8, UR14, 0x6, URZ, 0xfc, !UPT",
+      "ptx": "or.b32 \t%r892, %r891, 6;",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b5c0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 339,
+      "sass": "      UMOV UR9, 0x40000040",
+      "ptx": "mov.b64 \t%rd16, {%r892, %r890};",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b6e0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 387,
+      "sass": "      UISETP.NE.AND UP0, UPT, UR4, 0x4, UPT",
+      "ptx": "setp.eq.s32 \t%p7, %r913, 4;",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ab60",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 260,
+      "sass": "      ISETP.NE.AND P1, PT, RZ, UR4, PT",
+      "ptx": "setp.ne.s32 \t%p2, %r5, 0;",
+      "samples": 3.0,
+      "stalls": {
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ae90",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 309,
+      "sass": "      ULEA UR21, UR4, UR5, 0x3",
+      "ptx": "add.s32 \t%r1043, %r1042, %r1041;",
+      "samples": 3.0,
+      "stalls": {
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8aea0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 309,
+      "sass": "      IMAD.U32 R3, RZ, RZ, UR21",
+      "ptx": "mbarrier.try_wait.parity.shared.b64 P1, [%r13], %r1061, 10000000; ",
+      "samples": 3.0,
+      "stalls": {
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b210",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 170,
+      "sass": "@P0   EXIT",
+      "ptx": "@%p3 bra \t$L__BB0_28;",
+      "samples": 2.0,
+      "stalls": {
+        "barrier": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8baf0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 170,
+      "sass": "@P0   BRA 0x736aa7e8bbc0",
+      "ptx": "@%p10 bra \t$L__BB0_27;",
+      "samples": 2.0,
+      "stalls": {
+        "barrier": 1.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ae50",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 309,
+      "sass": "      S2UR UR6, SR_CgaCtaId",
+      "ptx": "mov.b32 \t%r1042, __dynamic_shmem__0;",
+      "samples": 2.0,
+      "stalls": {
+        "branch_resolving": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8af30",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 316,
+      "sass": "      ULEA UR20, UR4, UR11, 0xe",
+      "ptx": "add.s32 \t%r15, %r6, %r1047;",
+      "samples": 2.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "math_pipe_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b550",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 375,
+      "sass": "      ULOP3.LUT UR8, UR14, 0x4, URZ, 0xfc, !UPT",
+      "ptx": "or.b32 \t%r893, %r891, 4;",
+      "samples": 2.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8bad0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 407,
+      "sass": "      FENCE.VIEW.ASYNC.S",
+      "ptx": "fence.proxy.async.shared::cta;",
+      "samples": 2.0,
+      "stalls": {
+        "long_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8acd0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 170,
+      "sass": "@P1   BRA 0x736aa7e8b170",
+      "ptx": "@%p2 bra \t$L__BB0_15;",
+      "samples": 2.0,
+      "stalls": {
+        "no_instructions": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8aef0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 170,
+      "sass": "      ELECT P0, URZ, PT",
+      "ptx": "elect.sync \t%r1044|%p15, -1;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b350",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 364,
+      "sass": "      UMOV UR8, 0x400",
+      "ptx": "mov.b32 \t%r881, __dynamic_shmem__0;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b400",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 339,
+      "sass": "      UMOV UR10, 0x3fc0",
+      "ptx": "or.b64 \t%rd19, %rd18, 4611686293305360384;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b410",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 339,
+      "sass": "      UMOV UR11, 0x40000040",
+      "ptx": "mov.b64 \t%rd11, {%r900, %r899};",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b430",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 378,
+      "sass": "      ISETP.NE.AND P0, PT, R4, RZ, PT",
+      "ptx": "setp.eq.s32 \t%p4, %r1144, 0;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b450",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 235,
+      "sass": "      UIADD3 UR9, UR9, 0x10000, URZ",
+      "ptx": "add.s32 \t%r895, %r884, 65536;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b460",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 339,
+      "sass": "      USHF.R.U32.HI UR8, URZ, 0x4, UR8",
+      "ptx": "shr.u32 \t%r887, %r886, 4;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b4e0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 339,
+      "sass": "      UMOV UR10, UR15",
+      "ptx": "mov.b64 \t%rd11, {%r900, %r899};",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b570",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 339,
+      "sass": "      UMOV UR9, 0x40000040",
+      "ptx": "mov.b64 \t%rd14, {%r893, %r890};",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b5f0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 170,
+      "sass": "@!P0  BRA 0x736aa7e8b6b0",
+      "ptx": "@%p4 bra \t$L__BB0_22;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b720",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 387,
+      "sass": "      LOP3.LUT R21, R21, UR8, RZ, 0x3c, !PT",
+      "ptx": "xor.b32 \t%r1064, %r1064, %r914;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b710",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 170,
+      "sass": "      UPLOP3.LUT UP0, UPT, UPT, UPT, UPT, 0x80, 0x0",
+      "ptx": "@%p8 bra \t$L__BB0_18;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b850",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 396,
+      "sass": "@!P0  S2R R5, SR_CgaCtaId",
+      "ptx": "mov.b32 \t%r918, __dynamic_shmem__0;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8bc20",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 170,
+      "sass": "      EXIT",
+      "ptx": "ret;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8afb0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 170,
+      "sass": "      ISETP.NE.AND P0, PT, R4, 0x20, PT",
+      "ptx": "setp.ne.s32 \t%p22, %r1063, 32;",
+      "samples": 1.0,
+      "stalls": {
+        "dispatch_stall": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b040",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 170,
+      "sass": "      UIADD3 UR22, UR22, 0x40, URZ",
+      "ptx": "add.s32 \t%r1060, %r1060, 64;",
+      "samples": 1.0,
+      "stalls": {
+        "long_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b900",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 408,
+      "sass": "      IMAD.U32 R2, RZ, RZ, UR6",
+      "ptx": "bar.sync %r27, 128;",
+      "samples": 1.0,
+      "stalls": {
+        "long_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8bae0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 408,
+      "sass": "      BAR.SYNC.DEFER_BLOCKING R2, 0x80",
+      "ptx": "bar.sync %r27, 128;",
+      "samples": 1.0,
+      "stalls": {
+        "long_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8aa90",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 227,
+      "sass": "      UIADD3.X UR11, URZ, UR13, URZ, UP1, !UPT",
+      "ptx": "prefetch.tensormap [%rd2];",
+      "samples": 1.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ada0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 276,
+      "sass": "      USHF.R.U32.HI UR4, URZ, 0x9, UR4",
+      "ptx": "shr.u16 \t%rs3, %rs2, 9;",
+      "samples": 1.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ae30",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 276,
+      "sass": "      ULOP3.LUT UR5, UR5, 0xff, URZ, 0xc0, !UPT",
+      "ptx": "and.b16 \t%rs6, %rs5, 255;",
+      "samples": 1.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8af60",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 316,
+      "sass": "      UIADD3.X UR7, URZ, UR13, URZ, UP0, !UPT",
+      "ptx": "cp.async.bulk.tensor.2d.shared::cta.global.tile.mbarrier::complete_tx::bytes.L2::cache_hint [%r15], [%rd1, {%r1060, %r7}], [%r14], %rd23;",
+      "samples": 1.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ba60",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 170,
+      "sass": "      F2FP.BF16.F32.PACK_AB R4, R89, R88",
+      "ptx": "cvt.rn.bf16x2.f32 %r1018, %r1210, %r1209;",
+      "samples": 1.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b170",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 334,
+      "sass": "      BAR.SYNC.DEFER_BLOCKING 0x1, 0x120",
+      "ptx": "bar.sync 1, 288;",
+      "samples": 1.0,
+      "stalls": {
+        "no_instructions": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8aa60",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 227,
+      "sass": "      UIADD3 UR10, UP1, UR12, 0xb0, URZ",
+      "ptx": "prefetch.tensormap [%rd2];",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8aae0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 206,
+      "sass": "      S2UR UR5, SR_CTAID.X",
+      "ptx": "mov.u32 \t%r1067, %ctaid.x;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ae60",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 309,
+      "sass": "      UMOV UR5, 0x400",
+      "ptx": "mov.b32 \t%r1042, __dynamic_shmem__0;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ae70",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 309,
+      "sass": "      SHF.L.U32 R0, R2, 0x1f, RZ",
+      "ptx": "mbarrier.try_wait.parity.shared.b64 P1, [%r13], %r1061, 10000000; ",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b3f0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 170,
+      "sass": "      WARPGROUP.ARRIVE",
+      "ptx": "wgmma.fence.sync.aligned;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b420",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 233,
+      "sass": "      ULOP3.LUT UR9, UR8, 0xfffffc00, URZ, 0xc0, !UPT",
+      "ptx": "and.b32 \t%r884, %r883, -1024;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b520",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 339,
+      "sass": "      UMOV UR9, 0x40000040",
+      "ptx": "mov.b64 \t%rd12, {%r894, %r890};",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b530",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 339,
+      "sass": "      UMOV UR11, 0x40000040",
+      "ptx": "mov.b64 \t%rd13, {%r903, %r899};",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b640",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 385,
+      "sass": "@!P0  MOV R2, 0x400",
+      "ptx": "mov.b32 \t%r907, __dynamic_shmem__0;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b830",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 170,
+      "sass": "      F2FP.BF16.F32.PACK_AB R19, R55, R54",
+      "ptx": "cvt.rn.bf16x2.f32 %r967, %r1176, %r1175;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ba20",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 170,
+      "sass": "      F2FP.BF16.F32.PACK_AB R17, R83, R82",
+      "ptx": "cvt.rn.bf16x2.f32 %r1009, %r1204, %r1203;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8bc00",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 170,
+      "sass": "      PLOP3.LUT P1, PT, PT, PT, UP0, 0x80, 0x0",
+      "ptx": "@%p11 bra \t$L__BB0_17;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8abf0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 246,
+      "sass": "      ULEA UR10, UR10, UR6, 0x18",
+      "ptx": "mbarrier.init.shared.b64 \t[__dynamic_shmem__0], %r273;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b870",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 396,
+      "sass": "@!P0  LEA R7, R5, R2, 0x18",
+      "ptx": "mov.b32 \t%r918, __dynamic_shmem__0;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8aa20",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 233,
+      "sass": "      S2UR UR5, SR_CgaCtaId",
+      "ptx": "mov.b32 \t%r263, __dynamic_shmem__0;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ab80",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 246,
+      "sass": "      S2UR UR10, SR_CgaCtaId",
+      "ptx": "mbarrier.init.shared.b64 \t[__dynamic_shmem__0], %r273;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ad30",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 170,
+      "sass": "@P0   BRA 0x736aa7e8b060",
+      "ptx": "@%p14 bra \t$L__BB0_13;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8aed0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 309,
+      "sass": "@!P0  SYNCS.PHASECHK.TRANS64 P0, [R3+URZ+0x20], R0",
+      "ptx": "mbarrier.try_wait.parity.shared.b64 P1, [%r13], %r1061, 10000000; ",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8afd0",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 318,
+      "sass": "      USEL UR5, URZ, 0x1, UP0",
+      "ptx": "selp.b32 \t%r1052, 1, 0, %p21;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b320",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 345,
+      "sass": "      IMAD.MOV.U32 R4, RZ, RZ, RZ",
+      "ptx": "mov.b32 \t%r1144, %r1143;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b880",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 170,
+      "sass": "      F2FP.BF16.F32.PACK_AB R5, R27, R26",
+      "ptx": "cvt.rn.bf16x2.f32 %r925, %r1148, %r1147;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8b980",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 170,
+      "sass": "      F2FP.BF16.F32.PACK_AB R9, R67, R66",
+      "ptx": "cvt.rn.bf16x2.f32 %r985, %r1188, %r1187;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8bb90",
+      "file": "/profile/harness/sources/cute/kernels/qkv.py",
+      "line": 417,
+      "sass": "      UTMASTG.2D [UR20], [UR10], desc[URZ]",
+      "ptx": "cp.async.bulk.tensor.2d.global.shared::cta.tile.bulk_group.L2::cache_hint [%rd3, {%r1036, %r1034}], [%r28], %rd22;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    }
+  ]
+}

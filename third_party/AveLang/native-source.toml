@@ -1,0 +1,7 @@
+[repo]
+local_source = "avelang"
+branch = "origin/nvidia-ave-kernels"
+commit = "5f349c594ad510ad6b90d0e1ca310c0d47aa9ed1"
+experiment_checkout = ".repro/avelang-native"
+patches = ["native-build.patch"]
+invariant_validation = false

@@ -1,0 +1,31 @@
+{
+  "sass__inst_executed_per_opcode": {
+    "LDC": 106496.0,
+    "IMAD": 79872.0,
+    "S2R": 53248.0,
+    "LDG": 53248.0,
+    "USHF": 26624.0,
+    "ULDC": 26624.0,
+    "STG": 26624.0,
+    "S2UR": 26624.0,
+    "LOP3": 26624.0,
+    "LEA": 26624.0,
+    "HADD2": 26624.0,
+    "EXIT": 26624.0
+  },
+  "sass__inst_executed_per_opcode_with_modifier_all": {
+    "LDC.64": 79872.0,
+    "IMAD.WIDE.U32": 79872.0,
+    "S2R": 53248.0,
+    "LDG.E.U16": 53248.0,
+    "USHF.L.U32": 26624.0,
+    "ULDC.64": 26624.0,
+    "STG.E.U16": 26624.0,
+    "S2UR": 26624.0,
+    "LOP3.LUT": 26624.0,
+    "LEA": 26624.0,
+    "LDC": 26624.0,
+    "HADD2.BF16_V2": 26624.0,
+    "EXIT": 26624.0
+  }
+}

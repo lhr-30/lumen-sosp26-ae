@@ -1,0 +1,4 @@
+[
+  "baseline_qkv: lts__t_sector_hit_rate.pct=101.08949557000153; uncontrolled-cache replay ratio, do not interpret as physical hit rate",
+  "epilogue_qkv: lts__t_sector_hit_rate.pct=101.81277548501717; uncontrolled-cache replay ratio, do not interpret as physical hit rate"
+]

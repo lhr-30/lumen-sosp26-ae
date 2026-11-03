@@ -1,0 +1,3326 @@
+{
+  "sample_count": 480,
+  "stall_distribution": {
+    "barrier": {
+      "samples": 4,
+      "pct_samples": 0.8333333333333334
+    },
+    "branch_resolving": {
+      "samples": 12,
+      "pct_samples": 2.5
+    },
+    "dispatch_stall": {
+      "samples": 7,
+      "pct_samples": 1.4583333333333333
+    },
+    "drain": {
+      "samples": 8,
+      "pct_samples": 1.6666666666666667
+    },
+    "imc_miss": {
+      "samples": 17,
+      "pct_samples": 3.5416666666666665
+    },
+    "lg_throttle": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "long_scoreboard": {
+      "samples": 52,
+      "pct_samples": 10.833333333333334
+    },
+    "math_pipe_throttle": {
+      "samples": 2,
+      "pct_samples": 0.4166666666666667
+    },
+    "membar": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "mio_throttle": {
+      "samples": 32,
+      "pct_samples": 6.666666666666667
+    },
+    "misc": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "no_instructions": {
+      "samples": 19,
+      "pct_samples": 3.9583333333333335
+    },
+    "not_selected": {
+      "samples": 24,
+      "pct_samples": 5.0
+    },
+    "selected": {
+      "samples": 94,
+      "pct_samples": 19.583333333333332
+    },
+    "short_scoreboard": {
+      "samples": 53,
+      "pct_samples": 11.041666666666666
+    },
+    "sleeping": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "tex_throttle": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "wait": {
+      "samples": 156,
+      "pct_samples": 32.5
+    },
+    "warpgroup_arrive": {
+      "samples": 0,
+      "pct_samples": 0.0
+    }
+  },
+  "hotspots": [
+    {
+      "pc": "0x736aa7e8d830",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      ULDC.64 UR6, c[0x0][0x208]",
+      "ptx": "{",
+      "samples": 18.0,
+      "stalls": {
+        "imc_miss": 17.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8eca0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 295,
+      "sass": "      FMUL R31, R32, R31",
+      "ptx": "mul.f32 \t%r638, %r569, %r637;",
+      "samples": 17.0,
+      "stalls": {
+        "long_scoreboard": 17.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8da20",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 227,
+      "sass": "@!P1  IMAD.WIDE R12, R7, 0x2, R12",
+      "ptx": "add.s64 \t%rd49, %rd7, %rd48;",
+      "samples": 13.0,
+      "stalls": {
+        "short_scoreboard": 13.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8d800",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 91,
+      "sass": "      LDC R1, c[0x0][0x28]",
+      "ptx": "{",
+      "samples": 11.0,
+      "stalls": {
+        "no_instructions": 11.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8e020",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 269,
+      "sass": "      PRMT R56, R51, 0x7632, R56",
+      "ptx": "mov.b32 \t{%rs54, %rs55}, %r1532;",
+      "samples": 10.0,
+      "stalls": {
+        "long_scoreboard": 10.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8dea0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 269,
+      "sass": "      PRMT R50, R52, 0x7632, R50",
+      "ptx": "mov.b32 \t{%rs74, %rs75}, %r1527;",
+      "samples": 8.0,
+      "stalls": {
+        "long_scoreboard": 7.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e925d0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      SHF.L.U32 R5, R14, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r1429, %rs4;",
+      "samples": 7.0,
+      "stalls": {
+        "drain": 5.0,
+        "long_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e902c0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 488,
+      "sass": "      SHFL.BFLY PT, R27, R22, 0x1, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r962, %r958, 1, 31, -1;",
+      "samples": 6.0,
+      "stalls": {
+        "short_scoreboard": 5.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92b90",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "@!P0  BRA 0x736aa7e93090",
+      "ptx": "ret;",
+      "samples": 6.0,
+      "stalls": {
+        "wait": 6.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92a90",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      SHF.R.U32.HI R33, RZ, 0x17, R27",
+      "ptx": "ret;",
+      "samples": 5.0,
+      "stalls": {
+        "drain": 3.0,
+        "no_instructions": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f030",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      F2F.BF16.F32 R33, R33",
+      "ptx": "cvt.rn.bf16.f32 \t%rs78, %r642;",
+      "samples": 5.0,
+      "stalls": {
+        "mio_throttle": 3.0,
+        "not_selected": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e930d0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      MOV R22, R33",
+      "ptx": "ret;",
+      "samples": 4.0,
+      "stalls": {
+        "branch_resolving": 2.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93100",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      BRA `(.L_x_0) 0x736aa7e93100",
+      "ptx": "ret;",
+      "samples": 4.0,
+      "stalls": {
+        "branch_resolving": 2.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92b20",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "@!P0  IMAD.MOV.U32 R31, RZ, RZ, RZ",
+      "ptx": "ret;",
+      "samples": 4.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90500",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 488,
+      "sass": "      FMNMX R39, R40, R39, !PT",
+      "ptx": "max.f32 \t%r995, %r987, %r994;",
+      "samples": 4.0,
+      "stalls": {
+        "short_scoreboard": 4.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90ba0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 496,
+      "sass": "      MUFU.RCP R23, R28",
+      "ptx": "div.rn.f32 \t%r1052, %r743, %r1045;",
+      "samples": 3.0,
+      "stalls": {
+        "branch_resolving": 2.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8e630",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 248,
+      "sass": "@!P1  LDC.64 R26, c[0x0][0x238]",
+      "ptx": "add.s64 \t%rd53, %rd10, %rd52;",
+      "samples": 3.0,
+      "stalls": {
+        "long_scoreboard": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ed80",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 295,
+      "sass": "      FMUL R45, R46, R45",
+      "ptx": "mul.f32 \t%r666, %r576, %r665;",
+      "samples": 3.0,
+      "stalls": {
+        "long_scoreboard": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fd50",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 464,
+      "sass": "      LDS R26, [R61+0x110]",
+      "ptx": "ld.shared.b32 \t%r814, [%r779+272];",
+      "samples": 3.0,
+      "stalls": {
+        "mio_throttle": 1.0,
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91f20",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 571,
+      "sass": "      MUFU.RCP R26, R26",
+      "ptx": "rcp.approx.ftz.f32 \t%r1300, %r1299;",
+      "samples": 3.0,
+      "stalls": {
+        "mio_throttle": 1.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91280",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      PRMT R27, R27, 0x5410, R30",
+      "ptx": "mov.b32 \t%r1092, {%rs158, %rs159};",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 2.0,
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90380",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 488,
+      "sass": "      FMNMX R32, R27, R32, !PT",
+      "ptx": "max.f32 \t%r971, %r963, %r970;",
+      "samples": 3.0,
+      "stalls": {
+        "short_scoreboard": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8e580",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 183,
+      "sass": "@!P2  LDGSTS.E.128 [R55+0x2100], desc[UR6][R32.64]",
+      "ptx": "cp.async.ca.shared.global [%r15], [%rd37], 16, 16;",
+      "samples": 3.0,
+      "stalls": {
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fac0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 464,
+      "sass": "@!UPT UIADD3 URZ, URZ, URZ, URZ",
+      "ptx": "ld.shared.b32 \t%r791, [%r779+4816];",
+      "samples": 3.0,
+      "stalls": {
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91470",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 547,
+      "sass": "@!UPT UIADD3 URZ, URZ, URZ, URZ",
+      "ptx": "cvt.rn.bf16x2.f32 \t%r1175, %r1147, %r1146;",
+      "samples": 3.0,
+      "stalls": {
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92bf0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      PLOP3.LUT P0, PT, P3, P0, PT, 0x2a, 0x0",
+      "ptx": "ret;",
+      "samples": 3.0,
+      "stalls": {
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92c00",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "@P0   BRA 0x736aa7e93070",
+      "ptx": "ret;",
+      "samples": 3.0,
+      "stalls": {
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f990",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 465,
+      "sass": "      LDS R26, [R23+0x24b0]",
+      "ptx": "ld.shared.b32 \t%r844, [%r771+9392];",
+      "samples": 2.0,
+      "stalls": {
+        "barrier": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91770",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "@P2   BRA 0x736aa7e91c40",
+      "ptx": "@%p12 bra \t$L__BB0_26;",
+      "samples": 2.0,
+      "stalls": {
+        "barrier": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90900",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 496,
+      "sass": "      IMAD.MOV.U32 R27, RZ, RZ, R37",
+      "ptx": "div.rn.f32 \t%r1046, %r737, %r1039;",
+      "samples": 2.0,
+      "stalls": {
+        "branch_resolving": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90a90",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 496,
+      "sass": "      MUFU.RCP R30, R29",
+      "ptx": "div.rn.f32 \t%r1051, %r741, %r1043;",
+      "samples": 2.0,
+      "stalls": {
+        "branch_resolving": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e930c0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      BSYNC B1",
+      "ptx": "ret;",
+      "samples": 2.0,
+      "stalls": {
+        "branch_resolving": 1.0,
+        "no_instructions": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ed00",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 211,
+      "sass": "@!P3  LDC.64 R8, c[0x0][0x228]",
+      "ptx": "add.s64 \t%rd43, %rd8, %rd42;",
+      "samples": 2.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90f80",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      LDS.U16 R32, [R64+0x6760]",
+      "ptx": "ld.shared.b16 \t%rs124, [%r1069+26464];",
+      "samples": 2.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "mio_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8dc20",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 176,
+      "sass": "      IMAD R22, R63, 0xf8, R12",
+      "ptx": "mad.lo.s32 \t%r449, %r2, 248, %r441;",
+      "samples": 2.0,
+      "stalls": {
+        "long_scoreboard": 1.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8e4d0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 256,
+      "sass": "      LDC.64 R68, c[0x0][0x230]",
+      "ptx": "add.s64 \t%rd57, %rd9, %rd56;",
+      "samples": 2.0,
+      "stalls": {
+        "long_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f2c0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 290,
+      "sass": "      PRMT R34, R23, 0x7632, R34",
+      "ptx": "shfl.sync.bfly.b32 \t%r617, %r615, 1, 31, -1;",
+      "samples": 2.0,
+      "stalls": {
+        "long_scoreboard": 1.0,
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91c70",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      SHF.L.U32 R17, R7, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r1301, %rs18;",
+      "samples": 2.0,
+      "stalls": {
+        "long_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f0a0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      F2F.BF16.F32 R39, R39",
+      "ptx": "cvt.rn.bf16.f32 \t%rs84, %r654;",
+      "samples": 2.0,
+      "stalls": {
+        "mio_throttle": 1.0,
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fce0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 464,
+      "sass": "      LDS R30, [R61+0xf0]",
+      "ptx": "ld.shared.b32 \t%r810, [%r779+240];",
+      "samples": 2.0,
+      "stalls": {
+        "mio_throttle": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90e10",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 540,
+      "sass": "      LDS R55, [R24+0x290]",
+      "ptx": "ld.shared.b32 \t%r1061, [%r1057+656];",
+      "samples": 2.0,
+      "stalls": {
+        "mio_throttle": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91190",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      LDS.U16 R30, [R64+0x9af0]",
+      "ptx": "ld.shared.b16 \t%rs159, [%r1069+39664];",
+      "samples": 2.0,
+      "stalls": {
+        "mio_throttle": 1.0,
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91f00",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 571,
+      "sass": "      MUFU.RCP R18, R4",
+      "ptx": "rcp.approx.ftz.f32 \t%r1285, %r1284;",
+      "samples": 2.0,
+      "stalls": {
+        "mio_throttle": 1.0,
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91fa0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 571,
+      "sass": "      MUFU.RCP R25, R25",
+      "ptx": "rcp.approx.ftz.f32 \t%r1297, %r1296;",
+      "samples": 2.0,
+      "stalls": {
+        "mio_throttle": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92000",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 571,
+      "sass": "      MUFU.RCP R28, R28",
+      "ptx": "rcp.approx.ftz.f32 \t%r1306, %r1305;",
+      "samples": 2.0,
+      "stalls": {
+        "mio_throttle": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93070",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      LOP3.LUT R33, R27, 0x80000000, R22, 0x48, !PT",
+      "ptx": "ret;",
+      "samples": 2.0,
+      "stalls": {
+        "no_instructions": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93080",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      BRA 0x736aa7e930c0",
+      "ptx": "ret;",
+      "samples": 2.0,
+      "stalls": {
+        "no_instructions": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8e7c0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 290,
+      "sass": "      FADD R44, R35, R44",
+      "ptx": "add.f32 \t%r632, %r628, %r631;",
+      "samples": 2.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91350",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      LDS.U16 R67, [R64+0x8b70]",
+      "ptx": "ld.shared.b16 \t%rs173, [%r1069+35696];",
+      "samples": 2.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e916e0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 547,
+      "sass": "      F2FP.BF16.F32.PACK_AB R50, R51, R50",
+      "ptx": "cvt.rn.bf16x2.f32 \t%r1168, %r1161, %r1160;",
+      "samples": 2.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91f30",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 561,
+      "sass": "      LDS.128 R4, [R0+0x100]",
+      "ptx": "ld.shared.v4.b32 \t{%r1279, %r1280, %r1281, %r1282}, [%r1278+256];",
+      "samples": 2.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91f50",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 571,
+      "sass": "      MUFU.RCP R27, R27",
+      "ptx": "rcp.approx.ftz.f32 \t%r1303, %r1302;",
+      "samples": 2.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91fb0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 559,
+      "sass": "      LDC.64 R16, c[0x0][0x240]",
+      "ptx": "add.s64 \t%rd93, %rd11, %rd92;",
+      "samples": 2.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8d940",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 173,
+      "sass": "      S2UR UR5, SR_CgaCtaId",
+      "ptx": "mov.b32 \t%r443, __dynamic_shmem__0;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8db70",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 229,
+      "sass": "@!P0  LDG.E R54, desc[UR6][R22.64+0x140]",
+      "ptx": "ld.global.b32 \t%r1540, [%rd51+320];",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8e1d0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 287,
+      "sass": "      FFMA R30, R29, R29, R30",
+      "ptx": "fma.rn.f32 \t%r613, %r250, %r250, %r611;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f450",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 355,
+      "sass": "      F2FP.BF16.F32.PACK_AB R38, R23, R38",
+      "ptx": "cvt.rn.bf16x2.f32 \t%r755, %r311, %r309;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e905e0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 494,
+      "sass": "      SHFL.BFLY PT, R27, R22, 0x1, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r1006, %r737, 1, 31, -1;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90af0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 496,
+      "sass": "      FFMA R23, -R29, R30, 1",
+      "ptx": "div.rn.f32 \t%r1051, %r741, %r1043;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90c60",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 496,
+      "sass": "      IMAD.MOV.U32 R22, RZ, RZ, R25",
+      "ptx": "div.rn.f32 \t%r1052, %r743, %r1045;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90ee0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 540,
+      "sass": "      LDS R44, [R24+0x20]",
+      "ptx": "ld.shared.b32 \t%r1062, [%r1057+32];",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92910",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 571,
+      "sass": "      MUFU.RCP R0, R0",
+      "ptx": "rcp.approx.ftz.f32 \t%r1419, %r1418;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e930f0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      RET.REL.NODEC R32, 0x736aa7e8d800",
+      "ptx": "ret;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fbb0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 466,
+      "sass": "      HMMA.16816.F32.BF16 R32, R28, R36, R32",
+      "ptx": "{%r885, %r886, %r887, %r888};",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fd70",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 466,
+      "sass": "      HMMA.16816.F32.BF16 R32, R28, R36, R32",
+      "ptx": "{%r901, %r902, %r903, %r904};",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90080",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 466,
+      "sass": "      HMMA.16816.F32.BF16 R24, R24, R38, R28",
+      "ptx": "{%r929, %r930, %r931, %r932};",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e900b0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 466,
+      "sass": "      HMMA.16816.F32.BF16 R32, R32, R36, R24",
+      "ptx": "{%r933, %r934, %r935, %r936};",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90450",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 488,
+      "sass": "      FMNMX R38, R33, R38, !PT",
+      "ptx": "max.f32 \t%r983, %r975, %r982;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90490",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 488,
+      "sass": "      FMNMX R29, R36, R29, !PT",
+      "ptx": "max.f32 \t%r989, %r981, %r988;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91bb0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      F2FP.BF16.F32.PACK_AB R33, RZ, R32",
+      "ptx": "cvt.rn.bf16.f32 \t%rs198, %r1239;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f100",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      F2F.BF16.F32 R51, R51",
+      "ptx": "cvt.rn.bf16.f32 \t%rs96, %r678;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f880",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 347,
+      "sass": "      BSYNC B0",
+      "ptx": "mov.b32 \t%r1554, %r398;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ff70",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 464,
+      "sass": "      LDS R29, [R61+0x1420]",
+      "ptx": "ld.shared.b32 \t%r833, [%r779+5152];",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e902f0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 488,
+      "sass": "      SHFL.BFLY PT, R30, R23, 0x1, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r966, %r960, 1, 31, -1;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90770",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 494,
+      "sass": "      SHFL.BFLY PT, R28, R35, 0x8, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r1034, %r1027, 8, 31, -1;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90920",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 496,
+      "sass": "      CALL.REL.NOINC 0x736aa7e92a90",
+      "ptx": "div.rn.f32 \t%r1046, %r737, %r1039;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90950",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 136,
+      "sass": "      UIADD3 UR5, UR4, 0xb0db, URZ",
+      "ptx": "add.s32 \t%r751, %r750, 45275;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90a70",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 496,
+      "sass": "      CALL.REL.NOINC 0x736aa7e92a90",
+      "ptx": "div.rn.f32 \t%r1050, %r739, %r1041;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90b90",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 496,
+      "sass": "      BSYNC B0",
+      "ptx": "div.rn.f32 \t%r1051, %r741, %r1043;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91a00",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 571,
+      "sass": "      MUFU.EX2 R27, R18",
+      "ptx": "ex2.approx.ftz.f32 %r1194, %r1195;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92380",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 571,
+      "sass": "      MUFU.EX2 R23, R10",
+      "ptx": "ex2.approx.ftz.f32 %r1330, %r1331;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92430",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 571,
+      "sass": "      MUFU.RCP R0, R0",
+      "ptx": "rcp.approx.ftz.f32 \t%r1352, %r1351;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e928e0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 571,
+      "sass": "      MUFU.RCP R12, R12",
+      "ptx": "rcp.approx.ftz.f32 \t%r1434, %r1433;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e929a0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 571,
+      "sass": "      MUFU.RCP R13, R13",
+      "ptx": "rcp.approx.ftz.f32 \t%r1440, %r1439;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92c10",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      LOP3.LUT P0, RZ, R27, 0x7fffffff, RZ, 0xc0, !PT",
+      "ptx": "ret;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90a80",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 496,
+      "sass": "      BSYNC B0",
+      "ptx": "div.rn.f32 \t%r1050, %r739, %r1041;",
+      "samples": 1.0,
+      "stalls": {
+        "branch_resolving": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e925c0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "@P3   EXIT",
+      "ptx": "@%p21 bra \t$L__BB0_32;",
+      "samples": 1.0,
+      "stalls": {
+        "branch_resolving": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8de30",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 173,
+      "sass": "      LEA R31, R21, UR4, 0x1",
+      "ptx": "add.s32 \t%r463, %r444, %r462;",
+      "samples": 1.0,
+      "stalls": {
+        "dispatch_stall": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fa10",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 464,
+      "sass": "      LDS R28, [R61+0x20]",
+      "ptx": "ld.shared.b32 \t%r784, [%r779+32];",
+      "samples": 1.0,
+      "stalls": {
+        "dispatch_stall": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91240",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      LDS.U16 R49, [R64+0x7ab0]",
+      "ptx": "ld.shared.b16 \t%rs139, [%r1069+31408];",
+      "samples": 1.0,
+      "stalls": {
+        "dispatch_stall": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e916f0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 547,
+      "sass": "      F2FP.BF16.F32.PACK_AB R48, R49, R48",
+      "ptx": "cvt.rn.bf16x2.f32 \t%r1169, %r1159, %r1158;",
+      "samples": 1.0,
+      "stalls": {
+        "dispatch_stall": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91700",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 548,
+      "sass": "      STS [R61+0x1400], R50",
+      "ptx": "st.shared.b32 \t[%r1183+5120], %r1168;",
+      "samples": 1.0,
+      "stalls": {
+        "dispatch_stall": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8dda0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 180,
+      "sass": "      IMAD R13, R7, 0x1400, R24",
+      "ptx": "mad.lo.s32 \t%r459, %r9, 5120, %r11;",
+      "samples": 1.0,
+      "stalls": {
+        "long_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8de70",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 180,
+      "sass": "      IADD3 R35, R55, 0x5000, RZ",
+      "ptx": "mad.lo.s32 \t%r472, %r13, 5120, %r11;",
+      "samples": 1.0,
+      "stalls": {
+        "long_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8e340",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 269,
+      "sass": "      SHF.L.U32 R22, R24, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r263, %rs53;",
+      "samples": 1.0,
+      "stalls": {
+        "long_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8eff0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      CS2R R18, SRZ",
+      "ptx": "@%p2 bra \t$L__BB0_5;",
+      "samples": 1.0,
+      "stalls": {
+        "long_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8d960",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 141,
+      "sass": "      LOP3.LUT R5, R60, 0xf, RZ, 0xc0, !PT",
+      "ptx": "and.b32 \t%r4, %r437, 15;",
+      "samples": 1.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e914c0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      PRMT R56, R65, 0x5410, R56",
+      "ptx": "mov.b32 \t%r1099, {%rs168, %rs169};",
+      "samples": 1.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f050",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      F2F.BF16.F32 R37, R37",
+      "ptx": "cvt.rn.bf16.f32 \t%rs82, %r650;",
+      "samples": 1.0,
+      "stalls": {
+        "mio_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fab0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 464,
+      "sass": "      LDS R27, [R61+0x12d0]",
+      "ptx": "ld.shared.b32 \t%r791, [%r779+4816];",
+      "samples": 1.0,
+      "stalls": {
+        "mio_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fcc0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 464,
+      "sass": "      LDS R28, [R61+0xe0]",
+      "ptx": "ld.shared.b32 \t%r808, [%r779+224];",
+      "samples": 1.0,
+      "stalls": {
+        "mio_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fe90",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 464,
+      "sass": "      LDS R29, [R61+0x13e0]",
+      "ptx": "ld.shared.b32 \t%r825, [%r779+5088];",
+      "samples": 1.0,
+      "stalls": {
+        "mio_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ffd0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 464,
+      "sass": "      LDS R24, [R61+0x1c0]",
+      "ptx": "ld.shared.b32 \t%r836, [%r779+448];",
+      "samples": 1.0,
+      "stalls": {
+        "mio_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90e70",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      LDS.U16 R48, [R64+0x9a30]",
+      "ptx": "ld.shared.b16 \t%rs147, [%r1069+39472];",
+      "samples": 1.0,
+      "stalls": {
+        "mio_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90ed0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      LDS.U16 R27, [R64+0x9a70]",
+      "ptx": "ld.shared.b16 \t%rs151, [%r1069+39536];",
+      "samples": 1.0,
+      "stalls": {
+        "mio_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90f50",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      LDS.U16 R30, [R64+0x79b0]",
+      "ptx": "ld.shared.b16 \t%rs123, [%r1069+31152];",
+      "samples": 1.0,
+      "stalls": {
+        "mio_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e910a0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      LDS.U16 R25, [R64+0x7860]",
+      "ptx": "ld.shared.b16 \t%rs134, [%r1069+30816];",
+      "samples": 1.0,
+      "stalls": {
+        "mio_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91180",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      LDS.U16 R27, [R64+0x98e0]",
+      "ptx": "ld.shared.b16 \t%rs158, [%r1069+39136];",
+      "samples": 1.0,
+      "stalls": {
+        "mio_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91300",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      LDS.U16 R30, [R64+0x9b30]",
+      "ptx": "ld.shared.b16 \t%rs163, [%r1069+39728];",
+      "samples": 1.0,
+      "stalls": {
+        "mio_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e913f0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      LDS.U16 R51, [R64+0x9b70]",
+      "ptx": "ld.shared.b16 \t%rs167, [%r1069+39792];",
+      "samples": 1.0,
+      "stalls": {
+        "mio_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91710",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 548,
+      "sass": "      STS [R61+0x180], R48",
+      "ptx": "st.shared.b32 \t[%r1183+384], %r1169;",
+      "samples": 1.0,
+      "stalls": {
+        "mio_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91ad0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 571,
+      "sass": "      MUFU.RCP R31, R31",
+      "ptx": "rcp.approx.ftz.f32 \t%r1236, %r1235;",
+      "samples": 1.0,
+      "stalls": {
+        "mio_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91db0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 571,
+      "sass": "      MUFU.EX2 R19, R17",
+      "ptx": "ex2.approx.ftz.f32 %r1257, %r1258;",
+      "samples": 1.0,
+      "stalls": {
+        "mio_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91fe0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 571,
+      "sass": "      MUFU.RCP R19, R19",
+      "ptx": "rcp.approx.ftz.f32 \t%r1288, %r1287;",
+      "samples": 1.0,
+      "stalls": {
+        "mio_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92300",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 571,
+      "sass": "      MUFU.EX2 R17, R17",
+      "ptx": "ex2.approx.ftz.f32 %r1328, %r1329;",
+      "samples": 1.0,
+      "stalls": {
+        "mio_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92360",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 571,
+      "sass": "      MUFU.EX2 R0, R0",
+      "ptx": "ex2.approx.ftz.f32 %r1316, %r1317;",
+      "samples": 1.0,
+      "stalls": {
+        "mio_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ec00",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 295,
+      "sass": "      FMUL R30, R30, R65",
+      "ptx": "mul.f32 \t%r699, %r267, %r636;",
+      "samples": 1.0,
+      "stalls": {
+        "no_instructions": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8dd20",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 181,
+      "sass": "      IMAD.WIDE R22, R23, 0x2, R26",
+      "ptx": "add.s64 \t%rd15, %rd2, %rd14;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8e490",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 290,
+      "sass": "      FADD R53, R24, R53",
+      "ptx": "add.f32 \t%r622, %r618, %r621;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8e690",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 292,
+      "sass": "      FSETP.GEU.AND P6, PT, |R53|, 1.175494350822287508e-38, PT",
+      "ptx": "rsqrt.approx.f32 \t%r634, %r633;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ec70",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 247,
+      "sass": "@!P6  IMAD.SHL.U32 R8, R8, 0x4, RZ",
+      "ptx": "or.b32 \t%r563, %r561, %r562;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fa20",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 464,
+      "sass": "      LDS R29, [R61+0x12a0]",
+      "ptx": "ld.shared.b32 \t%r785, [%r779+4768];",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fb00",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 464,
+      "sass": "      LDS R28, [R61+0x60]",
+      "ptx": "ld.shared.b32 \t%r792, [%r779+96];",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fb70",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 464,
+      "sass": "      LDS R24, [R61+0x80]",
+      "ptx": "ld.shared.b32 \t%r796, [%r779+128];",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e915e0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 547,
+      "sass": "      F2FP.BF16.F32.PACK_AB R24, R25, R24",
+      "ptx": "cvt.rn.bf16x2.f32 \t%r1171, %r1155, %r1154;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91610",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 547,
+      "sass": "      F2FP.BF16.F32.PACK_AB R26, R27, R26",
+      "ptx": "cvt.rn.bf16x2.f32 \t%r1170, %r1157, %r1156;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91df0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      SHF.L.U32 R18, R18, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r1298, %rs19;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e923e0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 571,
+      "sass": "      FADD R16, R9, 1",
+      "ptx": "add.f32 \t%r1360, %r1322, 0f3F800000;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92b10",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      ISETP.GT.U32.OR P0, PT, R33, 0xfd, P0",
+      "ptx": "ret;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8d840",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 95,
+      "sass": "      S2R R0, SR_CTAID.Z",
+      "ptx": "mov.u32 \t%r439, %ctaid.z;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8d8e0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      MOV R16, RZ",
+      "ptx": "@%p7 bra \t$L__BB0_15;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8daa0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 224,
+      "sass": "@!P0  IMAD R7, R4, 0x1400, R7",
+      "ptx": "mad.lo.s32 \t%r553, %r181, 5120, %r552;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8dbf0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 172,
+      "sass": "      IMAD R12, R63, 0x108, R62",
+      "ptx": "mad.lo.s32 \t%r441, %r2, 264, %r6;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8dd40",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 183,
+      "sass": "@!PT  LDS RZ, [RZ]",
+      "ptx": "cp.async.ca.shared.global [%r445], [%rd13], 16, 16;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8dd80",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 172,
+      "sass": "      IMAD R17, R7, 0x108, R62",
+      "ptx": "mad.lo.s32 \t%r454, %r9, 264, %r6;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8de50",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 176,
+      "sass": "      IADD3 R69, R38, 0x1800, RZ",
+      "ptx": "add.s32 \t%r471, %r465, 6144;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8e190",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 287,
+      "sass": "      FFMA R30, R58, R58, R53",
+      "ptx": "fma.rn.f32 \t%r611, %r249, %r249, %r609;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8e250",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 290,
+      "sass": "      SHFL.BFLY PT, R53, R30, 0x1, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r617, %r615, 1, 31, -1;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8e3b0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 269,
+      "sass": "      PRMT R30, R18, 0x7632, R30",
+      "ptx": "mov.b32 \t{%rs44, %rs45}, %r1542;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8e3d0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 287,
+      "sass": "      FFMA R59, R64, R64, R59",
+      "ptx": "fma.rn.f32 \t%r612, %r265, %r265, %r610;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8e400",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 269,
+      "sass": "      SHF.L.U32 R30, R30, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r267, %rs45;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8e770",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 208,
+      "sass": "      LEA R15, R0, R15, 0x4",
+      "ptx": "add.s32 \t%r82, %r12, %r3;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8e780",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 249,
+      "sass": "@!P1  LDG.E R24, desc[UR6][R26.64+0x4]",
+      "ptx": "ld.global.b32 \t%r1544, [%rd53+4];",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8e8a0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 210,
+      "sass": "@!P4  LEA R27, R3, R11, 0x9",
+      "ptx": "add.s32 \t%r521, %r520, %r7;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ea70",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 295,
+      "sass": "      FMUL R43, R43, R53",
+      "ptx": "mul.f32 \t%r661, %r242, %r634;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ed60",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 249,
+      "sass": "@!P6  LDG.E R20, desc[UR6][R4.64+0x404]",
+      "ptx": "ld.global.b32 \t%r1548, [%rd55+1028];",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8eda0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 211,
+      "sass": "@!P5  LDC.64 R18, c[0x0][0x228]",
+      "ptx": "add.s64 \t%rd47, %rd8, %rd46;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ede0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      IMAD.MOV.U32 R5, RZ, RZ, RZ",
+      "ptx": "@%p3 bra \t$L__BB0_7;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ef40",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      MOV R15, RZ",
+      "ptx": "@%p5 bra \t$L__BB0_11;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f2a0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      SHF.L.U32 R33, R38, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r1556, %rs83;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f3d0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      SHF.L.U32 R38, R40, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r309, %rs85;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f4c0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      F2F.BF16.F32 R61, R61",
+      "ptx": "cvt.rn.bf16.f32 \t%rs101, %r688;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f560",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 356,
+      "sass": "      STS [R25+0xc0], R34",
+      "ptx": "st.shared.b32 \t[%r380+192], %r722;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f580",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      IMAD.U32 R27, R27, 0x10000, RZ",
+      "ptx": "cvt.f32.bf16 \t%r347, %rs106;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f700",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 118,
+      "sass": "      LOP3.LUT R23, R60, 0x1f, RZ, 0xc0, !PT",
+      "ptx": "and.b32 \t%r747, %r437, 31;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f850",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 347,
+      "sass": "      FFMA R36, R36, R23, R27",
+      "ptx": "fma.rn.f32 \t%r1555, %r727, %r1555, %r731;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f8e0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 356,
+      "sass": "      STS [R25+0x1280], R24",
+      "ptx": "st.shared.b32 \t[%r380+4736], %r753;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f9b0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 464,
+      "sass": "      LDS R32, [R61]",
+      "ptx": "ld.shared.b32 \t%r780, [%r779];",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f9f0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 465,
+      "sass": "      LDS R36, [R23+0x24d0]",
+      "ptx": "ld.shared.b32 \t%r846, [%r771+9424];",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fbc0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 465,
+      "sass": "      LDS R36, [R23+0x2550]",
+      "ptx": "ld.shared.b32 \t%r854, [%r771+9552];",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fbf0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 464,
+      "sass": "      LDS R29, [R61+0x1320]",
+      "ptx": "ld.shared.b32 \t%r801, [%r779+4896];",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fcf0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 464,
+      "sass": "      LDS R31, [R61+0x1370]",
+      "ptx": "ld.shared.b32 \t%r811, [%r779+4976];",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fd10",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 465,
+      "sass": "      LDS R38, [R23+0x25b0]",
+      "ptx": "ld.shared.b32 \t%r860, [%r771+9648];",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90060",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 464,
+      "sass": "      LDS R34, [R61+0x1f0]",
+      "ptx": "ld.shared.b32 \t%r842, [%r779+496];",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90070",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 464,
+      "sass": "      LDS R35, [R61+0x1470]",
+      "ptx": "ld.shared.b32 \t%r843, [%r779+5232];",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90130",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 471,
+      "sass": "      ISETP.GE.U32.AND P6, PT, R22, R27, PT",
+      "ptx": "setp.lt.u32 \t%p18, %r773, %r948;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90180",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      FMUL R34, R34, 0.0625",
+      "ptx": "mul.f32 \t%r949, %r939, 0f3D800000;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e904f0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 488,
+      "sass": "      SHFL.BFLY PT, R32, R37, 0x10, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r998, %r991, 16, 31, -1;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e905c0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 490,
+      "sass": "      FMUL R32, R32, 1.4426950216293334961",
+      "ptx": "mul.f32 \t%r742, %r1004, 0f3FB8AA3B;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90660",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 494,
+      "sass": "      FADD R28, R23, R28",
+      "ptx": "add.f32 \t%r1009, %r739, %r1008;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e906b0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 494,
+      "sass": "      FADD R34, R27, R34",
+      "ptx": "add.f32 \t%r1015, %r1007, %r1014;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90760",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 494,
+      "sass": "      FADD R35, R32, R35",
+      "ptx": "add.f32 \t%r1027, %r1019, %r1026;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90790",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 494,
+      "sass": "      FADD R38, R33, R38",
+      "ptx": "add.f32 \t%r1031, %r1023, %r1030;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90910",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 496,
+      "sass": "      MOV R32, 0x3130",
+      "ptx": "div.rn.f32 \t%r1046, %r737, %r1039;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90a00",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 496,
+      "sass": "      FFMA R27, R23, R22, RZ",
+      "ptx": "div.rn.f32 \t%r1050, %r739, %r1041;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90eb0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      PRMT R41, R41, 0x5410, R28",
+      "ptx": "mov.b32 \t%r1072, {%rs118, %rs119};",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90fb0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      LDS.U16 R39, [R64+0x6720]",
+      "ptx": "ld.shared.b16 \t%rs120, [%r1069+26400];",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91010",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 542,
+      "sass": "      HMMA.16816.F32.BF16 R20, R44, R24, R20",
+      "ptx": "{%r1102, %r1103, %r1104, %r1105};",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e911b0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      LDS.U16 R35, [R64+0x98a0]",
+      "ptx": "ld.shared.b16 \t%rs154, [%r1069+39072];",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e912a0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      LDS.U16 R56, [R64+0x88a0]",
+      "ptx": "ld.shared.b16 \t%rs160, [%r1069+34976];",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91440",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 542,
+      "sass": "      HMMA.16816.F32.BF16 R28, R52, R28, RZ",
+      "ptx": "{%r876, %r876, %r876, %r876};",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91450",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 547,
+      "sass": "      F2FP.BF16.F32.PACK_AB R34, R35, R34",
+      "ptx": "cvt.rn.bf16x2.f32 \t%r1174, %r1149, %r1148;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e914b0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      LDS.U16 R68, [R64+0x8960]",
+      "ptx": "ld.shared.b16 \t%rs172, [%r1069+35168];",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e916b0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 209,
+      "sass": "      ISETP.GT.U32.AND P1, PT, R21, 0x19, PT",
+      "ptx": "setp.gt.u32 \t%p20, %r435, 25;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e916c0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 209,
+      "sass": "      ISETP.GT.U32.AND P3, PT, R20, 0x19, PT",
+      "ptx": "setp.gt.u32 \t%p21, %r436, 25;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91790",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 558,
+      "sass": "      S2UR UR5, SR_CgaCtaId",
+      "ptx": "mov.b32 \t%r1210, __dynamic_shmem__0;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91850",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      PRMT R18, R18, 0x7632, R18",
+      "ptx": "@%p6 bra \t$L__BB0_13;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91940",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 571,
+      "sass": "      MUFU.EX2 R26, R26",
+      "ptx": "ex2.approx.ftz.f32 %r1192, %r1193;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91d90",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 571,
+      "sass": "      FMUL R25, R24, -1.4426950216293334961",
+      "ptx": "mul.f32 \t%r1264, %r1304, 0fBFB8AA3B;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92020",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      PRMT R25, R25, 0x5410, R0",
+      "ptx": "cvt.rn.bf16.f32 \t%rs218, %r1300;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92080",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      F2FP.BF16.F32.PACK_AB R28, RZ, R28",
+      "ptx": "cvt.rn.bf16.f32 \t%rs222, %r1306;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e920c0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      HMUL2.BF16_V2 R7, R7, R27",
+      "ptx": "cvt.rn.bf16.f32 \t%rs222, %r1306;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92110",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      IMAD.U32 R4, R10, 0x10000, RZ",
+      "ptx": "cvt.f32.bf16 \t%r1362, %rs12;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e921b0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 571,
+      "sass": "      FMUL R5, R4, -1.4426950216293334961",
+      "ptx": "mul.f32 \t%r1321, %r1356, 0fBFB8AA3B;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e924a0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      F2FP.BF16.F32.PACK_AB R0, RZ, R0",
+      "ptx": "cvt.rn.bf16.f32 \t%rs232, %r1352;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92ae0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      IADD3 R34, R38, -0x1, RZ",
+      "ptx": "ret;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92b80",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      LOP3.LUT P0, RZ, R27, 0x7fffffff, R22, 0xc8, !PT",
+      "ptx": "ret;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93090",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      MUFU.RSQ R33, -QNAN ",
+      "ptx": "ret;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e930e0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      MOV R33, 0x0",
+      "ptx": "ret;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8e4f0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 290,
+      "sass": "      FADD R36, R23, R36",
+      "ptx": "add.f32 \t%r620, %r616, %r619;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8e5a0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 290,
+      "sass": "      FADD R24, R36, R23",
+      "ptx": "add.f32 \t%r624, %r620, %r623;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8e640",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 290,
+      "sass": "      FADD R40, R31, R38",
+      "ptx": "add.f32 \t%r630, %r626, %r629;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8e670",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 290,
+      "sass": "      FADD R35, R24, R33",
+      "ptx": "add.f32 \t%r628, %r624, %r627;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fd00",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 466,
+      "sass": "      HMMA.16816.F32.BF16 R32, R24, R38, R32",
+      "ptx": "{%r897, %r898, %r899, %r900};",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fde0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 466,
+      "sass": "      HMMA.16816.F32.BF16 R32, R24, R38, R32",
+      "ptx": "{%r905, %r906, %r907, %r908};",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ff30",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 466,
+      "sass": "      HMMA.16816.F32.BF16 R32, R28, R36, R32",
+      "ptx": "{%r917, %r918, %r919, %r920};",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90300",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 488,
+      "sass": "      FMNMX R27, R22, R27, !PT",
+      "ptx": "max.f32 \t%r963, %r958, %r962;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90800",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 494,
+      "sass": "      FADD R33, R36, R33",
+      "ptx": "add.f32 \t%r1037, %r1029, %r1036;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90c00",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 496,
+      "sass": "      FFMA R22, -R28, R23, 1",
+      "ptx": "div.rn.f32 \t%r1052, %r743, %r1045;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90f60",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      PRMT R24, R29, 0x5410, R34",
+      "ptx": "mov.b32 \t%r1087, {%rs144, %rs145};",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91490",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      PRMT R51, R68, 0x5410, R51",
+      "ptx": "mov.b32 \t%r1096, {%rs166, %rs167};",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91910",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 558,
+      "sass": "      ULEA UR4, UR5, UR4, 0x18",
+      "ptx": "mov.b32 \t%r1210, __dynamic_shmem__0;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8da30",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 227,
+      "sass": "@!P0  LDC.64 R22, c[0x0][0x210]",
+      "ptx": "add.s64 \t%rd51, %rd7, %rd50;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8dae0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 229,
+      "sass": "@!P1  LDG.E R51, desc[UR6][R12.64+0x140]",
+      "ptx": "ld.global.b32 \t%r1532, [%rd49+320];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8db20",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 229,
+      "sass": "@!P0  LDG.E R6, desc[UR6][R22.64+0x40]",
+      "ptx": "ld.global.b32 \t%r1536, [%rd51+64];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8db30",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 229,
+      "sass": "@!P1  LDG.E R29, desc[UR6][R12.64+0x1c0]",
+      "ptx": "ld.global.b32 \t%r1534, [%rd49+448];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8db60",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 229,
+      "sass": "@!P0  LDG.E R14, desc[UR6][R22.64+0x100]",
+      "ptx": "ld.global.b32 \t%r1539, [%rd51+256];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8de40",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 183,
+      "sass": "      LDGSTS.E.128 [R31+0x24b0], desc[UR6][R34.64]",
+      "ptx": "cp.async.ca.shared.global [%r463], [%rd21], 16, 16;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8dfb0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 269,
+      "sass": "      IMAD.U32 R45, R45, 0x10000, RZ",
+      "ptx": "cvt.f32.bf16 \t%r243, %rs63;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8e410",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 287,
+      "sass": "      FFMA R61, R18, R18, R59",
+      "ptx": "fma.rn.f32 \t%r614, %r266, %r266, %r612;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8e760",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 292,
+      "sass": "      MUFU.RSQ R53, R53",
+      "ptx": "rsqrt.approx.f32 \t%r634, %r633;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ee20",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 295,
+      "sass": "      FMUL R51, R52, R51",
+      "ptx": "mul.f32 \t%r678, %r579, %r677;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f000",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 212,
+      "sass": "@!P2  LDG.E.128 R16, desc[UR6][R64.64]",
+      "ptx": "ld.global.v4.b32 \t{%r1483, %r1484, %r1485, %r1486}, [%rd41];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f040",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      F2F.BF16.F32 R35, R35",
+      "ptx": "cvt.rn.bf16.f32 \t%rs80, %r646;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f070",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      F2F.BF16.F32 R34, R34",
+      "ptx": "cvt.rn.bf16.f32 \t%rs79, %r644;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f0c0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      F2F.BF16.F32 R43, R43",
+      "ptx": "cvt.rn.bf16.f32 \t%rs88, %r662;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f0d0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      F2F.BF16.F32 R45, R45",
+      "ptx": "cvt.rn.bf16.f32 \t%rs90, %r666;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f0f0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      F2F.BF16.F32 R49, R49",
+      "ptx": "cvt.rn.bf16.f32 \t%rs94, %r674;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f120",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      F2F.BF16.F32 R57, R57",
+      "ptx": "cvt.rn.bf16.f32 \t%rs100, %r686;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f140",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      F2F.BF16.F32 R40, R40",
+      "ptx": "cvt.rn.bf16.f32 \t%rs85, %r656;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f150",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      F2F.BF16.F32 R42, R42",
+      "ptx": "cvt.rn.bf16.f32 \t%rs87, %r660;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f200",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 295,
+      "sass": "      FMUL R61, R66, R61",
+      "ptx": "mul.f32 \t%r688, %r581, %r687;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f3a0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 347,
+      "sass": "      BSYNC B0",
+      "ptx": "mov.b32 \t%r1550, %r349;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f3b0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      IMAD.U32 R23, R42, 0x10000, RZ",
+      "ptx": "cvt.f32.bf16 \t%r311, %rs87;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f6b0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 355,
+      "sass": "      F2FP.BF16.F32.PACK_AB R26, R58, R57",
+      "ptx": "cvt.rn.bf16x2.f32 \t%r725, %r345, %r344;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8f970",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 471,
+      "sass": "      ISETP.GE.U32.AND P0, PT, R22, 0x1a, PT",
+      "ptx": "setp.lt.u32 \t%p13, %r773, 26;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fb10",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 464,
+      "sass": "      LDS R29, [R61+0x12e0]",
+      "ptx": "ld.shared.b32 \t%r793, [%r779+4832];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fb20",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 464,
+      "sass": "      LDS R30, [R61+0x70]",
+      "ptx": "ld.shared.b32 \t%r794, [%r779+112];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fb80",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 464,
+      "sass": "      LDS R25, [R61+0x1300]",
+      "ptx": "ld.shared.b32 \t%r797, [%r779+4864];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fb90",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 464,
+      "sass": "      LDS R26, [R61+0x90]",
+      "ptx": "ld.shared.b32 \t%r798, [%r779+144];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fba0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 464,
+      "sass": "      LDS R27, [R61+0x1310]",
+      "ptx": "ld.shared.b32 \t%r799, [%r779+4880];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fbd0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 465,
+      "sass": "      LDS R37, [R23+0x2560]",
+      "ptx": "ld.shared.b32 \t%r855, [%r771+9568];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fc10",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 464,
+      "sass": "      LDS R31, [R61+0x1330]",
+      "ptx": "ld.shared.b32 \t%r803, [%r779+4912];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fda0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 464,
+      "sass": "      LDS R28, [R61+0x120]",
+      "ptx": "ld.shared.b32 \t%r816, [%r779+288];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fe30",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 464,
+      "sass": "      LDS R26, [R61+0x150]",
+      "ptx": "ld.shared.b32 \t%r822, [%r779+336];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fec0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 466,
+      "sass": "      HMMA.16816.F32.BF16 R32, R24, R38, R32",
+      "ptx": "{%r913, %r914, %r915, %r916};",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fee0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 465,
+      "sass": "      LDS R39, [R23+0x2640]",
+      "ptx": "ld.shared.b32 \t%r869, [%r771+9792];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8fef0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 464,
+      "sass": "      LDS R24, [R61+0x180]",
+      "ptx": "ld.shared.b32 \t%r828, [%r779+384];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90090",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 466,
+      "sass": "@!UPT UIADD3 URZ, URZ, URZ, URZ",
+      "ptx": "{%r929, %r930, %r931, %r932};",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e900c0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 471,
+      "sass": "      LEA R25, R0, R21, 0x4",
+      "ptx": "or.b32 \t%r941, %r761, %r749;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90290",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 484,
+      "sass": "      LDS R25, [R36+0xaaa0]",
+      "ptx": "ld.shared.b32 \t%r959, [%r957+528];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90440",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 488,
+      "sass": "      SHFL.BFLY PT, R29, R36, 0x8, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r988, %r981, 8, 31, -1;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e905f0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 490,
+      "sass": "      MUFU.EX2 R24, R32",
+      "ptx": "ex2.approx.ftz.f32 %r741, %r742;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90600",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 490,
+      "sass": "      MUFU.EX2 R25, R25",
+      "ptx": "ex2.approx.ftz.f32 %r743, %r744;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e906c0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 494,
+      "sass": "      SHFL.BFLY PT, R27, R30, 0x2, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r1020, %r1013, 2, 31, -1;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90820",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 494,
+      "sass": "      SHFL.BFLY PT, R32, R33, 0x10, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r1044, %r1037, 16, 31, -1;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90850",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 494,
+      "sass": "      SHFL.BFLY PT, R30, R27, 0x10, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r1040, %r1033, 16, 31, -1;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90ac0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 496,
+      "sass": "      PRMT R31, R22, 0x7610, R31",
+      "ptx": "st.shared.b16 \t[%r1049+320], %rs109;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90b00",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 496,
+      "sass": "      FFMA R23, R30, R23, R30",
+      "ptx": "div.rn.f32 \t%r1051, %r741, %r1043;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90b50",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 496,
+      "sass": "      MOV R22, R24",
+      "ptx": "div.rn.f32 \t%r1051, %r741, %r1043;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90c10",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 496,
+      "sass": "      FFMA R22, R23, R22, R23",
+      "ptx": "div.rn.f32 \t%r1052, %r743, %r1045;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90c30",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 496,
+      "sass": "      FFMA R24, -R28, R23, R25",
+      "ptx": "div.rn.f32 \t%r1052, %r743, %r1045;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90cb0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      F2FP.BF16.F32.PACK_AB R22, RZ, R22",
+      "ptx": "cvt.rn.bf16.f32 \t%rs111, %r1052;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90d30",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      LEA R64, R24, UR4, 0x1",
+      "ptx": "add.s32 \t%r1069, %r750, %r1068;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90d60",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      LDS.U16 R20, [R64+0x66a0]",
+      "ptx": "ld.shared.b16 \t%rs112, [%r1069+26272];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90d70",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      LDS.U16 R21, [R64+0x68b0]",
+      "ptx": "ld.shared.b16 \t%rs113, [%r1069+26800];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90d80",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      LDS.U16 R22, [R64+0x7720]",
+      "ptx": "ld.shared.b16 \t%rs114, [%r1069+30496];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90d90",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      LDS.U16 R23, [R64+0x7930]",
+      "ptx": "ld.shared.b16 \t%rs115, [%r1069+31024];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90db0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      LDS.U16 R25, [R64+0x68f0]",
+      "ptx": "ld.shared.b16 \t%rs117, [%r1069+26864];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90ef0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 540,
+      "sass": "      LDS R45, [R24+0x2a0]",
+      "ptx": "ld.shared.b32 \t%r1063, [%r1057+672];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e90f90",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      LDS.U16 R31, [R64+0x6970]",
+      "ptx": "ld.shared.b16 \t%rs125, [%r1069+26992];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91330",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      LDS.U16 R50, [R64+0x8af0]",
+      "ptx": "ld.shared.b16 \t%rs165, [%r1069+35568];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e915a0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 542,
+      "sass": "      HMMA.16816.F32.BF16 R52, R52, R58, RZ",
+      "ptx": "{%r876, %r876, %r876, %r876};",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e916a0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 541,
+      "sass": "      PRMT R57, R65, 0x5410, R66",
+      "ptx": "mov.b32 \t%r1100, {%rs174, %rs175};",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e916d0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 542,
+      "sass": "      HMMA.16816.F32.BF16 R52, R44, R56, R52",
+      "ptx": "{%r1130, %r1131, %r1132, %r1133};",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91720",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 547,
+      "sass": "      F2FP.BF16.F32.PACK_AB R54, R55, R54",
+      "ptx": "cvt.rn.bf16x2.f32 \t%r1166, %r1165, %r1164;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91900",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 571,
+      "sass": "      FMUL R18, R18, -1.4426950216293334961",
+      "ptx": "mul.f32 \t%r1195, %r1231, 0fBFB8AA3B;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91a40",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 571,
+      "sass": "      MUFU.RCP R24, R24",
+      "ptx": "rcp.approx.ftz.f32 \t%r1224, %r1223;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e91a80",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 571,
+      "sass": "      MUFU.RCP R22, R22",
+      "ptx": "rcp.approx.ftz.f32 \t%r1218, %r1217;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e920f0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 574,
+      "sass": "      STG.E.128 desc[UR6][R16.64], R4",
+      "ptx": "st.global.v4.b32 \t[%rd93], {%r1310, %r1309, %r1308, %r1307};",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92400",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 571,
+      "sass": "      MUFU.RCP R16, R16",
+      "ptx": "rcp.approx.ftz.f32 \t%r1361, %r1360;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92480",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 571,
+      "sass": "      MUFU.RCP R10, R10",
+      "ptx": "rcp.approx.ftz.f32 \t%r1355, %r1354;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e924c0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 571,
+      "sass": "      MUFU.RCP R23, R23",
+      "ptx": "rcp.approx.ftz.f32 \t%r1373, %r1372;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92af0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      IADD3 R33, R36, -0x1, RZ",
+      "ptx": "ret;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92b00",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      ISETP.GT.U32.AND P0, PT, R34, 0xfd, PT",
+      "ptx": "ret;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92b50",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      FSETP.GTU.FTZ.AND P1, PT, |R27|, +INF , PT",
+      "ptx": "ret;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92b70",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "@P0   BRA 0x736aa7e930b0",
+      "ptx": "ret;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92ba0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      FSETP.NEU.FTZ.AND P0, PT, |R22|, +INF , PT",
+      "ptx": "ret;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92bb0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      FSETP.NEU.FTZ.AND P3, PT, |R27|, +INF , PT",
+      "ptx": "ret;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92bd0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "@!P3  BRA !P0, 0x736aa7e93090",
+      "ptx": "ret;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e92be0",
+      "file": "/profile/harness/sources/cute/qnorm_attention.py",
+      "line": 82,
+      "sass": "      LOP3.LUT P0, RZ, R22, 0x7fffffff, RZ, 0xc0, !PT",
+      "ptx": "ret;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    }
+  ]
+}

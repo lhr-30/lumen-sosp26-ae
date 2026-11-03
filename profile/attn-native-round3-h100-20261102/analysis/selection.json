@@ -1,0 +1,41 @@
+{
+  "selected_configs": {
+    "5120": "qkv_t160_c128_w1",
+    "2048": "o_t64_c128_w1"
+  },
+  "whole_chain_timing_source": "timing_selection.json:candidate_dual_o/chain",
+  "paired_chain_saving_us": [
+    0.579838752746582,
+    0.48032283782958984,
+    0.5110406875610352,
+    0.5404806137084961,
+    0.5769634246826172,
+    0.46816349029541016,
+    0.5318403244018555,
+    0.5855989456176758,
+    0.8208036422729492,
+    2.3263978958129883,
+    0.9622383117675781,
+    0.6064033508300781,
+    0.3923225402832031,
+    0.5577564239501953,
+    0.7094383239746094,
+    0.7513618469238281,
+    0.6403207778930664,
+    0.8339214324951172,
+    -0.20767688751220703,
+    -0.1702404022216797
+  ],
+  "positive_rounds": 18,
+  "total_rounds": 20,
+  "median_paired_saving_us": 0.5784010887145996,
+  "exploratory_bootstrap_interval_us": [
+    0.5214405059814453,
+    0.6748795509338379
+  ],
+  "bootstrap_note": "Resamples paired timing rounds, not independent experiment repetitions; descriptive only.",
+  "wait_group_selection": "QKV w0/w1 distributions overlap in both sweeps; no independent wait1 speedup claim.",
+  "oproj_selection": "Dual-WG improves full chain slightly; no standalone OProj improvement claim.",
+  "bootstrap_seed": 0,
+  "bootstrap_resamples": 10000
+}

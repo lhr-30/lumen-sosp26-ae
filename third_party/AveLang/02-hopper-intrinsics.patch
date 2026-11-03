@@ -1,0 +1,480 @@
+diff --git a/lib/Analysis/late_validate_invariant_tags_pass.cc b/lib/Analysis/late_validate_invariant_tags_pass.cc
+index 0e7e0f7..dfd3939 100644
+--- a/lib/Analysis/late_validate_invariant_tags_pass.cc
++++ b/lib/Analysis/late_validate_invariant_tags_pass.cc
+@@ -260,6 +260,11 @@ static std::optional<TagTemplate> getTagTemplate(mlir::Value value) {
+             return std::nullopt;
+         }
+ 
++        // GPU workgroup/private attributions are extra entry block arguments,
++        // not function parameters. Indexing the parameter attributes with them
++        // is out of bounds once any actual parameter has an invariant tag.
++        if (blockArg.getArgNumber() >= func.getNumArguments())
++            return std::nullopt;
+         auto attr = mlir::dyn_cast_or_null<mlir::DictionaryAttr>(
+             func.getArgAttr(blockArg.getArgNumber(), "avelang.invariant.tag"));
+         if (!attr) {
+diff --git a/lib/IR/Intrinsics/nvvm_intrinsics.mlir b/lib/IR/Intrinsics/nvvm_intrinsics.mlir
+index 98cb627..d814d3f 100644
+--- a/lib/IR/Intrinsics/nvvm_intrinsics.mlir
++++ b/lib/IR/Intrinsics/nvvm_intrinsics.mlir
+@@ -180,4 +180,65 @@ module {
+     return
+   }
+ 
++
++  // A and B use K-major, no-swizzle 8x8 BF16 atoms. LBO=128, SBO=256 bytes.
++  // Fence, MMA, commit and wait stay inside ONE side-effecting asm block, with
++  // tied accumulators and a memory clobber, so LLVM cannot reuse an unfinished
++  // accumulator or move a shared store into the operation's lifetime.
++  func.func private @_avelang_nvvm_wgmma_m64n8k16_bf16_f32(%a: index, %b: index, %c: vector<4xf32>) -> vector<4xf32> attributes {func.inline = "always"} {
++    %ai = arith.index_cast %a : index to i64
++    %bi = arith.index_cast %b : index to i64
++    %shift = arith.constant 4 : i64
++    %mask = arith.constant 16383 : i64
++    %layout = arith.constant 68720001024 : i64
++    %as = arith.shrui %ai, %shift : i64
++    %bs = arith.shrui %bi, %shift : i64
++    %am = arith.andi %as, %mask : i64
++    %bm = arith.andi %bs, %mask : i64
++    %ad = arith.ori %am, %layout : i64
++    %bd = arith.ori %bm, %layout : i64
++    %c0 = vector.extract %c[0] : f32 from vector<4xf32>
++    %c1 = vector.extract %c[1] : f32 from vector<4xf32>
++    %c2 = vector.extract %c[2] : f32 from vector<4xf32>
++    %c3 = vector.extract %c[3] : f32 from vector<4xf32>
++    %d = llvm.inline_asm has_side_effects "{ .reg .pred p; setp.eq.u32 p, 0, 0; wgmma.fence.sync.aligned; wgmma.mma_async.sync.aligned.m64n8k16.f32.bf16.bf16 {$0,$1,$2,$3}, $4, $5, p, 1, 1, 0, 0; wgmma.commit_group.sync.aligned; wgmma.wait_group.sync.aligned 0; }", "=f,=f,=f,=f,l,l,0,1,2,3,~{memory}" %ad, %bd, %c0, %c1, %c2, %c3 : (i64, i64, f32, f32, f32, f32) -> !llvm.struct<(f32, f32, f32, f32)>
++    %d0 = llvm.extractvalue %d[0] : !llvm.struct<(f32, f32, f32, f32)>
++    %d1 = llvm.extractvalue %d[1] : !llvm.struct<(f32, f32, f32, f32)>
++    %d2 = llvm.extractvalue %d[2] : !llvm.struct<(f32, f32, f32, f32)>
++    %d3 = llvm.extractvalue %d[3] : !llvm.struct<(f32, f32, f32, f32)>
++    %v0 = vector.broadcast %d0 : f32 to vector<4xf32>
++    %v1 = vector.insert %d1, %v0[1] : f32 into vector<4xf32>
++    %v2 = vector.insert %d2, %v1[2] : f32 into vector<4xf32>
++    %v3 = vector.insert %d3, %v2[3] : f32 into vector<4xf32>
++    return %v3 : vector<4xf32>
++  }
++
++  func.func private @_avelang_nvvm_mbarrier_init(%ptr: index, %count: i32) attributes {func.inline = "always"} {
++    %addr = arith.index_cast %ptr : index to i32
++    llvm.inline_asm has_side_effects "mbarrier.init.shared::cta.b64 [$0], $1;", "r,r,~{memory}" %addr, %count : (i32, i32) -> ()
++    return
++  }
++
++  func.func private @_avelang_nvvm_mbarrier_arrive(%ptr: index) attributes {func.inline = "always"} {
++    %addr = arith.index_cast %ptr : index to i32
++    llvm.inline_asm has_side_effects "{ .reg .b64 state; mbarrier.arrive.shared::cta.b64 state, [$0]; }", "r,~{memory}" %addr : (i32) -> ()
++    return
++  }
++
++  func.func private @_avelang_nvvm_mbarrier_wait_parity(%ptr: index, %phase: i32) attributes {func.inline = "always"} {
++    %addr = arith.index_cast %ptr : index to i32
++    llvm.inline_asm has_side_effects "{ .reg .pred ready; L_wait_${:uid}: mbarrier.try_wait.parity.shared::cta.b64 ready, [$0], $1; @!ready bra L_wait_${:uid}; }", "r,r,~{memory}" %addr, %phase : (i32, i32) -> ()
++    return
++  }
++
++  func.func private @_avelang_nvvm_mbarrier_inval(%ptr: index) attributes {func.inline = "always"} {
++    %addr = arith.index_cast %ptr : index to i32
++    llvm.inline_asm has_side_effects "mbarrier.inval.shared::cta.b64 [$0];", "r,~{memory}" %addr : (i32) -> ()
++    return
++  }
++
++  func.func private @_avelang_nvvm_fence_proxy_async_shared() attributes {func.inline = "always"} {
++    llvm.inline_asm has_side_effects "fence.proxy.async.shared::cta;", "~{memory}"  : () -> ()
++    return
++  }
+ }
+diff --git a/lib/IR/Intrinsics/nvvm_module.cc b/lib/IR/Intrinsics/nvvm_module.cc
+index cf4653e..9e147cc 100644
+--- a/lib/IR/Intrinsics/nvvm_module.cc
++++ b/lib/IR/Intrinsics/nvvm_module.cc
+@@ -1,6 +1,7 @@
+ #include "AST/ast_nodes_expr.h"
+ #include "Dialect/AveLang/IR/AveLangOps.h"
+ #include "IR/builtin_module.h"
++#include "IR/constant_folder.h"
+ #include "IR/generator_context.h"
+ #include "IR/mlir_generator_impl.h"
+ #include "IR/named_module.h"
+@@ -78,6 +79,9 @@ class NVVMIntrinsic : public NamedModule {
+         llvm::ArrayRef<mlir::Value> resolved_args) const;
+ 
+   private:
++    void AddHopperFunctions();
++    mlir::Value CreateHopperFunction(ast::Call *, GeneratorContext *,
++        llvm::ArrayRef<mlir::Value>, llvm::StringRef) const;
+     void AddLdMatrixFactory(const std::string &name, const std::string &shape,
+                             int num, int bit_width, bool transpose);
+ 
+@@ -119,6 +123,7 @@ class NVVMIntrinsic : public NamedModule {
+ NVVMIntrinsic::NVVMIntrinsic() : NamedModule("nvvm") {}
+ 
+ void NVVMIntrinsic::Initialize() {
++    AddHopperFunctions();
+     // Add MMA sync intrinsic function helpers with constraints encoded in
+     // function names
+     AddFunction(
+@@ -163,6 +168,116 @@ void NVVMIntrinsic::Initialize() {
+     }
+ }
+ 
++// The initial Hopper interface accepts owned, explicitly aligned shared buffers.
++// Keeping layout/descriptor construction here prevents arbitrary descriptor bits
++// from bypassing validation. The WGMMA wrapper drains its group before returning
++// an SSA accumulator; an asynchronous API needs a separate lifetime model.
++void NVVMIntrinsic::AddHopperFunctions() {
++    for (const std::string name : {"wgmma_m64n8k16_bf16_f32", "mbarrier_init",
++                                   "mbarrier_arrive", "mbarrier_wait_parity",
++                                   "mbarrier_inval", "fence_proxy_async_shared"}) {
++        AddFunction(name, [this, name](ast::Call *call, GeneratorContext *ctx,
++                                      llvm::ArrayRef<mlir::Value> args) {
++            return CreateHopperFunction(call, ctx, args, name);
++        });
++    }
++}
++
++mlir::Value NVVMIntrinsic::CreateHopperFunction(
++    ast::Call *call, GeneratorContext *ctx, llvm::ArrayRef<mlir::Value> args,
++    llvm::StringRef name) const {
++    auto &builder = ctx->GetCurrentFunctionGenerator()->GetBuilder();
++    auto loc = builder.getUnknownLoc();
++    auto error = [&](llvm::StringRef message) -> mlir::Value {
++        ctx->diagnostic_manager->Report(basic::DiagnosticCode::kUnimplemented,
++                                        call->GetSourceRange().getBegin())
++            << (name.str() + ": " + message.str());
++        return nullptr;
++    };
++    const bool mma = name == "wgmma_m64n8k16_bf16_f32";
++    const bool fence = name == "fence_proxy_async_shared";
++    const bool init = name == "mbarrier_init";
++    const bool wait = name == "mbarrier_wait_parity";
++    const size_t count = mma ? 3 : fence ? 0 : (init || wait) ? 2 : 1;
++    if (args.size() != count)
++        return error("incorrect argument count");
++    for (auto arg : args)
++        if (!arg) return error("unresolved operand");
++
++    auto checkShared = [&](mlir::Value value, llvm::ArrayRef<int64_t> shape,
++                           mlir::Type element, int64_t alignment) {
++        auto type = mlir::dyn_cast<cf::MemRefType>(value.getType());
++        if (!type || type.getShape() != shape || type.getElementType() != element)
++            return false;
++        auto space = mlir::dyn_cast_or_null<mlir::gpu::AddressSpaceAttr>(
++            type.getMemorySpace());
++        if (!space || space.getValue() != mlir::gpu::AddressSpace::Workgroup)
++            return false;
++        // An explicit stride layout or a subview requires a different descriptor.
++        auto strides = type.getLayoutType().getStrides();
++        if (!strides.empty()) {
++            int64_t expected = 1;
++            for (size_t i = shape.size(); i-- > 0;) {
++                if (strides[i] != expected) return false;
++                expected *= shape[i];
++            }
++        }
++        auto cast = value.getDefiningOp<cf::AveLangMemRefCastOp>();
++        if (!cast) return false;
++        auto alloc = cast.getSource().getDefiningOp<cf::AveLangMemRefAllocaOp>();
++        return alloc && alloc.getAlignmentAttr() &&
++               alloc.getAlignmentAttr().getInt() >= alignment;
++    };
++
++    if (mma) {
++        if (!checkShared(args[0], {8, 2, 8, 8}, builder.getBF16Type(), 16) ||
++            !checkShared(args[1], {1, 2, 8, 8}, builder.getBF16Type(), 16))
++            return error("requires contiguous BF16 shared A[8,2,8,8] and "
++                         "B[1,2,8,8] from make_shared(..., alignment=16)");
++        if (args[2].getType() != mlir::VectorType::get({4}, builder.getF32Type()))
++            return error("accumulator must be vector<4xf32>");
++    } else if (!fence &&
++               !checkShared(args[0], {1}, builder.getI64Type(), 8)) {
++        return error("barrier must be shared i64[1] from make_shared(..., alignment=8)");
++    }
++    if (init) {
++        auto n = ConstantFolder::FoldIntValue(args[1]);
++        if (!n || *n < 1 || *n > 1048575)
++            return error("arrival count must be a constant in [1, 1048575]");
++    }
++    if (wait && !args[1].getType().isIntOrIndex())
++        return error("phase parity must be an integer (0 or 1)");
++    if (wait) {
++        auto parity = ConstantFolder::FoldIntValue(args[1]);
++        if (parity && *parity != 0 && *parity != 1)
++            return error("phase parity must be 0 or 1");
++    }
++    llvm::SmallVector<mlir::Value> operands;
++    for (size_t i = 0; i < args.size(); ++i) {
++        auto arg = args[i];
++        if ((mma && i < 2) || (!mma && !fence && i == 0)) {
++            arg = cf::AveLangMemRefExtractAlignedPointerAsIndexOp::create(
++                builder, loc, builder.getIndexType(), arg);
++        } else if (!mma) {
++            if (arg.getType().isIndex())
++                arg = mlir::arith::IndexCastOp::create(builder, loc, builder.getI32Type(), arg);
++            else if (arg.getType().getIntOrFloatBitWidth() < 32)
++                arg = mlir::arith::ExtUIOp::create(builder, loc, builder.getI32Type(), arg);
++            else if (arg.getType().getIntOrFloatBitWidth() > 32)
++                arg = mlir::arith::TruncIOp::create(builder, loc, builder.getI32Type(), arg);
++        }
++        operands.push_back(arg);
++    }
++    llvm::SmallVector<mlir::Type> results;
++    if (mma) results.push_back(args[2].getType());
++    auto op = mlir::func::CallOp::create(builder, loc,
++        intrinsics::MakeIntrinsicFuncName("nvvm", name.str()), results, operands);
++    op->setAttr("ave.requires_hopper", builder.getUnitAttr());
++    if (mma) op->setAttr("ave.requires_warpgroup", builder.getUnitAttr());
++    return mma ? op.getResult(0) : ctx->GetCurrentFunctionGenerator()
++        ->GetExprGenerator()->CreateVoidValue();
++}
++
+ void NVVMIntrinsic::DeclareModules(mlir::ModuleOp module) {
+     if (!module)
+         return;
+diff --git a/lib/IR/expr_generator.cc b/lib/IR/expr_generator.cc
+index 396edbe..b42b5d9 100644
+--- a/lib/IR/expr_generator.cc
++++ b/lib/IR/expr_generator.cc
+@@ -906,6 +906,12 @@ mlir::Value ExprGenerator::VisitName(ast::Name *name) {
+     // from it. Keep scalar memref block arguments as memrefs so call sites can
+     // pass tensors of shape (1,).
+     if (auto memref_type = mlir::dyn_cast<cf::MemRefType>(value.getType())) {
++        // A one-element shared allocation is still a tensor (e.g. mbarrier
++        // storage), not an implicit scalar variable. Preserve its address.
++        if (auto space = mlir::dyn_cast_or_null<mlir::gpu::AddressSpaceAttr>(
++                memref_type.getMemorySpace());
++            space && space.getValue() == mlir::gpu::AddressSpace::Workgroup)
++            return value;
+         // Check if it's a scalar memref (rank 1, size 1)
+         if (memref_type.getRank() == 1 && memref_type.getShape()[0] == 1 &&
+             !mlir::isa<mlir::BlockArgument>(value)) {
+@@ -1632,6 +1638,15 @@ mlir::Value ExprGenerator::VisitCall(ast::Call *call) {
+                 }
+             }
+         } else if (module_name == "nvvm") {
++            if (symbol_name == "wgmma_m64n8k16_bf16_f32" &&
++                resolved_args.size() == 3 && resolved_args[2] &&
++                mlir::isa<cf::MemRefType>(resolved_args[2].getType())) {
++                auto loaded = LoadVectorFromMemrefForMma(
++                    parent_->GetBuilder(), parent_->GetContext(), call,
++                    resolved_args[2], args[2]);
++                if (!loaded) return nullptr;
++                resolved_args[2] = loaded;
++            }
+             if (symbol_name.rfind("stmatrix_", 0) == 0) {
+                 auto numOpt = ParseIntAfterMarker(symbol_name, "_x");
+                 int num = numOpt.value_or(0);
+diff --git a/lib/Target/GPU/gpu_outlining.cc b/lib/Target/GPU/gpu_outlining.cc
+index 3e5dd40..61b562d 100644
+--- a/lib/Target/GPU/gpu_outlining.cc
++++ b/lib/Target/GPU/gpu_outlining.cc
+@@ -6,6 +6,7 @@
+ #include <mlir/Dialect/Func/IR/FuncOps.h>
+ #include <mlir/Dialect/GPU/IR/GPUDialect.h>
+ #include <mlir/Dialect/MemRef/IR/MemRef.h>
++#include <mlir/Dialect/LLVMIR/LLVMDialect.h>
+ #include <mlir/IR/Builders.h>
+ #include <mlir/IR/BuiltinOps.h>
+ #include <mlir/IR/IRMapping.h>
+@@ -110,6 +111,11 @@ class GpuOutliningPass
+                 gpuFunc->setAttr(mlir::gpu::GPUDialect::getKernelFuncAttrName(),
+                                  builder.getUnitAttr());
+ 
++                // Invariant templates are attached to the source arguments.
++                // Keep them when the entry point changes from func to gpu.func.
++                for (unsigned i = 0; i < funcOp.getNumArguments(); ++i)
++                    gpuFunc.setArgAttrs(i, funcOp.getArgAttrDict(i));
++
+                 // Copy function body
+                 mlir::IRMapping mapping;
+                 auto &gpuBody = gpuFunc.getBody();
+@@ -142,6 +148,13 @@ class GpuOutliningPass
+                     auto memrefType = allocaOp.getType();
+                     auto workgroupArg = gpuFunc.addWorkgroupAttribution(
+                         memrefType, allocaOp.getLoc());
++                    // The NVVM conversion obtains global shared alignment
++                    // from attribution attributes, not from the memref type.
++                    // Dropping it silently truncates WGMMA descriptor addresses.
++                    if (auto alignment = allocaOp.getAlignmentAttr())
++                        gpuFunc.setWorkgroupAttributionAttr(
++                            gpuFunc.getNumWorkgroupAttributions() - 1,
++                            mlir::LLVM::LLVMDialect::getAlignAttrName(), alignment);
+                     allocaOp.getResult().replaceAllUsesWith(workgroupArg);
+                     allocaOp.erase();
+                 }
+diff --git a/lib/Target/GPU/lower_to_llvm.cc b/lib/Target/GPU/lower_to_llvm.cc
+index 7ab41a0..9d278f2 100644
+--- a/lib/Target/GPU/lower_to_llvm.cc
++++ b/lib/Target/GPU/lower_to_llvm.cc
+@@ -70,6 +70,21 @@ class LowerToLLVM::Impl {
+     std::unique_ptr<::llvm::Module>
+     compile(mlir::ModuleOp module, ::llvm::LLVMContext &llvmContext,
+             const GPUCompilationOptions &options) {
++        // Validate only used Hopper operations, before intrinsic declarations
++        // are imported. sm_90a is intentionally required for this first version.
++        bool invalidHopper = false;
++        module.walk([&](mlir::Operation *op) {
++            if (!op->hasAttr("ave.requires_hopper")) return;
++            if (!options.triple.contains("nvptx") || options.chipset != "sm_90a") {
++                op->emitError("Hopper intrinsics require the sm_90a NVIDIA target");
++                invalidHopper = true;
++            }
++            if (op->hasAttr("ave.requires_warpgroup") && options.num_warps != 4) {
++                op->emitError("WGMMA requires num_warps=4 and a uniform 128-thread CTA");
++                invalidHopper = true;
++            }
++        });
++        if (invalidHopper) return nullptr;
+         // Set up target machine to get correct data layout first
+         std::string targetTriple = options.triple.str();
+         llvm::Triple triple(targetTriple);
+diff --git a/lib/Target/NVVM/gpu_to_nvvm_pipeline.cc b/lib/Target/NVVM/gpu_to_nvvm_pipeline.cc
+index 82322a2..b5aece2 100644
+--- a/lib/Target/NVVM/gpu_to_nvvm_pipeline.cc
++++ b/lib/Target/NVVM/gpu_to_nvvm_pipeline.cc
+@@ -7,7 +7,7 @@
+ #include <mlir/Conversion/Passes.h>
+ #include <mlir/Conversion/ReconcileUnrealizedCasts/ReconcileUnrealizedCasts.h>
+ #include <mlir/Conversion/SCFToControlFlow/SCFToControlFlow.h>
+-#include <mlir/Dialect/Affine/Passes.h>
++#include <mlir/Dialect/Affine/Transforms/Passes.h>
+ #include <mlir/Dialect/Bufferization/Transforms/OneShotAnalysis.h>
+ #include <mlir/Dialect/Bufferization/Transforms/Passes.h>
+ #include <mlir/Dialect/Func/IR/FuncOps.h>
+@@ -45,12 +45,14 @@ static void buildCommonPassPipeline(OpPassManager &pm,
+     pm.addPass(createCSEPass());
+     pm.addNestedPass<func::FuncOp>(
+         causalflow::avelang::dialect::createCleanupMemRefViewCastPass());
+-    pm.addNestedPass<gpu::GPUFuncOp>(
++    // Outlining places gpu.func under gpu.module; a pass nested directly
++    // under the root module never visits these functions.
++    pm.nest<gpu::GPUModuleOp>().addNestedPass<gpu::GPUFuncOp>(
+         causalflow::avelang::dialect::createCleanupMemRefViewCastPass());
+     pm.addPass(createCanonicalizerPass());
+     pm.addPass(createCSEPass());
+     pm.addNestedPass<func::FuncOp>(createMem2Reg());
+-    pm.addNestedPass<gpu::GPUFuncOp>(createMem2Reg());
++    pm.nest<gpu::GPUModuleOp>().addNestedPass<gpu::GPUFuncOp>(createMem2Reg());
+     pm.addPass(createCanonicalizerPass());
+     pm.addPass(createCSEPass());
+     pm.addPass(
+diff --git a/lib/Target/NVVM/nvvm_backend.cc b/lib/Target/NVVM/nvvm_backend.cc
+index 3599e7d..fdd70f8 100644
+--- a/lib/Target/NVVM/nvvm_backend.cc
++++ b/lib/Target/NVVM/nvvm_backend.cc
+@@ -72,7 +72,8 @@ llvm::Expected<std::string> NVVMBackend::generateBinary(
+     llvm::TargetOptions targetOptions;
+     auto targetMachine =
+         std::unique_ptr<llvm::TargetMachine>(target->createTargetMachine(
+-            targetTriple, options.chipset.str(), "", targetOptions,
++            targetTriple, options.chipset.str(),
++            options.chipset == "sm_90a" ? "+ptx80" : "", targetOptions,
+             llvm::Reloc::PIC_, std::nullopt,
+             options.optimization_level == 3 ? llvm::CodeGenOptLevel::Aggressive
+             : options.optimization_level == 2 ? llvm::CodeGenOptLevel::Default
+diff --git a/python/avelang/backends/nvidia/compiler.py b/python/avelang/backends/nvidia/compiler.py
+index 3683986..989ad99 100644
+--- a/python/avelang/backends/nvidia/compiler.py
++++ b/python/avelang/backends/nvidia/compiler.py
+@@ -1,4 +1,5 @@
+ from dataclasses import dataclass
++import os
+ 
+ from ..compiler import BaseBackend, GPUTarget
+ from ...compiler.code_generator import compile_to_binary
+@@ -7,6 +8,7 @@ from ...compiler.code_generator import compile_to_binary
+ @dataclass(frozen=True)
+ class NvidiaCompilerOptions:
+     num_warps: int = -1
++    validate_invariants: bool = False
+ 
+ 
+ class NvidiaCompiler(BaseBackend):
+@@ -20,7 +22,10 @@ class NvidiaCompiler(BaseBackend):
+         if isinstance(options, NvidiaCompilerOptions):
+             return options
+ 
+-        args = {}
++        args = {"validate_invariants": os.environ.get("AVELANG_VALIDATE_INVARIANTS", "").lower()
++                in ("1", "true", "yes", "on")}
++        if options.get("validate_invariants") is not None:
++            args["validate_invariants"] = bool(options["validate_invariants"])
+         if "num_warps" in options and options["num_warps"] is not None:
+             args["num_warps"] = options["num_warps"]
+         return NvidiaCompilerOptions(**args)
+diff --git a/python/avelang/language/nvvm.py b/python/avelang/language/nvvm.py
+index 8b4c9e4..b3e7482 100644
+--- a/python/avelang/language/nvvm.py
++++ b/python/avelang/language/nvvm.py
+@@ -55,3 +55,53 @@ def stmatrix_m8n8_x4_b16(ptr, data):
+ 
+ def stmatrix_m8n8_x4_b16_trans(ptr, data):
+     pass
++
++
++def wgmma_m64n8k16_bf16_f32(a, b, c):
++    """Hopper BF16 SS WGMMA, FP32 accumulation; completes before returning.
++
++    All 128 threads in a CTA (num_warps=4) must call uniformly. A and B must
++    be make_shared((8,2,8,8), bf16, 16) and ((1,2,8,8), bf16, 16).
++    Logical [row,k] maps to [row//8,k//8,row%8,k%8]; B is stored as [n,k].
++    C/result is four FP32 registers per thread: rows warp*16+lane//4 and
++    that row+8, columns (lane%4)*2 and that column+1.
++    Publish shared stores with fence_proxy_async_shared() and CTA sync before
++    calling. Do not overwrite either buffer until all consumers have finished.
++    This wrapper commits and waits for group 0; it does not overlap WGMMA calls.
++    """
++    raise RuntimeError("Hopper intrinsics are only available inside @avelang.jit")
++
++
++def mbarrier_init(barrier, count):
++    """One thread initializes aligned shared i64[1]; count is in [1, 1048575].
++
++    CTA synchronization must publish initialization before any arrive/wait.
++    """
++    raise RuntimeError("Hopper intrinsics are only available inside @avelang.jit")
++
++
++def mbarrier_arrive(barrier):
++    """Arrive once with release ordering; each phase expects count arrivals."""
++    raise RuntimeError("Hopper intrinsics are only available inside @avelang.jit")
++
++
++def mbarrier_wait_parity(barrier, phase):
++    """Spin with acquire ordering until phase (0 or 1) completes.
++
++    Start at phase 0 and toggle after every reuse. Do not advance the barrier
++    twice before every waiter has observed its phase completing.
++    """
++    raise RuntimeError("Hopper intrinsics are only available inside @avelang.jit")
++
++
++def mbarrier_inval(barrier):
++    """One thread invalidates a barrier after CTA sync retires all users."""
++    raise RuntimeError("Hopper intrinsics are only available inside @avelang.jit")
++
++
++def fence_proxy_async_shared():
++    """Publish this thread's generic shared stores to the async proxy.
++
++    Every writer executes this before synchronization with WGMMA consumers.
++    """
++    raise RuntimeError("Hopper intrinsics are only available inside @avelang.jit")
+diff --git a/python/avelang/runtime/jit.py b/python/avelang/runtime/jit.py
+index c7530ce..c57d68b 100644
+--- a/python/avelang/runtime/jit.py
++++ b/python/avelang/runtime/jit.py
+@@ -835,6 +835,13 @@ class JITFunction(JITCallable, KernelInterface[T]):
+             if kernel is None:
+                 raise RuntimeError(f"Kernel compilation failed for {self.__name__}")
+ 
++        # WGMMA is a 128-thread collective. Reject an invalid launch before
++        # entering the driver (which could otherwise hang on collective sync).
++        if (target.tuple == "nvptx64-nvidia-cuda"
++                and b"wgmma.mma_async" in kernel.kernel
++                and tuple(block) != (128, 1, 1)):
++            raise ValueError("WGMMA requires block=(128, 1, 1)")
++
+         # TODO: support bound args so that args / kwargs work
+         kernel.run(
+             grid[0],

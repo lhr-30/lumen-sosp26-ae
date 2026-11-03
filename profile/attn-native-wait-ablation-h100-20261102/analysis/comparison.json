@@ -1,0 +1,199 @@
+{
+  "ave_qkv": {
+    "kernel": "linear_native",
+    "metrics": {
+      "gpu__time_duration.sum": 51712.0,
+      "launch__grid_size": 280,
+      "launch__block_size": 160,
+      "launch__registers_per_thread": 93,
+      "launch__shared_mem_per_block": 75008,
+      "launch__waves_per_multiprocessor": 0.7070707070707071,
+      "launch__occupancy_limit_blocks": 32.0,
+      "launch__occupancy_limit_registers": 4.0,
+      "launch__occupancy_limit_shared_mem": 3.0,
+      "launch__occupancy_limit_warps": 12.0,
+      "sm__maximum_warps_per_active_cycle_pct": 23.4375,
+      "sm__warps_active.avg.pct_of_peak_sustained_active": 16.25098034101896,
+      "sm__throughput.avg.pct_of_peak_sustained_elapsed": 31.51234990226577,
+      "sm__pipe_tensor_cycles_active.avg.pct_of_peak_sustained_elapsed": 31.51234990226577,
+      "sm__pipe_fma_cycles_active.avg.pct_of_peak_sustained_elapsed": 2.0369768938376054,
+      "sm__cycles_active.avg": 40666.893939393936,
+      "sm__cycles_active.min": 36957.0,
+      "sm__cycles_active.max": 52210.0,
+      "dram__bytes_read.sum": 3867648.0,
+      "dram__bytes_write.sum": 3266304.0,
+      "dram__bytes_read.sum.pct_of_peak_sustained_elapsed": 1.9007025101149377,
+      "dram__bytes_write.sum.pct_of_peak_sustained_elapsed": 1.605180257251555,
+      "l1tex__t_sector_hit_rate.pct": 88.30923227163461,
+      "lts__t_sector_hit_rate.pct": 101.52061309790317,
+      "smsp__sass_average_data_bytes_per_sector_mem_global_op_ld.ratio": 0.0,
+      "smsp__sass_average_data_bytes_per_sector_mem_global_op_st.ratio": 8.0,
+      "smsp__inst_issued.sum": 2987260.0,
+      "smsp__inst_executed.sum": 2984600.0,
+      "smsp__sass_inst_executed_op_global_ld.sum": 0.0,
+      "smsp__sass_inst_executed_op_global_st.sum": 66560.0,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_ld.sum": 0.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_ld.sum": 0.0,
+      "l1tex__t_requests_pipe_lsu_mem_global_op_st.sum": 66560.0,
+      "l1tex__t_sectors_pipe_lsu_mem_global_op_st.sum": 532730.0,
+      "sass__inst_executed_register_spilling_mem_local_op_read": 0,
+      "sass__inst_executed_register_spilling_mem_local_op_write": 0,
+      "smsp__average_warps_issue_stalled_misc_per_issue_active.ratio": 0.0003441280638444595,
+      "smsp__average_warps_issue_stalled_barrier_per_issue_active.ratio": 5.292770967374785,
+      "smsp__average_warps_issue_stalled_gmma_per_issue_active.ratio": 0.07356975957901221,
+      "smsp__average_warps_issue_stalled_not_selected_per_issue_active.ratio": 0.18413964636489627,
+      "smsp__average_warps_issue_stalled_tex_throttle_per_issue_active.ratio": 0.0,
+      "smsp__average_warps_issue_stalled_sleeping_per_issue_active.ratio": 0.0,
+      "smsp__average_warps_issue_stalled_dispatch_stall_per_issue_active.ratio": 0.4462791989984133,
+      "smsp__average_warps_issue_stalled_wait_per_issue_active.ratio": 1.5380653173811454,
+      "smsp__average_warps_issue_stalled_branch_resolving_per_issue_active.ratio": 0.07853116233605377,
+      "smsp__average_warps_issue_stalled_selected_per_issue_active.ratio": 0.9999996652450741,
+      "smsp__average_warps_issue_stalled_mio_throttle_per_issue_active.ratio": 0.009847820410677343,
+      "smsp__average_warps_issue_stalled_imc_miss_per_issue_active.ratio": 0.014124649344215099,
+      "smsp__average_warps_issue_stalled_lg_throttle_per_issue_active.ratio": 0.47917924787263244,
+      "smsp__average_warps_issue_stalled_drain_per_issue_active.ratio": 0.4132181330048272,
+      "smsp__average_warps_issue_stalled_no_instruction_per_issue_active.ratio": 0.04180586892336121,
+      "smsp__average_warps_issue_stalled_membar_per_issue_active.ratio": 0.0,
+      "smsp__average_warps_issue_stalled_math_pipe_throttle_per_issue_active.ratio": 0.10068658235305933,
+      "smsp__average_warps_issue_stalled_short_scoreboard_per_issue_active.ratio": 0.01758802380777033,
+      "smsp__average_warps_issue_stalled_long_scoreboard_per_issue_active.ratio": 8.898457784056292
+    },
+    "stall_distribution": {
+      "barrier": {
+        "samples": 638,
+        "pct_samples": 24.481964696853414
+      },
+      "branch_resolving": {
+        "samples": 16,
+        "pct_samples": 0.6139677666922486
+      },
+      "dispatch_stall": {
+        "samples": 68,
+        "pct_samples": 2.609363008442057
+      },
+      "drain": {
+        "samples": 104,
+        "pct_samples": 3.9907904834996164
+      },
+      "imc_miss": {
+        "samples": 3,
+        "pct_samples": 0.11511895625479662
+      },
+      "lg_throttle": {
+        "samples": 66,
+        "pct_samples": 2.532617037605526
+      },
+      "long_scoreboard": {
+        "samples": 1291,
+        "pct_samples": 49.53952417498081
+      },
+      "math_pipe_throttle": {
+        "samples": 17,
+        "pct_samples": 0.6523407521105142
+      },
+      "membar": {
+        "samples": 0,
+        "pct_samples": 0.0
+      },
+      "mio_throttle": {
+        "samples": 3,
+        "pct_samples": 0.11511895625479662
+      },
+      "misc": {
+        "samples": 0,
+        "pct_samples": 0.0
+      },
+      "no_instructions": {
+        "samples": 9,
+        "pct_samples": 0.34535686876438987
+      },
+      "not_selected": {
+        "samples": 17,
+        "pct_samples": 0.6523407521105142
+      },
+      "selected": {
+        "samples": 129,
+        "pct_samples": 4.950115118956255
+      },
+      "short_scoreboard": {
+        "samples": 4,
+        "pct_samples": 0.15349194167306215
+      },
+      "sleeping": {
+        "samples": 0,
+        "pct_samples": 0.0
+      },
+      "tex_throttle": {
+        "samples": 0,
+        "pct_samples": 0.0
+      },
+      "wait": {
+        "samples": 230,
+        "pct_samples": 8.825786646201074
+      },
+      "warpgroup_arrive": {
+        "samples": 11,
+        "pct_samples": 0.42210283960092093
+      }
+    },
+    "dynamic_opcodes": {
+      "LOP3.LUT": 350400.0,
+      "UMOV": 307440.0,
+      "ULOP3.LUT": 215040.0,
+      "R2UR": 197120.0,
+      "PRMT": 168720.0,
+      "SHF.R.U32.HI": 163520.0,
+      "IMAD": 144400.0,
+      "HGMMA.64x128x16.F32.BF16": 143360.0,
+      "VIADD": 108560.0,
+      "BRA": 96596.0,
+      "WARPGROUP.ARRIVE": 71680.0,
+      "LEA": 71440.0,
+      "STG.E.U16": 66560.0,
+      "IMAD.MOV.U32": 55160.0,
+      "IADD3": 54640.0,
+      "IMAD.U32": 46960.0,
+      "SYNCS.PHASECHK.TRANS64.TRYWAIT": 46539.0,
+      "ISETP.NE.U32.AND": 46200.0,
+      "IMAD.IADD": 45840.0,
+      "SHF.L.U32": 44800.0,
+      "IMAD.MOV": 44800.0,
+      "IMAD.HI.U32": 44800.0,
+      "WARPSYNC.ALL": 37520.0,
+      "WARPGROUP.DEPBAR.LE": 35840.0,
+      "SYNCS.ARRIVE.TRANS64.A1T0": 35840.0,
+      "MOV": 35840.0,
+      "IMAD.U32.X": 35840.0,
+      "CS2R": 35840.0,
+      "UIADD3": 34720.0,
+      "F2FP.BF16.F32.PACK_AB": 33280.0,
+      "USHF.L.U32": 19600.0,
+      "UTMALDG.3D": 17920.0,
+      "UIADD3.X": 17920.0,
+      "LEA.HI.X": 17680.0,
+      "IMAD.X": 17680.0,
+      "S2R": 10360.0,
+      "VOTEU.ALL": 9800.0,
+      "SYNCS.ARRIVE.TRANS64": 8960.0,
+      "BSYNC": 8960.0,
+      "BSSY": 8960.0,
+      "SYNCS.EXCH.64": 8400.0,
+      "S2UR": 4200.0,
+      "BAR.SYNC.DEFER_BLOCKING": 2800.0,
+      "ISETP.GT.U32.AND": 2520.0,
+      "ULDC.64": 2360.0,
+      "IMAD.SHL.U32": 2160.0,
+      "SYNCS.PHASECHK.TRANS64": 1739.0,
+      "NANOSLEEP.SYNCS": 1739.0,
+      "ULEA": 1400.0,
+      "NOP": 1400.0,
+      "LDC": 1400.0,
+      "EXIT": 1400.0,
+      "SGXT.U32": 1120.0,
+      "IADD3.X": 1120.0,
+      "LDC.64": 1040.0,
+      "IMAD.WIDE.U32": 1040.0,
+      "ELECT": 280.0
+    }
+  }
+}

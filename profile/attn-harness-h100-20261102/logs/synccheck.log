@@ -1,0 +1,5 @@
+========= COMPUTE-SANITIZER
+seed0/attended: {'cosine': 0.9999998380060119, 'relative_l2': 0.0005692088373600285, 'max_abs': 0.015625, 'mean_abs': 1.2697921399889696e-05}
+seed0/output: {'cosine': 0.9999998145924085, 'relative_l2': 0.0006089459343431272, 'max_abs': 0.015625, 'mean_abs': 8.224645101178724e-05}
+PASS: /profile/analysis/synccheck.json
+========= ERROR SUMMARY: 0 errors

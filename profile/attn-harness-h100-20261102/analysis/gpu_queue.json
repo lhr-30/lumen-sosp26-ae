@@ -1,0 +1,252 @@
+[
+  {
+    "ticket": 3741,
+    "labels": [
+      "codex/lumen native harness mixer bench"
+    ],
+    "exit_codes": [
+      0
+    ],
+    "owner": "native harness"
+  },
+  {
+    "ticket": 3744,
+    "labels": [
+      "codex/lumen native harness mixer bench"
+    ],
+    "exit_codes": [
+      0
+    ],
+    "owner": "native harness"
+  },
+  {
+    "ticket": 3745,
+    "labels": [
+      "codex/lumen round1 baseline"
+    ],
+    "exit_codes": [
+      0
+    ],
+    "owner": "native harness"
+  },
+  {
+    "ticket": 3746,
+    "labels": [
+      "codex/lumen round1 wider linear"
+    ],
+    "exit_codes": [
+      0
+    ],
+    "owner": "native harness"
+  },
+  {
+    "ticket": 3747,
+    "labels": [
+      "codex/lumen round1 three-stage linear"
+    ],
+    "exit_codes": [
+      0
+    ],
+    "owner": "native harness"
+  },
+  {
+    "ticket": 3748,
+    "labels": [
+      "codex/lumen round1 short attention"
+    ],
+    "exit_codes": [
+      1
+    ],
+    "owner": "native harness"
+  },
+  {
+    "ticket": 3749,
+    "labels": [
+      "codex/lumen round1 attention TMA layout"
+    ],
+    "exit_codes": [
+      1
+    ],
+    "owner": "native harness"
+  },
+  {
+    "ticket": 3750,
+    "labels": [
+      "codex/lumen round1 shared-copy attention"
+    ],
+    "exit_codes": [
+      1
+    ],
+    "owner": "native harness"
+  },
+  {
+    "ticket": 3751,
+    "labels": [
+      "codex/lumen round1 attention chunk sync"
+    ],
+    "exit_codes": [
+      0
+    ],
+    "owner": "native harness"
+  },
+  {
+    "ticket": 3752,
+    "labels": [
+      "codex/lumen round1 K128 linear"
+    ],
+    "exit_codes": [
+      0
+    ],
+    "owner": "native harness"
+  },
+  {
+    "ticket": 3753,
+    "labels": [
+      "codex/lumen round1 scalar attention"
+    ],
+    "exit_codes": [
+      0
+    ],
+    "owner": "native harness"
+  },
+  {
+    "ticket": 3754,
+    "labels": [
+      "codex/lumen round1 compact attention"
+    ],
+    "exit_codes": [
+      0
+    ],
+    "owner": "native harness"
+  },
+  {
+    "ticket": 3755,
+    "labels": [
+      "codex/lumen round1 shared-tile QKV"
+    ],
+    "exit_codes": [
+      0
+    ],
+    "owner": "native harness"
+  },
+  {
+    "ticket": 3756,
+    "labels": [
+      "codex/lumen native harness mixer bench"
+    ],
+    "exit_codes": [
+      0
+    ],
+    "owner": "native harness"
+  },
+  {
+    "ticket": 3757,
+    "labels": [
+      "codex/lumen round2 baseline"
+    ],
+    "exit_codes": [
+      0
+    ],
+    "owner": "native harness"
+  },
+  {
+    "ticket": 3761,
+    "labels": [
+      "codex/lumen round2 QKV K128 N160"
+    ],
+    "exit_codes": [
+      0
+    ],
+    "owner": "native harness"
+  },
+  {
+    "ticket": 3762,
+    "labels": [
+      "codex/lumen round2 QKV async3"
+    ],
+    "exit_codes": [
+      0
+    ],
+    "owner": "native harness"
+  },
+  {
+    "ticket": 3763,
+    "labels": [
+      "codex/lumen round2 paired attention16"
+    ],
+    "exit_codes": [
+      0
+    ],
+    "owner": "native harness"
+  },
+  {
+    "ticket": 3764,
+    "labels": [
+      "codex/lumen round2 paired attention32"
+    ],
+    "exit_codes": [
+      0
+    ],
+    "owner": "native harness"
+  },
+  {
+    "ticket": 3766,
+    "labels": [
+      "codex/lumen round2 packed QKV attention26"
+    ],
+    "exit_codes": [
+      0
+    ],
+    "owner": "native harness"
+  },
+  {
+    "ticket": 3767,
+    "labels": [
+      "codex/lumen round2 final comparison"
+    ],
+    "exit_codes": [
+      0
+    ],
+    "owner": "native harness"
+  },
+  {
+    "ticket": 3768,
+    "labels": [
+      "codex/lumen round2 standard comparison"
+    ],
+    "exit_codes": [
+      0
+    ],
+    "owner": "native harness"
+  },
+  {
+    "ticket": 3770,
+    "labels": [
+      "codex/lumen native harness mixer bench"
+    ],
+    "exit_codes": [
+      0
+    ],
+    "owner": "native harness"
+  },
+  {
+    "ticket": 3773,
+    "labels": [
+      "codex/lumen native harness independent final"
+    ],
+    "exit_codes": [
+      0
+    ],
+    "owner": "independent validation"
+  },
+  {
+    "ticket": 3774,
+    "labels": [
+      "codex/lumen native harness independent timing"
+    ],
+    "exit_codes": [
+      0
+    ],
+    "owner": "independent timing repeat"
+  }
+]

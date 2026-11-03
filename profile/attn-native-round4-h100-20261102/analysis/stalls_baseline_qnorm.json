@@ -1,0 +1,780 @@
+{
+  "sample_count": 177,
+  "stall_distribution": {
+    "barrier": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "branch_resolving": {
+      "samples": 2,
+      "pct_samples": 1.1299435028248588
+    },
+    "dispatch_stall": {
+      "samples": 2,
+      "pct_samples": 1.1299435028248588
+    },
+    "drain": {
+      "samples": 12,
+      "pct_samples": 6.779661016949152
+    },
+    "imc_miss": {
+      "samples": 9,
+      "pct_samples": 5.084745762711864
+    },
+    "lg_throttle": {
+      "samples": 4,
+      "pct_samples": 2.2598870056497176
+    },
+    "long_scoreboard": {
+      "samples": 39,
+      "pct_samples": 22.033898305084747
+    },
+    "math_pipe_throttle": {
+      "samples": 3,
+      "pct_samples": 1.694915254237288
+    },
+    "membar": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "mio_throttle": {
+      "samples": 15,
+      "pct_samples": 8.474576271186441
+    },
+    "misc": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "no_instructions": {
+      "samples": 7,
+      "pct_samples": 3.9548022598870056
+    },
+    "not_selected": {
+      "samples": 15,
+      "pct_samples": 8.474576271186441
+    },
+    "selected": {
+      "samples": 14,
+      "pct_samples": 7.909604519774011
+    },
+    "short_scoreboard": {
+      "samples": 36,
+      "pct_samples": 20.338983050847457
+    },
+    "sleeping": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "tex_throttle": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "wait": {
+      "samples": 19,
+      "pct_samples": 10.734463276836157
+    },
+    "warpgroup_arrive": {
+      "samples": 0,
+      "pct_samples": 0.0
+    }
+  },
+  "hotspots": [
+    {
+      "pc": "0x7aca0c88cf60",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 164,
+      "sass": "      SHF.L.U32 R12, R12, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r85, %rs27;",
+      "samples": 18.0,
+      "stalls": {
+        "long_scoreboard": 17.0,
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c7e0",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 44,
+      "sass": "      SHF.L.U32 R12, R12, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r10, %rs1;",
+      "samples": 17.0,
+      "stalls": {
+        "long_scoreboard": 15.0,
+        "not_selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88d030",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 190,
+      "sass": "      BRA `(.L_x_0) 0x7aca0c88d030",
+      "ptx": "ret;",
+      "samples": 14.0,
+      "stalls": {
+        "branch_resolving": 2.0,
+        "drain": 12.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c630",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 36,
+      "sass": "      ULDC.64 UR8, c[0x0][0x208]",
+      "ptx": "{",
+      "samples": 10.0,
+      "stalls": {
+        "imc_miss": 9.0,
+        "no_instructions": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c810",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 51,
+      "sass": "      SHF.L.U32 R18, R23, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r15, %rs3;",
+      "samples": 9.0,
+      "stalls": {
+        "long_scoreboard": 7.0,
+        "not_selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c980",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 77,
+      "sass": "      FADD R22, R21, R22",
+      "ptx": "add.rn.f32 \t%r36, %r35, %r34;",
+      "samples": 8.0,
+      "stalls": {
+        "short_scoreboard": 8.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c9a0",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 79,
+      "sass": "      FADD R23, R22, R3",
+      "ptx": "add.rn.f32 \t%r38, %r37, %r36;",
+      "samples": 7.0,
+      "stalls": {
+        "short_scoreboard": 7.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c600",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 26,
+      "sass": "      LDC R1, c[0x0][0x28]",
+      "ptx": "{",
+      "samples": 6.0,
+      "stalls": {
+        "no_instructions": 6.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c6a0",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 42,
+      "sass": "      IMAD.WIDE.U32 R18, R0, 0x2, R18",
+      "ptx": "add.s64 \t%rd10, %rd2, %rd9;",
+      "samples": 5.0,
+      "stalls": {
+        "short_scoreboard": 5.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c6d0",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 50,
+      "sass": "      LDG.E.U16 R23, desc[UR8][R18.64+0x80]",
+      "ptx": "ld.global.b16 \t%rs3, [%rd10+128];",
+      "samples": 4.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "lg_throttle": 1.0,
+        "not_selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88ced0",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 151,
+      "sass": "      SHF.L.U32 R10, R10, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r76, %rs25;",
+      "samples": 4.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0,
+        "short_scoreboard": 3.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c950",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 74,
+      "sass": "      SHFL.BFLY PT, R3, R2, 0x10, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r33, %r32, 16, 31, -1;",
+      "samples": 4.0,
+      "stalls": {
+        "mio_throttle": 3.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88cec0",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 188,
+      "sass": "      LDS.U16 R17, [R2+0x1c0]",
+      "ptx": "ld.shared.b16 \t%rs36, [%rd14+448];",
+      "samples": 4.0,
+      "stalls": {
+        "mio_throttle": 1.0,
+        "selected": 1.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c780",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 135,
+      "sass": "      LDG.E.U16 R7, desc[UR8][R2.64+0x180]",
+      "ptx": "ld.global.b16 \t%rs21, [%rd12+384];",
+      "samples": 3.0,
+      "stalls": {
+        "lg_throttle": 1.0,
+        "mio_throttle": 1.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88ce90",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 182,
+      "sass": "      LDS.U16 R7, [R2+0x100]",
+      "ptx": "ld.shared.b16 \t%rs33, [%rd14+256];",
+      "samples": 3.0,
+      "stalls": {
+        "mio_throttle": 1.0,
+        "not_selected": 1.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c960",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 75,
+      "sass": "      FADD R21, R2, R3",
+      "ptx": "add.rn.f32 \t%r34, %r33, %r32;",
+      "samples": 3.0,
+      "stalls": {
+        "short_scoreboard": 3.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c6b0",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 43,
+      "sass": "      LDG.E.U16 R12, desc[UR8][R18.64]",
+      "ptx": "ld.global.b16 \t%rs1, [%rd10];",
+      "samples": 2.0,
+      "stalls": {
+        "lg_throttle": 1.0,
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c740",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 100,
+      "sass": "      LDG.E.U16 R13, desc[UR8][R2.64+0x40]",
+      "ptx": "ld.global.b16 \t%rs11, [%rd12+64];",
+      "samples": 2.0,
+      "stalls": {
+        "lg_throttle": 1.0,
+        "mio_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88cd20",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 99,
+      "sass": "      PRMT R4, R7, 0x7610, R4",
+      "ptx": "st.shared.b16 \t[%rd14], %rs10;",
+      "samples": 2.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0,
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c6c0",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 46,
+      "sass": "      LDG.E.U16 R21, desc[UR8][R18.64+0x40]",
+      "ptx": "ld.global.b16 \t%rs2, [%rd10+64];",
+      "samples": 2.0,
+      "stalls": {
+        "mio_throttle": 1.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c710",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 66,
+      "sass": "      LDG.E.U16 R10, desc[UR8][R18.64+0x180]",
+      "ptx": "ld.global.b16 \t%rs7, [%rd10+384];",
+      "samples": 2.0,
+      "stalls": {
+        "mio_throttle": 1.0,
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c970",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 76,
+      "sass": "      SHFL.BFLY PT, R22, R21, 0x8, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r35, %r34, 8, 31, -1;",
+      "samples": 2.0,
+      "stalls": {
+        "mio_throttle": 1.0,
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c990",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 78,
+      "sass": "      SHFL.BFLY PT, R3, R22, 0x4, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r37, %r36, 4, 31, -1;",
+      "samples": 2.0,
+      "stalls": {
+        "mio_throttle": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88cea0",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 184,
+      "sass": "      LDS.U16 R6, [R2+0x140]",
+      "ptx": "ld.shared.b16 \t%rs34, [%rd14+320];",
+      "samples": 2.0,
+      "stalls": {
+        "mio_throttle": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88ce50",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 150,
+      "sass": "      LDS.U16 R10, [R2]",
+      "ptx": "ld.shared.b16 \t%rs25, [%rd14];",
+      "samples": 2.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88cf70",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 166,
+      "sass": "      SHF.L.U32 R13, R13, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r86, %rs28;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c670",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 39,
+      "sass": "      ULEA UR4, UR6, UR4, 0x3",
+      "ptx": "add.s32 \t%r8, %r6, %r7;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88cee0",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 153,
+      "sass": "      SHF.L.U32 R11, R11, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r77, %rs26;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88cf00",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 179,
+      "sass": "      STG.E.U16 desc[UR8][R4.64+0x80], R9",
+      "ptx": "st.global.b16 \t[%rd17+128], %rs31;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c760",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 128,
+      "sass": "      LDG.E.U16 R4, desc[UR8][R2.64+0x140]",
+      "ptx": "ld.global.b16 \t%rs19, [%rd12+320];",
+      "samples": 1.0,
+      "stalls": {
+        "dispatch_stall": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88cfe0",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 170,
+      "sass": "      F2FP.BF16.F32.PACK_AB R13, RZ, R13",
+      "ptx": "cvt.rn.bf16.f32 \t%rs29, %r89;",
+      "samples": 1.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c700",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 62,
+      "sass": "      LDG.E.U16 R14, desc[UR8][R18.64+0x140]",
+      "ptx": "ld.global.b16 \t%rs6, [%rd10+320];",
+      "samples": 1.0,
+      "stalls": {
+        "mio_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88ce30",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 163,
+      "sass": "      LDG.E.U16 R12, desc[UR8][R14.64]",
+      "ptx": "ld.global.b16 \t%rs27, [%rd16];",
+      "samples": 1.0,
+      "stalls": {
+        "mio_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88ce80",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 180,
+      "sass": "      LDS.U16 R8, [R2+0xc0]",
+      "ptx": "ld.shared.b16 \t%rs32, [%rd14+192];",
+      "samples": 1.0,
+      "stalls": {
+        "mio_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c9d0",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 82,
+      "sass": "      SHFL.BFLY PT, R3, R24, 0x1, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r41, %r40, 1, 31, -1;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c9f0",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 84,
+      "sass": "      FMUL R3, R3, 0.00390625",
+      "ptx": "mul.rn.f32 \t%r43, %r42, 0f3B800000;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88ca10",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 87,
+      "sass": "      MUFU.RSQ R3, R3",
+      "ptx": "rsqrt.approx.ftz.f32 %r1, %r2;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88ce00",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 160,
+      "sass": "      LOP3.LUT R5, R5, UR5, RZ, 0xfc, !PT",
+      "ptx": "or.b32 \t%r84, %r82, %r83;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c620",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 36,
+      "sass": "      S2R R5, SR_TID.X",
+      "ptx": "mov.u32 \t%r5, %tid.x;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c650",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 42,
+      "sass": "      LDC.64 R18, c[0x0][0x210]",
+      "ptx": "add.s64 \t%rd10, %rd2, %rd9;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c660",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 90,
+      "sass": "      LDC.64 R2, c[0x0][0x218]",
+      "ptx": "add.s64 \t%rd12, %rd4, %rd11;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c8c0",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 67,
+      "sass": "      SHF.L.U32 R10, R10, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r27, %rs7;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88cf30",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 185,
+      "sass": "      STG.E.U16 desc[UR8][R4.64+0x140], R6",
+      "ptx": "st.global.b16 \t[%rd17+320], %rs34;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88cfb0",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 173,
+      "sass": "      FMUL R11, R11, R12",
+      "ptx": "mul.rn.f32 \t%r90, %r77, %r85;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88cff0",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 176,
+      "sass": "      F2FP.BF16.F32.PACK_AB R10, RZ, R10",
+      "ptx": "cvt.rn.bf16.f32 \t%rs30, %r92;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88d020",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 190,
+      "sass": "      EXIT",
+      "ptx": "ret;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c690",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 40,
+      "sass": "      LOP3.LUT R0, R5, UR4, RZ, 0xfc, !PT",
+      "ptx": "or.b32 \t%r9, %r8, %r5;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c9c0",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 81,
+      "sass": "      FADD R24, R23, R24",
+      "ptx": "add.rn.f32 \t%r40, %r39, %r38;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c9e0",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 83,
+      "sass": "      FADD R3, R24, R3",
+      "ptx": "add.rn.f32 \t%r42, %r41, %r40;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88ca70",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 103,
+      "sass": "      FMUL R2, R19, R3",
+      "ptx": "mul.rn.f32 \t%r50, %r1, %r12;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c640",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 35,
+      "sass": "      S2UR UR4, SR_CTAID.Y",
+      "ptx": "mov.u32 \t%r4, %ctaid.y;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c6f0",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 58,
+      "sass": "      LDG.E.U16 R17, desc[UR8][R18.64+0x100]",
+      "ptx": "ld.global.b16 \t%rs5, [%rd10+256];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88c720",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 70,
+      "sass": "      LDG.E.U16 R16, desc[UR8][R18.64+0x1c0]",
+      "ptx": "ld.global.b16 \t%rs8, [%rd10+448];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88cca0",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 147,
+      "sass": "      F2FP.BF16.F32.PACK_AB R3, RZ, R3",
+      "ptx": "cvt.rn.bf16.f32 \t%rs24, %r75;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88cdf0",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 158,
+      "sass": "      USHF.L.U32 UR5, UR5, 0x6, URZ",
+      "ptx": "shl.b32 \t%r82, %r81, 6;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88ce20",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 171,
+      "sass": "      LDC.64 R4, c[0x0][0x228]",
+      "ptx": "add.s64 \t%rd17, %rd8, %rd9;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88ce40",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 165,
+      "sass": "      LDG.E.U16 R13, desc[UR8][R14.64+0x2]",
+      "ptx": "ld.global.b16 \t%rs28, [%rd16+2];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88ce70",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 178,
+      "sass": "      LDS.U16 R9, [R2+0x80]",
+      "ptx": "ld.shared.b16 \t%rs31, [%rd14+128];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88ceb0",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 186,
+      "sass": "      LDS.U16 R3, [R2+0x180]",
+      "ptx": "ld.shared.b16 \t%rs35, [%rd14+384];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88cfc0",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 169,
+      "sass": "      FADD R13, R14, -R13",
+      "ptx": "sub.rn.f32 \t%r89, %r87, %r88;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7aca0c88d000",
+      "file": "/profile/harness/generated/ave/norm_rope_9b99e6fe76.ptx",
+      "line": 172,
+      "sass": "      STG.E.U16 desc[UR8][R4.64], R13",
+      "ptx": "st.global.b16 \t[%rd17], %rs29;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    }
+  ]
+}

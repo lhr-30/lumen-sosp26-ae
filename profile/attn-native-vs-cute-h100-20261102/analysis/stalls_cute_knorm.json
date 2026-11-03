@@ -1,0 +1,428 @@
+{
+  "sample_count": 84,
+  "stall_distribution": {
+    "barrier": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "branch_resolving": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "dispatch_stall": {
+      "samples": 1,
+      "pct_samples": 1.1904761904761905
+    },
+    "drain": {
+      "samples": 7,
+      "pct_samples": 8.333333333333334
+    },
+    "imc_miss": {
+      "samples": 12,
+      "pct_samples": 14.285714285714286
+    },
+    "lg_throttle": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "long_scoreboard": {
+      "samples": 22,
+      "pct_samples": 26.19047619047619
+    },
+    "math_pipe_throttle": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "membar": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "mio_throttle": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "misc": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "no_instructions": {
+      "samples": 10,
+      "pct_samples": 11.904761904761905
+    },
+    "not_selected": {
+      "samples": 1,
+      "pct_samples": 1.1904761904761905
+    },
+    "selected": {
+      "samples": 5,
+      "pct_samples": 5.9523809523809526
+    },
+    "short_scoreboard": {
+      "samples": 10,
+      "pct_samples": 11.904761904761905
+    },
+    "sleeping": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "tex_throttle": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "wait": {
+      "samples": 16,
+      "pct_samples": 19.047619047619047
+    },
+    "warpgroup_arrive": {
+      "samples": 0,
+      "pct_samples": 0.0
+    }
+  },
+  "hotspots": [
+    {
+      "pc": "0x736aa7e8c630",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 46,
+      "sass": "      ULDC.64 UR4, c[0x0][0x208]",
+      "ptx": "{",
+      "samples": 12.0,
+      "stalls": {
+        "imc_miss": 12.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8c9c0",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 15,
+      "sass": "      SHF.L.U32 R0, R0, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r31, %rs1;",
+      "samples": 12.0,
+      "stalls": {
+        "long_scoreboard": 11.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ca10",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 15,
+      "sass": "      SHF.L.U32 R20, R20, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r38, %rs4;",
+      "samples": 11.0,
+      "stalls": {
+        "long_scoreboard": 11.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8c600",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 21,
+      "sass": "      LDC R1, c[0x0][0x28]",
+      "ptx": "{",
+      "samples": 9.0,
+      "stalls": {
+        "no_instructions": 9.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8cec0",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 15,
+      "sass": "      BRA `(.L_x_0) 0x736aa7e8cec0",
+      "ptx": "ret;",
+      "samples": 7.0,
+      "stalls": {
+        "drain": 7.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8caf0",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 52,
+      "sass": "      FADD R26, R3, R26",
+      "ptx": "add.f32 \t%r59, %r58, %r57;",
+      "samples": 3.0,
+      "stalls": {
+        "short_scoreboard": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8c730",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 32,
+      "sass": "      ISETP.NE.AND P0, PT, R0, R5, !P0",
+      "ptx": "add.s32 \t%r19, %r18, %r17;",
+      "samples": 2.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8c670",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 31,
+      "sass": "      LEA.HI R0, R6, R3, RZ, 0x1b",
+      "ptx": "or.b32 \t%r5, %r3, %r4;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8cb30",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 52,
+      "sass": "      FADD R25, R26, R5",
+      "ptx": "add.f32 \t%r61, %r60, %r59;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8cbc0",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 53,
+      "sass": "@!P0  FMUL R5, R5, 4096",
+      "ptx": "rsqrt.approx.f32 \t%r67, %r66;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8cb90",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 53,
+      "sass": "      FSETP.GEU.AND P0, PT, |R27|, 1.175494350822287508e-38, PT",
+      "ptx": "rsqrt.approx.f32 \t%r67, %r66;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8cce0",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 15,
+      "sass": "      SHF.L.U32 R9, R5, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r91, %rs18;",
+      "samples": 1.0,
+      "stalls": {
+        "dispatch_stall": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8c800",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 46,
+      "sass": "      IADD3 R3, R8, R3, RZ",
+      "ptx": "or.b32 \t%r30, %r29, %r6;",
+      "samples": 1.0,
+      "stalls": {
+        "no_instructions": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8c8e0",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 47,
+      "sass": "      IADD3.X R3, RZ, UR7, RZ, P0, !PT",
+      "ptx": "add.s64 \t%rd9, %rd2, %rd8;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8c990",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 47,
+      "sass": "      LDG.E R22, desc[UR4][R2.64+0x300]",
+      "ptx": "ld.global.b32 \t%r45, [%rd9+768];",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8cd00",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 15,
+      "sass": "      SHF.L.U32 R5, R4, 0x10, RZ",
+      "ptx": "cvt.f32.bf16 \t%r90, %rs17;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8cad0",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 52,
+      "sass": "      FADD R3, R2, R3",
+      "ptx": "add.f32 \t%r57, %r56, %r55;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8cb50",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 52,
+      "sass": "      FADD R28, R25, R28",
+      "ptx": "add.f32 \t%r63, %r62, %r61;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8cb70",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 52,
+      "sass": "      FADD R5, R28, R5",
+      "ptx": "add.f32 \t%r65, %r64, %r63;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8c6f0",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 32,
+      "sass": "      SHF.R.S32.HI R4, RZ, 0x1, R4",
+      "ptx": "shr.s32 \t%r18, %r15, 1;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8c810",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 46,
+      "sass": "      IMAD.WIDE R16, R3, 0x2, R16",
+      "ptx": "add.s64 \t%rd6, %rd1, %rd5;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8c840",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 46,
+      "sass": "      LDG.E.U16 R21, desc[UR4][R16.64+0x80]",
+      "ptx": "ld.global.b16 \t%rs3, [%rd6+128];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8c850",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 46,
+      "sass": "      LDG.E.U16 R20, desc[UR4][R16.64+0xc0]",
+      "ptx": "ld.global.b16 \t%rs4, [%rd6+192];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8c8d0",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 47,
+      "sass": "      IADD3 R2, P0, R2, UR6, RZ",
+      "ptx": "add.s64 \t%rd9, %rd2, %rd8;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8c930",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 47,
+      "sass": "      LDG.E R16, desc[UR4][R2.64+0x100]",
+      "ptx": "ld.global.b32 \t%r37, [%rd9+256];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8caa0",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 50,
+      "sass": "      FFMA R2, R14, R14, R3",
+      "ptx": "fma.rn.f32 \t%r54, %r44, %r44, %r53;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8cab0",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 50,
+      "sass": "      FFMA R2, R15, R15, R2",
+      "ptx": "fma.rn.f32 \t%r55, %r46, %r46, %r54;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8cac0",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 52,
+      "sass": "      SHFL.BFLY PT, R3, R2, 0x1, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r56, %r55, 1, 31, -1;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8cb40",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 52,
+      "sass": "      SHFL.BFLY PT, R28, R25, 0x8, 0x1f",
+      "ptx": "shfl.sync.bfly.b32 \t%r62, %r61, 8, 31, -1;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8cba0",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 53,
+      "sass": "@!P0  FMUL R27, R27, 16777216",
+      "ptx": "rsqrt.approx.f32 \t%r67, %r66;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e8ce50",
+      "file": "/profile/harness/sources/cute/k_norm_rope.py",
+      "line": 77,
+      "sass": "      STG.E.U16 desc[UR4][R2.64+0x100], R7",
+      "ptx": "st.global.b16 \t[%rd13+256], %rs13;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    }
+  ]
+}

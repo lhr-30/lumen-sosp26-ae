@@ -1,0 +1,1517 @@
+{
+  "sample_count": 1889,
+  "stall_distribution": {
+    "barrier": {
+      "samples": 596,
+      "pct_samples": 31.55108523028057
+    },
+    "branch_resolving": {
+      "samples": 8,
+      "pct_samples": 0.4235044997353097
+    },
+    "dispatch_stall": {
+      "samples": 66,
+      "pct_samples": 3.493912122816305
+    },
+    "drain": {
+      "samples": 3,
+      "pct_samples": 0.15881418740074113
+    },
+    "imc_miss": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "lg_throttle": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "long_scoreboard": {
+      "samples": 857,
+      "pct_samples": 45.36791953414505
+    },
+    "math_pipe_throttle": {
+      "samples": 9,
+      "pct_samples": 0.4764425622022234
+    },
+    "membar": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "mio_throttle": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "misc": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "no_instructions": {
+      "samples": 7,
+      "pct_samples": 0.370566437268396
+    },
+    "not_selected": {
+      "samples": 18,
+      "pct_samples": 0.9528851244044468
+    },
+    "selected": {
+      "samples": 132,
+      "pct_samples": 6.98782424563261
+    },
+    "short_scoreboard": {
+      "samples": 2,
+      "pct_samples": 0.10587612493382742
+    },
+    "sleeping": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "tex_throttle": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "wait": {
+      "samples": 178,
+      "pct_samples": 9.42297511911064
+    },
+    "warpgroup_arrive": {
+      "samples": 13,
+      "pct_samples": 0.6881948120698782
+    }
+  },
+  "hotspots": [
+    {
+      "pc": "0x7b6f2888a060",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 169,
+      "sass": "@!P1  BRA 0x7b6f2888ac50",
+      "ptx": "add.s32 \t%r23, %r27, 73752;",
+      "samples": 628.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "long_scoreboard": 625.0,
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a210",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 211,
+      "sass": "      WARPGROUP.DEPBAR.LE gsb0, 0x0",
+      "ptx": "wgmma.wait_group.sync.aligned 0;",
+      "samples": 530.0,
+      "stalls": {
+        "barrier": 525.0,
+        "selected": 5.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888aa60",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 247,
+      "sass": "@!P1  BRA 0x7b6f2888ac90",
+      "ptx": "add.s32 \t%r15, %r22, 73728;",
+      "samples": 208.0,
+      "stalls": {
+        "long_scoreboard": 206.0,
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a880",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 390,
+      "sass": "      BRA 0x7b6f2888ac20",
+      "ptx": "bar.sync %r28, %r29;",
+      "samples": 56.0,
+      "stalls": {
+        "barrier": 56.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a000",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 166,
+      "sass": "      LOP3.LUT R3, R8, 0x1, RZ, 0xc0, !PT",
+      "ptx": "and.b16 \t%rs29, %rs28, 1;",
+      "samples": 28.0,
+      "stalls": {
+        "dispatch_stall": 27.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a110",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 144,
+      "sass": "      HGMMA.64x128x16.F32.BF16 R24, gdesc[UR8], R24",
+      "ptx": "setp.ne.b32 \t%p7, %r89, 32;",
+      "samples": 19.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 5.0,
+        "warpgroup_arrive": 13.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a200",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 205,
+      "sass": "      HGMMA.64x128x16.F32.BF16 R24, gdesc[UR8], R24.gsb0",
+      "ptx": "wgmma.mma_async.sync.aligned.m64n128k16.f32.bf16.bf16 {%r90, %r91, %r92, %r93, %r94, %r95, %r96, %r97, %r98, %r99, %r100, %r101, %r102, %r103, %r104, %r105, %r106, %r107, %r108, %r109, %r110, %r111, %r112, %r113, %r114, %r115, %r116, %r117, %r118, %r119, %r120, %r121, %r122, %r123, %r124, %r125, %r126, %r127, %r128, %r129, %r130, %r131, %r132, %r133, %r134, %r135, %r136, %r137, %r138, %r139, %r140, %r141, %r142, %r143, %r144, %r145, %r146, %r147, %r148, %r149, %r150, %r151, %r152, %r153}, %rd30, %rd31, 1, 1, 1, 0, 0;",
+      "samples": 18.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 3.0,
+        "wait": 14.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a850",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 387,
+      "sass": "      CCTL.IVALL",
+      "ptx": "cp.async.bulk.wait_group \t0;",
+      "samples": 15.0,
+      "stalls": {
+        "long_scoreboard": 15.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889f90",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 179,
+      "sass": "      IMAD.U32 R12, R7, 0x8000000, R5",
+      "ptx": "add.s64 \t%rd36, %rd35, %rd5;",
+      "samples": 14.0,
+      "stalls": {
+        "dispatch_stall": 4.0,
+        "math_pipe_throttle": 1.0,
+        "selected": 2.0,
+        "wait": 7.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a160",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 193,
+      "sass": "      HGMMA.64x128x16.F32.BF16 R24, gdesc[UR8], R24",
+      "ptx": "or.b64 \t%rd27, %rd40, 4611686293305360386;",
+      "samples": 13.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "not_selected": 1.0,
+        "wait": 11.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a1b0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 200,
+      "sass": "      HGMMA.64x128x16.F32.BF16 R24, gdesc[UR8], R24",
+      "ptx": "wgmma.mma_async.sync.aligned.m64n128k16.f32.bf16.bf16 {%r90, %r91, %r92, %r93, %r94, %r95, %r96, %r97, %r98, %r99, %r100, %r101, %r102, %r103, %r104, %r105, %r106, %r107, %r108, %r109, %r110, %r111, %r112, %r113, %r114, %r115, %r116, %r117, %r118, %r119, %r120, %r121, %r122, %r123, %r124, %r125, %r126, %r127, %r128, %r129, %r130, %r131, %r132, %r133, %r134, %r135, %r136, %r137, %r138, %r139, %r140, %r141, %r142, %r143, %r144, %r145, %r146, %r147, %r148, %r149, %r150, %r151, %r152, %r153}, %rd28, %rd29, 1, 1, 1, 0, 0;",
+      "samples": 13.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 2.0,
+        "wait": 10.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889ed0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 151,
+      "sass": "      PRMT R2, R8, 0x9910, RZ",
+      "ptx": "mul.lo.s16 \t%rs20, %rs19, 3;",
+      "samples": 13.0,
+      "stalls": {
+        "selected": 4.0,
+        "wait": 9.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889ec0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 150,
+      "sass": "      SHF.R.U32.HI R8, RZ, 0x9, R2",
+      "ptx": "shr.u16 \t%rs19, %rs18, 9;",
+      "samples": 12.0,
+      "stalls": {
+        "dispatch_stall": 3.0,
+        "math_pipe_throttle": 1.0,
+        "not_selected": 2.0,
+        "wait": 6.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888ac40",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 394,
+      "sass": "      EXIT",
+      "ptx": "ret;",
+      "samples": 11.0,
+      "stalls": {
+        "barrier": 10.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889fb0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 180,
+      "sass": "      SHF.R.U32.HI R12, RZ, 0x12, R12",
+      "ptx": "shr.u64 \t%rd37, %rd36, 50;",
+      "samples": 11.0,
+      "stalls": {
+        "dispatch_stall": 2.0,
+        "not_selected": 2.0,
+        "selected": 3.0,
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889ee0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 151,
+      "sass": "      IMAD R2, R2, 0x3, RZ",
+      "ptx": "mul.lo.s16 \t%rs20, %rs19, 3;",
+      "samples": 10.0,
+      "stalls": {
+        "selected": 2.0,
+        "wait": 8.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a070",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 187,
+      "sass": "      WARPSYNC.ALL",
+      "ptx": "wgmma.fence.sync.aligned;",
+      "samples": 10.0,
+      "stalls": {
+        "wait": 10.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a6e0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 368,
+      "sass": "      FENCE.VIEW.ASYNC.S",
+      "ptx": "fence.proxy.async.shared::cta;",
+      "samples": 8.0,
+      "stalls": {
+        "long_scoreboard": 7.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a020",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 169,
+      "sass": "      SHF.L.U32 R3, R3, 0x1f, RZ",
+      "ptx": "add.s32 \t%r23, %r27, 73752;",
+      "samples": 8.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 3.0,
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889f70",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 163,
+      "sass": "      LOP3.LUT R10, R7, 0xff, RZ, 0xc0, !PT",
+      "ptx": "and.b32 \t%r26, %r25, 255;",
+      "samples": 8.0,
+      "stalls": {
+        "selected": 5.0,
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889eb0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 149,
+      "sass": "      IMAD R2, R2, 0xab, RZ",
+      "ptx": "mul.lo.s16 \t%rs18, %rs17, 171;",
+      "samples": 7.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "not_selected": 1.0,
+        "selected": 2.0,
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a080",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 190,
+      "sass": "      R2UR UR8, R11",
+      "ptx": "wgmma.mma_async.sync.aligned.m64n128k16.f32.bf16.bf16 {%r90, %r91, %r92, %r93, %r94, %r95, %r96, %r97, %r98, %r99, %r100, %r101, %r102, %r103, %r104, %r105, %r106, %r107, %r108, %r109, %r110, %r111, %r112, %r113, %r114, %r115, %r116, %r117, %r118, %r119, %r120, %r121, %r122, %r123, %r124, %r125, %r126, %r127, %r128, %r129, %r130, %r131, %r132, %r133, %r134, %r135, %r136, %r137, %r138, %r139, %r140, %r141, %r142, %r143, %r144, %r145, %r146, %r147, %r148, %r149, %r150, %r151, %r152, %r153}, %rd24, %rd25, 1, 1, 1, 0, 0;",
+      "samples": 7.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "math_pipe_throttle": 1.0,
+        "selected": 1.0,
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889f50",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 154,
+      "sass": "      LOP3.LUT P1, RZ, R7, 0xff, RZ, 0xc0, !PT",
+      "ptx": "setp.eq.b16 \t%p6, %rs22, 0;",
+      "samples": 7.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0,
+        "selected": 1.0,
+        "wait": 5.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889f30",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 152,
+      "sass": "      IMAD.IADD R7, R7, 0x1, R4",
+      "ptx": "sub.s16 \t%rs21, %rs16, %rs20;",
+      "samples": 7.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 2.0,
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a100",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 144,
+      "sass": "      ISETP.NE.U32.AND P1, PT, R4, 0x20, PT",
+      "ptx": "setp.ne.b32 \t%p7, %r89, 32;",
+      "samples": 7.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "wait": 6.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889e90",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 148,
+      "sass": "      LOP3.LUT R2, R4, 0xff, RZ, 0xc0, !PT",
+      "ptx": "and.b16 \t%rs17, %rs16, 255;",
+      "samples": 6.0,
+      "stalls": {
+        "branch_resolving": 4.0,
+        "dispatch_stall": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a030",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 184,
+      "sass": "      SHF.R.U32.HI R10, RZ, 0x12, R10",
+      "ptx": "shr.u64 \t%rd40, %rd39, 50;",
+      "samples": 6.0,
+      "stalls": {
+        "dispatch_stall": 2.0,
+        "selected": 3.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888aa20",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 244,
+      "sass": "      LOP3.LUT R3, R4, 0x1, RZ, 0xc, !PT",
+      "ptx": "and.b16 \t%rs15, %rs14, 1;",
+      "samples": 6.0,
+      "stalls": {
+        "dispatch_stall": 5.0,
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888ac50",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 169,
+      "sass": "      YIELD",
+      "ptx": "add.s32 \t%r23, %r27, 73752;",
+      "samples": 5.0,
+      "stalls": {
+        "branch_resolving": 2.0,
+        "drain": 3.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889fd0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 165,
+      "sass": "      LEA R2, R10, UR4, 0x3",
+      "ptx": "add.s64 \t%rd34, %rd12, %rd33;",
+      "samples": 5.0,
+      "stalls": {
+        "dispatch_stall": 3.0,
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889fe0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 181,
+      "sass": "      LOP3.LUT R11, R12, 0x10000, RZ, 0xfc, !PT",
+      "ptx": "or.b64 \t%rd24, %rd37, 4611686293305360384;",
+      "samples": 5.0,
+      "stalls": {
+        "dispatch_stall": 2.0,
+        "selected": 1.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a050",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 185,
+      "sass": "      LOP3.LUT R7, R10, 0x10000, RZ, 0xfc, !PT",
+      "ptx": "or.b64 \t%rd25, %rd40, 4611686293305360384;",
+      "samples": 5.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0,
+        "selected": 1.0,
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889ea0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 183,
+      "sass": "      IADD3 RZ, P2, RZ, R9, RZ",
+      "ptx": "add.s64 \t%rd39, %rd38, %rd6;",
+      "samples": 5.0,
+      "stalls": {
+        "selected": 3.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889f60",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 157,
+      "sass": "      SHF.R.U32.HI R3, RZ, 0xf, R11",
+      "ptx": "shr.u16 \t%rs25, %rs24, 15;",
+      "samples": 5.0,
+      "stalls": {
+        "selected": 2.0,
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a040",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 169,
+      "sass": "      SYNCS.PHASECHK.TRANS64.TRYWAIT P1, [R8+URZ], R3",
+      "ptx": "add.s32 \t%r23, %r27, 73752;",
+      "samples": 5.0,
+      "stalls": {
+        "selected": 3.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889f10",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 152,
+      "sass": "      PRMT R7, R7, 0x7710, RZ",
+      "ptx": "sub.s16 \t%rs21, %rs16, %rs20;",
+      "samples": 5.0,
+      "stalls": {
+        "wait": 5.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a970",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 230,
+      "sass": "      IMAD.IADD R2, R3, 0x1, R0",
+      "ptx": "sub.s16 \t%rs6, %rs1, %rs5;",
+      "samples": 5.0,
+      "stalls": {
+        "wait": 5.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889f20",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 156,
+      "sass": "      IMAD R2, R2, 0x56, RZ",
+      "ptx": "mul.lo.s16 \t%rs24, %rs23, 86;",
+      "samples": 4.0,
+      "stalls": {
+        "dispatch_stall": 2.0,
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889900",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 29,
+      "sass": "      LDC R1, c[0x0][0x28]",
+      "ptx": "{",
+      "samples": 4.0,
+      "stalls": {
+        "no_instructions": 4.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889f80",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 162,
+      "sass": "      LOP3.LUT R7, R7, 0xffff, RZ, 0xc0, !PT",
+      "ptx": "cvt.u32.u16 \t%r25, %rs21;",
+      "samples": 4.0,
+      "stalls": {
+        "selected": 4.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a1a0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 200,
+      "sass": "      UMOV UR11, 0x40000040",
+      "ptx": "wgmma.mma_async.sync.aligned.m64n128k16.f32.bf16.bf16 {%r90, %r91, %r92, %r93, %r94, %r95, %r96, %r97, %r98, %r99, %r100, %r101, %r102, %r103, %r104, %r105, %r106, %r107, %r108, %r109, %r110, %r111, %r112, %r113, %r114, %r115, %r116, %r117, %r118, %r119, %r120, %r121, %r122, %r123, %r124, %r125, %r126, %r127, %r128, %r129, %r130, %r131, %r132, %r133, %r134, %r135, %r136, %r137, %r138, %r139, %r140, %r141, %r142, %r143, %r144, %r145, %r146, %r147, %r148, %r149, %r150, %r151, %r152, %r153}, %rd28, %rd29, 1, 1, 1, 0, 0;",
+      "samples": 4.0,
+      "stalls": {
+        "selected": 4.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a930",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 229,
+      "sass": "      IMAD R2, R2, 0x3, RZ",
+      "ptx": "mul.lo.s16 \t%rs5, %rs4, 3;",
+      "samples": 4.0,
+      "stalls": {
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a700",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 371,
+      "sass": "@P0   BRA.U 0x7b6f2888a870",
+      "ptx": "bar.sync %r28, %r29;",
+      "samples": 3.0,
+      "stalls": {
+        "barrier": 3.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a130",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 195,
+      "sass": "      UMOV UR11, 0x40000040",
+      "ptx": "wgmma.mma_async.sync.aligned.m64n128k16.f32.bf16.bf16 {%r90, %r91, %r92, %r93, %r94, %r95, %r96, %r97, %r98, %r99, %r100, %r101, %r102, %r103, %r104, %r105, %r106, %r107, %r108, %r109, %r110, %r111, %r112, %r113, %r114, %r115, %r116, %r117, %r118, %r119, %r120, %r121, %r122, %r123, %r124, %r125, %r126, %r127, %r128, %r129, %r130, %r131, %r132, %r133, %r134, %r135, %r136, %r137, %r138, %r139, %r140, %r141, %r142, %r143, %r144, %r145, %r146, %r147, %r148, %r149, %r150, %r151, %r152, %r153}, %rd26, %rd27, 1, 1, 1, 0, 0;",
+      "samples": 3.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a170",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 197,
+      "sass": "      ULOP3.LUT UR8, UR5, 0x10004, URZ, 0xfc, !UPT",
+      "ptx": "or.b64 \t%rd28, %rd37, 4611686293305360388;",
+      "samples": 3.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a9d0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 243,
+      "sass": "      IMAD R7, R6, 0x8, R7",
+      "ptx": "add.s64 \t%rd16, %rd12, %rd15;",
+      "samples": 3.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888abe0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 266,
+      "sass": "      UTMALDG.3D [UR16], [UR6]",
+      "ptx": "@%p3 cp.async.bulk.tensor.3d.shared::cluster.global.mbarrier::complete_tx::bytes [%rd13], [%rd1, {%r18,%r154,%r3} ], [%r19];",
+      "samples": 3.0,
+      "stalls": {
+        "dispatch_stall": 3.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888abf0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 274,
+      "sass": "@P0   R2UR UR8, R2",
+      "ptx": "@%p3 cp.async.bulk.tensor.3d.shared::cluster.global.mbarrier::complete_tx::bytes [%rd14], [%rd2, {%r18,%r154,%r4} ], [%r19];",
+      "samples": 3.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "math_pipe_throttle": 1.0,
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889c20",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 71,
+      "sass": "      BAR.SYNC.DEFER_BLOCKING 0x0",
+      "ptx": "bar.sync \t0;",
+      "samples": 3.0,
+      "stalls": {
+        "long_scoreboard": 3.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888abd0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 272,
+      "sass": "      MOV R2, R2",
+      "ptx": "cvta.to.shared::cluster.u64 \t%rd14, %rd23;",
+      "samples": 3.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0,
+        "not_selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889fa0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 159,
+      "sass": "@P1   IMAD.MOV.U32 R2, RZ, RZ, RZ",
+      "ptx": "add.s16 \t%rs27, %rs26, %rs25;",
+      "samples": 3.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a0a0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 190,
+      "sass": "      R2UR UR10, R7",
+      "ptx": "wgmma.mma_async.sync.aligned.m64n128k16.f32.bf16.bf16 {%r90, %r91, %r92, %r93, %r94, %r95, %r96, %r97, %r98, %r99, %r100, %r101, %r102, %r103, %r104, %r105, %r106, %r107, %r108, %r109, %r110, %r111, %r112, %r113, %r114, %r115, %r116, %r117, %r118, %r119, %r120, %r121, %r122, %r123, %r124, %r125, %r126, %r127, %r128, %r129, %r130, %r131, %r132, %r133, %r134, %r135, %r136, %r137, %r138, %r139, %r140, %r141, %r142, %r143, %r144, %r145, %r146, %r147, %r148, %r149, %r150, %r151, %r152, %r153}, %rd24, %rd25, 1, 1, 1, 0, 0;",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 3.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a0f0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 193,
+      "sass": "      R2UR UR6, R10",
+      "ptx": "or.b64 \t%rd27, %rd40, 4611686293305360386;",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 3.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a140",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 192,
+      "sass": "      ULOP3.LUT UR8, UR5, 0x10002, URZ, 0xfc, !UPT",
+      "ptx": "or.b64 \t%rd26, %rd37, 4611686293305360386;",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 3.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a1c0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 202,
+      "sass": "      ULOP3.LUT UR8, UR5, 0x10006, URZ, 0xfc, !UPT",
+      "ptx": "or.b64 \t%rd30, %rd37, 4611686293305360390;",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 3.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a240",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 145,
+      "sass": "@P1   BRA 0x7b6f28889e90",
+      "ptx": "@!%p7 bra \t$L__BB0_5;",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 3.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a250",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 290,
+      "sass": "      SHF.R.U32.HI R2, RZ, 0x1, R0",
+      "ptx": "shr.u32 \t%r34, %r1, 1;",
+      "samples": 3.0,
+      "stalls": {
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888aa80",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 263,
+      "sass": "      MOV R3, R5",
+      "ptx": "cvta.shared.u64 \t%rd19, %rd18;",
+      "samples": 3.0,
+      "stalls": {
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889c30",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 73,
+      "sass": "@P1   BRA 0x7b6f2888a890",
+      "ptx": "@%p2 bra \t$L__BB0_8;",
+      "samples": 2.0,
+      "stalls": {
+        "barrier": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a8d0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 226,
+      "sass": "      LOP3.LUT R2, R0, 0xff, RZ, 0xc0, !PT",
+      "ptx": "and.b16 \t%rs2, %rs1, 255;",
+      "samples": 2.0,
+      "stalls": {
+        "branch_resolving": 1.0,
+        "no_instructions": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889f40",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 157,
+      "sass": "      LOP3.LUT R11, R2, 0xffff, RZ, 0xc0, !PT",
+      "ptx": "shr.u16 \t%rs25, %rs24, 15;",
+      "samples": 2.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889d70",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 141,
+      "sass": "      CS2R R52, SRZ",
+      "ptx": "bra.uni \t$L__BB0_2;",
+      "samples": 2.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a500",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 316,
+      "sass": "      F2FP.BF16.F32.PACK_AB R43, R47, R46",
+      "ptx": "cvt.rn.bf16x2.f32 \t%r53, %r113, %r112;",
+      "samples": 2.0,
+      "stalls": {
+        "no_instructions": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889ff0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 183,
+      "sass": "      IMAD.U32.X R10, R7, 0x10000000, R6, P2",
+      "ptx": "add.s64 \t%rd39, %rd38, %rd6;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a090",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 187,
+      "sass": "      WARPGROUP.ARRIVE",
+      "ptx": "wgmma.fence.sync.aligned;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a0c0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 190,
+      "sass": "      UMOV UR11, 0x40000040",
+      "ptx": "wgmma.mma_async.sync.aligned.m64n128k16.f32.bf16.bf16 {%r90, %r91, %r92, %r93, %r94, %r95, %r96, %r97, %r98, %r99, %r100, %r101, %r102, %r103, %r104, %r105, %r106, %r107, %r108, %r109, %r110, %r111, %r112, %r113, %r114, %r115, %r116, %r117, %r118, %r119, %r120, %r121, %r122, %r123, %r124, %r125, %r126, %r127, %r128, %r129, %r130, %r131, %r132, %r133, %r134, %r135, %r136, %r137, %r138, %r139, %r140, %r141, %r142, %r143, %r144, %r145, %r146, %r147, %r148, %r149, %r150, %r151, %r152, %r153}, %rd24, %rd25, 1, 1, 1, 0, 0;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a0d0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 192,
+      "sass": "      R2UR UR5, R12",
+      "ptx": "or.b64 \t%rd26, %rd37, 4611686293305360386;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a120",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 195,
+      "sass": "      UMOV UR9, 0x40000040",
+      "ptx": "wgmma.mma_async.sync.aligned.m64n128k16.f32.bf16.bf16 {%r90, %r91, %r92, %r93, %r94, %r95, %r96, %r97, %r98, %r99, %r100, %r101, %r102, %r103, %r104, %r105, %r106, %r107, %r108, %r109, %r110, %r111, %r112, %r113, %r114, %r115, %r116, %r117, %r118, %r119, %r120, %r121, %r122, %r123, %r124, %r125, %r126, %r127, %r128, %r129, %r130, %r131, %r132, %r133, %r134, %r135, %r136, %r137, %r138, %r139, %r140, %r141, %r142, %r143, %r144, %r145, %r146, %r147, %r148, %r149, %r150, %r151, %r152, %r153}, %rd26, %rd27, 1, 1, 1, 0, 0;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a150",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 193,
+      "sass": "      ULOP3.LUT UR10, UR6, 0x10002, URZ, 0xfc, !UPT",
+      "ptx": "or.b64 \t%rd27, %rd40, 4611686293305360386;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a230",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 218,
+      "sass": "@!P0  SYNCS.ARRIVE.TRANS64.A1T0 RZ, [R2+URZ+0x12000], RZ",
+      "ptx": "mbarrier.arrive.shared.b64 \t%rd41, [%rd7];",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a900",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 227,
+      "sass": "      IMAD R2, R2, 0xab, RZ",
+      "ptx": "mul.lo.s16 \t%rs3, %rs2, 171;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a920",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 229,
+      "sass": "      PRMT R2, R4, 0x9910, RZ",
+      "ptx": "mul.lo.s16 \t%rs5, %rs4, 3;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a940",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 230,
+      "sass": "      IMAD.MOV R3, RZ, RZ, -R2",
+      "ptx": "sub.s16 \t%rs6, %rs1, %rs5;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a960",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 230,
+      "sass": "      PRMT R3, R3, 0x7710, RZ",
+      "ptx": "sub.s16 \t%rs6, %rs1, %rs5;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888aa40",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 247,
+      "sass": "      SHF.L.U32 R3, R3, 0x1f, RZ",
+      "ptx": "add.s32 \t%r15, %r22, 73728;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888aa70",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 253,
+      "sass": "      BSYNC B0",
+      "ptx": "@!done bra.uni L__avelang_mbarrier_wait_1;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889970",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 43,
+      "sass": "      ULEA UR4, UR5, UR4, 0x18",
+      "ptx": "mov.b64 \t%rd12, __avelang_dynamic_shared_73984;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889920",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 43,
+      "sass": "      S2UR UR5, SR_CgaCtaId",
+      "ptx": "mov.b64 \t%rd12, __avelang_dynamic_shared_73984;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889ef0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 152,
+      "sass": "      IMAD.MOV R7, RZ, RZ, -R2",
+      "ptx": "sub.s16 \t%rs21, %rs16, %rs20;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a9f0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 239,
+      "sass": "@P1   IMAD.HI.U32 R4, R5, 0x1000000, R2",
+      "ptx": "add.s16 \t%rs12, %rs11, %rs10;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888aa50",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 247,
+      "sass": "      SYNCS.PHASECHK.TRANS64.TRYWAIT P1, [R4+URZ], R3",
+      "ptx": "add.s32 \t%r15, %r22, 73728;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888ac00",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 274,
+      "sass": "      UTMALDG.3D [UR8], [UR14]",
+      "ptx": "@%p3 cp.async.bulk.tensor.3d.shared::cluster.global.mbarrier::complete_tx::bytes [%rd14], [%rd2, {%r18,%r154,%r4} ], [%r19];",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888ac20",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 393,
+      "sass": "      WARPSYNC.ALL",
+      "ptx": "bar.sync \t0;",
+      "samples": 1.0,
+      "stalls": {
+        "branch_resolving": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a1d0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 203,
+      "sass": "      ULOP3.LUT UR10, UR6, 0x10006, URZ, 0xfc, !UPT",
+      "ptx": "or.b64 \t%rd31, %rd40, 4611686293305360390;",
+      "samples": 1.0,
+      "stalls": {
+        "dispatch_stall": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a910",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 228,
+      "sass": "      SHF.R.U32.HI R4, RZ, 0x9, R2",
+      "ptx": "shr.u16 \t%rs4, %rs3, 9;",
+      "samples": 1.0,
+      "stalls": {
+        "dispatch_stall": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888ac10",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 278,
+      "sass": "@P1   BRA 0x7b6f2888a8d0",
+      "ptx": "@%p5 bra \t$L__BB0_9;",
+      "samples": 1.0,
+      "stalls": {
+        "dispatch_stall": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a6f0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 371,
+      "sass": "      BAR.SYNC.DEFER_BLOCKING 0x1, 0x80",
+      "ptx": "bar.sync %r28, %r29;",
+      "samples": 1.0,
+      "stalls": {
+        "long_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889de0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 141,
+      "sass": "      CS2R R66, SRZ",
+      "ptx": "bra.uni \t$L__BB0_2;",
+      "samples": 1.0,
+      "stalls": {
+        "math_pipe_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889aa0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 52,
+      "sass": "@!UP0 USHF.L.U32 UR19, UR18, 0xb, URZ",
+      "ptx": "@%p1 mbarrier.init.shared.b64 [%r7], %r6;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889dd0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 141,
+      "sass": "      CS2R R64, SRZ",
+      "ptx": "bra.uni \t$L__BB0_2;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a220",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 214,
+      "sass": "      WARPGROUP.ARRIVE",
+      "ptx": "wgmma.fence.sync.aligned;",
+      "samples": 1.0,
+      "stalls": {
+        "not_selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889930",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 43,
+      "sass": "      UMOV UR4, 0x400",
+      "ptx": "mov.b64 \t%rd12, __avelang_dynamic_shared_73984;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f288899a0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 42,
+      "sass": "      ISETP.NE.U32.AND P0, PT, R0, RZ, PT",
+      "ptx": "setp.eq.b32 \t%p1, %r1, 0;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889b20",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 64,
+      "sass": "@!UP0 UIADD3 UR24, -UR6, 0x100000, URZ",
+      "ptx": "@%p1 mbarrier.init.shared.b64 [%r10], %r6;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889bf0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 64,
+      "sass": "@!UP4 SYNCS.EXCH.64 URZ, [UR11], UR24",
+      "ptx": "@%p1 mbarrier.init.shared.b64 [%r10], %r6;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889cc0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 141,
+      "sass": "      CS2R R30, SRZ",
+      "ptx": "bra.uni \t$L__BB0_2;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889df0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 141,
+      "sass": "      CS2R R68, SRZ",
+      "ptx": "bra.uni \t$L__BB0_2;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889e50",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 141,
+      "sass": "      CS2R R80, SRZ",
+      "ptx": "bra.uni \t$L__BB0_2;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889f00",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 156,
+      "sass": "      PRMT R2, R2, 0x8880, RZ",
+      "ptx": "mul.lo.s16 \t%rs24, %rs23, 86;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889fc0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 159,
+      "sass": "@P1   IMAD.HI.U32 R8, R11, 0x1000000, R2",
+      "ptx": "add.s16 \t%rs27, %rs26, %rs25;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a0b0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 190,
+      "sass": "      UMOV UR9, 0x40000040",
+      "ptx": "wgmma.mma_async.sync.aligned.m64n128k16.f32.bf16.bf16 {%r90, %r91, %r92, %r93, %r94, %r95, %r96, %r97, %r98, %r99, %r100, %r101, %r102, %r103, %r104, %r105, %r106, %r107, %r108, %r109, %r110, %r111, %r112, %r113, %r114, %r115, %r116, %r117, %r118, %r119, %r120, %r121, %r122, %r123, %r124, %r125, %r126, %r127, %r128, %r129, %r130, %r131, %r132, %r133, %r134, %r135, %r136, %r137, %r138, %r139, %r140, %r141, %r142, %r143, %r144, %r145, %r146, %r147, %r148, %r149, %r150, %r151, %r152, %r153}, %rd24, %rd25, 1, 1, 1, 0, 0;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a180",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 198,
+      "sass": "      ULOP3.LUT UR10, UR6, 0x10004, URZ, 0xfc, !UPT",
+      "ptx": "or.b64 \t%rd29, %rd40, 4611686293305360388;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a190",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 200,
+      "sass": "      UMOV UR9, 0x40000040",
+      "ptx": "wgmma.mma_async.sync.aligned.m64n128k16.f32.bf16.bf16 {%r90, %r91, %r92, %r93, %r94, %r95, %r96, %r97, %r98, %r99, %r100, %r101, %r102, %r103, %r104, %r105, %r106, %r107, %r108, %r109, %r110, %r111, %r112, %r113, %r114, %r115, %r116, %r117, %r118, %r119, %r120, %r121, %r122, %r123, %r124, %r125, %r126, %r127, %r128, %r129, %r130, %r131, %r132, %r133, %r134, %r135, %r136, %r137, %r138, %r139, %r140, %r141, %r142, %r143, %r144, %r145, %r146, %r147, %r148, %r149, %r150, %r151, %r152, %r153}, %rd28, %rd29, 1, 1, 1, 0, 0;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a1e0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 205,
+      "sass": "      UMOV UR9, 0x40000040",
+      "ptx": "wgmma.mma_async.sync.aligned.m64n128k16.f32.bf16.bf16 {%r90, %r91, %r92, %r93, %r94, %r95, %r96, %r97, %r98, %r99, %r100, %r101, %r102, %r103, %r104, %r105, %r106, %r107, %r108, %r109, %r110, %r111, %r112, %r113, %r114, %r115, %r116, %r117, %r118, %r119, %r120, %r121, %r122, %r123, %r124, %r125, %r126, %r127, %r128, %r129, %r130, %r131, %r132, %r133, %r134, %r135, %r136, %r137, %r138, %r139, %r140, %r141, %r142, %r143, %r144, %r145, %r146, %r147, %r148, %r149, %r150, %r151, %r152, %r153}, %rd30, %rd31, 1, 1, 1, 0, 0;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a580",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 365,
+      "sass": "      VIADD R2, R2, UR5",
+      "ptx": "add.s64 \t%rd58, %rd57, %rd43;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a8e0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 243,
+      "sass": "      IMAD.U32 R7, RZ, RZ, UR4",
+      "ptx": "add.s64 \t%rd16, %rd12, %rd15;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a8f0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 262,
+      "sass": "      BSSY B0, 0x7b6f2888aa80",
+      "ptx": "add.s64 \t%rd18, %rd12, %rd17;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a950",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 236,
+      "sass": "      PRMT R5, R2, 0x8880, RZ",
+      "ptx": "mul.lo.s16 \t%rs9, %rs8, 86;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a980",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 236,
+      "sass": "      IMAD R3, R5, 0x56, RZ",
+      "ptx": "mul.lo.s16 \t%rs9, %rs8, 86;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a9a0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 237,
+      "sass": "      LOP3.LUT R5, R3, 0xffff, RZ, 0xc0, !PT",
+      "ptx": "shr.u16 \t%rs10, %rs9, 15;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888aaa0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 266,
+      "sass": "      UIADD3 UR6, UP0, UR22, 0x1b0, URZ",
+      "ptx": "@%p3 cp.async.bulk.tensor.3d.shared::cluster.global.mbarrier::complete_tx::bytes [%rd13], [%rd1, {%r18,%r154,%r3} ], [%r19];",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888aac0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 259,
+      "sass": "@P0   IMAD.MOV.U32 R4, RZ, RZ, 0x6000",
+      "ptx": "@%p3 mbarrier.arrive.expect_tx.shared.b64 _, [%r19], %r17;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888ab50",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 266,
+      "sass": "@P0   R2UR UR17, R7",
+      "ptx": "@%p3 cp.async.bulk.tensor.3d.shared::cluster.global.mbarrier::complete_tx::bytes [%rd13], [%rd1, {%r18,%r154,%r3} ], [%r19];",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889950",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 38,
+      "sass": "      S2UR UR13, SR_CTAID.Y",
+      "ptx": "mov.u32 \t%r2, %ctaid.y;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889980",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 45,
+      "sass": "      UIADD3 UR5, UR4, 0x12018, URZ",
+      "ptx": "add.s32 \t%r5, %r13, 73752;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889ae0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 56,
+      "sass": "@!UP0 USHF.L.U32 UR20, UR20, 0x1, URZ",
+      "ptx": "@%p1 mbarrier.init.shared.b64 [%r8], %r6;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889b00",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 60,
+      "sass": "@!UP0 USHF.L.U32 UR23, UR22, 0xb, URZ",
+      "ptx": "@%p1 mbarrier.init.shared.b64 [%r9], %r6;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889dc0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 141,
+      "sass": "      CS2R R62, SRZ",
+      "ptx": "bra.uni \t$L__BB0_2;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f28889e40",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 141,
+      "sass": "      CS2R R78, SRZ",
+      "ptx": "bra.uni \t$L__BB0_2;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a5a0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 340,
+      "sass": "      F2FP.BF16.F32.PACK_AB R64, R65, R64",
+      "ptx": "cvt.rn.bf16x2.f32 \t%r68, %r131, %r130;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a6c0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 366,
+      "sass": "      STSM.16.M88.4 [R2], R80",
+      "ptx": "stmatrix.sync.aligned.m8n8.x4.shared.b16 [%rd58], {%r80, %r81, %r82, %r83};",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a710",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 36,
+      "sass": "      ULDC.64 UR6, c[0x0][0x198]",
+      "ptx": "cvta.param.u64 \t%rd4, %rd9;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a890",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 221,
+      "sass": "      WARPSYNC.ALL",
+      "ptx": "elect.sync \t%r14|%p3, -1;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x7b6f2888a9e0",
+      "file": "/profile/harness/generated/ave/linear_native_1da0e2f85a.ptx",
+      "line": 239,
+      "sass": "@P1   IMAD.MOV.U32 R2, RZ, RZ, RZ",
+      "ptx": "add.s16 \t%rs12, %rs11, %rs10;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    }
+  ]
+}

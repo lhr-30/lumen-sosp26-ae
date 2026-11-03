@@ -1,0 +1,12 @@
+==WARNING== Note: Running with uncontrolled GPU caches. Profiling results may be inconsistent.
+==PROF== Connected to process 76 (/usr/bin/python3.12)
+cute/attended: {'cosine': 0.999996530632734, 'relative_l2': 0.0026341499054155487, 'max_abs': 0.015625, 'mean_abs': 0.00022943129525178674}
+cute/output: {'cosine': 0.999999048134544, 'relative_l2': 0.0013797574168539289, 'max_abs': 0.015625, 'mean_abs': 0.00041714334152997116}
+==PROF== Profiling "kernel_cutlass_kernel_kernels..." - 0: 0%....50%....100% - 5 passes
+==PROF== Profiling "kernel_cutlass_kernel_k_norm_..." - 1: 0%....50%....100% - 5 passes
+==PROF== Profiling "kernel_cutlass_kernel_qnorm_a..." - 2: 0%....50%....100% - 5 passes
+==PROF== Profiling "kernel_cutlass_kernel_kernels..." - 3: 0%....50%....100% - 5 passes
+==PROF== Profiling "vectorized_elementwise_kernel" - 4: 0%....50%....100% - 5 passes
+PASS /profile/analysis/source_cute_validation.json
+==PROF== Disconnected from process 76
+==PROF== Report: /profile/reports/source_cute.ncu-rep

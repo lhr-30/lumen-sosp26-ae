@@ -3,6 +3,27 @@
 This repository contains the data, generated kernels, and benchmarking harness
 for the Lumen SOSP'26 paper.
 
+## H100 / Hopper extension
+
+A local AveLang extension adds BF16 WGMMA, mbarrier and an H100 GEMM
+correctness example. See [setup, scope and validation](scripts/hopper/README.md).
+This is new code built on the public compiler, separate from the original AMD
+artifact and the paper's H200 performance results.
+
+An [agent-generated attention mixer experiment](scripts/attn_fusion/README.md)
+implements the fixed Qwen3.5 `B=16, T=26` attention-layer workload in AveLang,
+with independent correctness checks and clearly separated CuTe/AveLang timing.
+
+The [supplied native Hopper backend experiment](scripts/attn_fusion_native/README.md)
+uses the provided AveLang repository's TMA/WGMMA branch for the same workload.
+
+The native experiments use the `avelang/` Git submodule. Initialize it with
+`git submodule update --init --recursive` after cloning this repository.
+
+The [native Lumen harness experiment](scripts/attn_fusion_harness/README.md)
+runs generation and two optimization rounds from the original mixer reference,
+using the repository's unchanged Codex optimization runtime.
+
 ## Installation
 
 The corresponding docker image pre-installed the dependency. To start the evaluation, activate the virtual environment:

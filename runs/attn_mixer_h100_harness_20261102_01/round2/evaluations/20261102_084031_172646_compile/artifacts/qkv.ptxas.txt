@@ -1,0 +1,6 @@
+ptxas info    : 0 bytes gmem
+ptxas info    : Compiling entry function '_linear_wide' for 'sm_90a'
+ptxas info    : Function properties for _linear_wide
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 108 registers, used 1 barriers
+ptxas info    : Compile time = 42.572 ms

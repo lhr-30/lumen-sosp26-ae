@@ -1,0 +1,340 @@
+{
+  "date_utc": "2026-10-31",
+  "scope": "Single attention mixer, not whole-model e2e",
+  "shape": {
+    "B": 16,
+    "T": 26,
+    "H": 8,
+    "KV": 2,
+    "D": 256,
+    "hidden": 2048
+  },
+  "source": {
+    "provided_repo": "avelang/",
+    "branch": "origin/nvidia-ave-kernels",
+    "commit": "5f349c594ad510ad6b90d0e1ca310c0d47aa9ed1",
+    "checkout": ".repro/avelang-native",
+    "build_patch": "third_party/AveLang/native-build.patch",
+    "hardware_lowering_modified": false,
+    "original_checkout_unchanged": true,
+    "candidate_sha256": "028c6747cffd1ae6e32d71ad90ce4d06bf51dfa0b760cc05913d4d5feee3cdac",
+    "rejected_draft_sha256": "ce4482d56ff29376d8b7761a5ba46c59d6e4c18f5f50b7c6ee8ab3f005d0d53d",
+    "build_patch_sha256": "4d3314f35dcdfed00464bba2197be0dcb1ef39a84c3c1f2a3c2c83ecd460a9d6",
+    "reference_sha256": "f78ff01334a91c75bf4ab2401ba0d4fa78d055d8bdddc5074b11b86e2ad29fb4",
+    "original_bench_sha256": "777daa6c9ef3ae36c84edfc95f3874b493996d34b212e64da0747fb53d38d293"
+  },
+  "environment": {
+    "gpu": "NVIDIA H100 NVL",
+    "sm_count": 132,
+    "torch": "2.12.0a0+5aff3928d8.nv26.05",
+    "cuda": "13.2",
+    "image": "lumen-hopper:dev",
+    "image_id": "sha256:7995e7f3e3fa0167e63f648d447452cc12fe204581a7dc57333d37713fe2624b",
+    "llvm": "23.0.0git"
+  },
+  "invariant_validation": {
+    "available": false,
+    "reason": "No artifact invariant module or validate_invariants option in supplied branch; no fake stubs or ignored validation flags used"
+  },
+  "cpu_compile": {
+    "invariant_validation": "unavailable in native branch",
+    "kernels": [
+      {
+        "name": "qkv_projection",
+        "seconds": 0.206214786041528,
+        "ptx_bytes": 16392,
+        "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'linear_native' for 'sm_90a'\nptxas info    : Function properties for linear_native\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 93 registers, used 1 barriers\nptxas info    : Compile time = 28.288 ms",
+        "has_ptx_local_memory": false
+      },
+      {
+        "name": "unpack_q_gate_k_v",
+        "seconds": 0.037257570307701826,
+        "ptx_bytes": 1892,
+        "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'unpack' for 'sm_90a'\nptxas info    : Function properties for unpack\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 18 registers, used 0 barriers\nptxas info    : Compile time = 3.184 ms",
+        "has_ptx_local_memory": false
+      },
+      {
+        "name": "q_norm_rope",
+        "seconds": 0.07131519401445985,
+        "ptx_bytes": 5773,
+        "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'norm_rope' for 'sm_90a'\nptxas info    : Function properties for norm_rope\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 27 registers, used 1 barriers, 512 bytes smem\nptxas info    : Compile time = 5.974 ms",
+        "has_ptx_local_memory": false
+      },
+      {
+        "name": "k_norm_rope",
+        "seconds": 0.0691805798560381,
+        "ptx_bytes": 5772,
+        "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'norm_rope' for 'sm_90a'\nptxas info    : Function properties for norm_rope\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 27 registers, used 1 barriers, 512 bytes smem\nptxas info    : Compile time = 5.873 ms",
+        "has_ptx_local_memory": false
+      },
+      {
+        "name": "causal_gqa_gate",
+        "seconds": 0.11799125792458653,
+        "ptx_bytes": 10994,
+        "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'causal_gqa_gate' for 'sm_90a'\nptxas info    : Function properties for causal_gqa_gate\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 43 registers, used 0 barriers\nptxas info    : Compile time = 9.441 ms",
+        "has_ptx_local_memory": false
+      },
+      {
+        "name": "output_projection",
+        "seconds": 0.1992784421890974,
+        "ptx_bytes": 16386,
+        "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'linear_native' for 'sm_90a'\nptxas info    : Function properties for linear_native\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 93 registers, used 1 barriers\nptxas info    : Compile time = 28.105 ms",
+        "has_ptx_local_memory": false
+      },
+      {
+        "name": "residual",
+        "seconds": 0.03194733476266265,
+        "ptx_bytes": 1039,
+        "ptxas": "ptxas info    : 0 bytes gmem\nptxas info    : Compiling entry function 'add_residual' for 'sm_90a'\nptxas info    : Function properties for add_residual\n    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads\nptxas info    : Used 12 registers, used 0 barriers\nptxas info    : Compile time = 2.285 ms",
+        "has_ptx_local_memory": false
+      }
+    ]
+  },
+  "correctness": [
+    {
+      "case": "seed0",
+      "metrics": {
+        "attended": {
+          "cosine": 0.999999837436983,
+          "relative_l2": 0.000570207443569257,
+          "max_abs": 0.015625,
+          "mean_abs": 1.2761059109650958e-05
+        },
+        "output": {
+          "cosine": 0.9999998140494218,
+          "relative_l2": 0.0006098369876132453,
+          "max_abs": 0.015625,
+          "mean_abs": 8.251420625198919e-05
+        }
+      }
+    },
+    {
+      "case": "graph_seed17",
+      "metrics": {
+        "attended": {
+          "cosine": 0.9999998897745342,
+          "relative_l2": 0.0004695226089064049,
+          "max_abs": 0.0078125,
+          "mean_abs": 9.681893348993772e-06
+        },
+        "output": {
+          "cosine": 0.9999998505876813,
+          "relative_l2": 0.0005466492516676392,
+          "max_abs": 0.015625,
+          "mean_abs": 6.640054813872736e-05
+        }
+      }
+    },
+    {
+      "case": "graph_seed123",
+      "metrics": {
+        "attended": {
+          "cosine": 0.9999998872131892,
+          "relative_l2": 0.0004749627606790927,
+          "max_abs": 0.015625,
+          "mean_abs": 9.33864988129384e-06
+        },
+        "output": {
+          "cosine": 0.9999998490943323,
+          "relative_l2": 0.0005493735663848007,
+          "max_abs": 0.015625,
+          "mean_abs": 6.725561196127764e-05
+        }
+      }
+    },
+    {
+      "case": "causal_batch_isolation",
+      "metrics": {
+        "attended": {
+          "cosine": 0.9999998870606854,
+          "relative_l2": 0.0004752818275683516,
+          "max_abs": 0.015625,
+          "mean_abs": 9.473962299247993e-06
+        },
+        "output": {
+          "cosine": 0.9999998470900127,
+          "relative_l2": 0.0005530102429673109,
+          "max_abs": 0.015625,
+          "mean_abs": 6.808776659174608e-05
+        }
+      }
+    },
+    {
+      "case": "zero_input",
+      "metrics": {
+        "attended": {
+          "cosine": null,
+          "relative_l2": null,
+          "max_abs": 0.0,
+          "mean_abs": 0.0
+        },
+        "output": {
+          "cosine": 0.9999999999999999,
+          "relative_l2": 0.0,
+          "max_abs": 0.0,
+          "mean_abs": 0.0
+        }
+      }
+    }
+  ],
+  "sanitizers": {
+    "memcheck": {
+      "passed": true,
+      "summary": "ERROR SUMMARY: 0 errors",
+      "log": ".repro/attn-fusion-native-memcheck-round0.log"
+    },
+    "synccheck": {
+      "passed": true,
+      "summary": "ERROR SUMMARY: 0 errors",
+      "log": ".repro/attn-fusion-native-synccheck-round0.log"
+    },
+    "racecheck": {
+      "passed": true,
+      "summary": "RACECHECK SUMMARY: 0 hazards displayed (0 errors, 0 warnings)",
+      "log": ".repro/attn-fusion-native-racecheck-round0.log"
+    }
+  },
+  "measurement": {
+    "method": "CUDA graph, allocations/compilation/Python submission excluded; stage/chain replays interleaved",
+    "calls_per_graph": 10,
+    "samples": 10,
+    "native_baseline": {
+      "qkv_projection": {
+        "median_us": 37.92160004377365,
+        "p10_us": 37.23295897245407,
+        "p90_us": 38.62367928028107
+      },
+      "unpack_q_gate_k_v": {
+        "median_us": 4.57760002464056,
+        "p10_us": 4.557440057396889,
+        "p90_us": 4.632959887385368
+      },
+      "q_norm_rope": {
+        "median_us": 4.403200000524521,
+        "p10_us": 4.381119832396507,
+        "p90_us": 4.453440047800541
+      },
+      "k_norm_rope": {
+        "median_us": 2.5679999962449074,
+        "p10_us": 2.550400048494339,
+        "p90_us": 2.615680005401373
+      },
+      "causal_gqa_gate": {
+        "median_us": 17.555200308561325,
+        "p10_us": 17.44799956679344,
+        "p90_us": 17.708159387111664
+      },
+      "output_projection": {
+        "median_us": 15.998400002717972,
+        "p10_us": 15.872319489717484,
+        "p90_us": 16.44672006368637
+      },
+      "residual": {
+        "median_us": 3.8975998759269714,
+        "p10_us": 3.8729600608348846,
+        "p90_us": 3.92800010740757
+      },
+      "chain": {
+        "median_us": 87.59520053863525,
+        "p10_us": 87.3308789730072,
+        "p90_us": 87.89984226226807
+      }
+    },
+    "native_draft": {
+      "qkv_projection": {
+        "median_us": 35.684800148010254,
+        "p10_us": 33.58623951673508,
+        "p90_us": 37.201280295848846
+      },
+      "unpack_q_gate_k_v": {
+        "median_us": 4.59039993584156,
+        "p10_us": 4.554880037903786,
+        "p90_us": 4.649920016527176
+      },
+      "q_norm_rope": {
+        "median_us": 4.425599984824657,
+        "p10_us": 4.3910399079322815,
+        "p90_us": 4.444799944758415
+      },
+      "k_norm_rope": {
+        "median_us": 2.5936000049114227,
+        "p10_us": 2.5526400469243526,
+        "p90_us": 2.61439997702837
+      },
+      "causal_gqa_gate": {
+        "median_us": 17.03360006213188,
+        "p10_us": 16.87679961323738,
+        "p90_us": 17.103999853134155
+      },
+      "output_projection": {
+        "median_us": 16.177599877119064,
+        "p10_us": 15.909440219402313,
+        "p90_us": 16.24511942267418
+      },
+      "residual": {
+        "median_us": 3.911999985575676,
+        "p10_us": 3.885760121047497,
+        "p90_us": 3.949439935386181
+      },
+      "chain": {
+        "median_us": 87.8928005695343,
+        "p10_us": 87.3283189535141,
+        "p90_us": 88.53056192398071
+      }
+    },
+    "original_cute_fresh": {
+      "qkv_proj (CuTe 416x5120x2048)": {
+        "median_us": 16.931,
+        "p10_us": 16.888,
+        "p90_us": 17.145
+      },
+      "k_norm_rope (CuTe)": {
+        "median_us": 2.283,
+        "p10_us": 2.253,
+        "p90_us": 2.369
+      },
+      "q_norm_rope_attention_gate (CuTe)": {
+        "median_us": 6.219,
+        "p10_us": 6.199,
+        "p90_us": 6.281
+      },
+      "o_proj (CuTe 416x2048x2048)": {
+        "median_us": 8.782,
+        "p10_us": 8.717,
+        "p90_us": 8.837
+      },
+      "residual_add (torch.add)": {
+        "median_us": 2.47,
+        "p10_us": 2.405,
+        "p90_us": 2.58
+      },
+      "chain (all 5)": {
+        "median_us": 35.891,
+        "p10_us": 35.778,
+        "p90_us": 36.84
+      }
+    },
+    "previous_custom_backend_chain_us": 398.3199954032898,
+    "speedup_vs_previous_custom_backend": 4.547281049121001,
+    "slowdown_vs_original_cute": 2.4405895778505826
+  },
+  "optimization_decision": {
+    "accepted": "native_candidate.py",
+    "rejected": "round1_candidate.py",
+    "reason": "No measurable chain improvement; distributions overlap",
+    "baseline_us": 87.59520053863525,
+    "draft_us": 87.8928005695343
+  },
+  "queue_jobs": {
+    "native_baseline_full_test_bench": 3551,
+    "native_baseline_sanitizers_and_cute": 3553,
+    "native_draft_full_test_bench": 3554
+  },
+  "limitations": [
+    "Fixed B16,T26,H8,KV2,D256,hidden2048 workload",
+    "Native fast math checked under benchmark tolerances, not bitwise equivalence for all IEEE inputs",
+    "No artifact static data-flow invariant verification",
+    "Seven launches; attention still uses FP32 scalar/warp reductions",
+    "WGMMA overlap draft passed numerical tests but was not retained or sanitizer-tested because it did not improve chain timing"
+  ]
+}

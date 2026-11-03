@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "/support/evaluate.py", line 188, in <module>
+    main()
+  File "/support/evaluate.py", line 173, in main
+    report['correctness'] = validate(inputs, kernels, outputs, args.smoke)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/support/evaluate.py", line 81, in validate
+    chain()
+  File "/support/evaluate.py", line 77, in chain
+    fn()
+  File "/experiment/output_model_new.py", line 374, in attention_gate
+    _attention_gate[lambda: ((128, 1, 1), (256, 1, 1))](
+  File "/workspace/avelang/python/avelang/runtime/jit.py", line 509, in <lambda>
+    return lambda *args, **kwargs: self.run(dims, *args, **kwargs)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/avelang/python/avelang/runtime/jit.py", line 831, in run
+    kernel.run(
+  File "/workspace/avelang/python/avelang/backends/nvidia/driver.py", line 426, in __call__
+    return self.launch(
+           ^^^^^^^^^^^^
+RuntimeError: ave-lang Error [CUDA]: invalid argument

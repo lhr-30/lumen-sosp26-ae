@@ -1,0 +1,14 @@
+seed0/attended: {'cosine': 0.8017956848579831, 'relative_l2': 0.5975983582912467, 'max_abs': 1.7138671875, 'mean_abs': 0.09537702882023127}
+Traceback (most recent call last):
+  File "/support/evaluate.py", line 188, in <module>
+    main()
+  File "/support/evaluate.py", line 173, in main
+    report['correctness'] = validate(inputs, kernels, outputs, args.smoke)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/support/evaluate.py", line 83, in validate
+    records.append({'case': 'seed0', 'metrics': compare(outputs, expected, 'seed0')})
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/support/evaluate.py", line 53, in compare
+    assert cosine >= 0.9999, f'{label}/{name}: cosine {cosine} < 0.9999'
+           ^^^^^^^^^^^^^^^^
+AssertionError: seed0/attended: cosine 0.8017956848579831 < 0.9999

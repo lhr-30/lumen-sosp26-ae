@@ -1,0 +1,1593 @@
+{
+  "sample_count": 618,
+  "stall_distribution": {
+    "barrier": {
+      "samples": 27,
+      "pct_samples": 4.368932038834951
+    },
+    "branch_resolving": {
+      "samples": 4,
+      "pct_samples": 0.6472491909385113
+    },
+    "dispatch_stall": {
+      "samples": 4,
+      "pct_samples": 0.6472491909385113
+    },
+    "drain": {
+      "samples": 1,
+      "pct_samples": 0.16181229773462782
+    },
+    "imc_miss": {
+      "samples": 10,
+      "pct_samples": 1.6181229773462784
+    },
+    "lg_throttle": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "long_scoreboard": {
+      "samples": 228,
+      "pct_samples": 36.89320388349515
+    },
+    "math_pipe_throttle": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "membar": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "mio_throttle": {
+      "samples": 6,
+      "pct_samples": 0.970873786407767
+    },
+    "misc": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "no_instructions": {
+      "samples": 13,
+      "pct_samples": 2.103559870550162
+    },
+    "not_selected": {
+      "samples": 1,
+      "pct_samples": 0.16181229773462782
+    },
+    "selected": {
+      "samples": 84,
+      "pct_samples": 13.592233009708737
+    },
+    "short_scoreboard": {
+      "samples": 56,
+      "pct_samples": 9.06148867313916
+    },
+    "sleeping": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "tex_throttle": {
+      "samples": 0,
+      "pct_samples": 0.0
+    },
+    "wait": {
+      "samples": 174,
+      "pct_samples": 28.155339805825243
+    },
+    "warpgroup_arrive": {
+      "samples": 10,
+      "pct_samples": 1.6181229773462784
+    }
+  },
+  "hotspots": [
+    {
+      "pc": "0x736aa7e94440",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 250,
+      "sass": "@!P0  NANOSLEEP.SYNCS 0x989680",
+      "ptx": "mbarrier.try_wait.parity.shared.b64 P1, [%r216], %r1243, 10000000; ",
+      "samples": 120.0,
+      "stalls": {
+        "long_scoreboard": 118.0,
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93f60",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 200,
+      "sass": "@!P0  NANOSLEEP.SYNCS 0x989680",
+      "ptx": "mbarrier.try_wait.parity.shared.b64 P1, [%r10], %r1239, 10000000; ",
+      "samples": 34.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "long_scoreboard": 33.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94db0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 241,
+      "sass": "      UISETP.GT.U32.AND UP0, UPT, UR6, 0x7fffff7f, UPT",
+      "ptx": "setp.gt.u32 \t%p11, %r26, 2147483519;",
+      "samples": 26.0,
+      "stalls": {
+        "long_scoreboard": 26.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94460",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 250,
+      "sass": "@!P0  BRA 0x736aa7e94420",
+      "ptx": "@P1 bra.uni DONE; ",
+      "samples": 25.0,
+      "stalls": {
+        "long_scoreboard": 21.0,
+        "selected": 1.0,
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e943f0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 250,
+      "sass": "      ULEA UR5, UR7, UR5, 0x18",
+      "ptx": "mov.b32 \t%r1060, __dynamic_shmem__0;",
+      "samples": 25.0,
+      "stalls": {
+        "selected": 1.0,
+        "short_scoreboard": 24.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94900",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 277,
+      "sass": "      WARPGROUP.DEPBAR.LE gsb0, 0x0",
+      "ptx": "wgmma.wait_group.sync.aligned \t0;",
+      "samples": 23.0,
+      "stalls": {
+        "barrier": 23.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94800",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 271,
+      "sass": "@!P0  LEA R3, R6, R3, 0x18",
+      "ptx": "mov.b32 \t%r1090, __dynamic_shmem__0;",
+      "samples": 21.0,
+      "stalls": {
+        "selected": 1.0,
+        "short_scoreboard": 18.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93f30",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 200,
+      "sass": "      ULEA UR9, UR4, UR5, 0x3",
+      "ptx": "add.s32 \t%r1216, %r1215, %r1214;",
+      "samples": 15.0,
+      "stalls": {
+        "long_scoreboard": 12.0,
+        "selected": 1.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94570",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 226,
+      "sass": "      HGMMA.64x104x16.F32.BF16 R24, gdesc[UR8], R24, UP0",
+      "ptx": "mov.b64 \t%rd11, {%r1081, %r1080};",
+      "samples": 11.0,
+      "stalls": {
+        "selected": 1.0,
+        "warpgroup_arrive": 10.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94860",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 108,
+      "sass": "      VIADD R5, R5, 0x1",
+      "ptx": "add.s32 \t%r1303, %r1303, 1;",
+      "samples": 11.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 10.0
+      }
+    },
+    {
+      "pc": "0x736aa7e947e0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 271,
+      "sass": "@!P0  S2R R6, SR_CgaCtaId",
+      "ptx": "mov.b32 \t%r1090, __dynamic_shmem__0;",
+      "samples": 11.0,
+      "stalls": {
+        "wait": 11.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93b20",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 152,
+      "sass": "      ULDC.64 UR20, c[0x0][0x198]",
+      "ptx": "cvta.param.u64 \t%rd1, %rd7;",
+      "samples": 10.0,
+      "stalls": {
+        "imc_miss": 10.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94750",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 226,
+      "sass": "      HGMMA.64x104x16.F32.BF16 R24, gdesc[UR8], R24",
+      "ptx": "mov.b64 \t%rd23, {%r1083, %r1080};",
+      "samples": 10.0,
+      "stalls": {
+        "mio_throttle": 1.0,
+        "wait": 9.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93f20",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 200,
+      "sass": "      ULEA UR5, UR8, UR5, 0x18",
+      "ptx": "mov.b32 \t%r1215, __dynamic_shmem__0;",
+      "samples": 10.0,
+      "stalls": {
+        "short_scoreboard": 10.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94840",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 272,
+      "sass": "      ISETP.NE.AND P0, PT, R2, 0x5, PT",
+      "ptx": "setp.eq.s32 \t%p6, %r1094, 5;",
+      "samples": 9.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "wait": 8.0
+      }
+    },
+    {
+      "pc": "0x736aa7e947a0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 226,
+      "sass": "      HGMMA.64x104x16.F32.BF16 R24, gdesc[UR8], R24.gsb0",
+      "ptx": "mov.b64 \t%rd25, {%r1082, %r1080};",
+      "samples": 9.0,
+      "stalls": {
+        "mio_throttle": 4.0,
+        "selected": 1.0,
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94420",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 250,
+      "sass": "      IMAD.U32 R6, RZ, RZ, UR7",
+      "ptx": "mbarrier.try_wait.parity.shared.b64 P1, [%r216], %r1243, 10000000; ",
+      "samples": 9.0,
+      "stalls": {
+        "wait": 9.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94450",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 250,
+      "sass": "@!P0  SYNCS.PHASECHK.TRANS64 P0, [R6+URZ], R3",
+      "ptx": "mbarrier.try_wait.parity.shared.b64 P1, [%r216], %r1243, 10000000; ",
+      "samples": 8.0,
+      "stalls": {
+        "selected": 5.0,
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93f80",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 200,
+      "sass": "@!P0  BRA 0x736aa7e93f40",
+      "ptx": "@P1 bra.uni DONE; ",
+      "samples": 7.0,
+      "stalls": {
+        "long_scoreboard": 6.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e944e0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 226,
+      "sass": "      USHF.R.U32.HI UR7, URZ, 0x4, UR5",
+      "ptx": "shr.u32 \t%r1063, %r1062, 4;",
+      "samples": 7.0,
+      "stalls": {
+        "selected": 5.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94660",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 226,
+      "sass": "      HGMMA.64x104x16.F32.BF16 R24, gdesc[UR8], R24",
+      "ptx": "mov.b64 \t%rd17, {%r1086, %r1080};",
+      "samples": 7.0,
+      "stalls": {
+        "wait": 7.0
+      }
+    },
+    {
+      "pc": "0x736aa7e946b0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 226,
+      "sass": "      HGMMA.64x104x16.F32.BF16 R24, gdesc[UR8], R24",
+      "ptx": "mov.b64 \t%rd19, {%r1085, %r1080};",
+      "samples": 6.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 5.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94880",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 108,
+      "sass": "      ISETP.NE.AND P0, PT, R5, 0x10, PT",
+      "ptx": "setp.ne.s32 \t%p8, %r1303, 16;",
+      "samples": 6.0,
+      "stalls": {
+        "wait": 6.0
+      }
+    },
+    {
+      "pc": "0x736aa7e948f0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 164,
+      "sass": "      ISETP.NE.AND P0, PT, R7, RZ, PT",
+      "ptx": "setp.ne.s32 \t%p9, %r136, 0;",
+      "samples": 6.0,
+      "stalls": {
+        "wait": 6.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94150",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 108,
+      "sass": "      UIADD3 UR18, UR18, 0x80, URZ",
+      "ptx": "add.s32 \t%r1238, %r1238, 128;",
+      "samples": 5.0,
+      "stalls": {
+        "long_scoreboard": 5.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94310",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 221,
+      "sass": "      BAR.SYNC.DEFER_BLOCKING 0x1, 0xa0",
+      "ptx": "bar.sync 1, 160;",
+      "samples": 5.0,
+      "stalls": {
+        "no_instructions": 5.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94470",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 226,
+      "sass": "      UIADD3 UR5, UR5, 0x44f, URZ",
+      "ptx": "add.s32 \t%r1062, %r1060, 1103;",
+      "samples": 5.0,
+      "stalls": {
+        "selected": 2.0,
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e945c0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 226,
+      "sass": "      HGMMA.64x104x16.F32.BF16 R24, gdesc[UR8], R24",
+      "ptx": "mov.b64 \t%rd13, {%r1088, %r1080};",
+      "samples": 5.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94610",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 226,
+      "sass": "      HGMMA.64x104x16.F32.BF16 R24, gdesc[UR8], R24",
+      "ptx": "mov.b64 \t%rd15, {%r1087, %r1080};",
+      "samples": 5.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x736aa7e947c0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 164,
+      "sass": "      ISETP.NE.AND P0, PT, R7, RZ, PT",
+      "ptx": "setp.ne.s32 \t%p5, %r136, 0;",
+      "samples": 5.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94850",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 272,
+      "sass": "      SEL R2, R2, RZ, P0",
+      "ptx": "selp.b32 \t%r1356, 0, %r1094, %p6;",
+      "samples": 5.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93ef0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 200,
+      "sass": "      S2UR UR8, SR_CgaCtaId",
+      "ptx": "mov.b32 \t%r1215, __dynamic_shmem__0;",
+      "samples": 4.0,
+      "stalls": {
+        "branch_resolving": 1.0,
+        "no_instructions": 2.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e943b0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 137,
+      "sass": "      S2R R4, SR_TID.X",
+      "ptx": "mov.u32 \t%r1058, %tid.x;",
+      "samples": 4.0,
+      "stalls": {
+        "branch_resolving": 2.0,
+        "no_instructions": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94590",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 261,
+      "sass": "      ULOP3.LUT UR10, UR12, 0x2, URZ, 0xfc, !UPT",
+      "ptx": "or.b32 \t%r1088, %r1081, 2;",
+      "samples": 4.0,
+      "stalls": {
+        "selected": 3.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94720",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 261,
+      "sass": "      UIADD3 UR10, UR12, 0x384, URZ",
+      "ptx": "add.s32 \t%r1083, %r1081, 900;",
+      "samples": 4.0,
+      "stalls": {
+        "selected": 3.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94510",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 226,
+      "sass": "      ULOP3.LUT UR8, UR8, 0x10000, UR9, 0xec, !UPT",
+      "ptx": "or.b64 \t%rd29, %rd28, 4611686293305360384;",
+      "samples": 4.0,
+      "stalls": {
+        "wait": 4.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93db0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 108,
+      "sass": "@P0   EXIT",
+      "ptx": "@%p13 bra \t$L__BB0_32;",
+      "samples": 3.0,
+      "stalls": {
+        "long_scoreboard": 2.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94430",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 250,
+      "sass": "      SYNCS.PHASECHK.TRANS64.TRYWAIT P0, [R6+URZ], R3",
+      "ptx": "mbarrier.try_wait.parity.shared.b64 P1, [%r216], %r1243, 10000000; ",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 2.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94550",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 226,
+      "sass": "      UMOV UR8, UR7",
+      "ptx": "mov.b64 \t%rd10, {%r1067, %r1066};",
+      "samples": 3.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93f50",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 200,
+      "sass": "      SYNCS.PHASECHK.TRANS64.TRYWAIT P0, [R3+URZ+0x28], R0",
+      "ptx": "mbarrier.try_wait.parity.shared.b64 P1, [%r10], %r1239, 10000000; ",
+      "samples": 3.0,
+      "stalls": {
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93f70",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 200,
+      "sass": "@!P0  SYNCS.PHASECHK.TRANS64 P0, [R3+URZ+0x28], R0",
+      "ptx": "mbarrier.try_wait.parity.shared.b64 P1, [%r10], %r1239, 10000000; ",
+      "samples": 3.0,
+      "stalls": {
+        "wait": 3.0
+      }
+    },
+    {
+      "pc": "0x736aa7e947d0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 270,
+      "sass": "      WARPGROUP.DEPBAR.LE gsb0, 0x1",
+      "ptx": "wgmma.wait_group.sync.aligned \t1;",
+      "samples": 2.0,
+      "stalls": {
+        "barrier": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94d10",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 108,
+      "sass": "@P0   BRA 0x736aa7e94db0",
+      "ptx": "@%p10 bra \t$L__BB0_31;",
+      "samples": 2.0,
+      "stalls": {
+        "barrier": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94e20",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 108,
+      "sass": "      BRA `(.L_x_0) 0x736aa7e94e20",
+      "ptx": "ret;",
+      "samples": 2.0,
+      "stalls": {
+        "branch_resolving": 1.0,
+        "drain": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94090",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 206,
+      "sass": "      UIADD3 UR4, UR4, 0x1, URZ",
+      "ptx": "add.s32 \t%r1227, %r1240, 1;",
+      "samples": 2.0,
+      "stalls": {
+        "dispatch_stall": 1.0,
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94cf0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 292,
+      "sass": "      FENCE.VIEW.ASYNC.S",
+      "ptx": "fence.proxy.async.shared::cta;",
+      "samples": 2.0,
+      "stalls": {
+        "long_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94d00",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 293,
+      "sass": "      BAR.SYNC.DEFER_BLOCKING R5, 0x80",
+      "ptx": "bar.sync %r1199, 128;",
+      "samples": 2.0,
+      "stalls": {
+        "long_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93b00",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 133,
+      "sass": "      LDC R1, c[0x0][0x28]",
+      "ptx": "{",
+      "samples": 2.0,
+      "stalls": {
+        "no_instructions": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93da0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 108,
+      "sass": "@P1   BRA 0x736aa7e94310",
+      "ptx": "@%p2 bra \t$L__BB0_19;",
+      "samples": 2.0,
+      "stalls": {
+        "no_instructions": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93f40",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 200,
+      "sass": "      IMAD.U32 R3, RZ, RZ, UR9",
+      "ptx": "mbarrier.try_wait.parity.shared.b64 P1, [%r10], %r1239, 10000000; ",
+      "samples": 2.0,
+      "stalls": {
+        "not_selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94080",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 205,
+      "sass": "      UIADD3 UR26, UP2, UR20, 0xb0, URZ",
+      "ptx": "cp.async.bulk.tensor.2d.shared::cta.global.tile.mbarrier::complete_tx::bytes.L2::cache_hint [%r14], [%rd2, {%r12, %r6}], [%r11], %rd33;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e941d0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 108,
+      "sass": "@P0   BRA 0x736aa7e93ef0",
+      "ptx": "@%p26 bra \t$L__BB0_6;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94400",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 250,
+      "sass": "      ULEA UR7, UR4, UR5, 0x3",
+      "ptx": "add.s32 \t%r216, %r1060, %r1059;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94410",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 164,
+      "sass": "      LOP3.LUT R7, R4, 0x1f, RZ, 0xc0, !PT",
+      "ptx": "and.b32 \t%r136, %r1058, 31;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e944f0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 226,
+      "sass": "      USHF.R.U32.HI UR8, URZ, 0x4, UR8",
+      "ptx": "shr.u32 \t%r1077, %r1076, 4;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94650",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 226,
+      "sass": "      UMOV UR11, 0x40000040",
+      "ptx": "mov.b64 \t%rd17, {%r1086, %r1080};",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94700",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 226,
+      "sass": "      HGMMA.64x104x16.F32.BF16 R24, gdesc[UR8], R24",
+      "ptx": "mov.b64 \t%rd21, {%r1084, %r1080};",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94770",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 261,
+      "sass": "      UIADD3 UR10, UR12, 0x386, URZ",
+      "ptx": "add.s32 \t%r1082, %r1081, 902;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94780",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 226,
+      "sass": "      UMOV UR9, 0x40000040",
+      "ptx": "mov.b64 \t%rd24, {%r1068, %r1066};",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94830",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 271,
+      "sass": "@!P0  SYNCS.ARRIVE.TRANS64.A1T0 RZ, [R3+URZ+0x28], RZ",
+      "ptx": "mbarrier.arrive.release.cta.shared::cta.b64 _, [%r1092], %r1093;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e948c0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 108,
+      "sass": "      UPLOP3.LUT UP0, UPT, UPT, UPT, UPT, 0x80, 0x0",
+      "ptx": "@%p8 bra \t$L__BB0_22;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e948e0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 108,
+      "sass": "@P0   BRA 0x736aa7e943b0",
+      "ptx": "@%p8 bra \t$L__BB0_22;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94c30",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 108,
+      "sass": "      F2FP.BF16.F32.PACK_AB R16, R65, R64",
+      "ptx": "cvt.rn.bf16x2.f32 %r1163, %r1345, %r1344;",
+      "samples": 2.0,
+      "stalls": {
+        "selected": 1.0,
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93ca0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 164,
+      "sass": "      ULEA UR7, UR7, UR4, 0x18",
+      "ptx": "mbarrier.init.shared.b64 \t[__dynamic_shmem__0], %r211;",
+      "samples": 2.0,
+      "stalls": {
+        "short_scoreboard": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93b60",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 154,
+      "sass": "      UIADD3 UR10, UP2, UR20, 0x170, URZ",
+      "ptx": "prefetch.tensormap [%rd3];",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93e20",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 108,
+      "sass": "@P0   BRA 0x736aa7e94200",
+      "ptx": "@%p14 bra \t$L__BB0_17;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e941c0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 108,
+      "sass": "      PLOP3.LUT P0, PT, PT, PT, UP1, 0x80, 0x0",
+      "ptx": "@%p26 bra \t$L__BB0_6;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94500",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 226,
+      "sass": "      ULOP3.LUT UR7, UR7, 0x10000, UR9, 0xec, !UPT",
+      "ptx": "or.b64 \t%rd27, %rd26, 4611686293305360384;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94810",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 271,
+      "sass": "@!P0  IMAD R3, R2, 0x8, R3",
+      "ptx": "add.s32 \t%r1091, %r1090, %r1089;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e948a0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 273,
+      "sass": "      USEL UR7, URZ, 0x1, UP0",
+      "ptx": "selp.b32 \t%r1097, 1, 0, %p7;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e948d0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 273,
+      "sass": "      LOP3.LUT R14, R14, UR7, RZ, 0x3c, !PT",
+      "ptx": "xor.b32 \t%r1243, %r1243, %r1097;",
+      "samples": 2.0,
+      "stalls": {
+        "wait": 2.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94050",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 204,
+      "sass": "      UTMALDG.2D [UR8], [UR22], desc[URZ]",
+      "ptx": "cp.async.bulk.tensor.2d.shared::cta.global.tile.mbarrier::complete_tx::bytes.L2::cache_hint [%r13], [%rd1, {%r12, %r5}], [%r11], %rd31;",
+      "samples": 1.0,
+      "stalls": {
+        "dispatch_stall": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94a60",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 288,
+      "sass": "      IMAD.SHL.U32 R3, R4, 0x40, RZ",
+      "ptx": "shl.b32 \t%r1182, %r1058, 6;",
+      "samples": 1.0,
+      "stalls": {
+        "long_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93d30",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 164,
+      "sass": "      SYNCS.EXCH.64 URZ, [UR7+0x20], UR4",
+      "ptx": "mbarrier.init.shared.b64 \t[__dynamic_shmem__0+32], %r211;",
+      "samples": 1.0,
+      "stalls": {
+        "mio_throttle": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93f00",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 200,
+      "sass": "      UMOV UR5, 0x400",
+      "ptx": "mov.b32 \t%r1215, __dynamic_shmem__0;",
+      "samples": 1.0,
+      "stalls": {
+        "no_instructions": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93ce0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 164,
+      "sass": "      FENCE.VIEW.ASYNC.S",
+      "ptx": "mbarrier.init.shared.b64 \t[__dynamic_shmem__0], %r211;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93ea0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 187,
+      "sass": "      UMOV UR18, 0x40",
+      "ptx": "mov.b32 \t%r1238, 64;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93ff0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 204,
+      "sass": "      UIADD3.X UR25, URZ, UR21, URZ, UP1, !UPT",
+      "ptx": "cp.async.bulk.tensor.2d.shared::cta.global.tile.mbarrier::complete_tx::bytes.L2::cache_hint [%r13+8192], [%rd1, {%r1238, %r5}], [%r11], %rd32;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94020",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 204,
+      "sass": "      UMOV UR17, UR9",
+      "ptx": "cp.async.bulk.tensor.2d.shared::cta.global.tile.mbarrier::complete_tx::bytes.L2::cache_hint [%r13+8192], [%rd1, {%r1238, %r5}], [%r11], %rd32;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94030",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 204,
+      "sass": "      UMOV UR19, UR11",
+      "ptx": "cp.async.bulk.tensor.2d.shared::cta.global.tile.mbarrier::complete_tx::bytes.L2::cache_hint [%r13+8192], [%rd1, {%r1238, %r5}], [%r11], %rd32;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e940b0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 205,
+      "sass": "      UIADD3 UR28, UP3, UR20, 0xb0, URZ",
+      "ptx": "cp.async.bulk.tensor.2d.shared::cta.global.tile.mbarrier::complete_tx::bytes.L2::cache_hint [%r14+14336], [%rd2, {%r1238, %r6}], [%r11], %rd34;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e940d0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 205,
+      "sass": "      UIADD3 UR12, UR32, 0x14000, URZ",
+      "ptx": "cp.async.bulk.tensor.2d.shared::cta.global.tile.mbarrier::complete_tx::bytes.L2::cache_hint [%r14], [%rd2, {%r12, %r6}], [%r11], %rd33;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94130",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 205,
+      "sass": "      UMOV UR14, UR10",
+      "ptx": "cp.async.bulk.tensor.2d.shared::cta.global.tile.mbarrier::complete_tx::bytes.L2::cache_hint [%r14], [%rd2, {%r12, %r6}], [%r11], %rd33;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94140",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 205,
+      "sass": "      UMOV UR35, UR15",
+      "ptx": "cp.async.bulk.tensor.2d.shared::cta.global.tile.mbarrier::complete_tx::bytes.L2::cache_hint [%r14+14336], [%rd2, {%r1238, %r6}], [%r11], %rd34;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e943d0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 250,
+      "sass": "      UMOV UR5, 0x400",
+      "ptx": "mov.b32 \t%r1060, __dynamic_shmem__0;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94490",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 226,
+      "sass": "      UMOV UR9, 0x3fc0",
+      "ptx": "or.b64 \t%rd27, %rd26, 4611686293305360384;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e944b0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 157,
+      "sass": "      ULOP3.LUT UR7, UR5, 0x3fc00, URZ, 0xc0, !UPT",
+      "ptx": "and.b32 \t%r1075, %r1062, 261120;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e944c0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 264,
+      "sass": "      ISETP.NE.AND P0, PT, R5, RZ, PT",
+      "ptx": "setp.eq.s32 \t%p4, %r1303, 0;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e944d0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 159,
+      "sass": "      UIADD3 UR8, UR7, 0x14000, URZ",
+      "ptx": "add.s32 \t%r1076, %r1075, 81920;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94540",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 226,
+      "sass": "      UMOV UR9, 0x40000040",
+      "ptx": "mov.b64 \t%rd10, {%r1067, %r1066};",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e945a0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 226,
+      "sass": "      UMOV UR9, 0x40000040",
+      "ptx": "mov.b64 \t%rd12, {%r1074, %r1066};",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e945d0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 261,
+      "sass": "      ULOP3.LUT UR8, UR7, 0x4, URZ, 0xfc, !UPT",
+      "ptx": "or.b32 \t%r1073, %r1067, 4;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e945f0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 226,
+      "sass": "      UMOV UR9, 0x40000040",
+      "ptx": "mov.b64 \t%rd14, {%r1073, %r1066};",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94600",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 226,
+      "sass": "      UMOV UR11, 0x40000040",
+      "ptx": "mov.b64 \t%rd15, {%r1087, %r1080};",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94620",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 261,
+      "sass": "      ULOP3.LUT UR8, UR7, 0x6, URZ, 0xfc, !UPT",
+      "ptx": "or.b32 \t%r1072, %r1067, 6;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94670",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 261,
+      "sass": "      UIADD3 UR8, UR7, 0x200, URZ",
+      "ptx": "add.s32 \t%r1071, %r1067, 512;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e946c0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 261,
+      "sass": "      UIADD3 UR8, UR7, 0x202, URZ",
+      "ptx": "add.s32 \t%r1070, %r1067, 514;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e946d0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 261,
+      "sass": "      UIADD3 UR10, UR12, 0x382, URZ",
+      "ptx": "add.s32 \t%r1084, %r1081, 898;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e946e0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 226,
+      "sass": "      UMOV UR9, 0x40000040",
+      "ptx": "mov.b64 \t%rd20, {%r1070, %r1066};",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94740",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 226,
+      "sass": "      UMOV UR11, 0x40000040",
+      "ptx": "mov.b64 \t%rd23, {%r1083, %r1080};",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94760",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 261,
+      "sass": "      UIADD3 UR8, UR7, 0x206, URZ",
+      "ptx": "add.s32 \t%r1068, %r1067, 518;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e947b0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 108,
+      "sass": "@!P0  BRA 0x736aa7e94860",
+      "ptx": "@%p4 bra \t$L__BB0_26;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94870",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 273,
+      "sass": "      UIADD3 UR4, UR4, 0x1, URZ",
+      "ptx": "add.s32 \t%r1096, %r1244, 1;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94890",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 273,
+      "sass": "      UISETP.NE.AND UP0, UPT, UR4, 0x5, UPT",
+      "ptx": "setp.eq.s32 \t%p7, %r1096, 5;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94970",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 108,
+      "sass": "      F2FP.BF16.F32.PACK_AB R9, R31, R30",
+      "ptx": "cvt.rn.bf16x2.f32 %r1112, %r1311, %r1310;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94a00",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 282,
+      "sass": "@!P0  LEA R3, R6, R3, 0x18",
+      "ptx": "mov.b32 \t%r1099, __dynamic_shmem__0;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94aa0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 288,
+      "sass": "      IMAD R4, R4, 0x2, R5",
+      "ptx": "or.b32 \t%r1191, %r1190, %r1189;",
+      "samples": 1.0,
+      "stalls": {
+        "selected": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93eb0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 157,
+      "sass": "      ULEA UR4, UR5, UR4, 0x18",
+      "ptx": "mov.b32 \t%r201, __dynamic_shmem__0;",
+      "samples": 1.0,
+      "stalls": {
+        "short_scoreboard": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93b30",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 138,
+      "sass": "      S2UR UR6, SR_CTAID.X",
+      "ptx": "mov.u32 \t%r1246, %ctaid.x;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93ba0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 152,
+      "sass": "      UTMACCTL.PF [UR4]",
+      "ptx": "prefetch.tensormap [%rd1];",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93bf0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 150,
+      "sass": "      R2UR UR13, R2",
+      "ptx": "shr.u32 \t%r200, %r198, 7;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93cf0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 164,
+      "sass": "      SYNCS.EXCH.64 URZ, [UR7], UR4",
+      "ptx": "mbarrier.init.shared.b64 \t[__dynamic_shmem__0], %r211;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93dc0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 182,
+      "sass": "      UISETP.GT.U32.AND UP0, UPT, UR6, 0x7f, UPT",
+      "ptx": "setp.gt.u32 \t%p14, %r1246, 127;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93e10",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 108,
+      "sass": "      PLOP3.LUT P0, PT, PT, PT, UP0, 0x80, 0x0",
+      "ptx": "@%p14 bra \t$L__BB0_17;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93ee0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 187,
+      "sass": "      UMOV UR4, URZ",
+      "ptx": "mov.b32 \t%r1238, 64;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e93f90",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 108,
+      "sass": "      ELECT P0, URZ, PT",
+      "ptx": "elect.sync \t%r1217|%p15, -1;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94000",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 200,
+      "sass": "@P0   IMAD.MOV.U32 R0, RZ, RZ, 0xb000",
+      "ptx": "mbarrier.arrive.expect_tx.release.cta.shared::cta.b64 _, [%r1218], %r1219;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e940c0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 205,
+      "sass": "      UIADD3.X UR27, URZ, UR21, URZ, UP2, !UPT",
+      "ptx": "cp.async.bulk.tensor.2d.shared::cta.global.tile.mbarrier::complete_tx::bytes.L2::cache_hint [%r14], [%rd2, {%r12, %r6}], [%r11], %rd33;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e940f0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 205,
+      "sass": "      UIADD3.X UR29, URZ, UR21, URZ, UP3, !UPT",
+      "ptx": "cp.async.bulk.tensor.2d.shared::cta.global.tile.mbarrier::complete_tx::bytes.L2::cache_hint [%r14+14336], [%rd2, {%r1238, %r6}], [%r11], %rd34;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94110",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 206,
+      "sass": "      USEL UR5, URZ, 0x1, UP0",
+      "ptx": "selp.b32 \t%r1228, 1, 0, %p25;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e941e0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 108,
+      "sass": "      IMAD.MOV.U32 R2, RZ, RZ, RZ",
+      "ptx": "@%p26 bra \t$L__BB0_6;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94390",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 297,
+      "sass": "      IMAD.MOV.U32 R5, RZ, RZ, RZ",
+      "ptx": "mov.b32 \t%r1303, %r1302;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e945e0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 261,
+      "sass": "      ULOP3.LUT UR10, UR12, 0x4, URZ, 0xfc, !UPT",
+      "ptx": "or.b32 \t%r1087, %r1081, 4;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94630",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 261,
+      "sass": "      ULOP3.LUT UR10, UR12, 0x6, URZ, 0xfc, !UPT",
+      "ptx": "or.b32 \t%r1086, %r1081, 6;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94680",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 261,
+      "sass": "      UIADD3 UR10, UR12, 0x380, URZ",
+      "ptx": "add.s32 \t%r1085, %r1081, 896;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94820",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 272,
+      "sass": "      VIADD R2, R2, 0x1",
+      "ptx": "add.s32 \t%r1094, %r1356, 1;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e948b0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 273,
+      "sass": "      USEL UR4, UR4, URZ, UP0",
+      "ptx": "selp.b32 \t%r1244, 0, %r1096, %p7;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e949f0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 108,
+      "sass": "      F2FP.BF16.F32.PACK_AB R17, R47, R46",
+      "ptx": "cvt.rn.bf16x2.f32 %r1136, %r1327, %r1326;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94b80",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 288,
+      "sass": "      STSM.16.MT88.2 [R3+0x1000], R6",
+      "ptx": "stmatrix.sync.aligned.m8n8.x2.trans.shared.b16 [%r1198+4096], {%r1127, %r1130};",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94ba0",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 108,
+      "sass": "      F2FP.BF16.F32.PACK_AB R10, R53, R52",
+      "ptx": "cvt.rn.bf16x2.f32 %r1145, %r1333, %r1332;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94d20",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 299,
+      "sass": "      ULOP3.LUT UR10, UR6, 0x3, URZ, 0xc0, !UPT",
+      "ptx": "and.b32 \t%r1200, %r26, 3;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94e00",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 108,
+      "sass": "@P1   BRA 0x736aa7e94390",
+      "ptx": "@%p11 bra \t$L__BB0_21;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    },
+    {
+      "pc": "0x736aa7e94e10",
+      "file": "/profile/harness/sources/cute/kernels/oproj.py",
+      "line": 108,
+      "sass": "      EXIT",
+      "ptx": "ret;",
+      "samples": 1.0,
+      "stalls": {
+        "wait": 1.0
+      }
+    }
+  ]
+}

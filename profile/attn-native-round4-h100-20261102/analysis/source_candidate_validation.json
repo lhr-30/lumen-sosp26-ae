@@ -1,0 +1,51 @@
+{
+  "gpu": "NVIDIA H100 NVL",
+  "cuda": "13.2",
+  "torch": "2.12.0a0+5aff3928d8.nv26.05",
+  "shape": {
+    "B": 16,
+    "T": 26,
+    "H": 8,
+    "KV": 2,
+    "D": 256,
+    "hidden": 2048
+  },
+  "source_sha256": {
+    "candidate": "f0bb46ed3222fd3a9ac32ff9f01f6ac6f250e9138a5ded70ae7cf3d324546cf2"
+  },
+  "checks": {
+    "candidate": {
+      "attended": {
+        "cosine": 0.9999998373400194,
+        "relative_l2": 0.0005703779564457392,
+        "max_abs": 0.015625,
+        "mean_abs": 1.2761484436706583e-05
+      },
+      "output": {
+        "cosine": 0.9999998134688551,
+        "relative_l2": 0.0006107882260481258,
+        "max_abs": 0.015625,
+        "mean_abs": 8.268102045314244e-05
+      }
+    }
+  },
+  "stage_tags": {
+    "candidate": [
+      "qkv",
+      "knorm",
+      "attention",
+      "oproj",
+      "residual"
+    ]
+  },
+  "profiled_stages": [
+    [
+      "candidate",
+      "knorm"
+    ],
+    [
+      "candidate",
+      "attention"
+    ]
+  ]
+}

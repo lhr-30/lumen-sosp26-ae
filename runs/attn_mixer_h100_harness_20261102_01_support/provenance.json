@@ -1,0 +1,16 @@
+{
+  "runtime": "/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/python/lumen/harness/datasets/lumen/optimization_runtime.py",
+  "runtime_sha256": "c8c5636a60fb0777a2db7a2ab27a343686461a9b5d93fd3a5c5b5e31d34a90b9",
+  "backend": "/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/python/lumen/harness/backend/codex/runner.py",
+  "backend_sha256": "1431acc2bacb589ec52833abf1d84bacd6282b9d52d2609f2cd79aca682dd791",
+  "runtime_modified": false,
+  "seed_sha256": "f78ff01334a91c75bf4ab2401ba0d4fa78d055d8bdddc5074b11b86e2ad29fb4",
+  "prior_mixer_candidates_provided": false,
+  "customization": [
+    "workload spec",
+    "H100 evaluator/queue adapter",
+    "task-specific prompts and public native DSL references"
+  ],
+  "rounds": 3,
+  "support_root": "/data/home/wenxh/hongrui_working_dir/lumen-sosp26-ae/runs/attn_mixer_h100_harness_20261102_01_support"
+}

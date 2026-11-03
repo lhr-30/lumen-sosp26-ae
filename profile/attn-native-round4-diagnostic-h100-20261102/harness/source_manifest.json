@@ -1,0 +1,6 @@
+{
+  "harness/sources/ave/evaluate.py": "4e551524a8989f2ccf11802fb016d197e013343c1b8dc59506dab6fa17498794",
+  "harness/sources/ave/round4_mma_candidate.py": "90666885c85527ed1c9a0cbf1988a2e764a2f0ddb7fd70f2f61b90b40d9bfa63",
+  "harness/sources/ave/input_model.py": "f78ff01334a91c75bf4ab2401ba0d4fa78d055d8bdddc5074b11b86e2ad29fb4",
+  "harness/sources/ave/baseline_candidate.py": "95ab08bda11bd64a2b65ee2be19bf14a25ce26a8e2d9e11390a26d21b71618b8"
+}
